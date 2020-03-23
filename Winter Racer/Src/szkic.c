@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 //***skier
-
 struct Skier
 {
 	int X;	
@@ -15,7 +14,6 @@ struct Skier
 }
 
 //***object
-
 struct Object	//np. przeszkody
 {
 	int staticX;	
@@ -25,7 +23,6 @@ struct Object	//np. przeszkody
 }
 
 //***map
-
 struct Map
 {
 	
@@ -34,7 +31,6 @@ struct Map
 Map A,B,C,D,E;	//pięć przygotowanych map
 
 //***hitbox
-
 int *createHitbox_Y(int Y, int r)
 {
 	int size = r*8;
@@ -117,8 +113,20 @@ int *createHitbox_X(int X, int r)
 	return *tab;
 }
 
+//***collision
+bool collision(X1, Y1, X2, Y2)
+{
+	if(sizeof(X2) / sizeof(int)>sizeof(X1) / sizeof(int)) size_t n = sizeof(X2) / sizeof(int);
+	else n = sizeof(X1) / sizeof(int);
+	
+	for(int i=0; i<n; i++)
+		if(X1[i]==X2[i] && Y1[i]==Y2[i]) return 1;
+
+	return 0;
+}
+
 //***drawSkier
-void drawSkier(int position)
+void drawSkier(int position, int X, int Y)
 {
 	switch(position)
 	{
@@ -142,7 +150,7 @@ void positionUpdate(float accX, float speed, int& X, int& Y)
 	{
 		for(int i=0; i<round(abs(accX))/100); i++)
 		{
-			drawSkier(1);	//rysuje narciarza, 1 - pozycja narciarza skręcającego w lewo
+			drawSkier(1, X, Y);	//rysuje narciarza, 1 - pozycja narciarza skręcającego w lewo
 			X += accX/100;
 		}
 	}
@@ -150,11 +158,11 @@ void positionUpdate(float accX, float speed, int& X, int& Y)
 	{
 		for(int i=0; i<round(accX)/100); i++)
 		{
-			drawSkier(2);	//rysuje narciarza, 2 - pozycja narciarza skręcającego w prawo
+			drawSkier(2, X, Y);	//rysuje narciarza, 2 - pozycja narciarza skręcającego w prawo
 			X += accX/100;
 		}
 	}
-	else drawSkier(3);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
+	else drawSkier(3, X, Y);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
 }
 
 //***speedUpdate
