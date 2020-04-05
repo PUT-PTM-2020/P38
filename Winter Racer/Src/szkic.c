@@ -2,6 +2,123 @@
 #include "main.h"
 #include <cmath>
 #include <stdlib.h>
+#include "GLCD.h" 
+#include "AsciiLib.h"
+
+//NOTE
+	//Dodac napisy do DrawMenu, ChangeTarget i ShowRanking
+
+//***DrawBox
+void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color)
+{
+	for(int i=0; i<border; i++)
+	{
+		LCD_DrawLine(X, Y-i, X+(width-1), Y-i, color);
+		LCD_DrawLine(X+i, Y-border, X+i, Y-height+border+1, color);
+		LCD_DrawLine(X, Y-height+1+i, X+(width-1), Y-height+1+i, color);
+		LCD_DrawLine(X+(width-1)-i, Y-border, X+(width-1)-i, Y-height+border+1, color);
+	}
+}
+
+//***MENU
+void DrawMenu(uint8_t Mode)
+{
+	if(Mode==-1)
+	{
+		LCD_Clear(1567);
+		GUI_Text(120, 220, uint8_t *str,49149, 1567); //WINTER RACER
+	}
+	if(Mode==-1 || Mode==0)
+	{
+		DrawBox(86,190,150,40,3,65535);	//START
+		GUI_Text(147, 176, uint8_t *str,65535, 1567);
+	}
+	if(Mode==-1 || Mode==1)
+	{
+		DrawBox(86,140,150,40,3,65535);	//RANKING
+		GUI_Text(147, 126, uint8_t *str,65535, 1567);
+	}
+	if(Mode==-1 || Mode==2)
+	{
+		DrawBox(86,90,150,40,3,65535);		//WYJŚCIE
+		GUI_Text(147, 76, uint8_t *str,65535, 1567);
+	}
+}
+
+void ChangeTarget(uint8_t option, uint8_t LastOption)
+{	
+	DrawMenu(LastOption);
+	
+	switch(option)
+	{
+		case 0:
+		DrawBox(86,190,150,40,3,49149);	//START
+		GUI_Text(147, 176, uint8_t *str,49149, 1567);
+		break;
+		case 1:
+		DrawBox(86,140,150,40,3,65535);	//RANKING
+		GUI_Text(147, 126, uint8_t *str,49149, 1567);
+		break;
+		case 2:
+		DrawBox(86,90,150,40,3,65535);		//WYJŚCIE
+		GUI_Text(147, 76, uint8_t *str,49149, 1567);
+		break;
+	}
+}
+
+void StartGame()
+{
+	
+}
+
+void ShowRanking()
+{
+	LCD_Clear(32761);
+	GUI_Text(130, 220, uint8_t *str,49149, 1567); //RANKING
+	DrawBox(41, 220, 240, 160, 5, uint16_t color);
+}
+
+void Sound()
+{
+	
+}
+
+void UseMenu()
+{
+	int option=0;
+	
+	while(1)
+	{
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
+		{
+			Sound();
+			option--;
+			ChangeTarget(option, option+1);
+		}
+		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=2)
+		{
+			Sound();
+			option++;
+			ChangeTarget(option, option-1);
+		}
+		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+		{
+			Sound();
+			switch(option)
+			{
+				case 0:
+				StartGame();
+				break;
+				case 1:
+				ShowRanking();
+				break;
+				case 2:
+				LCD_Clear(0);
+				break;
+			}
+		}
+	}
+}
 
 //***skier
 struct Skier
