@@ -23,7 +23,7 @@ void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t b
 //***MENU
 void DrawMenu(uint8_t Mode)
 {
-	if(Mode==-1)
+	if(Mode==-1)	//-1 rysuje całe menu
 	{
 		LCD_Clear(1567);
 		GUI_Text(120, 220, uint8_t *str,49149, 1567); //WINTER RACER
@@ -68,7 +68,15 @@ void ChangeTarget(uint8_t option, uint8_t LastOption)
 
 void StartGame()
 {
-	
+	while(1)
+	{
+		//sprawdza wychylenie w osi X
+		LIS3DSH_ReadACC(out);
+		accX = out[0];
+			
+		speedUpdate(s1.speed);
+		positionUpdate(accX, s1.speed, s1.X, s1.Y);
+	}
 }
 
 void ShowRanking()
@@ -299,15 +307,8 @@ int main(void)
 {
 	HAL_Init();
 	SystemClock_Config();
-	Skier s1;
 	
-	while(1)
-	{
-		//sprawdza wychylenie w osi X
-		LIS3DSH_ReadACC(out);
-		accX = out[0];
-			
-		speedUpdate(s1.speed);
-		positionUpdate(accX, s1.speed, s1.X, s1.Y);
-	}
+	Skier s1;
+	DrawMenu(-1);
+	UseMenu();
 }
