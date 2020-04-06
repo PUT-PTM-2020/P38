@@ -303,6 +303,583 @@ void speedUpdate(float& speed)
 	}
 }
 
+//***SetSnowman
+void SetSnowman(uint16_t X, uint16_t Y)
+{
+	for(int i=13; i<=18; i++)
+		LCD_SetPoint(X+i, Y,0x0000);
+
+	LCD_SetPoint(X+11, Y+1,0x0000);
+	LCD_SetPoint(X+12, Y+1,0x0000);
+	for(int i=13; i<=18; i++)
+		LCD_SetPoint(X+i, Y+1,0xFFFF);
+	LCD_SetPoint(X+19, Y+1,0x0000);
+	LCD_SetPoint(X+20, Y+1,0x0000);
+
+	LCD_SetPoint(X+10, Y+2,0x0000);
+	for(int i=11; i<=20; i++)
+		LCD_SetPoint(X+i, Y+2,0xFFFF);
+	LCD_SetPoint(X+21, Y+2,0x0000);
+	
+	LCD_SetPoint(X+9, Y+3,0x0000);
+	for(int i=10; i<=14; i++)
+		LCD_SetPoint(X+i, Y+3,0xFFFF);
+	LCD_SetPoint(X+15, Y+3,0x0000);
+	LCD_SetPoint(X+16, Y+3,0x0000);
+	for(int i=17; i<=21; i++)
+		LCD_SetPoint(X+i, Y+3,0xFFFF);
+	LCD_SetPoint(X+22, Y+3,0x0000);
+
+	LCD_SetPoint(X+9, Y+4,0x0000);
+	for(int i=10; i<=14; i++)
+		LCD_SetPoint(X+i, Y+4,0xFFFF);
+	LCD_SetPoint(X+15, Y+4,0x0000);
+	LCD_SetPoint(X+16, Y+4,0x0000);
+	for(int i=17; i<=21; i++)
+		LCD_SetPoint(X+i, Y+4,0xFFFF);
+	LCD_SetPoint(X+22, Y+4,0x0000);
+
+	LCD_SetPoint(X+9, Y+5,0x0000);
+	for(int i=10; i<=21; i++)
+		LCD_SetPoint(X+i, Y+5,0xFFFF);
+	LCD_SetPoint(X+22, Y+5,0x0000);
+
+	LCD_SetPoint(X+3, Y+6,0xF945);
+	LCD_SetPoint(X+4, Y+6,0xF945);
+	LCD_SetPoint(X+9, Y+6,0xFFFF);
+	for(int i=10; i<=14; i++)
+		LCD_SetPoint(X+i, Y+6,0xFFFF);
+	LCD_SetPoint(X+15, Y+6,0xFFFF);
+	LCD_SetPoint(X+16, Y+6,0xFFFF);
+	for(int i=17; i<=21; i++)
+		LCD_SetPoint(X+i, Y+6,0xFFFF);
+	LCD_SetPoint(X+22, Y+6,0xFFFF);
+
+	LCD_SetPoint(X+3, Y+7,0xF945);
+	LCD_SetPoint(X+4, Y+7,0xF945);
+	LCD_SetPoint(X+9, Y+7,0xFFFF);
+	for(int i=10; i<=14; i++)
+		LCD_SetPoint(X+i, Y+7,0xFFFF);
+	LCD_SetPoint(X+15, Y+7,0xFFFF);
+	LCD_SetPoint(X+16, Y+7,0xFFFF);
+	for(int i=17; i<=21; i++)
+		LCD_SetPoint(X+i, Y+7,0xFFFF);
+	LCD_SetPoint(X+22, Y+7,0xFFFF);
+
+	LCD_SetPoint(X+3, Y+8,0xF945);
+	LCD_SetPoint(X+4, Y+8,0xF945);
+	LCD_SetPoint(X+6, Y+8,0x71A3);
+	LCD_SetPoint(X+7, Y+8,0x71A3);
+	LCD_SetPoint(X+8, Y+8,0x71A3);
+	LCD_SetPoint(X+9, Y+8,0x0000);
+	for(int i=10; i<=21; i++)
+		LCD_SetPoint(X+i, Y+8,0xFFFF);
+	LCD_SetPoint(X+22, Y+8,0x0000);
+	LCD_SetPoint(X+23, Y+8,0x71A3);
+	LCD_SetPoint(X+24, Y+8,0x71A3);
+	
+	LCD_SetPoint(X+3, Y+9,0xF945);
+	LCD_SetPoint(X+4, Y+9,0xF945);
+	LCD_SetPoint(X+5, Y+9,0x71A3);
+	LCD_SetPoint(X+6, Y+9,0x71A3);
+	LCD_SetPoint(X+7, Y+9,0x71A3);
+	LCD_SetPoint(X+8, Y+9,0x71A3);
+	LCD_SetPoint(X+9, Y+9,0x0000);
+	for(int i=10; i<=14; i++)
+		LCD_SetPoint(X+i, Y+9,0xFFFF);
+	LCD_SetPoint(X+15, Y+9,0x0000);
+	LCD_SetPoint(X+16, Y+9,0x0000);
+	for(int i=17; i<=21; i++)
+		LCD_SetPoint(X+i, Y+9,0xFFFF);
+	LCD_SetPoint(X+22, Y+9,0x0000);
+	LCD_SetPoint(X+23, Y+9,0xF945);
+	LCD_SetPoint(X+24, Y+9,0xF945);
+	LCD_SetPoint(X+25, Y+9,0x71A3);
+
+	LCD_SetPoint(X+3, Y+10,0xF945);
+	LCD_SetPoint(X+4, Y+10,0xF945);
+	LCD_SetPoint(X+5, Y+10,0x71A3);
+	LCD_SetPoint(X+9, Y+10,0x0000);
+	for(int i=10; i<=14; i++)
+		LCD_SetPoint(X+i, Y+10,0xFFFF);
+	LCD_SetPoint(X+15, Y+10,0x0000);
+	LCD_SetPoint(X+16, Y+10,0x0000);
+	for(int i=17; i<=21; i++)
+		LCD_SetPoint(X+i, Y+10,0xFFFF);
+	LCD_SetPoint(X+22, Y+10,0x0000);
+	LCD_SetPoint(X+23, Y+10,0xF945);
+	LCD_SetPoint(X+24, Y+10,0xF945);
+	LCD_SetPoint(X+25, Y+10,0x71A3);
+	LCD_SetPoint(X+26, Y+10,0x71A3);
+
+	LCD_SetPoint(X+2, Y+11,0x71A3);
+	LCD_SetPoint(X+3, Y+11,0xF945);
+	LCD_SetPoint(X+4, Y+11,0xF945);
+	LCD_SetPoint(X+10, Y+10,0x0000);
+	for(int i=11; i<=21; i++)
+		LCD_SetPoint(X+i, Y+10,0xFFFF);
+	LCD_SetPoint(X+22, Y+11,0xF945);
+	LCD_SetPoint(X+23, Y+11,0xF945);
+	LCD_SetPoint(X+24, Y+11,0xF945);
+	LCD_SetPoint(X+25, Y+11,0x71A3);
+	LCD_SetPoint(X+26, Y+11,0x71A3);
+	LCD_SetPoint(X+27, Y+11,0x71A3);
+
+	LCD_SetPoint(X+3, Y+12,0xF945);
+	LCD_SetPoint(X+4, Y+12,0xF945);
+	LCD_SetPoint(X+11, Y+12,0x0000);
+	for(int i=12; i<=20; i++)
+		LCD_SetPoint(X+i, Y+10,0xFFFF);
+	LCD_SetPoint(X+21, Y+12,0xF945);
+	LCD_SetPoint(X+22, Y+12,0xF945);
+	LCD_SetPoint(X+23, Y+12,0xF945);
+	LCD_SetPoint(X+27, Y+12,0x71A3);
+
+	LCD_SetPoint(X+3, Y+13,0xF945);
+	LCD_SetPoint(X+4, Y+13,0xF945);
+	for(int i=11; i<=22; i++)
+		LCD_SetPoint(X+i, Y+13,0xF945);
+
+	LCD_SetPoint(X+3, Y+14,0xF945);
+	LCD_SetPoint(X+4, Y+14,0xF945);
+	for(int i=11; i<=21; i++)
+		LCD_SetPoint(X+i, Y+13,0xF945);
+
+	LCD_SetPoint(X+3, Y+15,0xF945);
+	LCD_SetPoint(X+4, Y+15,0xF945);
+	LCD_SetPoint(X+11, Y+15,0x0000);
+	for(int i=12; i<=19; i++)
+		LCD_SetPoint(X+i, Y+15,0xFFFF);
+	LCD_SetPoint(X+20, Y+15,0x0000);
+
+	LCD_SetPoint(X+3, Y+16,0xF945);
+	LCD_SetPoint(X+4, Y+16,0xF945);
+	LCD_SetPoint(X+11, Y+16,0x0000);
+	LCD_SetPoint(X+12, Y+16,0xFFFF);
+	LCD_SetPoint(X+13, Y+16,0xFFFF);
+	LCD_SetPoint(X+14, Y+16,0xFFFF);
+	LCD_SetPoint(X+15, Y+16,0x0000);
+	LCD_SetPoint(X+16, Y+16,0x0000);
+	LCD_SetPoint(X+17, Y+16,0xFFFF);
+	LCD_SetPoint(X+18, Y+16,0xFFFF);
+	LCD_SetPoint(X+19, Y+16,0xFFFF);
+	LCD_SetPoint(X+20, Y+16,0x0000);
+
+	LCD_SetPoint(X+1, Y+17,0xF945);
+	LCD_SetPoint(X+2, Y+17,0xF945);
+	LCD_SetPoint(X+3, Y+17,0xF945);
+	LCD_SetPoint(X+4, Y+17,0xF945);
+	LCD_SetPoint(X+10, Y+17,0x0000);
+	LCD_SetPoint(X+11, Y+17,0xFFFF);
+	LCD_SetPoint(X+12, Y+17,0xFFFF);
+	LCD_SetPoint(X+13, Y+17,0xFFFF);
+	LCD_SetPoint(X+14, Y+17,0x0000);
+	LCD_SetPoint(X+15, Y+17,0xFFFF);
+	LCD_SetPoint(X+16, Y+17,0xFFFF);
+	LCD_SetPoint(X+17, Y+17,0x0000);
+	LCD_SetPoint(X+18, Y+17,0xFFFF);
+	LCD_SetPoint(X+19, Y+17,0xFFFF);
+	LCD_SetPoint(X+20, Y+17,0xFFFF);
+	LCD_SetPoint(X+21, Y+17,0x0000);
+
+	LCD_SetPoint(X+2, Y+18,0xF945);
+	LCD_SetPoint(X+3, Y+18,0xF945);
+	LCD_SetPoint(X+10, Y+18,0x0000);
+	LCD_SetPoint(X+11, Y+18,0xFFFF);
+	LCD_SetPoint(X+12, Y+18,0xFFFF);
+	LCD_SetPoint(X+13, Y+18,0xFCA0);
+	LCD_SetPoint(X+14, Y+18,0xFCA0);
+	LCD_SetPoint(X+15, Y+18,0xFCA0);
+	for(int i=16; i<=20; i++)
+		LCD_SetPoint(X+i, Y+18,0xFFFF);
+	LCD_SetPoint(X+21, Y+18,0x0000);
+
+	LCD_SetPoint(X+10, Y+19,0x0000);
+	LCD_SetPoint(X+11, Y+19,0xFFFF);
+	LCD_SetPoint(X+12, Y+19,0xFFFF);
+	LCD_SetPoint(X+13, Y+19,0xFFFF);
+	LCD_SetPoint(X+14, Y+19,0xFFFF);
+	LCD_SetPoint(X+15, Y+19,0xFCA0);
+	for(int i=16; i<=20; i++)
+		LCD_SetPoint(X+i, Y+19,0xFFFF);
+	LCD_SetPoint(X+21, Y+19,0x0000);
+
+	LCD_SetPoint(X+10, Y+20,0x0000);
+	LCD_SetPoint(X+11, Y+20,0xFFFF);
+	LCD_SetPoint(X+12, Y+20,0xFFFF);
+	LCD_SetPoint(X+13, Y+20,0x0000);
+	LCD_SetPoint(X+14, Y+20,0x0000);
+	LCD_SetPoint(X+15, Y+20,0xFFFF);
+	LCD_SetPoint(X+16, Y+20,0xFFFF);
+	LCD_SetPoint(X+17, Y+20,0x0000);
+	LCD_SetPoint(X+18, Y+20,0x0000);
+	LCD_SetPoint(X+19, Y+20,0xFFFF);
+	LCD_SetPoint(X+20, Y+20,0xFFFF);
+	LCD_SetPoint(X+21, Y+20,0x0000);
+
+	LCD_SetPoint(X+11, Y+21,0x0000);
+	LCD_SetPoint(X+12, Y+21,0xFFFF);
+	LCD_SetPoint(X+13, Y+21,0xFFFF);
+	LCD_SetPoint(X+14, Y+21,0x0000);
+	LCD_SetPoint(X+15, Y+21,0xFFFF);
+	LCD_SetPoint(X+16, Y+21,0xFFFF);
+	LCD_SetPoint(X+17, Y+21,0x0000);
+	LCD_SetPoint(X+18, Y+21,0xFFFF);
+	LCD_SetPoint(X+19, Y+21,0xFFFF);
+	LCD_SetPoint(X+20, Y+21,0x0000);
+
+	LCD_SetPoint(X+11, Y+22,0x0000);
+	for(int i=12; i<=19; i++)
+		LCD_SetPoint(X+i, Y+22,0xFFFF);
+	LCD_SetPoint(X+20, Y+22,0x0000);
+
+	LCD_SetPoint(X+12, Y+23,0x0000);
+	LCD_SetPoint(X+13, Y+23,0x0000);
+	for(int i=14; i<=17; i++)
+		LCD_SetPoint(X+i, Y+23,0xFFFF);
+	LCD_SetPoint(X+18, Y+23,0x0000);
+	LCD_SetPoint(X+19, Y+23,0x0000);
+
+	LCD_SetPoint(X+10, Y+24,0x0000);
+	LCD_SetPoint(X+11, Y+24,0x0000);
+	for(int i=12; i<=19; i++)
+		LCD_SetPoint(X+i, Y+24,0xF945);
+	LCD_SetPoint(X+20, Y+24,0x0000);
+	LCD_SetPoint(X+21, Y+24,0x0000);
+
+	for(int i=12; i<=19; i++)
+		LCD_SetPoint(X+i, Y+25,0xF945);
+
+	for(int i=12; i<=19; i++)
+		LCD_SetPoint(X+i, Y+26,0x0000);
+
+		for(int i=12; i<=19; i++)
+		LCD_SetPoint(X+i, Y+27,0x0000);
+}
+
+//***SetRock
+void SetRock(uint16_t X, uint16_t Y)
+{
+	for(int i=7; i<=19; i++)
+		LCD_SetPoint(X+i, Y,0x0000);
+
+	LCD_SetPoint(X+6, Y+1,0x0000);
+	LCD_SetPoint(X+7, Y+1,0xA4B2);
+	LCD_SetPoint(X+8, Y+1,0xA4B2);
+	LCD_SetPoint(X+9, Y+1,0xA4B2);
+	LCD_SetPoint(X+10, Y+1,0xD618);
+	LCD_SetPoint(X+11, Y+1,0xD618);
+	LCD_SetPoint(X+12, Y+1,0xD618);
+	LCD_SetPoint(X+13, Y+1,0xD618);
+	LCD_SetPoint(X+14, Y+1,0xD618);
+	LCD_SetPoint(X+15, Y+1,0xD618);
+	LCD_SetPoint(X+16, Y+1,0x4A08);
+	LCD_SetPoint(X+17, Y+1,0x4A08);
+	LCD_SetPoint(X+18, Y+1,0x4A08);
+	LCD_SetPoint(X+19, Y+1,0x4A08);
+	LCD_SetPoint(X+20, Y+1,0x0000);
+	LCD_SetPoint(X+21, Y+1,0x0000);
+
+	LCD_SetPoint(X+2, Y+2,0x0000);
+	LCD_SetPoint(X+3, Y+2,0x0000);
+	LCD_SetPoint(X+4, Y+2,0x0000);
+	LCD_SetPoint(X+5, Y+2,0x0000);
+	LCD_SetPoint(X+6, Y+2,0x4A08);
+	LCD_SetPoint(X+7, Y+2,0xA4B2);
+	LCD_SetPoint(X+8, Y+2,0xD618);
+	LCD_SetPoint(X+9, Y+2,0xD618);
+	LCD_SetPoint(X+10, Y+2,0xD618);
+	LCD_SetPoint(X+11, Y+2,0xA4B2);
+	LCD_SetPoint(X+12, Y+2,0xA4B2);
+	LCD_SetPoint(X+13, Y+2,0xD618);
+	LCD_SetPoint(X+14, Y+2,0xD618);
+	LCD_SetPoint(X+15, Y+2,0xD618);
+	LCD_SetPoint(X+16, Y+2,0xD618);
+	LCD_SetPoint(X+17, Y+2,0x4A08);
+	LCD_SetPoint(X+18, Y+2,0x4A08);
+	LCD_SetPoint(X+19, Y+2,0x4A08);
+	LCD_SetPoint(X+20, Y+2,0x4A08);
+	LCD_SetPoint(X+21, Y+2,0x4A08);
+	LCD_SetPoint(X+22, Y+2,0x0000);
+
+	LCD_SetPoint(X+1, Y+3,0x0000);
+	LCD_SetPoint(X+2, Y+3,0x4A08);
+	LCD_SetPoint(X+3, Y+3,0x4A08);
+	LCD_SetPoint(X+4, Y+3,0x4A08);
+	LCD_SetPoint(X+5, Y+3,0xD618);
+	LCD_SetPoint(X+6, Y+3,0x4A08);
+	LCD_SetPoint(X+7, Y+3,0xD618);
+	LCD_SetPoint(X+8, Y+3,0xD618);
+	LCD_SetPoint(X+9, Y+3,0xA4B2);
+	LCD_SetPoint(X+10, Y+3,0xA4B2);
+	LCD_SetPoint(X+11, Y+3,0xD618);
+	LCD_SetPoint(X+12, Y+3,0xA4B2);
+	LCD_SetPoint(X+13, Y+3,0xA4B2);
+	LCD_SetPoint(X+14, Y+3,0xA4B2);
+	LCD_SetPoint(X+15, Y+3,0xA4B2);
+	LCD_SetPoint(X+16, Y+3,0xA4B2);
+	LCD_SetPoint(X+17, Y+3,0xA4B2);
+	LCD_SetPoint(X+18, Y+3,0xD618);
+	LCD_SetPoint(X+19, Y+3,0xD618);
+	LCD_SetPoint(X+20, Y+3,0x4A08);
+	LCD_SetPoint(X+21, Y+3,0x4A08);
+	LCD_SetPoint(X+22, Y+3,0x4A08);
+	LCD_SetPoint(X+23, Y+3,0x0000);
+
+	LCD_SetPoint(X+1, Y+4,0x0000);
+	LCD_SetPoint(X+2, Y+4,0x4A08);
+	LCD_SetPoint(X+3, Y+4,0x4A08);
+	LCD_SetPoint(X+4, Y+4,0xD618);
+	LCD_SetPoint(X+5, Y+4,0xD618);
+	LCD_SetPoint(X+6, Y+4,0x4A08);
+	for(int i=7; i<=21; i++)
+		LCD_SetPoint(X+i, Y+4,0xD618);
+	LCD_SetPoint(X+22, Y+4,0x4A08);
+	LCD_SetPoint(X+23, Y+4,0x4A08);
+	LCD_SetPoint(X+24, Y+4,0x0000);
+
+	LCD_SetPoint(X+1, Y+5,0x0000);
+	LCD_SetPoint(X+2, Y+5,0x4A08);
+	LCD_SetPoint(X+3, Y+5,0xD618);
+	LCD_SetPoint(X+4, Y+5,0xD618);
+	LCD_SetPoint(X+5, Y+5,0x4A08);
+	LCD_SetPoint(X+6, Y+5,0x4A08);
+	LCD_SetPoint(X+7, Y+5,0xA4B2);
+	for(int i=8; i<=21; i++)
+		LCD_SetPoint(X+i, Y+5,0xD618);
+	LCD_SetPoint(X+9, Y+5,0x4A08);
+	LCD_SetPoint(X+10, Y+5,0x4A08);
+	LCD_SetPoint(X+11, Y+5,0x0000);
+
+	LCD_SetPoint(X+1, Y+6,0x0000);
+	LCD_SetPoint(X+2, Y+6,0xD618);
+	LCD_SetPoint(X+3, Y+6,0xD618);
+	LCD_SetPoint(X+4, Y+6,0xD618);
+	LCD_SetPoint(X+5, Y+6,0xD618);
+	LCD_SetPoint(X+6, Y+6,0x4A08);
+	LCD_SetPoint(X+7, Y+6,0xA4B2);
+	LCD_SetPoint(X+8, Y+6,0xA4B2);
+	LCD_SetPoint(X+9, Y+6,0xA4B2);
+	LCD_SetPoint(X+10, Y+6,0xA4B2);
+	for(int i=11; i<=21; i++)
+		LCD_SetPoint(X+i, Y+6,0xD618);
+	LCD_SetPoint(X+22, Y+6,0xA4B2);
+	LCD_SetPoint(X+23, Y+6,0x0000);
+
+	LCD_SetPoint(X+1, Y+7,0x0000);
+	LCD_SetPoint(X+2, Y+7,0xD618);
+	LCD_SetPoint(X+3, Y+7,0xD618);
+	LCD_SetPoint(X+4, Y+7,0xD618);
+	LCD_SetPoint(X+5, Y+7,0xD618);
+	LCD_SetPoint(X+6, Y+7,0x4A08);
+	LCD_SetPoint(X+7, Y+7,0xA4B2);
+	LCD_SetPoint(X+8, Y+7,0xD618);
+	LCD_SetPoint(X+9, Y+7,0xD618);
+	LCD_SetPoint(X+10, Y+7,0xD618);
+	LCD_SetPoint(X+11, Y+7,0xA4B2);
+	LCD_SetPoint(X+12, Y+7,0xA4B2);
+	LCD_SetPoint(X+13, Y+7,0xA4B2);
+	LCD_SetPoint(X+14, Y+7,0xA4B2);
+	for(int i=15; i<=21; i++)
+		LCD_SetPoint(X+i, Y+7,0xD618);
+	LCD_SetPoint(X+22, Y+7,0xA4B2);
+	LCD_SetPoint(X+23, Y+7,0x0000);
+
+	LCD_SetPoint(X+1, Y+8,0x0000);
+	LCD_SetPoint(X+2, Y+8,0xA4B2);
+	LCD_SetPoint(X+3, Y+8,0xD618);
+	LCD_SetPoint(X+4, Y+8,0xD618);
+	LCD_SetPoint(X+5, Y+8,0xD618);
+	LCD_SetPoint(X+6, Y+8,0xD618);
+	LCD_SetPoint(X+7, Y+8,0x4A08);
+	for(int i=8; i<=14; i++)
+		LCD_SetPoint(X+i, Y+8,0xD618);
+	LCD_SetPoint(X+15, Y+8,0xA4B2);
+	for(int i=16; i<=21; i++)
+		LCD_SetPoint(X+i, Y+8,0xD618);
+	LCD_SetPoint(X+22, Y+8,0xA4B2);
+	LCD_SetPoint(X+23, Y+8,0x0000);
+
+	LCD_SetPoint(X+2, Y+9,0x0000);
+	LCD_SetPoint(X+3, Y+9,0xA4B2);
+	LCD_SetPoint(X+4, Y+9,0xD618);
+	LCD_SetPoint(X+5, Y+9,0xD618);
+	LCD_SetPoint(X+6, Y+9,0xD618);
+	LCD_SetPoint(X+7, Y+9,0x4A08);
+	LCD_SetPoint(X+8, Y+9,0xA4B2);
+	for(int i=9; i<=14; i++)
+		LCD_SetPoint(X+i, Y+9,0xD618);
+	LCD_SetPoint(X+15, Y+9,0xA4B2);
+	LCD_SetPoint(X+16, Y+9,0xD618);
+	LCD_SetPoint(X+17, Y+9,0xD618);
+	LCD_SetPoint(X+18, Y+9,0xD618);
+	LCD_SetPoint(X+19, Y+9,0x4A08);
+	LCD_SetPoint(X+20, Y+9,0xA4B2);
+	LCD_SetPoint(X+21, Y+9,0xD618);
+	LCD_SetPoint(X+22, Y+9,0x0000);
+
+	LCD_SetPoint(X+2, Y+10,0x0000);
+	LCD_SetPoint(X+3, Y+10,0xA4B2);
+	LCD_SetPoint(X+4, Y+10,0xD618);
+	LCD_SetPoint(X+5, Y+10,0xD618);
+	LCD_SetPoint(X+6, Y+10,0xD618);
+	LCD_SetPoint(X+7, Y+10,0x4A08);
+	for(int i=8; i<=12; i++)
+		LCD_SetPoint(X+i, Y+10,0xA4B2);
+	LCD_SetPoint(X+13, Y+10,0xD618);
+	LCD_SetPoint(X+14, Y+10,0xD618);
+	LCD_SetPoint(X+15, Y+10,0xA4B2);
+	LCD_SetPoint(X+16, Y+10,0xD618);
+	LCD_SetPoint(X+17, Y+10,0xD618);
+	LCD_SetPoint(X+18, Y+10,0xD618);
+	LCD_SetPoint(X+19, Y+10,0xD618);
+	LCD_SetPoint(X+20, Y+10,0xA4B2);
+	LCD_SetPoint(X+21, Y+10,0x4A08);
+	LCD_SetPoint(X+22, Y+10,0x0000);
+
+	LCD_SetPoint(X+2, Y+11,0x0000);
+	LCD_SetPoint(X+3, Y+11,0x4A08);
+	LCD_SetPoint(X+4, Y+11,0xD618);
+	LCD_SetPoint(X+5, Y+11,0xD618);
+	LCD_SetPoint(X+6, Y+11,0xD618);
+	LCD_SetPoint(X+7, Y+11,0x4A08);
+	LCD_SetPoint(X+8, Y+11,0xA4B2);
+	LCD_SetPoint(X+9, Y+11,0xD618);
+	LCD_SetPoint(X+10, Y+11,0xD618);
+	LCD_SetPoint(X+11, Y+11,0xA4B2);
+	for(int i=12; i<=20; i++)
+		LCD_SetPoint(X+i, Y+11,0xD618);
+	LCD_SetPoint(X+21, Y+11,0x4A08);
+	LCD_SetPoint(X+22, Y+11,0x0000);
+
+	LCD_SetPoint(X+3, Y+12,0x0000);
+	LCD_SetPoint(X+4, Y+12,0xD618);
+	LCD_SetPoint(X+5, Y+12,0xD618);
+	LCD_SetPoint(X+6, Y+12,0xA4B2);
+	LCD_SetPoint(X+7, Y+12,0x4A08);
+	LCD_SetPoint(X+8, Y+12,0xA4B2);
+	LCD_SetPoint(X+9, Y+12,0xD618);
+	LCD_SetPoint(X+10, Y+12,0xD618);
+	LCD_SetPoint(X+11, Y+12,0xD618);
+	LCD_SetPoint(X+12, Y+12,0xA4B2);
+	LCD_SetPoint(X+13, Y+12,0xA4B2);
+	for(int i=14; i<=20; i++)
+		LCD_SetPoint(X+i, Y+12,0xD618);
+	LCD_SetPoint(X+21, Y+12,0x4A08);
+	LCD_SetPoint(X+22, Y+12,0x0000);
+
+	LCD_SetPoint(X+3, Y+13,0x0000);
+	LCD_SetPoint(X+4, Y+13,0xD618);
+	LCD_SetPoint(X+5, Y+13,0xD618);
+	LCD_SetPoint(X+6, Y+13,0xA4B2);
+	LCD_SetPoint(X+7, Y+13,0x4A08);
+	for(int i=8; i<=14; i++)
+		LCD_SetPoint(X+i, Y+13,0xD618);
+	LCD_SetPoint(X+15, Y+13,0xA4B2);
+	for(int i=16; i<=20; i++)
+		LCD_SetPoint(X+i, Y+13,0xD618);
+	LCD_SetPoint(X+21, Y+13,0x0000);
+
+	LCD_SetPoint(X+3, Y+14,0x0000);
+	LCD_SetPoint(X+4, Y+14,0xD618);
+	LCD_SetPoint(X+5, Y+14,0xD618);
+	LCD_SetPoint(X+6, Y+14,0xA4B2);
+	LCD_SetPoint(X+7, Y+14,0xA4B2);
+	for(int i=8; i<=14; i++)
+		LCD_SetPoint(X+i, Y+14,0xD618);
+	LCD_SetPoint(X+15, Y+14,0xA4B2);
+	for(int i=16; i<=19; i++)
+		LCD_SetPoint(X+i, Y+14,0xD618);
+	LCD_SetPoint(X+20, Y+14,0x4A08);
+	LCD_SetPoint(X+21, Y+14,0x0000);
+
+	LCD_SetPoint(X+4, Y+15,0x0000);
+	LCD_SetPoint(X+5, Y+15,0xD618);
+	LCD_SetPoint(X+6, Y+15,0xD618);
+	LCD_SetPoint(X+7, Y+15,0xA4B2);
+	LCD_SetPoint(X+8, Y+15,0xA4B2);
+	for(int i=9; i<=14; i++)
+		LCD_SetPoint(X+i, Y+15,0xD618);
+	LCD_SetPoint(X+15, Y+15,0xA4B2);
+	LCD_SetPoint(X+16, Y+15,0xD618);
+	LCD_SetPoint(X+17, Y+15,0xD618);
+	LCD_SetPoint(X+18, Y+15,0xD618);
+	LCD_SetPoint(X+19, Y+15,0xD618);
+	LCD_SetPoint(X+20, Y+15,0xA4B2);
+	LCD_SetPoint(X+21, Y+15,0x0000);
+
+	LCD_SetPoint(X+4, Y+16,0x0000);
+	LCD_SetPoint(X+5, Y+16,0x4A08);
+	LCD_SetPoint(X+6, Y+16,0xD618);
+	LCD_SetPoint(X+7, Y+16,0xD618);
+	LCD_SetPoint(X+8, Y+16,0xA4B2);
+	for(int i=9; i<=14; i++)
+		LCD_SetPoint(X+i, Y+16,0xD618);
+	LCD_SetPoint(X+15, Y+16,0xA4B2);
+	LCD_SetPoint(X+16, Y+16,0xA4B2);
+	LCD_SetPoint(X+17, Y+16,0xD618);
+	LCD_SetPoint(X+18, Y+16,0xD618);
+	LCD_SetPoint(X+19, Y+16,0x4A08);
+	LCD_SetPoint(X+20, Y+16,0x4A08);
+	LCD_SetPoint(X+21, Y+16,0x0000);
+
+	LCD_SetPoint(X+5, Y+17,0x0000);
+	LCD_SetPoint(X+6, Y+17,0x4A08);
+	for(int i=7; i<=11; i++)
+		LCD_SetPoint(X+i, Y+17,0xD618);
+	LCD_SetPoint(X+12, Y+17,0xA4B2);
+	LCD_SetPoint(X+13, Y+17,0xD618);
+	LCD_SetPoint(X+14, Y+17,0xD618);
+	LCD_SetPoint(X+15, Y+17,0x4A08);
+	LCD_SetPoint(X+16, Y+17,0xA4B2);
+	LCD_SetPoint(X+17, Y+17,0xD618);
+	LCD_SetPoint(X+18, Y+17,0x4A08);
+	LCD_SetPoint(X+19, Y+17,0x4A08);
+	LCD_SetPoint(X+20, Y+17,0x0000);
+
+	LCD_SetPoint(X+6, Y+18,0x0000);
+	LCD_SetPoint(X+7, Y+18,0x0000);
+	LCD_SetPoint(X+8, Y+18,0x0000);
+	LCD_SetPoint(X+9, Y+18,0x4A08);
+	for(int i=10; i<=14; i++)
+		LCD_SetPoint(X+i, Y+18,0xD618);
+	LCD_SetPoint(X+15, Y+18,0xA4B2);
+	LCD_SetPoint(X+16, Y+18,0xD618);
+	LCD_SetPoint(X+17, Y+18,0xD618);
+	LCD_SetPoint(X+18, Y+18,0xD618);
+	LCD_SetPoint(X+19, Y+18,0x4A08);
+	LCD_SetPoint(X+20, Y+18,0x0000);
+
+	LCD_SetPoint(X+9, Y+19,0x0000);
+	LCD_SetPoint(X+10, Y+19,0x4A08);
+	LCD_SetPoint(X+11, Y+19,0xD618);
+	LCD_SetPoint(X+12, Y+19,0xD618);
+	LCD_SetPoint(X+13, Y+19,0xD618);
+	LCD_SetPoint(X+14, Y+19,0xA4B2);
+	LCD_SetPoint(X+15, Y+19,0xA4B2);
+	LCD_SetPoint(X+16, Y+19,0xD618);
+	LCD_SetPoint(X+17, Y+19,0xD618);
+	LCD_SetPoint(X+18, Y+19,0xD618);
+	LCD_SetPoint(X+19, Y+19,0x0000);
+
+	LCD_SetPoint(X+10, Y+20,0x0000);
+	for(int i=11; i<=15; i++)
+		LCD_SetPoint(X+i, Y+20,0xD618);
+	LCD_SetPoint(X+16, Y+20,0x4A08);
+	LCD_SetPoint(X+17, Y+20,0x0000);
+	LCD_SetPoint(X+18, Y+20,0x0000);
+
+	LCD_SetPoint(X+11, Y+21,0x0000);
+	LCD_SetPoint(X+12, Y+21,0xD618);
+	LCD_SetPoint(X+13, Y+21,0xD618);
+	LCD_SetPoint(X+14, Y+21,0xD618);
+	LCD_SetPoint(X+15, Y+21,0x4A08);
+	LCD_SetPoint(X+16, Y+21,0x0000);
+
+	for(int i=12; i<=15; i++)
+		LCD_SetPoint(X+i, Y+22,0x0000);
+}
+
 int main(void) 
 {
 	HAL_Init();
