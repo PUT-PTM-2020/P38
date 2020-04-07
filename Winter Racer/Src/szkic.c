@@ -20,6 +20,21 @@ void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t b
 	}
 }
 
+//***FillInside
+
+void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color)
+{
+	X=X+border;
+	Y=Y-border;
+
+	Xp=X+(width-1)-border;
+	Yp=Y-(height-1)+border;
+
+	for(int i=X; i<=Xp; i++)
+		for(int j=Y; j<=Yp; j++)
+			LCD_SetPoint(i, j,0x0000);
+}
+
 //***MENU
 void DrawMenu(uint8_t Mode)
 {
@@ -45,7 +60,7 @@ void DrawMenu(uint8_t Mode)
 	}
 }
 
-void ChangeTarget(uint8_t option, uint8_t LastOption)
+void ChangeTargetMenu(uint8_t option, uint8_t LastOption)
 {	
 	DrawMenu(LastOption);
 	
@@ -79,14 +94,80 @@ void StartGame()
 	}
 }
 
-void ShowRanking()
+//***RANKING
+void DrawRanking(uint8_t Mode)
 {
-	LCD_Clear(32761);
-	GUI_Text(130, 220, uint8_t *str,49149, 1567); //RANKING
-	DrawBox(41, 220, 240, 160, 5, uint16_t color);
+	if(Mode==-1)
+	{
+		LCD_Clear(0x070F);
+		GUI_Text(130, 220, uint8_t *str,49149, 0xFFFF); //RANKING
+	}
+	if(Mode==-1 || Mode==0)
+	{
+		FillInside(41, 190, 240, 140, 5, 0x05AC);
+		DrawBox(133, 43, 60, 35, 3, 0x0347);
+		GUI_Text(140, 60, uint8_t *str,49149, 0xFFFF); //WSTECZ
+	}
+	if(Mode==-1 || Mode==1)
+	{
+		FillInside(41, 190, 240, 140, 5, 0xC638);
+		DrawBox(41, 190, 240, 140, 5, 0x05AC);
+	}
 }
 
-void Sound()
+void ChangeTargetRanking(uint8_t option, uint8_t LastOption)
+{
+	DrawRanking(LastOption);
+	
+	switch(option)
+	{
+		case 0:
+		DrawBox(133, 43, 60, 35, 3, 0x6FF7); //WSTECZ
+		break;
+		case 1:
+		DrawBox(41, 190, 240, 140, 5, 0x6FF7);	//RANKING
+		break;
+	}
+}
+
+void UseRanking()
+{
+	int option=0;
+	
+	while(1)
+	{
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
+		{
+			Sound();
+			option--;
+			ChangeTargetRanking(option, option+1);
+		}
+		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=1)
+		{
+			Sound();
+			option++;
+			ChangeTargetRanking(option, option-1);
+		}
+		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+		{
+			Sound();
+			switch(option)
+			{
+				case 0:
+				DrawMenu();
+				option=3;
+				break;
+				case 1:
+
+				break;
+			}
+		}
+		if(option==3) break;
+	}
+}
+
+//***Sound
+void Sound(uint8_t option)
 {
 	
 }
@@ -101,13 +182,13 @@ void UseMenu()
 		{
 			Sound();
 			option--;
-			ChangeTarget(option, option+1);
+			ChangeTargetMenu(option, option+1);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=2)
 		{
 			Sound();
 			option++;
-			ChangeTarget(option, option-1);
+			ChangeTargetMenu(option, option-1);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
 		{
@@ -118,7 +199,8 @@ void UseMenu()
 				StartGame();
 				break;
 				case 1:
-				ShowRanking();
+				DrawRanking();
+				UseRanking();
 				break;
 				case 2:
 				LCD_Clear(0);
@@ -884,6 +966,7 @@ int main(void)
 {
 	HAL_Init();
 	SystemClock_Config();
+	LCD_Initialization();
 	
 	Skier s1;
 	DrawMenu(-1);
