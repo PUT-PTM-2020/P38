@@ -24,11 +24,11 @@ void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t b
 
 void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color)
 {
-	X=X+border;
-	Y=Y-border;
+	uint16_t X=X+border;
+	uint16_t Y=Y-border;
 
-	Xp=X+(width-1)-border;
-	Yp=Y-(height-1)+border;
+	uint16_t Xp=X+(width-1)-border;
+	uint16_t Yp=Y-(height-1)+border;
 
 	for(int i=X; i<=Xp; i++)
 		for(int j=Y; j<=Yp; j++)
