@@ -1,0 +1,527 @@
+2020-04-21 23:12:25,421 [INFO] Activator:176 - 
+
+
+2020-04-21 23:12:25,424 [INFO] Activator:177 - !SESSION log4j initialized
+2020-04-21 23:13:05,976 [INFO] ApplicationProperties:181 - Using Application install path: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-04-21 23:13:05,987 [INFO] DbMcusXml:69 - Set database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-04-21 23:13:05,990 [INFO] DbBoardsPdsc:54 - Set plugin database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-04-21 23:13:05,991 [INFO] DbMcus:264 - Set plugin images path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-04-21 23:13:05,991 [INFO] DbBoards:232 - Set plugin images path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-04-21 23:13:05,993 [INFO] APIGFXSelector:72 - Set database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-04-21 23:13:05,998 [INFO] DbMcusAds:72 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:05,998 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,000 [INFO] DbMcusJson:59 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,001 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,002 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,005 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-04-21 23:13:06,087 [INFO] RulesReader:52 - Compatibility file has been processed (205 Rules)
+2020-04-21 23:13:06,159 [INFO] MicroXplorer:570 - Detected Java Version = 1.8.0_202
+2020-04-21 23:13:06,160 [INFO] DbMcusXml:69 - Set database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-04-21 23:13:06,160 [INFO] DbBoardsPdsc:54 - Set plugin database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-04-21 23:13:06,160 [INFO] DbMcus:264 - Set plugin images path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-04-21 23:13:06,161 [INFO] DbBoards:232 - Set plugin images path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-04-21 23:13:06,161 [INFO] APIGFXSelector:72 - Set database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-04-21 23:13:06,161 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,161 [INFO] DbMcusAds:72 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,161 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,161 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,161 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,162 [INFO] DbMcusJson:59 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,162 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,162 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,162 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,162 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,162 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,162 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,163 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-04-21 23:13:06,217 [INFO] MainPanel:180 - HeapMemory: 314572800
+2020-04-21 23:13:06,264 [INFO] DbMcusXml:69 - Set database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-04-21 23:13:06,264 [INFO] DbBoardsPdsc:54 - Set plugin database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-04-21 23:13:06,264 [INFO] DbMcus:264 - Set plugin images path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-04-21 23:13:06,264 [INFO] DbBoards:232 - Set plugin images path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-04-21 23:13:06,264 [INFO] APIGFXSelector:72 - Set database path to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-04-21 23:13:06,265 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,265 [INFO] DbMcusAds:72 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,265 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,265 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,265 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,265 [INFO] DbMcusJson:59 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,265 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,266 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,266 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,266 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/
+2020-04-21 23:13:06,266 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,266 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\Arcy\.stmcufinder\plugins\mcufinder/ => C:\Users\Arcy\.stmcufinder\plugins\mcufinder
+2020-04-21 23:13:06,266 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\Arcy\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-04-21 23:13:06,282 [INFO] ApplicationProperties:181 - Using Application install path: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-04-21 23:13:06,284 [INFO] PluginManage:178 - Search for loadable plugins [exclusion list=]
+2020-04-21 23:13:06,285 [INFO] PluginManage:292 - Check plugin analytics
+2020-04-21 23:13:06,289 [INFO] PluginManage:342 - Loaded plugin analytics (category:tool,tabindex:-1)
+2020-04-21 23:13:06,289 [INFO] PluginManage:292 - Check plugin clock
+2020-04-21 23:13:06,297 [INFO] PluginManage:342 - Loaded plugin clock (category:base,tabindex:2)
+2020-04-21 23:13:06,297 [INFO] PluginManage:292 - Check plugin ddr
+2020-04-21 23:13:06,299 [INFO] PluginManage:342 - Loaded plugin ddr (category:tool,tabindex:6)
+2020-04-21 23:13:06,299 [INFO] PluginManage:292 - Check plugin filemanager
+2020-04-21 23:13:06,388 [INFO] PluginManage:342 - Loaded plugin filemanager (category:base,tabindex:10)
+2020-04-21 23:13:06,388 [INFO] PluginManage:292 - Check plugin ipmanager
+2020-04-21 23:13:06,396 [INFO] PluginManage:342 - Loaded plugin ipmanager (category:base,tabindex:5)
+2020-04-21 23:13:06,396 [INFO] PluginManage:292 - Check plugin pinoutandconfiguration
+2020-04-21 23:13:06,403 [INFO] PluginManage:342 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2020-04-21 23:13:06,404 [INFO] PluginManage:292 - Check plugin pinoutconfig
+2020-04-21 23:13:06,420 [INFO] PluginManage:342 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2020-04-21 23:13:06,420 [INFO] PluginManage:292 - Check plugin power
+2020-04-21 23:13:06,427 [INFO] PluginManage:342 - Loaded plugin power (category:power,tabindex:4)
+2020-04-21 23:13:06,428 [INFO] PluginManage:292 - Check plugin projectmanager
+2020-04-21 23:13:06,438 [INFO] PluginManage:342 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2020-04-21 23:13:06,438 [INFO] PluginManage:292 - Check plugin thirdparty
+2020-04-21 23:13:06,496 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/Arcy/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 23 ms. number of Sw pack : 16
+2020-04-21 23:13:06,503 [INFO] PluginManage:342 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2020-04-21 23:13:06,504 [INFO] PluginManage:292 - Check plugin tools
+2020-04-21 23:13:06,505 [INFO] PluginManage:342 - Loaded plugin tools (category:base,tabindex:7)
+2020-04-21 23:13:06,506 [INFO] PluginManage:292 - Check plugin updater
+2020-04-21 23:13:06,514 [INFO] PluginManage:342 - Loaded plugin updater (category:base,tabindex:12)
+2020-04-21 23:13:06,514 [INFO] PluginManage:265 - PluginManage : Loaded plugins [12]
+2020-04-21 23:13:06,660 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-04-21 23:13:06,735 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,736 [INFO] PluginManager:200 - loadIPPluginJar : add adc
+2020-04-21 23:13:06,738 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,738 [INFO] PluginManager:200 - loadIPPluginJar : add aes
+2020-04-21 23:13:06,740 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,740 [INFO] PluginManager:200 - loadIPPluginJar : add can
+2020-04-21 23:13:06,741 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,741 [INFO] PluginManager:200 - loadIPPluginJar : add comp
+2020-04-21 23:13:06,743 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,743 [INFO] PluginManager:200 - loadIPPluginJar : add cryp
+2020-04-21 23:13:06,745 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,745 [INFO] PluginManager:200 - loadIPPluginJar : add dfsdm
+2020-04-21 23:13:06,749 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,750 [INFO] PluginManager:200 - loadIPPluginJar : add dma
+2020-04-21 23:13:06,754 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,754 [INFO] PluginManager:200 - loadIPPluginJar : add fatfs
+2020-04-21 23:13:06,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,757 [INFO] PluginManager:200 - loadIPPluginJar : add fmc
+2020-04-21 23:13:06,762 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,762 [INFO] PluginManager:200 - loadIPPluginJar : add freertos
+2020-04-21 23:13:06,764 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,764 [INFO] PluginManager:200 - loadIPPluginJar : add genericplugin
+2020-04-21 23:13:06,765 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,766 [INFO] PluginManager:200 - loadIPPluginJar : add gfxmmu
+2020-04-21 23:13:06,768 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,768 [INFO] PluginManager:200 - loadIPPluginJar : add gfxsimulator
+2020-04-21 23:13:06,771 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,772 [INFO] PluginManager:200 - loadIPPluginJar : add gic
+2020-04-21 23:13:06,774 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,775 [INFO] PluginManager:200 - loadIPPluginJar : add gpio
+2020-04-21 23:13:06,776 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,777 [INFO] PluginManager:200 - loadIPPluginJar : add gtzc
+2020-04-21 23:13:06,778 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,778 [INFO] PluginManager:200 - loadIPPluginJar : add hash
+2020-04-21 23:13:06,781 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,781 [INFO] PluginManager:200 - loadIPPluginJar : add i2c
+2020-04-21 23:13:06,783 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,783 [INFO] PluginManager:200 - loadIPPluginJar : add i2s
+2020-04-21 23:13:06,785 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,785 [INFO] PluginManager:200 - loadIPPluginJar : add ipddr
+2020-04-21 23:13:06,786 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,787 [INFO] PluginManager:200 - loadIPPluginJar : add ltdc
+2020-04-21 23:13:06,789 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,789 [INFO] PluginManager:200 - loadIPPluginJar : add mdma
+2020-04-21 23:13:06,792 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,792 [INFO] PluginManager:200 - loadIPPluginJar : add nvic
+2020-04-21 23:13:06,794 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,794 [INFO] PluginManager:200 - loadIPPluginJar : add opamp
+2020-04-21 23:13:06,796 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,796 [INFO] PluginManager:200 - loadIPPluginJar : add pdm2pcm
+2020-04-21 23:13:06,801 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,803 [INFO] PluginManager:200 - loadIPPluginJar : add plateformsettings
+2020-04-21 23:13:06,804 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,804 [INFO] PluginManager:200 - loadIPPluginJar : add quadspi
+2020-04-21 23:13:06,807 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,807 [INFO] PluginManager:200 - loadIPPluginJar : add resmgrutility
+2020-04-21 23:13:06,809 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,809 [INFO] PluginManager:200 - loadIPPluginJar : add sai
+2020-04-21 23:13:06,811 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,811 [INFO] PluginManager:200 - loadIPPluginJar : add spi
+2020-04-21 23:13:06,813 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,813 [INFO] PluginManager:200 - loadIPPluginJar : add stm32_wpan
+2020-04-21 23:13:06,824 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,825 [INFO] PluginManager:200 - loadIPPluginJar : add tim
+2020-04-21 23:13:06,828 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,828 [INFO] PluginManager:200 - loadIPPluginJar : add touchsensing
+2020-04-21 23:13:06,829 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,830 [INFO] PluginManager:200 - loadIPPluginJar : add tracer_emb
+2020-04-21 23:13:06,831 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,831 [INFO] PluginManager:200 - loadIPPluginJar : add ts
+2020-04-21 23:13:06,833 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,833 [INFO] PluginManager:200 - loadIPPluginJar : add tsc
+2020-04-21 23:13:06,834 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,834 [INFO] PluginManager:200 - loadIPPluginJar : add ucpd
+2020-04-21 23:13:06,836 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:13:06,836 [INFO] PluginManager:200 - loadIPPluginJar : add usart
+2020-04-21 23:13:07,161 [INFO] BoardConnectionPanel:226 - [DDR PANEL] osNameString: Windows
+2020-04-21 23:13:07,251 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
+2020-04-21 23:13:07,251 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: null
+2020-04-21 23:13:07,405 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-04-21 23:13:07,584 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-04-21 23:13:07,587 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-04-21 23:13:07,588 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-04-21 23:13:07,591 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
+2020-04-21 23:13:07,591 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
+2020-04-21 23:13:07,594 [INFO] ProgrammerExecThread:148 - [ProgrammerAPI] CubeProgrammer command construction: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin\STM32_Programmer_CLI.exe -l
+2020-04-21 23:13:07,693 [INFO] MainDdrPanel:93 - [DDR PANEL] SETTER - Set cubeProgrammerPath to: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
+2020-04-21 23:13:07,697 [INFO] Updater:886 - Updater Version found : 5.5.0
+2020-04-21 23:13:07,710 [INFO] ApplicationProperties:181 - Using Application install path: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-04-21 23:13:07,882 [INFO] MainUpdater:2230 - connection check result : 10
+2020-04-21 23:13:07,883 [INFO] MainUpdater:236 - Updater Check For Update Now.
+2020-04-21 23:13:07,883 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-04-21 23:13:07,907 [INFO] CheckServerUpdateThread:92 - End of CheckServer Thread
+2020-04-21 23:13:08,085 [INFO] MainUpdater:2230 - connection check result : 10
+2020-04-21 23:13:08,085 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Successfull proxy connection.
+2020-04-21 23:13:08,161 [INFO] McuFinderGlobals:40 - Set McuFinder mode to 2 (CubeIDE integrated)
+2020-04-21 23:13:08,171 [INFO] FinderPluginLoader:86 - Searching for filters in installed packs
+2020-04-21 23:13:08,173 [INFO] DbMcusXml:107 - Load MCU database from H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/families.xml
+2020-04-21 23:13:08,685 [INFO] DbMcusJson:87 - JSON generation date=Wed Apr 15 07:54:18 CEST 2020 (1586930058)
+2020-04-21 23:13:09,420 [INFO] DbMcus:192 - Found 1628 MCUs (1588 are supported by CubeMX, 1588 are visible in CubeMX)
+2020-04-21 23:13:09,420 [INFO] ApiDb:158 - Load user favorites file C:\Users\Arcy/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-04-21 23:13:09,420 [INFO] ApiDb:163 - User favorites MCUs=[]
+2020-04-21 23:13:09,420 [INFO] DbMcus:203 - Set 0 / 0 favorites MCUs
+2020-04-21 23:13:09,576 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/Arcy/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
+2020-04-21 23:13:09,640 [INFO] IntegrityCheckThread:98 - End integrity checks thread
+2020-04-21 23:13:09,947 [INFO] DbMcusAds:130 - JSON generation date=Thu Mar 12 16:08:29 CET 2020 (1584025709)
+2020-04-21 23:13:10,049 [INFO] ServerAccessManage:348 - Download File 
+2020-04-21 23:13:10,267 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-04-21 23:13:10,305 [INFO] McuDetailPanel:181 - Set advertising image to C:/Users/Arcy/STM32Cube/Repository/\STM32L4_MCUs_N4239S_big.jpg
+2020-04-21 23:13:10,695 [INFO] McuFilterPanel:282 - Update 0 favorites MCUs
+2020-04-21 23:13:10,794 [INFO] DbBoardsPdsc:92 - Found 21 items
+2020-04-21 23:13:10,796 [INFO] DbBoardsPdsc:92 - Found 9 items
+2020-04-21 23:13:10,799 [INFO] DbBoardsPdsc:92 - Found 27 items
+2020-04-21 23:13:10,800 [INFO] DbBoardsPdsc:92 - Found 1 items
+2020-04-21 23:13:10,804 [INFO] DbBoardsPdsc:92 - Found 40 items
+2020-04-21 23:13:10,808 [INFO] DbBoardsPdsc:92 - Found 39 items
+2020-04-21 23:13:10,810 [INFO] DbBoardsPdsc:92 - Found 2 items
+2020-04-21 23:13:10,811 [INFO] DbBoardsPdsc:92 - Found 4 items
+2020-04-21 23:13:10,815 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
+2020-04-21 23:13:10,815 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
+2020-04-21 23:13:10,816 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
+2020-04-21 23:13:10,817 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
+2020-04-21 23:13:10,817 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
+2020-04-21 23:13:10,817 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
+2020-04-21 23:13:10,817 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V1: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
+2020-04-21 23:13:10,818 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V2: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
+2020-04-21 23:13:10,842 [INFO] DbBoardsJson:79 - JSON generation date=Tue Feb 11 14:53:55 CET 2020 (1581429235)
+2020-04-21 23:13:10,849 [INFO] DbBoards:120 - Found 144 boards (140 are supported by CubeMX)
+2020-04-21 23:13:10,853 [INFO] DbBoardsDocs:118 - JSON generation date=Wed Apr 15 07:54:18 CEST 2020 (1586930058)
+2020-04-21 23:13:10,861 [INFO] DbBoardsDocs:57 - Found 157 boards documents
+2020-04-21 23:13:10,862 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
+2020-04-21 23:13:10,862 [WARN] DbBoards:130 - board NUCLEO-L4P5ZG has no document id list !
+2020-04-21 23:13:10,863 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
+2020-04-21 23:13:10,863 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
+2020-04-21 23:13:10,864 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
+2020-04-21 23:13:10,864 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
+2020-04-21 23:13:10,864 [WARN] DbBoards:152 - board STM32F723E-DISCO / document id not found: 4598
+2020-04-21 23:13:10,864 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
+2020-04-21 23:13:10,865 [WARN] DbBoards:152 - board STM32L496G-DISCO / document id not found: 4598
+2020-04-21 23:13:10,865 [WARN] DbBoards:152 - board STM32H747I-DISCO / document id not found: 4598
+2020-04-21 23:13:10,865 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
+2020-04-21 23:13:10,865 [WARN] DbBoards:152 - board STM32H745I-DISCO / document id not found: 4598
+2020-04-21 23:13:10,865 [WARN] DbBoards:152 - board STM32H750B-DK / document id not found: 4598
+2020-04-21 23:13:10,865 [WARN] DbBoards:152 - board STM32H7B3I-DK / document id not found: 4598
+2020-04-21 23:13:10,866 [WARN] DbBoards:152 - board STM32L4R9I-DISCO / document id not found: 4598
+2020-04-21 23:13:10,866 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
+2020-04-21 23:13:10,866 [WARN] DbBoards:152 - board STM32L562E-DK / document id not found: 4598
+2020-04-21 23:13:10,866 [WARN] DbBoards:130 - board STM32L4P5G-DK has no document id list !
+2020-04-21 23:13:10,866 [WARN] DbBoards:130 - board STM32091C-EVAL has no document id list !
+2020-04-21 23:13:10,866 [WARN] DbBoards:130 - board STM3210C-EVAL has no document id list !
+2020-04-21 23:13:10,866 [WARN] DbBoards:130 - board STM32100E-EVAL has no document id list !
+2020-04-21 23:13:10,866 [WARN] DbBoards:130 - board STM3221G-EVAL has no document id list !
+2020-04-21 23:13:10,866 [WARN] DbBoards:130 - board STM32303C-EVAL has no document id list !
+2020-04-21 23:13:10,867 [WARN] DbBoards:130 - board STM32L152D-EVAL has no document id list !
+2020-04-21 23:13:10,867 [WARN] DbBoards:130 - board STM32746G-EVAL2 has no document id list !
+2020-04-21 23:13:10,867 [WARN] DbBoards:130 - board STM32F779I-EVAL has no document id list !
+2020-04-21 23:13:10,867 [WARN] DbBoards:130 - board STM32479I-EVAL has no document id list !
+2020-04-21 23:13:10,867 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
+2020-04-21 23:13:10,867 [WARN] DbBoards:152 - board STM32H7B3I-EVAL / document id not found: 4596
+2020-04-21 23:13:10,867 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
+2020-04-21 23:13:10,868 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
+2020-04-21 23:13:10,868 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
+2020-04-21 23:13:10,868 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
+2020-04-21 23:13:10,868 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
+2020-04-21 23:13:10,868 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
+2020-04-21 23:13:10,868 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
+2020-04-21 23:13:10,868 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
+2020-04-21 23:13:11,127 [ERROR] DbBoards:192 - Image file not found for board P-NUCLEO-WB55: H:\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/boards/p-nucleo-wb55_small.jpg
+2020-04-21 23:13:11,716 [INFO] ApiDb:158 - Load user favorites file C:\Users\Arcy/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2020-04-21 23:13:11,716 [INFO] ApiDb:163 - User favorites Boards=[]
+2020-04-21 23:13:11,716 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
+2020-04-21 23:13:11,761 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-04-21 23:13:11,761 [INFO] BoardDetailPanel:179 - Set advertising image to C:/Users/Arcy/STM32Cube/Repository/\STM32L4_MCUs_N4239S_big.jpg
+2020-04-21 23:13:11,778 [INFO] BoardFilterPanel:211 - Update 0 favorites Boards
+2020-04-21 23:13:11,964 [INFO] CrossSelectorPresenter:1319 - Cross Selector saved comparison directory: C:\Users\Arcy\.stmcufinder\plugins\mcufinder\mcu\cs_comparisons_mx
+2020-04-21 23:13:45,645 [INFO] MainUpdater:2230 - connection check result : 10
+2020-04-21 23:13:45,708 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-04-21 23:13:45,708 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-04-21 23:13:45,710 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-04-21 23:13:45,710 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 317809312 Bytes (422576128)
+2020-04-21 23:14:10,296 [INFO] ServerAccessManage:348 - Download File stm32cube_db_v5030.zip
+2020-04-21 23:14:15,751 [INFO] FileExtend:225 - Unzip File : stm32cube_db_v5030.zip
+2020-04-21 23:14:15,753 [INFO] FileExtend:240 - Standard Zip Deflate
+2020-04-21 23:14:38,416 [INFO] LoadServerPackagesThread:160 - End of LoadServerPackages Thread
+2020-04-21 23:14:38,434 [INFO] CheckServerUpdateThread:92 - End of CheckServer Thread
+2020-04-21 23:14:38,438 [INFO] MicroXplorer:390 - Change Database Path : C:/Users/Arcy/.stm32cubemx/databases/DB.5.0.30/db/
+2020-04-21 23:14:38,438 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.30
+2020-04-21 23:14:38,438 [INFO] OpenFileManager:274 - Change cursor
+2020-04-21 23:14:40,763 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 820965016 Bytes (1073741824)
+2020-04-21 23:14:40,775 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/Arcy/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 5 ms. number of Sw pack : 16
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.0.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.0.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.1
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 4.4.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.0.0
+2020-04-21 23:14:40,843 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-04-21 23:14:40,844 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-04-21 23:14:40,844 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-04-21 23:14:40,844 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-04-21 23:14:40,844 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-04-21 23:14:41,116 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-04-21 23:14:41,117 [INFO] PinOutPanel:1399 - setPackage(STM32F407VGTx,LQFP100)
+2020-04-21 23:14:41,457 [INFO] UtilMem:74 - Before build in PCC Used Memory: 487289344 Bytes (1073741824)
+2020-04-21 23:14:41,735 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/Arcy/.stm32cubemx/plugins/power
+2020-04-21 23:14:41,736 [INFO] UtilMem:74 - After build in PCC Used Memory: 501969408 Bytes (1073741824)
+2020-04-21 23:14:41,755 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,756 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,756 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,756 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,756 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,756 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,756 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,757 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,758 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,758 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,758 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,758 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,758 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,758 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,758 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,758 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,759 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,759 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,759 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,759 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,759 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,759 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,760 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,760 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,760 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,760 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,760 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,760 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,761 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,761 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,761 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,761 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,761 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,761 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,761 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,762 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,762 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,762 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,762 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,762 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,763 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,763 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,763 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,763 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,763 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,764 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,764 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,764 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,764 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,765 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,765 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-04-21 23:14:41,811 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
+2020-04-21 23:14:41,901 [INFO] OpenFileManager:294 - Restore cursor
+2020-04-21 23:14:42,146 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 543912448 Bytes (1073741824)
+2020-04-21 23:14:42,169 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 547584504 Bytes (1073741824)
+2020-04-21 23:14:42,526 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: SYS
+2020-04-21 23:14:42,527 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: NVIC
+2020-04-21 23:14:42,528 [INFO] CodeGenerator:601 - code generatio: config db path: C:/Users/Arcy/.stm32cubemx/databases/DB.5.0.30/db/
+2020-04-21 23:14:42,773 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\license.tmp_save
+2020-04-21 23:14:43,082 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\license.tmp
+2020-04-21 23:14:43,183 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-04-21 23:14:43,183 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-21 23:14:43,207 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_it.c_save
+2020-04-21 23:14:43,342 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_it.c
+2020-04-21 23:14:43,367 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_it.h_save
+2020-04-21 23:14:43,434 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_it.h
+2020-04-21 23:14:43,462 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_hal_msp.c_save
+2020-04-21 23:14:43,572 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_hal_msp.c
+2020-04-21 23:14:43,591 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\system.tmp_save
+2020-04-21 23:14:43,659 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\system.tmp
+2020-04-21 23:14:43,684 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_hal_conf.h_save
+2020-04-21 23:14:43,777 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_hal_conf.h
+2020-04-21 23:14:43,820 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\main.h_save
+2020-04-21 23:14:43,910 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\main.h
+2020-04-21 23:14:43,940 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\main.c_save
+2020-04-21 23:14:44,053 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\main.c
+2020-04-21 23:14:44,891 [INFO] ProjectBuilder:1843 - Time for Copy HAL[1] : 438mS.
+2020-04-21 23:14:44,895 [INFO] ProjectBuilder:2428 - Project Generator version: 3.6.0
+2020-04-21 23:14:45,488 [INFO] ConfigFileManager:1043 - The Die is : DIE413
+2020-04-21 23:14:50,137 [INFO] ProjectBuilder:2595 - Time for Generating toolchain IDE Files: 5242mS.
+2020-04-21 23:14:50,138 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 1mS.
+2020-04-21 23:14:50,141 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.
+2020-04-21 23:18:04,905 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 577975560 Bytes (1073741824)
+2020-04-21 23:18:05,064 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 592655624 Bytes (1073741824)
+2020-04-21 23:18:05,187 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: SYS
+2020-04-21 23:18:05,188 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: RCC
+2020-04-21 23:18:05,188 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: NVIC
+2020-04-21 23:18:05,188 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: GPIO
+2020-04-21 23:18:05,189 [INFO] CodeGenerator:601 - code generatio: config db path: C:/Users/Arcy/.stm32cubemx/databases/DB.5.0.30/db/
+2020-04-21 23:18:05,332 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\license.tmp_save
+2020-04-21 23:18:05,391 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\license.tmp
+2020-04-21 23:18:05,422 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\gpio.tmp_save
+2020-04-21 23:18:05,487 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\gpio.tmp
+2020-04-21 23:18:05,494 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-04-21 23:18:05,496 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-21 23:18:05,529 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_it.c_save
+2020-04-21 23:18:05,613 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_it.c
+2020-04-21 23:18:05,634 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_it.h_save
+2020-04-21 23:18:05,697 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_it.h
+2020-04-21 23:18:05,730 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_hal_msp.c_save
+2020-04-21 23:18:05,817 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_hal_msp.c
+2020-04-21 23:18:05,837 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\system.tmp_save
+2020-04-21 23:18:05,889 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\system.tmp
+2020-04-21 23:18:05,918 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_hal_conf.h_save
+2020-04-21 23:18:06,005 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_hal_conf.h
+2020-04-21 23:18:06,019 [WARN] IPConfigManager:2706 - IP not found : gpio
+2020-04-21 23:18:06,019 [WARN] CodeGenerator:2776 - IP not found : gpio
+2020-04-21 23:18:06,047 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\main.h_save
+2020-04-21 23:18:06,110 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\main.h
+2020-04-21 23:18:06,140 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\main.c_save
+2020-04-21 23:18:06,240 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\main.c
+2020-04-21 23:18:06,648 [INFO] ProjectBuilder:1843 - Time for Copy HAL[1] : 107mS.
+2020-04-21 23:18:06,650 [INFO] ProjectBuilder:2428 - Project Generator version: 3.6.0
+2020-04-21 23:18:06,826 [INFO] ConfigFileManager:1043 - The Die is : DIE413
+2020-04-21 23:18:08,275 [INFO] ProjectBuilder:2595 - Time for Generating toolchain IDE Files: 1625mS.
+2020-04-21 23:18:08,276 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 1mS.
+2020-04-21 23:18:08,278 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.
+2020-04-22 00:06:28,333 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 770418752 Bytes (1073741824)
+2020-04-22 00:06:28,424 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 788766792 Bytes (1073741824)
+2020-04-22 00:06:28,532 [INFO] ProjectBuilder:1490 - IP not ready for code generation: FSMC
+2020-04-22 00:07:11,046 [INFO] DbMcusDocs:126 - JSON generation date=Thu Apr 16 16:39:08 CEST 2020 (1587047948)
+2020-04-22 00:07:11,130 [INFO] DbMcusDocs:61 - Found 563 MCUs documents
+2020-04-22 00:08:07,973 [WARN] IpParametersView:137 - Warning: This IP hasn't parameters
+2020-04-22 00:09:00,629 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 744141920 Bytes (1073741824)
+2020-04-22 00:09:00,724 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 761967712 Bytes (1073741824)
+2020-04-22 00:09:00,838 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: FSMC
+2020-04-22 00:09:00,838 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: SYS
+2020-04-22 00:09:00,838 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: RCC
+2020-04-22 00:09:00,838 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: NVIC
+2020-04-22 00:09:00,839 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: GPIO
+2020-04-22 00:09:00,839 [INFO] CodeGenerator:601 - code generatio: config db path: C:/Users/Arcy/.stm32cubemx/databases/DB.5.0.30/db/
+2020-04-22 00:09:00,984 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\license.tmp_save
+2020-04-22 00:09:01,034 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\license.tmp
+2020-04-22 00:09:01,073 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\gpio.tmp_save
+2020-04-22 00:09:01,132 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\gpio.tmp
+2020-04-22 00:09:01,277 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-22 00:09:01,278 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for FSMC
+2020-04-22 00:09:01,278 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-22 00:09:01,306 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_HC.tmp_save
+2020-04-22 00:09:01,376 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_HC.tmp
+2020-04-22 00:09:01,396 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_GV.tmp_save
+2020-04-22 00:09:01,452 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_GV.tmp
+2020-04-22 00:09:01,481 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_MSP.tmp_save
+2020-04-22 00:09:01,547 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_MSP.tmp
+2020-04-22 00:09:01,549 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-04-22 00:09:01,549 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-22 00:09:01,576 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_it.c_save
+2020-04-22 00:09:01,658 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_it.c
+2020-04-22 00:09:01,678 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_it.h_save
+2020-04-22 00:09:01,736 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_it.h
+2020-04-22 00:09:01,777 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_HC.tmp_save
+2020-04-22 00:09:01,840 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_HC.tmp
+2020-04-22 00:09:01,863 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_GV.tmp_save
+2020-04-22 00:09:01,915 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_GV.tmp
+2020-04-22 00:09:01,956 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_MSP.tmp_save
+2020-04-22 00:09:02,020 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_MSP.tmp
+2020-04-22 00:09:02,050 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_hal_msp.c_save
+2020-04-22 00:09:02,146 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_hal_msp.c
+2020-04-22 00:09:02,165 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\system.tmp_save
+2020-04-22 00:09:02,215 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\system.tmp
+2020-04-22 00:09:02,245 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_hal_conf.h_save
+2020-04-22 00:09:02,329 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_hal_conf.h
+2020-04-22 00:09:02,341 [WARN] IPConfigManager:2706 - IP not found : gpio
+2020-04-22 00:09:02,341 [WARN] CodeGenerator:2776 - IP not found : gpio
+2020-04-22 00:09:02,366 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\main.h_save
+2020-04-22 00:09:02,430 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\main.h
+2020-04-22 00:09:02,459 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\main.c_save
+2020-04-22 00:09:02,554 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\main.c
+2020-04-22 00:09:02,988 [INFO] ProjectBuilder:1843 - Time for Copy HAL[1] : 135mS.
+2020-04-22 00:09:02,991 [INFO] ProjectBuilder:2428 - Project Generator version: 3.6.0
+2020-04-22 00:09:03,172 [INFO] ConfigFileManager:1043 - The Die is : DIE413
+2020-04-22 00:09:04,432 [INFO] ProjectBuilder:2595 - Time for Generating toolchain IDE Files: 1441mS.
+2020-04-22 00:09:04,433 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.
+2020-04-22 00:09:04,436 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.
+2020-04-22 00:35:37,728 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 884061112 Bytes (1073741824)
+2020-04-22 00:35:37,853 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 894546872 Bytes (1073741824)
+2020-04-22 00:35:37,988 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: FSMC
+2020-04-22 00:35:37,988 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: SYS
+2020-04-22 00:35:37,988 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: RCC
+2020-04-22 00:35:37,988 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: NVIC
+2020-04-22 00:35:37,988 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: GPIO
+2020-04-22 00:35:37,989 [INFO] CodeGenerator:601 - code generatio: config db path: C:/Users/Arcy/.stm32cubemx/databases/DB.5.0.30/db/
+2020-04-22 00:35:38,129 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\license.tmp_save
+2020-04-22 00:35:38,184 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\license.tmp
+2020-04-22 00:35:38,217 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\gpio.tmp_save
+2020-04-22 00:35:38,272 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\gpio.tmp
+2020-04-22 00:35:38,305 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-22 00:35:38,306 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for FSMC
+2020-04-22 00:35:38,307 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-22 00:35:38,336 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_HC.tmp_save
+2020-04-22 00:35:38,395 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_HC.tmp
+2020-04-22 00:35:38,413 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_GV.tmp_save
+2020-04-22 00:35:38,465 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_GV.tmp
+2020-04-22 00:35:38,494 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_MSP.tmp_save
+2020-04-22 00:35:38,559 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_MSP.tmp
+2020-04-22 00:35:38,562 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-04-22 00:35:38,562 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-22 00:35:38,593 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_it.c_save
+2020-04-22 00:35:38,677 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_it.c
+2020-04-22 00:35:38,697 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_it.h_save
+2020-04-22 00:35:38,759 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_it.h
+2020-04-22 00:35:38,801 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_HC.tmp_save
+2020-04-22 00:35:38,865 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_HC.tmp
+2020-04-22 00:35:38,889 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_GV.tmp_save
+2020-04-22 00:35:38,943 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_GV.tmp
+2020-04-22 00:35:38,987 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_MSP.tmp_save
+2020-04-22 00:35:39,055 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\mx_fsmc_MSP.tmp
+2020-04-22 00:35:39,085 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_hal_msp.c_save
+2020-04-22 00:35:39,179 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\stm32f4xx_hal_msp.c
+2020-04-22 00:35:39,198 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\system.tmp_save
+2020-04-22 00:35:39,248 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\MXTmpFiles\system.tmp
+2020-04-22 00:35:39,280 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_hal_conf.h_save
+2020-04-22 00:35:39,382 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\stm32f4xx_hal_conf.h
+2020-04-22 00:35:39,394 [WARN] IPConfigManager:2706 - IP not found : gpio
+2020-04-22 00:35:39,395 [WARN] CodeGenerator:2776 - IP not found : gpio
+2020-04-22 00:35:39,425 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\main.h_save
+2020-04-22 00:35:39,502 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Inc\main.h
+2020-04-22 00:35:39,537 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\main.c_save
+2020-04-22 00:35:39,626 [INFO] CodeEngine:211 - Generated code: C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\Core\Src\main.c
+2020-04-22 00:35:40,296 [INFO] ProjectBuilder:1843 - Time for Copy HAL[1] : 141mS.
+2020-04-22 00:35:40,299 [INFO] ProjectBuilder:2428 - Project Generator version: 3.6.0
+2020-04-22 00:35:40,515 [INFO] ConfigFileManager:1043 - The Die is : DIE413
+2020-04-22 00:35:41,507 [INFO] ProjectBuilder:2595 - Time for Generating toolchain IDE Files: 1208mS.
+2020-04-22 00:35:41,508 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 1mS.
+2020-04-22 00:35:41,510 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.

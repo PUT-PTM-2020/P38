@@ -1,0 +1,2171 @@
+00:10:00 **** Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f407vgtx.o" "../Core/Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "PROJEKT.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Arcy\STM32CubeIDE\P38\PROJEKT\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PROJEKT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PROJEKT.elf
+ 
+arm-none-eabi-size   PROJEKT.elf 
+arm-none-eabi-objdump -h -S  PROJEKT.elf  > "PROJEKT.list"
+arm-none-eabi-objcopy  -O binary  PROJEKT.elf  "PROJEKT.bin"
+   text	   data	    bss	    dec	    hex	filename
+   6584	     20	   1652	   8256	   2040	PROJEKT.elf
+Finished building: default.size.stdout
+ 
+Finished building: PROJEKT.bin
+ 
+Finished building: PROJEKT.list
+ 
+00:10:20 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-size   PROJEKT.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6584	     20	   1652	   8256	   2040	PROJEKT.elf
+Finished building: default.size.stdout
+ 
+00:13:03 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-size   PROJEKT.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6584	     20	   1652	   8256	   2040	PROJEKT.elf
+Finished building: default.size.stdout
+ 
+00:18:26 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/AsciiLib.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/AsciiLib.d" -MT"Core/Src/AsciiLib.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/AsciiLib.o"
+arm-none-eabi-gcc "../Core/Src/GLCD.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/GLCD.d" -MT"Core/Src/GLCD.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/GLCD.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/GLCD.c:23:0:
+../Core/Inc/GLCD.h:26:10: fatal error: stm32f10x.h: No such file or directory
+ #include "stm32f10x.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:41: Core/Src/GLCD.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../Core/Src/main.c:26:0:
+../Core/Inc/GLCD.h:26:10: fatal error: stm32f10x.h: No such file or directory
+ #include "stm32f10x.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+00:20:25 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/GLCD.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/GLCD.d" -MT"Core/Src/GLCD.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/GLCD.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/GLCD.c:23:0:
+../Core/Inc/GLCD.h:84:16: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_Clear(uint16_t Color);
+                ^~~~~~~~
+                __uint16_t
+../Core/Inc/GLCD.h:85:1: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ uint16_t LCD_GetPoint(uint16_t Xpos,uint16_t Ypos);
+ ^~~~~~~~
+ __uint16_t
+../Core/Inc/GLCD.h:85:23: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ uint16_t LCD_GetPoint(uint16_t Xpos,uint16_t Ypos);
+                       ^~~~~~~~
+                       __uint16_t
+../Core/Inc/GLCD.h:85:37: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ uint16_t LCD_GetPoint(uint16_t Xpos,uint16_t Ypos);
+                                     ^~~~~~~~
+                                     __uint16_t
+../Core/Inc/GLCD.h:86:19: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_SetPoint(uint16_t Xpos,uint16_t Ypos,uint16_t point);
+                   ^~~~~~~~
+                   __uint16_t
+../Core/Inc/GLCD.h:86:33: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_SetPoint(uint16_t Xpos,uint16_t Ypos,uint16_t point);
+                                 ^~~~~~~~
+                                 __uint16_t
+../Core/Inc/GLCD.h:86:47: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_SetPoint(uint16_t Xpos,uint16_t Ypos,uint16_t point);
+                                               ^~~~~~~~
+                                               __uint16_t
+../Core/Inc/GLCD.h:87:20: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color );
+                    ^~~~~~~~
+                    __uint16_t
+../Core/Inc/GLCD.h:87:33: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color );
+                                 ^~~~~~~~
+                                 __uint16_t
+../Core/Inc/GLCD.h:87:46: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color );
+                                              ^~~~~~~~
+                                              __uint16_t
+../Core/Inc/GLCD.h:87:59: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color );
+                                                           ^~~~~~~~
+                                                           __uint16_t
+../Core/Inc/GLCD.h:87:73: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color );
+                                                                         ^~~~~~~~
+                                                                         __uint16_t
+../Core/Inc/GLCD.h:88:15: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor );
+               ^~~~~~~~
+               __uint16_t
+../Core/Inc/GLCD.h:88:30: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor );
+                              ^~~~~~~~
+                              __uint16_t
+../Core/Inc/GLCD.h:88:45: error: unknown type name 'uint8_t'; did you mean 'wint_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor );
+                                             ^~~~~~~
+                                             wint_t
+../Core/Inc/GLCD.h:88:59: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor );
+                                                           ^~~~~~~~
+                                                           __uint16_t
+../Core/Inc/GLCD.h:88:79: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor );
+                                                                               ^~~~~~~~
+                                                                               __uint16_t
+../Core/Inc/GLCD.h:89:15: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor);
+               ^~~~~~~~
+               __uint16_t
+../Core/Inc/GLCD.h:89:30: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor);
+                              ^~~~~~~~
+                              __uint16_t
+../Core/Inc/GLCD.h:89:45: error: unknown type name 'uint8_t'; did you mean 'wint_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor);
+                                             ^~~~~~~
+                                             wint_t
+../Core/Inc/GLCD.h:89:58: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor);
+                                                          ^~~~~~~~
+                                                          __uint16_t
+../Core/Inc/GLCD.h:89:74: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor);
+                                                                          ^~~~~~~~
+                                                                          __uint16_t
+../Core/Src/GLCD.c: In function 'LCD_Configuration':
+../Core/Src/GLCD.c:42:2: error: unknown type name 'GPIO_InitTypeDef'
+  GPIO_InitTypeDef GPIO_InitStructure;
+  ^~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:45:2: warning: implicit declaration of function 'RCC_APB2PeriphClockCmd' [-Wimplicit-function-declaration]
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOE, ENABLE);
+  ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:45:26: error: 'RCC_APB2Periph_GPIOC' undeclared (first use in this function)
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOE, ENABLE);
+                          ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:45:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/GLCD.c:45:49: error: 'RCC_APB2Periph_GPIOE' undeclared (first use in this function); did you mean 'RCC_APB2Periph_GPIOC'?
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOE, ENABLE);
+                                                 ^~~~~~~~~~~~~~~~~~~~
+                                                 RCC_APB2Periph_GPIOC
+../Core/Src/GLCD.c:45:71: error: 'ENABLE' undeclared (first use in this function)
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOE, ENABLE);
+                                                                       ^~~~~~
+../Core/Src/GLCD.c:51:9: warning: "/*" within comment [-Wcomment]
+         /* setting the IO to output mode */
+          
+../Core/Src/GLCD.c:53:20: error: request for member 'GPIO_Pin' in something not a structure or union
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                    ^
+../Core/Src/GLCD.c:53:32: error: 'GPIO_Pin_All' undeclared (first use in this function)
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                                ^~~~~~~~~~~~
+../Core/Src/GLCD.c:54:20: error: request for member 'GPIO_Speed' in something not a structure or union
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                    ^
+../Core/Src/GLCD.c:54:34: error: 'GPIO_Speed_50MHz' undeclared (first use in this function)
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                                  ^~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:55:20: error: request for member 'GPIO_Mode' in something not a structure or union
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                    ^
+../Core/Src/GLCD.c:55:33: error: 'GPIO_Mode_Out_PP' undeclared (first use in this function)
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                                 ^~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:56:2: warning: implicit declaration of function 'GPIO_Init' [-Wimplicit-function-declaration]
+  GPIO_Init(GPIOE, &GPIO_InitStructure);
+  ^~~~~~~~~
+../Core/Src/GLCD.c:56:12: error: 'GPIOE' undeclared (first use in this function)
+  GPIO_Init(GPIOE, &GPIO_InitStructure);
+            ^~~~~
+../Core/Src/GLCD.c:62:20: error: request for member 'GPIO_Pin' in something not a structure or union
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+                    ^
+../Core/Src/GLCD.c:62:32: error: 'GPIO_Pin_6' undeclared (first use in this function); did you mean 'GPIO_Pin_All'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+                                ^~~~~~~~~~
+                                GPIO_Pin_All
+../Core/Src/GLCD.c:62:45: error: 'GPIO_Pin_7' undeclared (first use in this function); did you mean 'GPIO_Pin_6'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+                                             ^~~~~~~~~~
+                                             GPIO_Pin_6
+../Core/Src/GLCD.c:62:58: error: 'GPIO_Pin_8' undeclared (first use in this function); did you mean 'GPIO_Pin_7'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+                                                          ^~~~~~~~~~
+                                                          GPIO_Pin_7
+../Core/Src/GLCD.c:63:20: error: request for member 'GPIO_Speed' in something not a structure or union
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                    ^
+../Core/Src/GLCD.c:64:20: error: request for member 'GPIO_Mode' in something not a structure or union
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                    ^
+../Core/Src/GLCD.c:65:12: error: 'GPIOC' undeclared (first use in this function); did you mean 'GPIOE'?
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+            ^~~~~
+            GPIOE
+../Core/Src/GLCD.c:71:20: error: request for member 'GPIO_Pin' in something not a structure or union
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+                    ^
+../Core/Src/GLCD.c:71:32: error: 'GPIO_Pin_9' undeclared (first use in this function); did you mean 'GPIO_Pin_8'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+                                ^~~~~~~~~~
+                                GPIO_Pin_8
+../Core/Src/GLCD.c:72:20: error: request for member 'GPIO_Speed' in something not a structure or union
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                    ^
+../Core/Src/GLCD.c:73:20: error: request for member 'GPIO_Mode' in something not a structure or union
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                    ^
+In file included from ../Core/Src/GLCD.c:23:0:
+../Core/Src/GLCD.c: In function 'LCD_WriteIndex':
+../Core/Inc/GLCD.h:62:23: error: 'GPIOC' undeclared (first use in this function)
+ #define Clr_Rs        GPIOC->ODR  &= ~( 1<<8 );
+                       ^
+../Core/Src/GLCD.c:90:2: note: in expansion of macro 'Clr_Rs'
+  Clr_Rs;   /* RS low */
+  ^~~~~~
+../Core/Src/GLCD.c:94:2: error: 'GPIOE' undeclared (first use in this function); did you mean 'GPIOC'?
+  GPIOE->ODR = index;  /* GPIO_Write(GPIOE,index); */
+  ^~~~~
+  GPIOC
+In file included from ../Core/Src/GLCD.c:23:0:
+../Core/Src/GLCD.c: In function 'LCD_WriteData':
+../Core/Inc/GLCD.h:61:23: error: 'GPIOC' undeclared (first use in this function)
+ #define Set_Rs        GPIOC->ODR  |= ( 1<<8 );
+                       ^
+../Core/Src/GLCD.c:112:2: note: in expansion of macro 'Set_Rs'
+  Set_Rs;  /* RS high */
+  ^~~~~~
+../Core/Src/GLCD.c:115:2: error: 'GPIOE' undeclared (first use in this function); did you mean 'GPIOC'?
+  GPIOE->ODR = data;  /* GPIO_Write(GPIOE,data); */
+  ^~~~~
+  GPIOC
+In file included from ../Core/Src/GLCD.c:23:0:
+../Core/Src/GLCD.c: In function 'LCD_ReadData':
+../Core/Inc/GLCD.h:61:23: error: 'GPIOC' undeclared (first use in this function)
+ #define Set_Rs        GPIOC->ODR  |= ( 1<<8 );
+                       ^
+../Core/Src/GLCD.c:135:2: note: in expansion of macro 'Set_Rs'
+  Set_Rs;  /* RS high */
+  ^~~~~~
+../Core/Src/GLCD.c:144:5: warning: "/*" within comment [-Wcomment]
+     /* setting the IO to input mode */
+      
+../Core/Src/GLCD.c:146:5: error: unknown type name 'GPIO_InitTypeDef'
+     GPIO_InitTypeDef GPIO_InitStructure;
+     ^~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:147:23: error: request for member 'GPIO_Pin' in something not a structure or union
+     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                       ^
+../Core/Src/GLCD.c:147:35: error: 'GPIO_Pin_All' undeclared (first use in this function)
+     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                                   ^~~~~~~~~~~~
+../Core/Src/GLCD.c:148:23: error: request for member 'GPIO_Speed' in something not a structure or union
+     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                       ^
+../Core/Src/GLCD.c:148:37: error: 'GPIO_Speed_50MHz' undeclared (first use in this function)
+     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                                     ^~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:149:23: error: request for member 'GPIO_Mode' in something not a structure or union
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+                       ^
+../Core/Src/GLCD.c:149:36: error: 'GPIO_Mode_IN_FLOATING' undeclared (first use in this function)
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+                                    ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:150:15: error: 'GPIOE' undeclared (first use in this function); did you mean 'GPIOC'?
+     GPIO_Init(GPIOE, &GPIO_InitStructure);
+               ^~~~~
+               GPIOC
+../Core/Src/GLCD.c:153:13: warning: implicit declaration of function 'GPIO_ReadInputData'; did you mean 'LCD_ReadData'? [-Wimplicit-function-declaration]
+     value = GPIO_ReadInputData(GPIOE);
+             ^~~~~~~~~~~~~~~~~~
+             LCD_ReadData
+../Core/Src/GLCD.c:167:23: error: request for member 'GPIO_Pin' in something not a structure or union
+     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                       ^
+../Core/Src/GLCD.c:168:23: error: request for member 'GPIO_Speed' in something not a structure or union
+     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                       ^
+../Core/Src/GLCD.c:169:23: error: request for member 'GPIO_Mode' in something not a structure or union
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                       ^
+../Core/Src/GLCD.c:169:36: error: 'GPIO_Mode_Out_PP' undeclared (first use in this function); did you mean 'GPIO_Mode_IN_FLOATING'?
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                                    ^~~~~~~~~~~~~~~~
+                                    GPIO_Mode_IN_FLOATING
+In file included from ../Core/Src/GLCD.c:23:0:
+../Core/Src/GLCD.c: In function 'LCD_WriteReg':
+../Core/Inc/GLCD.h:59:23: error: 'GPIOC' undeclared (first use in this function)
+ #define Clr_Cs        GPIOC->ODR  &= ~( 1<<9 );
+                       ^
+../Core/Src/GLCD.c:191:2: note: in expansion of macro 'Clr_Cs'
+  Clr_Cs;   /* Cs low */
+  ^~~~~~
+../Core/Src/GLCD.c: In function 'LCD_ReadReg':
+../Core/Inc/GLCD.h:59:23: error: 'GPIOC' undeclared (first use in this function)
+ #define Clr_Cs        GPIOC->ODR  &= ~( 1<<9 );
+                       ^
+../Core/Src/GLCD.c:214:2: note: in expansion of macro 'Clr_Cs'
+  Clr_Cs;  /* Cs low */
+  ^~~~~~
+../Core/Src/GLCD.c: In function 'LCD_Initializtion':
+../Core/Src/GLCD.c:280:6: error: 'DeviceCode' undeclared (first use in this function)
+  if( DeviceCode == 0x9320 || DeviceCode == 0x9300 )
+      ^~~~~~~~~~
+../Core/Src/GLCD.c:273:17: warning: variable 'LCD_ID' set but not used [-Wunused-but-set-variable]
+  unsigned short LCD_ID;
+                 ^~~~~~
+In file included from ../Core/Src/GLCD.c:23:0:
+../Core/Src/GLCD.c: In function 'LCD_Clear':
+../Core/Inc/GLCD.h:59:23: error: 'GPIOC' undeclared (first use in this function)
+ #define Clr_Cs        GPIOC->ODR  &= ~( 1<<9 );
+                       ^
+../Core/Src/GLCD.c:354:2: note: in expansion of macro 'Clr_Cs'
+  Clr_Cs;  /* Cs low */
+  ^~~~~~
+../Core/Src/GLCD.c: In function 'LCD_GetPoint':
+../Core/Inc/GLCD.h:59:23: error: 'GPIOC' undeclared (first use in this function)
+ #define Clr_Cs        GPIOC->ODR  &= ~( 1<<9 );
+                       ^
+../Core/Src/GLCD.c:404:2: note: in expansion of macro 'Clr_Cs'
+  Clr_Cs;   /* Cs low */
+  ^~~~~~
+../Core/Src/GLCD.c: At top level:
+../Core/Src/GLCD.c:429:19: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_SetPoint(uint16_t Xpos,uint16_t Ypos,uint16_t point)
+                   ^~~~~~~~
+                   __uint16_t
+../Core/Src/GLCD.c:429:33: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_SetPoint(uint16_t Xpos,uint16_t Ypos,uint16_t point)
+                                 ^~~~~~~~
+                                 __uint16_t
+../Core/Src/GLCD.c:429:47: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_SetPoint(uint16_t Xpos,uint16_t Ypos,uint16_t point)
+                                               ^~~~~~~~
+                                               __uint16_t
+../Core/Src/GLCD.c:451:20: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color )
+                    ^~~~~~~~
+                    __uint16_t
+../Core/Src/GLCD.c:451:33: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color )
+                                 ^~~~~~~~
+                                 __uint16_t
+../Core/Src/GLCD.c:451:46: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color )
+                                              ^~~~~~~~
+                                              __uint16_t
+../Core/Src/GLCD.c:451:59: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color )
+                                                           ^~~~~~~~
+                                                           __uint16_t
+../Core/Src/GLCD.c:451:73: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void LCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color )
+                                                                         ^~~~~~~~
+                                                                         __uint16_t
+../Core/Src/GLCD.c:545:15: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor )
+               ^~~~~~~~
+               __uint16_t
+../Core/Src/GLCD.c:545:30: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor )
+                              ^~~~~~~~
+                              __uint16_t
+../Core/Src/GLCD.c:545:45: error: unknown type name 'uint8_t'; did you mean 'wint_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor )
+                                             ^~~~~~~
+                                             wint_t
+../Core/Src/GLCD.c:545:59: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor )
+                                                           ^~~~~~~~
+                                                           __uint16_t
+../Core/Src/GLCD.c:545:79: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void PutChar( uint16_t Xpos, uint16_t Ypos, uint8_t ASCI, uint16_t charColor, uint16_t bkColor )
+                                                                               ^~~~~~~~
+                                                                               __uint16_t
+../Core/Src/GLCD.c:579:15: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor)
+               ^~~~~~~~
+               __uint16_t
+../Core/Src/GLCD.c:579:30: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor)
+                              ^~~~~~~~
+                              __uint16_t
+../Core/Src/GLCD.c:579:45: error: unknown type name 'uint8_t'; did you mean 'wint_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor)
+                                             ^~~~~~~
+                                             wint_t
+../Core/Src/GLCD.c:579:58: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor)
+                                                          ^~~~~~~~
+                                                          __uint16_t
+../Core/Src/GLCD.c:579:74: error: unknown type name 'uint16_t'; did you mean '__uint16_t'?
+ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_t bkColor)
+                                                                          ^~~~~~~~
+                                                                          __uint16_t
+make: *** [Core/Src/subdir.mk:41: Core/Src/GLCD.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+00:21:28 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/GLCD.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/GLCD.d" -MT"Core/Src/GLCD.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/GLCD.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:250:0,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:30,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:29,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:232,
+                 from ../Core/Inc/GLCD.h:26,
+                 from ../Core/Src/GLCD.c:23:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:220:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_Init(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:221:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_DeInit(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:224:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:237:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+../Core/Src/GLCD.c: In function 'LCD_Configuration':
+../Core/Src/GLCD.c:45:2: warning: implicit declaration of function 'RCC_APB2PeriphClockCmd' [-Wimplicit-function-declaration]
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOE, ENABLE);
+  ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/GLCD.c:45:26: error: 'RCC_APB2Periph_GPIOC' undeclared (first use in this function); did you mean 'RCC_APB2RSTR_SPI1'?
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOE, ENABLE);
+                          ^~~~~~~~~~~~~~~~~~~~
+                          RCC_APB2RSTR_SPI1
+../Core/Src/GLCD.c:45:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/GLCD.c:45:49: error: 'RCC_APB2Periph_GPIOE' undeclared (first use in this function); did you mean 'RCC_APB2Periph_GPIOC'?
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOE, ENABLE);
+                                                 ^~~~~~~~~~~~~~~~~~~~
+                                                 RCC_APB2Periph_GPIOC
+../Core/Src/GLCD.c:51:9: warning: "/*" within comment [-Wcomment]
+         /* setting the IO to output mode */
+          
+../Core/Src/GLCD.c:53:20: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                    ^
+../Core/Src/GLCD.c:53:32: error: 'GPIO_Pin_All' undeclared (first use in this function); did you mean 'GPIO_PIN_All'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                                ^~~~~~~~~~~~
+                                GPIO_PIN_All
+../Core/Src/GLCD.c:54:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                     ^~~~~~~~~~
+                     Speed
+../Core/Src/GLCD.c:54:34: error: 'GPIO_Speed_50MHz' undeclared (first use in this function); did you mean 'GPIO_AF0_RTC_50Hz'?
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                                  ^~~~~~~~~~~~~~~~
+                                  GPIO_AF0_RTC_50Hz
+../Core/Src/GLCD.c:55:20: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                    ^
+../Core/Src/GLCD.c:55:33: error: 'GPIO_Mode_Out_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_AF_PP'?
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                                 ^~~~~~~~~~~~~~~~
+                                 GPIO_MODE_AF_PP
+../Core/Src/GLCD.c:56:2: warning: implicit declaration of function 'GPIO_Init'; did you mean 'HAL_GPIO_Init'? [-Wimplicit-function-declaration]
+  GPIO_Init(GPIOE, &GPIO_InitStructure);
+  ^~~~~~~~~
+  HAL_GPIO_Init
+../Core/Src/GLCD.c:62:20: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+                    ^
+../Core/Src/GLCD.c:62:32: error: 'GPIO_Pin_6' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+                                ^~~~~~~~~~
+                                GPIO_PIN_6
+../Core/Src/GLCD.c:62:45: error: 'GPIO_Pin_7' undeclared (first use in this function); did you mean 'GPIO_Pin_6'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+                                             ^~~~~~~~~~
+                                             GPIO_Pin_6
+../Core/Src/GLCD.c:62:58: error: 'GPIO_Pin_8' undeclared (first use in this function); did you mean 'GPIO_Pin_7'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8;
+                                                          ^~~~~~~~~~
+                                                          GPIO_Pin_7
+../Core/Src/GLCD.c:63:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                     ^~~~~~~~~~
+                     Speed
+../Core/Src/GLCD.c:64:20: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                    ^
+../Core/Src/GLCD.c:71:20: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+                    ^
+../Core/Src/GLCD.c:71:32: error: 'GPIO_Pin_9' undeclared (first use in this function); did you mean 'GPIO_Pin_8'?
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+                                ^~~~~~~~~~
+                                GPIO_Pin_8
+../Core/Src/GLCD.c:72:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                     ^~~~~~~~~~
+                     Speed
+../Core/Src/GLCD.c:73:20: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                    ^
+../Core/Src/GLCD.c: In function 'LCD_ReadData':
+../Core/Src/GLCD.c:144:5: warning: "/*" within comment [-Wcomment]
+     /* setting the IO to input mode */
+      
+../Core/Src/GLCD.c:147:23: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                       ^
+../Core/Src/GLCD.c:147:35: error: 'GPIO_Pin_All' undeclared (first use in this function); did you mean 'GPIO_PIN_All'?
+     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                                   ^~~~~~~~~~~~
+                                   GPIO_PIN_All
+../Core/Src/GLCD.c:148:24: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                        ^~~~~~~~~~
+                        Speed
+../Core/Src/GLCD.c:148:37: error: 'GPIO_Speed_50MHz' undeclared (first use in this function); did you mean 'GPIO_AF0_RTC_50Hz'?
+     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                                     ^~~~~~~~~~~~~~~~
+                                     GPIO_AF0_RTC_50Hz
+../Core/Src/GLCD.c:149:23: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+                       ^
+../Core/Src/GLCD.c:149:36: error: 'GPIO_Mode_IN_FLOATING' undeclared (first use in this function); did you mean 'GPIO_MODE_IT_FALLING'?
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+                                    ^~~~~~~~~~~~~~~~~~~~~
+                                    GPIO_MODE_IT_FALLING
+../Core/Src/GLCD.c:153:13: warning: implicit declaration of function 'GPIO_ReadInputData'; did you mean 'LCD_ReadData'? [-Wimplicit-function-declaration]
+     value = GPIO_ReadInputData(GPIOE);
+             ^~~~~~~~~~~~~~~~~~
+             LCD_ReadData
+../Core/Src/GLCD.c:167:23: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+                       ^
+../Core/Src/GLCD.c:168:24: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                        ^~~~~~~~~~
+                        Speed
+../Core/Src/GLCD.c:169:23: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                       ^
+../Core/Src/GLCD.c:169:36: error: 'GPIO_Mode_Out_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_AF_PP'?
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+                                    ^~~~~~~~~~~~~~~~
+                                    GPIO_MODE_AF_PP
+../Core/Src/GLCD.c: In function 'LCD_Initializtion':
+../Core/Src/GLCD.c:280:6: error: 'DeviceCode' undeclared (first use in this function)
+  if( DeviceCode == 0x9320 || DeviceCode == 0x9300 )
+      ^~~~~~~~~~
+../Core/Src/GLCD.c:273:17: warning: variable 'LCD_ID' set but not used [-Wunused-but-set-variable]
+  unsigned short LCD_ID;
+                 ^~~~~~
+../Core/Src/GLCD.c: In function 'PutChar':
+../Core/Src/GLCD.c:555:32: warning: suggest parentheses around '-' inside '>>' [-Wparentheses]
+             if( (tmp_char >> 7 - j) & 0x01 == 0x01 )
+                              ~~^~~
+../Core/Src/GLCD.c:555:37: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+             if( (tmp_char >> 7 - j) & 0x01 == 0x01 )
+                                     ^
+make: *** [Core/Src/subdir.mk:41: Core/Src/GLCD.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+00:25:26 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/SSD1289.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/SSD1289.d" -MT"Core/Src/SSD1289.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/SSD1289.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/SSD1289.c:1:0:
+../Core/Inc/SSD1289.h:6:10: fatal error: delay.h: No such file or directory
+ #include "delay.h"
+          ^~~~~~~~~
+compilation terminated.
+In file included from ../Core/Src/main.c:26:0:
+../Core/Inc/SSD1289.h:6:10: fatal error: delay.h: No such file or directory
+ #include "delay.h"
+          ^~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:41: Core/Src/SSD1289.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+00:26:26 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/SSD1289.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/SSD1289.d" -MT"Core/Src/SSD1289.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/SSD1289.o"
+arm-none-eabi-gcc "../Core/Src/delay.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/delay.d" -MT"Core/Src/delay.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/delay.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/SSD1289.c:20:1: error: unknown type name 'TIM_TimeBaseInitTypeDef'; did you mean 'FLASH_EraseInitTypeDef'?
+ TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+ ^~~~~~~~~~~~~~~~~~~~~~~
+ FLASH_EraseInitTypeDef
+../Core/Src/SSD1289.c:21:1: error: unknown type name 'TIM_OCInitTypeDef'; did you mean 'DMA_InitTypeDef'?
+ TIM_OCInitTypeDef  TIM_OCInitStructure;
+ ^~~~~~~~~~~~~~~~~
+ DMA_InitTypeDef
+../Core/Src/SSD1289.c: In function 'LCD_PutChar':
+../Core/Src/SSD1289.c:175:5: warning: implicit declaration of function 'GetASCIICode1'; did you mean 'GetASCIICode'? [-Wimplicit-function-declaration]
+     GetASCIICode1(Buffer,c);
+     ^~~~~~~~~~~~~
+     GetASCIICode
+../Core/Src/SSD1289.c:198:5: warning: implicit declaration of function 'GetASCIICode2'; did you mean 'GetASCIICode'? [-Wimplicit-function-declaration]
+     GetASCIICode2(Buffer,c);
+     ^~~~~~~~~~~~~
+     GetASCIICode
+../Core/Src/SSD1289.c:221:5: warning: implicit declaration of function 'GetASCIICode4'; did you mean 'GetASCIICode'? [-Wimplicit-function-declaration]
+     GetASCIICode4(Buffer,c);
+     ^~~~~~~~~~~~~
+     GetASCIICode
+../Core/Src/SSD1289.c:244:5: warning: implicit declaration of function 'GetASCIICode3'; did you mean 'GetASCIICode'? [-Wimplicit-function-declaration]
+     GetASCIICode3(Buffer,c);
+     ^~~~~~~~~~~~~
+     GetASCIICode
+../Core/Src/SSD1289.c:266:5: warning: implicit declaration of function 'GetASCIICode5'; did you mean 'GetASCIICode'? [-Wimplicit-function-declaration]
+     GetASCIICode5(Buffer,c);
+     ^~~~~~~~~~~~~
+     GetASCIICode
+../Core/Src/SSD1289.c: In function 'LCD_CtrlLinesConfig':
+../Core/Src/SSD1289.c:555:3: warning: implicit declaration of function 'RCC_AHB1PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:555:26: error: 'RCC_AHB1Periph_GPIOD' undeclared (first use in this function); did you mean 'RCC_AHB1ENR_GPIODEN'?
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+                          ^~~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1ENR_GPIODEN
+../Core/Src/SSD1289.c:555:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/SSD1289.c:555:49: error: 'RCC_AHB1Periph_GPIOG' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOD'?
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+                                                 ^~~~~~~~~~~~~~~~~~~~
+                                                 RCC_AHB1Periph_GPIOD
+../Core/Src/SSD1289.c:556:10: error: 'RCC_AHB1Periph_GPIOE' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOG'?
+          RCC_AHB1Periph_GPIOE | RCC_AHB1Periph_GPIOF,
+          ^~~~~~~~~~~~~~~~~~~~
+          RCC_AHB1Periph_GPIOG
+../Core/Src/SSD1289.c:556:33: error: 'RCC_AHB1Periph_GPIOF' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOE'?
+          RCC_AHB1Periph_GPIOE | RCC_AHB1Periph_GPIOF,
+                                 ^~~~~~~~~~~~~~~~~~~~
+                                 RCC_AHB1Periph_GPIOE
+../Core/Src/SSD1289.c:558:3: warning: implicit declaration of function 'RCC_AHB3PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:558:26: error: 'RCC_AHB3Periph_FSMC' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOF'?
+   RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
+                          ^~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1Periph_GPIOF
+../Core/Src/SSD1289.c:560:3: warning: implicit declaration of function 'GPIO_PinAFConfig'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+   ^~~~~~~~~~~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c:560:27: error: 'GPIO_PinSource0' undeclared (first use in this function); did you mean 'GPIO_PinState'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinState
+../Core/Src/SSD1289.c:560:44: error: 'GPIO_AF_FSMC' undeclared (first use in this function); did you mean 'GPIO_AF12_FSMC'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+                                            ^~~~~~~~~~~~
+                                            GPIO_AF12_FSMC
+../Core/Src/SSD1289.c:561:27: error: 'GPIO_PinSource1' undeclared (first use in this function); did you mean 'GPIO_PinSource0'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource1, GPIO_AF_FSMC);  // D3
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource0
+../Core/Src/SSD1289.c:562:27: error: 'GPIO_PinSource4' undeclared (first use in this function); did you mean 'GPIO_PinSource1'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource4, GPIO_AF_FSMC);  // NOE -> RD
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource1
+../Core/Src/SSD1289.c:563:27: error: 'GPIO_PinSource5' undeclared (first use in this function); did you mean 'GPIO_PinSource4'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_FSMC);  // NWE -> WR
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource4
+../Core/Src/SSD1289.c:564:27: error: 'GPIO_PinSource7' undeclared (first use in this function); did you mean 'GPIO_PinSource5'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource7, GPIO_AF_FSMC);  // NE1 -> CS
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource5
+../Core/Src/SSD1289.c:565:27: error: 'GPIO_PinSource8' undeclared (first use in this function); did you mean 'GPIO_PinSource7'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource8, GPIO_AF_FSMC);  // D13
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource7
+../Core/Src/SSD1289.c:566:27: error: 'GPIO_PinSource9' undeclared (first use in this function); did you mean 'GPIO_PinSource8'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_FSMC);  // D14
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource8
+../Core/Src/SSD1289.c:567:27: error: 'GPIO_PinSource10' undeclared (first use in this function); did you mean 'GPIO_PinSource1'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource10, GPIO_AF_FSMC);  // D15
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource1
+../Core/Src/SSD1289.c:568:27: error: 'GPIO_PinSource11' undeclared (first use in this function); did you mean 'GPIO_PinSource10'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource11, GPIO_AF_FSMC);  // A16 -> RS
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource10
+../Core/Src/SSD1289.c:569:27: error: 'GPIO_PinSource14' undeclared (first use in this function); did you mean 'GPIO_PinSource11'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource14, GPIO_AF_FSMC);  // D0
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource11
+../Core/Src/SSD1289.c:570:27: error: 'GPIO_PinSource15' undeclared (first use in this function); did you mean 'GPIO_PinSource14'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource15, GPIO_AF_FSMC);  // D1
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource14
+../Core/Src/SSD1289.c:577:27: error: 'GPIO_PinSource12' undeclared (first use in this function); did you mean 'GPIO_PinSource15'?
+   GPIO_PinAFConfig(GPIOE, GPIO_PinSource12, GPIO_AF_FSMC);  // D9
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource15
+../Core/Src/SSD1289.c:578:27: error: 'GPIO_PinSource13' undeclared (first use in this function); did you mean 'GPIO_PinSource12'?
+   GPIO_PinAFConfig(GPIOE, GPIO_PinSource13, GPIO_AF_FSMC);  // D10
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource12
+../Core/Src/SSD1289.c:582:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                     ^
+../Core/Src/SSD1289.c:582:33: error: 'GPIO_Pin_0' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                 ^~~~~~~~~~
+                                 GPIO_PIN_0
+../Core/Src/SSD1289.c:582:46: error: 'GPIO_Pin_1' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                              ^~~~~~~~~~
+                                              GPIO_Pin_0
+../Core/Src/SSD1289.c:582:59: error: 'GPIO_Pin_4' undeclared (first use in this function); did you mean 'GPIO_Pin_1'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                                           ^~~~~~~~~~
+                                                           GPIO_Pin_1
+../Core/Src/SSD1289.c:582:72: error: 'GPIO_Pin_5' undeclared (first use in this function); did you mean 'GPIO_Pin_4'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                                                        ^~~~~~~~~~
+                                                                        GPIO_Pin_4
+../Core/Src/SSD1289.c:583:35: error: 'GPIO_Pin_7' undeclared (first use in this function); did you mean 'GPIO_Pin_5'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                   ^~~~~~~~~~
+                                   GPIO_Pin_5
+../Core/Src/SSD1289.c:583:48: error: 'GPIO_Pin_8' undeclared (first use in this function); did you mean 'GPIO_Pin_7'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                ^~~~~~~~~~
+                                                GPIO_Pin_7
+../Core/Src/SSD1289.c:583:61: error: 'GPIO_Pin_9' undeclared (first use in this function); did you mean 'GPIO_Pin_8'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                             ^~~~~~~~~~
+                                                             GPIO_Pin_8
+../Core/Src/SSD1289.c:583:74: error: 'GPIO_Pin_10' undeclared (first use in this function); did you mean 'GPIO_Pin_1'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                                          ^~~~~~~~~~~
+                                                                          GPIO_Pin_1
+../Core/Src/SSD1289.c:584:35: error: 'GPIO_Pin_11' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                   ^~~~~~~~~~~
+                                   GPIO_Pin_10
+../Core/Src/SSD1289.c:584:49: error: 'GPIO_Pin_14' undeclared (first use in this function); did you mean 'GPIO_Pin_11'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                                 ^~~~~~~~~~~
+                                                 GPIO_Pin_11
+../Core/Src/SSD1289.c:584:63: error: 'GPIO_Pin_15' undeclared (first use in this function); did you mean 'GPIO_Pin_14'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                                               ^~~~~~~~~~~
+                                                               GPIO_Pin_14
+../Core/Src/SSD1289.c:586:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:586:34: error: 'GPIO_Mode_AF' undeclared (first use in this function); did you mean 'GPIO_Pin_15'?
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                                  ^~~~~~~~~~~~
+                                  GPIO_Pin_15
+../Core/Src/SSD1289.c:587:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:587:35: error: 'GPIO_Speed_100MHz' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                                   ^~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:588:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:588:35: error: 'GPIO_OType_PP' undeclared (first use in this function); did you mean 'GPIO_TypeDef'?
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                                   ^~~~~~~~~~~~~
+                                   GPIO_TypeDef
+../Core/Src/SSD1289.c:589:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                     ^
+../Core/Src/SSD1289.c:589:35: error: 'GPIO_PuPd_NOPULL' undeclared (first use in this function); did you mean 'GPIO_NOPULL'?
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                                   ^~~~~~~~~~~~~~~~
+                                   GPIO_NOPULL
+../Core/Src/SSD1289.c:590:3: warning: implicit declaration of function 'GPIO_Init'; did you mean 'LCD_Init'? [-Wimplicit-function-declaration]
+   GPIO_Init(GPIOD, &GPIO_InitStructure);
+   ^~~~~~~~~
+   LCD_Init
+../Core/Src/SSD1289.c:592:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                     ^
+../Core/Src/SSD1289.c:593:49: error: 'GPIO_Pin_12' undeclared (first use in this function); did you mean 'GPIO_Pin_15'?
+                                   GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 |
+                                                 ^~~~~~~~~~~
+                                                 GPIO_Pin_15
+../Core/Src/SSD1289.c:593:63: error: 'GPIO_Pin_13' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+                                   GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 |
+                                                               ^~~~~~~~~~~
+                                                               GPIO_Pin_12
+../Core/Src/SSD1289.c:596:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:597:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:598:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:599:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                     ^
+../Core/Src/SSD1289.c: In function 'LCD_FSMCConfig':
+../Core/Src/SSD1289.c:608:3: error: unknown type name 'FSMC_NORSRAMInitTypeDef'; did you mean 'FSMC_NORSRAM_InitTypeDef'?
+   FSMC_NORSRAMInitTypeDef  FSMC_NORSRAMInitStructure;
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_InitTypeDef
+../Core/Src/SSD1289.c:609:3: error: unknown type name 'FSMC_NORSRAMTimingInitTypeDef'; did you mean 'FSMC_NORSRAM_TimingTypeDef'?
+   FSMC_NORSRAMTimingInitTypeDef FSMC_NORSRAMTimingInitStructure;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_TimingTypeDef
+../Core/Src/SSD1289.c:610:34: error: request for member 'FSMC_AddressSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressSetupTime = 0;  //0
+                                  ^
+../Core/Src/SSD1289.c:611:34: error: request for member 'FSMC_AddressHoldTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressHoldTime = 0;   //0
+                                  ^
+../Core/Src/SSD1289.c:612:34: error: request for member 'FSMC_DataSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataSetupTime = 2;     //3
+                                  ^
+../Core/Src/SSD1289.c:613:34: error: request for member 'FSMC_BusTurnAroundDuration' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_BusTurnAroundDuration = 0;
+                                  ^
+../Core/Src/SSD1289.c:614:34: error: request for member 'FSMC_CLKDivision' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_CLKDivision = 1;//1
+                                  ^
+../Core/Src/SSD1289.c:615:34: error: request for member 'FSMC_DataLatency' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataLatency = 0;
+                                  ^
+../Core/Src/SSD1289.c:616:34: error: request for member 'FSMC_AccessMode' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                  ^
+../Core/Src/SSD1289.c:616:53: error: 'FSMC_AccessMode_A' undeclared (first use in this function); did you mean 'FSMC_ACCESS_MODE_A'?
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                                     ^~~~~~~~~~~~~~~~~
+                                                     FSMC_ACCESS_MODE_A
+../Core/Src/SSD1289.c:618:28: error: request for member 'FSMC_Bank' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_Bank = FSMC_Bank1_NORSRAM1;
+                            ^
+../Core/Src/SSD1289.c:618:41: error: 'FSMC_Bank1_NORSRAM1' undeclared (first use in this function); did you mean 'FSMC_Bank1_R_BASE'?
+   FSMC_NORSRAMInitStructure.FSMC_Bank = FSMC_Bank1_NORSRAM1;
+                                         ^~~~~~~~~~~~~~~~~~~
+                                         FSMC_Bank1_R_BASE
+../Core/Src/SSD1289.c:619:28: error: request for member 'FSMC_DataAddressMux' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_DataAddressMux = FSMC_DataAddressMux_Disable;
+                            ^
+../Core/Src/SSD1289.c:619:51: error: 'FSMC_DataAddressMux_Disable' undeclared (first use in this function); did you mean 'FSMC_NAND_ECC_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_DataAddressMux = FSMC_DataAddressMux_Disable;
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                   FSMC_NAND_ECC_Disable
+../Core/Src/SSD1289.c:620:28: error: request for member 'FSMC_MemoryType' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_MemoryType = FSMC_MemoryType_SRAM;
+                            ^
+../Core/Src/SSD1289.c:620:47: error: 'FSMC_MemoryType_SRAM' undeclared (first use in this function); did you mean 'FSMC_MEMORY_TYPE_SRAM'?
+   FSMC_NORSRAMInitStructure.FSMC_MemoryType = FSMC_MemoryType_SRAM;
+                                               ^~~~~~~~~~~~~~~~~~~~
+                                               FSMC_MEMORY_TYPE_SRAM
+../Core/Src/SSD1289.c:621:28: error: request for member 'FSMC_MemoryDataWidth' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_16b;
+                            ^
+../Core/Src/SSD1289.c:621:52: error: 'FSMC_MemoryDataWidth_16b' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_16b;
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:622:28: error: request for member 'FSMC_BurstAccessMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:622:52: error: 'FSMC_BurstAccessMode_Disable' undeclared (first use in this function); did you mean 'FSMC_DataAddressMux_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                    FSMC_DataAddressMux_Disable
+../Core/Src/SSD1289.c:623:28: error: request for member 'FSMC_WaitSignalPolarity' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+                            ^
+../Core/Src/SSD1289.c:623:55: error: 'FSMC_WaitSignalPolarity_Low' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:624:28: error: request for member 'FSMC_WrapMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WrapMode = FSMC_WrapMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:624:45: error: 'FSMC_WrapMode_Disable' undeclared (first use in this function); did you mean 'FSMC_NAND_ECC_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_WrapMode = FSMC_WrapMode_Disable;
+                                             ^~~~~~~~~~~~~~~~~~~~~
+                                             FSMC_NAND_ECC_Disable
+../Core/Src/SSD1289.c:625:28: error: request for member 'FSMC_WaitSignalActive' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+                            ^
+../Core/Src/SSD1289.c:625:53: error: 'FSMC_WaitSignalActive_BeforeWaitState' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:626:28: error: request for member 'FSMC_WriteOperation' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+                            ^
+../Core/Src/SSD1289.c:626:51: error: 'FSMC_WriteOperation_Enable' undeclared (first use in this function); did you mean 'HAL_SRAM_WriteOperation_Enable'?
+   FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                   HAL_SRAM_WriteOperation_Enable
+../Core/Src/SSD1289.c:627:28: error: request for member 'FSMC_WaitSignal' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+                            ^
+../Core/Src/SSD1289.c:627:47: error: 'FSMC_WaitSignal_Disable' undeclared (first use in this function); did you mean 'FSMC_WrapMode_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+                                               ^~~~~~~~~~~~~~~~~~~~~~~
+                                               FSMC_WrapMode_Disable
+../Core/Src/SSD1289.c:628:28: error: request for member 'FSMC_AsynchronousWait' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_AsynchronousWait = FSMC_AsynchronousWait_Disable;
+                            ^
+../Core/Src/SSD1289.c:628:53: error: 'FSMC_AsynchronousWait_Disable' undeclared (first use in this function); did you mean 'FSMC_WaitSignal_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_AsynchronousWait = FSMC_AsynchronousWait_Disable;
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                     FSMC_WaitSignal_Disable
+../Core/Src/SSD1289.c:629:28: error: request for member 'FSMC_ExtendedMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:629:49: error: 'FSMC_ExtendedMode_Disable' undeclared (first use in this function); did you mean 'FSMC_WrapMode_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+                                                 FSMC_WrapMode_Disable
+../Core/Src/SSD1289.c:630:28: error: request for member 'FSMC_WriteBurst' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Enable;//disable
+                            ^
+../Core/Src/SSD1289.c:630:47: error: 'FSMC_WriteBurst_Enable' undeclared (first use in this function); did you mean 'FSMC_WriteOperation_Enable'?
+   FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Enable;//disable
+                                               ^~~~~~~~~~~~~~~~~~~~~~
+                                               FSMC_WriteOperation_Enable
+../Core/Src/SSD1289.c:631:28: error: request for member 'FSMC_ReadWriteTimingStruct' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_ReadWriteTimingStruct = &FSMC_NORSRAMTimingInitStructure;
+                            ^
+../Core/Src/SSD1289.c:633:3: warning: implicit declaration of function 'FSMC_NORSRAMInit'; did you mean 'FSMC_NORSRAM_Init'? [-Wimplicit-function-declaration]
+   FSMC_NORSRAMInit(&FSMC_NORSRAMInitStructure);
+   ^~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_Init
+../Core/Src/SSD1289.c:634:34: error: request for member 'FSMC_AddressSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressSetupTime = 0;    //0
+                                  ^
+../Core/Src/SSD1289.c:635:34: error: request for member 'FSMC_AddressHoldTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressHoldTime = 0; //0
+                                  ^
+../Core/Src/SSD1289.c:636:34: error: request for member 'FSMC_DataSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataSetupTime = 4; //3
+                                  ^
+../Core/Src/SSD1289.c:637:34: error: request for member 'FSMC_BusTurnAroundDuration' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_BusTurnAroundDuration = 0;
+                                  ^
+../Core/Src/SSD1289.c:638:34: error: request for member 'FSMC_CLKDivision' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_CLKDivision = 1;//1
+                                  ^
+../Core/Src/SSD1289.c:639:34: error: request for member 'FSMC_DataLatency' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataLatency = 0;
+                                  ^
+../Core/Src/SSD1289.c:640:34: error: request for member 'FSMC_AccessMode' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                  ^
+../Core/Src/SSD1289.c:641:28: error: request for member 'FSMC_WriteTimingStruct' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteTimingStruct = &FSMC_NORSRAMTimingInitStructure;
+                            ^
+../Core/Src/SSD1289.c:644:3: warning: implicit declaration of function 'FSMC_NORSRAMCmd'; did you mean 'FSMC_NORSRAM_Init'? [-Wimplicit-function-declaration]
+   FSMC_NORSRAMCmd(FSMC_Bank1_NORSRAM1, ENABLE);
+   ^~~~~~~~~~~~~~~
+   FSMC_NORSRAM_Init
+../Core/Src/SSD1289.c: In function 'LCD_BackLight':
+../Core/Src/SSD1289.c:821:24: error: request for member 'TIM_Period' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Period = TimerPeriod;
+                        ^
+../Core/Src/SSD1289.c:822:22: error: request for member 'TIM_Pulse' in something not a structure or union
+   TIM_OCInitStructure.TIM_Pulse = Channel3Pulse;
+                      ^
+../Core/Src/SSD1289.c:823:3: warning: implicit declaration of function 'TIM_OC3Init'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   TIM_OC3Init(TIM1, &TIM_OCInitStructure);
+   ^~~~~~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c: In function 'TIM_Config':
+../Core/Src/SSD1289.c:829:27: error: 'RCC_AHB1Periph_GPIOA' undeclared (first use in this function); did you mean 'RCC_AHB1ENR_GPIOAEN'?
+   RCC_AHB1PeriphClockCmd( RCC_AHB1Periph_GPIOA  , ENABLE);
+                           ^~~~~~~~~~~~~~~~~~~~
+                           RCC_AHB1ENR_GPIOAEN
+../Core/Src/SSD1289.c:830:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+                     ^
+../Core/Src/SSD1289.c:830:33: error: 'GPIO_Pin_10' undeclared (first use in this function); did you mean 'GPIO_PIN_10'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+                                 ^~~~~~~~~~~
+                                 GPIO_PIN_10
+../Core/Src/SSD1289.c:831:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:831:34: error: 'GPIO_Mode_AF' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                                  ^~~~~~~~~~~~
+                                  GPIO_Pin_10
+../Core/Src/SSD1289.c:832:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:832:35: error: 'GPIO_Speed_100MHz' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                                   ^~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:833:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:833:35: error: 'GPIO_OType_PP' undeclared (first use in this function); did you mean 'GPIO_TypeDef'?
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                                   ^~~~~~~~~~~~~
+                                   GPIO_TypeDef
+../Core/Src/SSD1289.c:834:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+                     ^
+../Core/Src/SSD1289.c:834:34: error: 'GPIO_PuPd_UP' undeclared (first use in this function); did you mean 'GPIO_PULLUP'?
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+                                  ^~~~~~~~~~~~
+                                  GPIO_PULLUP
+../Core/Src/SSD1289.c:836:27: error: 'GPIO_PinSource10' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+   GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_TIM1);
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_Pin_10
+../Core/Src/SSD1289.c:836:45: error: 'GPIO_AF_TIM1' undeclared (first use in this function); did you mean 'GPIO_AF1_TIM1'?
+   GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_TIM1);
+                                             ^~~~~~~~~~~~
+                                             GPIO_AF1_TIM1
+../Core/Src/SSD1289.c:839:3: warning: implicit declaration of function 'RCC_APB2PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1 , ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:839:26: error: 'RCC_APB2Periph_TIM1' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOA'?
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1 , ENABLE);
+                          ^~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1Periph_GPIOA
+../Core/Src/SSD1289.c:840:24: error: request for member 'TIM_Prescaler' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Prescaler = 0;
+                        ^
+../Core/Src/SSD1289.c:841:24: error: request for member 'TIM_CounterMode' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+                        ^
+../Core/Src/SSD1289.c:841:43: error: 'TIM_CounterMode_Up' undeclared (first use in this function)
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+                                           ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:842:24: error: request for member 'TIM_Period' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Period = TimerPeriod;
+                        ^
+../Core/Src/SSD1289.c:843:24: error: request for member 'TIM_ClockDivision' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+                        ^
+../Core/Src/SSD1289.c:844:24: error: request for member 'TIM_RepetitionCounter' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
+                        ^
+../Core/Src/SSD1289.c:845:3: warning: implicit declaration of function 'TIM_TimeBaseInit'; did you mean 'TIM_DMABase_OR2'? [-Wimplicit-function-declaration]
+   TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
+   ^~~~~~~~~~~~~~~~
+   TIM_DMABase_OR2
+../Core/Src/SSD1289.c:846:22: error: request for member 'TIM_OCMode' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
+                      ^
+../Core/Src/SSD1289.c:846:36: error: 'TIM_OCMode_PWM2' undeclared (first use in this function); did you mean 'TIM_CCMR2_OC3M_2'?
+   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
+                                    ^~~~~~~~~~~~~~~
+                                    TIM_CCMR2_OC3M_2
+../Core/Src/SSD1289.c:847:22: error: request for member 'TIM_OutputState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+                      ^
+../Core/Src/SSD1289.c:847:41: error: 'TIM_OutputState_Enable' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+                                         ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:848:22: error: request for member 'TIM_OutputNState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
+                      ^
+../Core/Src/SSD1289.c:848:42: error: 'TIM_OutputNState_Enable' undeclared (first use in this function); did you mean 'TIM_OutputState_Enable'?
+   TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
+                                          ^~~~~~~~~~~~~~~~~~~~~~~
+                                          TIM_OutputState_Enable
+../Core/Src/SSD1289.c:849:22: error: request for member 'TIM_OCPolarity' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+                      ^
+../Core/Src/SSD1289.c:849:40: error: 'TIM_OCPolarity_Low' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+                                        ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:850:22: error: request for member 'TIM_OCNPolarity' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+                      ^
+../Core/Src/SSD1289.c:850:41: error: 'TIM_OCNPolarity_High' undeclared (first use in this function); did you mean 'TIM_OCPolarity_Low'?
+   TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+                                         ^~~~~~~~~~~~~~~~~~~~
+                                         TIM_OCPolarity_Low
+../Core/Src/SSD1289.c:851:22: error: request for member 'TIM_OCIdleState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
+                      ^
+../Core/Src/SSD1289.c:851:41: error: 'TIM_OCIdleState_Set' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
+                                         ^~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:852:22: error: request for member 'TIM_OCNIdleState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCIdleState_Reset;
+                      ^
+../Core/Src/SSD1289.c:852:42: error: 'TIM_OCIdleState_Reset' undeclared (first use in this function); did you mean 'TIM_OCIdleState_Set'?
+   TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCIdleState_Reset;
+                                          ^~~~~~~~~~~~~~~~~~~~~
+                                          TIM_OCIdleState_Set
+../Core/Src/SSD1289.c:853:22: error: request for member 'TIM_Pulse' in something not a structure or union
+   TIM_OCInitStructure.TIM_Pulse = Channel3Pulse;
+                      ^
+../Core/Src/SSD1289.c:855:3: warning: implicit declaration of function 'TIM_Cmd'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   TIM_Cmd(TIM1, ENABLE);
+   ^~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c:856:3: warning: implicit declaration of function 'TIM_CtrlPWMOutputs' [-Wimplicit-function-declaration]
+   TIM_CtrlPWMOutputs(TIM1, ENABLE);
+   ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c: In function 'LCD_WriteBMP':
+../Core/Src/SSD1289.c:887:12: warning: unused variable 'i' [-Wunused-variable]
+   uint16_t i;
+            ^
+make: *** [Core/Src/subdir.mk:44: Core/Src/SSD1289.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+00:27:48 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/SSD1289.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/SSD1289.d" -MT"Core/Src/SSD1289.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/SSD1289.o"
+../Core/Src/SSD1289.c:20:1: error: unknown type name 'TIM_TimeBaseInitTypeDef'; did you mean 'FLASH_EraseInitTypeDef'?
+ TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+ ^~~~~~~~~~~~~~~~~~~~~~~
+ FLASH_EraseInitTypeDef
+../Core/Src/SSD1289.c:21:1: error: unknown type name 'TIM_OCInitTypeDef'; did you mean 'DMA_InitTypeDef'?
+ TIM_OCInitTypeDef  TIM_OCInitStructure;
+ ^~~~~~~~~~~~~~~~~
+ DMA_InitTypeDef
+../Core/Src/SSD1289.c: In function 'LCD_CtrlLinesConfig':
+../Core/Src/SSD1289.c:555:3: warning: implicit declaration of function 'RCC_AHB1PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:555:26: error: 'RCC_AHB1Periph_GPIOD' undeclared (first use in this function); did you mean 'RCC_AHB1ENR_GPIODEN'?
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+                          ^~~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1ENR_GPIODEN
+../Core/Src/SSD1289.c:555:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/SSD1289.c:555:49: error: 'RCC_AHB1Periph_GPIOG' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOD'?
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+                                                 ^~~~~~~~~~~~~~~~~~~~
+                                                 RCC_AHB1Periph_GPIOD
+../Core/Src/SSD1289.c:556:10: error: 'RCC_AHB1Periph_GPIOE' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOG'?
+          RCC_AHB1Periph_GPIOE | RCC_AHB1Periph_GPIOF,
+          ^~~~~~~~~~~~~~~~~~~~
+          RCC_AHB1Periph_GPIOG
+../Core/Src/SSD1289.c:556:33: error: 'RCC_AHB1Periph_GPIOF' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOE'?
+          RCC_AHB1Periph_GPIOE | RCC_AHB1Periph_GPIOF,
+                                 ^~~~~~~~~~~~~~~~~~~~
+                                 RCC_AHB1Periph_GPIOE
+../Core/Src/SSD1289.c:558:3: warning: implicit declaration of function 'RCC_AHB3PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:558:26: error: 'RCC_AHB3Periph_FSMC' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOF'?
+   RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
+                          ^~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1Periph_GPIOF
+../Core/Src/SSD1289.c:560:3: warning: implicit declaration of function 'GPIO_PinAFConfig'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+   ^~~~~~~~~~~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c:560:27: error: 'GPIO_PinSource0' undeclared (first use in this function); did you mean 'GPIO_PinState'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinState
+../Core/Src/SSD1289.c:560:44: error: 'GPIO_AF_FSMC' undeclared (first use in this function); did you mean 'GPIO_AF12_FSMC'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+                                            ^~~~~~~~~~~~
+                                            GPIO_AF12_FSMC
+../Core/Src/SSD1289.c:561:27: error: 'GPIO_PinSource1' undeclared (first use in this function); did you mean 'GPIO_PinSource0'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource1, GPIO_AF_FSMC);  // D3
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource0
+../Core/Src/SSD1289.c:562:27: error: 'GPIO_PinSource4' undeclared (first use in this function); did you mean 'GPIO_PinSource1'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource4, GPIO_AF_FSMC);  // NOE -> RD
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource1
+../Core/Src/SSD1289.c:563:27: error: 'GPIO_PinSource5' undeclared (first use in this function); did you mean 'GPIO_PinSource4'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_FSMC);  // NWE -> WR
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource4
+../Core/Src/SSD1289.c:564:27: error: 'GPIO_PinSource7' undeclared (first use in this function); did you mean 'GPIO_PinSource5'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource7, GPIO_AF_FSMC);  // NE1 -> CS
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource5
+../Core/Src/SSD1289.c:565:27: error: 'GPIO_PinSource8' undeclared (first use in this function); did you mean 'GPIO_PinSource7'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource8, GPIO_AF_FSMC);  // D13
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource7
+../Core/Src/SSD1289.c:566:27: error: 'GPIO_PinSource9' undeclared (first use in this function); did you mean 'GPIO_PinSource8'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_FSMC);  // D14
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource8
+../Core/Src/SSD1289.c:567:27: error: 'GPIO_PinSource10' undeclared (first use in this function); did you mean 'GPIO_PinSource1'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource10, GPIO_AF_FSMC);  // D15
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource1
+../Core/Src/SSD1289.c:568:27: error: 'GPIO_PinSource11' undeclared (first use in this function); did you mean 'GPIO_PinSource10'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource11, GPIO_AF_FSMC);  // A16 -> RS
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource10
+../Core/Src/SSD1289.c:569:27: error: 'GPIO_PinSource14' undeclared (first use in this function); did you mean 'GPIO_PinSource11'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource14, GPIO_AF_FSMC);  // D0
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource11
+../Core/Src/SSD1289.c:570:27: error: 'GPIO_PinSource15' undeclared (first use in this function); did you mean 'GPIO_PinSource14'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource15, GPIO_AF_FSMC);  // D1
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource14
+../Core/Src/SSD1289.c:577:27: error: 'GPIO_PinSource12' undeclared (first use in this function); did you mean 'GPIO_PinSource15'?
+   GPIO_PinAFConfig(GPIOE, GPIO_PinSource12, GPIO_AF_FSMC);  // D9
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource15
+../Core/Src/SSD1289.c:578:27: error: 'GPIO_PinSource13' undeclared (first use in this function); did you mean 'GPIO_PinSource12'?
+   GPIO_PinAFConfig(GPIOE, GPIO_PinSource13, GPIO_AF_FSMC);  // D10
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource12
+../Core/Src/SSD1289.c:582:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                     ^
+../Core/Src/SSD1289.c:582:33: error: 'GPIO_Pin_0' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                 ^~~~~~~~~~
+                                 GPIO_PIN_0
+../Core/Src/SSD1289.c:582:46: error: 'GPIO_Pin_1' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                              ^~~~~~~~~~
+                                              GPIO_Pin_0
+../Core/Src/SSD1289.c:582:59: error: 'GPIO_Pin_4' undeclared (first use in this function); did you mean 'GPIO_Pin_1'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                                           ^~~~~~~~~~
+                                                           GPIO_Pin_1
+../Core/Src/SSD1289.c:582:72: error: 'GPIO_Pin_5' undeclared (first use in this function); did you mean 'GPIO_Pin_4'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                                                        ^~~~~~~~~~
+                                                                        GPIO_Pin_4
+../Core/Src/SSD1289.c:583:35: error: 'GPIO_Pin_7' undeclared (first use in this function); did you mean 'GPIO_Pin_5'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                   ^~~~~~~~~~
+                                   GPIO_Pin_5
+../Core/Src/SSD1289.c:583:48: error: 'GPIO_Pin_8' undeclared (first use in this function); did you mean 'GPIO_Pin_7'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                ^~~~~~~~~~
+                                                GPIO_Pin_7
+../Core/Src/SSD1289.c:583:61: error: 'GPIO_Pin_9' undeclared (first use in this function); did you mean 'GPIO_Pin_8'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                             ^~~~~~~~~~
+                                                             GPIO_Pin_8
+../Core/Src/SSD1289.c:583:74: error: 'GPIO_Pin_10' undeclared (first use in this function); did you mean 'GPIO_Pin_1'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                                          ^~~~~~~~~~~
+                                                                          GPIO_Pin_1
+../Core/Src/SSD1289.c:584:35: error: 'GPIO_Pin_11' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                   ^~~~~~~~~~~
+                                   GPIO_Pin_10
+../Core/Src/SSD1289.c:584:49: error: 'GPIO_Pin_14' undeclared (first use in this function); did you mean 'GPIO_Pin_11'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                                 ^~~~~~~~~~~
+                                                 GPIO_Pin_11
+../Core/Src/SSD1289.c:584:63: error: 'GPIO_Pin_15' undeclared (first use in this function); did you mean 'GPIO_Pin_14'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                                               ^~~~~~~~~~~
+                                                               GPIO_Pin_14
+../Core/Src/SSD1289.c:586:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:586:34: error: 'GPIO_Mode_AF' undeclared (first use in this function); did you mean 'GPIO_Pin_15'?
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                                  ^~~~~~~~~~~~
+                                  GPIO_Pin_15
+../Core/Src/SSD1289.c:587:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:587:35: error: 'GPIO_Speed_100MHz' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                                   ^~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:588:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:588:35: error: 'GPIO_OType_PP' undeclared (first use in this function); did you mean 'GPIO_TypeDef'?
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                                   ^~~~~~~~~~~~~
+                                   GPIO_TypeDef
+../Core/Src/SSD1289.c:589:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                     ^
+../Core/Src/SSD1289.c:589:35: error: 'GPIO_PuPd_NOPULL' undeclared (first use in this function); did you mean 'GPIO_NOPULL'?
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                                   ^~~~~~~~~~~~~~~~
+                                   GPIO_NOPULL
+../Core/Src/SSD1289.c:590:3: warning: implicit declaration of function 'GPIO_Init'; did you mean 'LCD_Init'? [-Wimplicit-function-declaration]
+   GPIO_Init(GPIOD, &GPIO_InitStructure);
+   ^~~~~~~~~
+   LCD_Init
+../Core/Src/SSD1289.c:592:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                     ^
+../Core/Src/SSD1289.c:593:49: error: 'GPIO_Pin_12' undeclared (first use in this function); did you mean 'GPIO_Pin_15'?
+                                   GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 |
+                                                 ^~~~~~~~~~~
+                                                 GPIO_Pin_15
+../Core/Src/SSD1289.c:593:63: error: 'GPIO_Pin_13' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+                                   GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 |
+                                                               ^~~~~~~~~~~
+                                                               GPIO_Pin_12
+../Core/Src/SSD1289.c:596:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:597:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:598:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:599:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                     ^
+../Core/Src/SSD1289.c: In function 'LCD_FSMCConfig':
+../Core/Src/SSD1289.c:608:3: error: unknown type name 'FSMC_NORSRAMInitTypeDef'; did you mean 'FSMC_NORSRAM_InitTypeDef'?
+   FSMC_NORSRAMInitTypeDef  FSMC_NORSRAMInitStructure;
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_InitTypeDef
+../Core/Src/SSD1289.c:609:3: error: unknown type name 'FSMC_NORSRAMTimingInitTypeDef'; did you mean 'FSMC_NORSRAM_TimingTypeDef'?
+   FSMC_NORSRAMTimingInitTypeDef FSMC_NORSRAMTimingInitStructure;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_TimingTypeDef
+../Core/Src/SSD1289.c:610:34: error: request for member 'FSMC_AddressSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressSetupTime = 0;  //0
+                                  ^
+../Core/Src/SSD1289.c:611:34: error: request for member 'FSMC_AddressHoldTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressHoldTime = 0;   //0
+                                  ^
+../Core/Src/SSD1289.c:612:34: error: request for member 'FSMC_DataSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataSetupTime = 2;     //3
+                                  ^
+../Core/Src/SSD1289.c:613:34: error: request for member 'FSMC_BusTurnAroundDuration' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_BusTurnAroundDuration = 0;
+                                  ^
+../Core/Src/SSD1289.c:614:34: error: request for member 'FSMC_CLKDivision' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_CLKDivision = 1;//1
+                                  ^
+../Core/Src/SSD1289.c:615:34: error: request for member 'FSMC_DataLatency' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataLatency = 0;
+                                  ^
+../Core/Src/SSD1289.c:616:34: error: request for member 'FSMC_AccessMode' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                  ^
+../Core/Src/SSD1289.c:616:53: error: 'FSMC_AccessMode_A' undeclared (first use in this function); did you mean 'FSMC_ACCESS_MODE_A'?
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                                     ^~~~~~~~~~~~~~~~~
+                                                     FSMC_ACCESS_MODE_A
+../Core/Src/SSD1289.c:618:28: error: request for member 'FSMC_Bank' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_Bank = FSMC_Bank1_NORSRAM1;
+                            ^
+../Core/Src/SSD1289.c:618:41: error: 'FSMC_Bank1_NORSRAM1' undeclared (first use in this function); did you mean 'FSMC_Bank1_R_BASE'?
+   FSMC_NORSRAMInitStructure.FSMC_Bank = FSMC_Bank1_NORSRAM1;
+                                         ^~~~~~~~~~~~~~~~~~~
+                                         FSMC_Bank1_R_BASE
+../Core/Src/SSD1289.c:619:28: error: request for member 'FSMC_DataAddressMux' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_DataAddressMux = FSMC_DataAddressMux_Disable;
+                            ^
+../Core/Src/SSD1289.c:619:51: error: 'FSMC_DataAddressMux_Disable' undeclared (first use in this function); did you mean 'FSMC_NAND_ECC_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_DataAddressMux = FSMC_DataAddressMux_Disable;
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                   FSMC_NAND_ECC_Disable
+../Core/Src/SSD1289.c:620:28: error: request for member 'FSMC_MemoryType' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_MemoryType = FSMC_MemoryType_SRAM;
+                            ^
+../Core/Src/SSD1289.c:620:47: error: 'FSMC_MemoryType_SRAM' undeclared (first use in this function); did you mean 'FSMC_MEMORY_TYPE_SRAM'?
+   FSMC_NORSRAMInitStructure.FSMC_MemoryType = FSMC_MemoryType_SRAM;
+                                               ^~~~~~~~~~~~~~~~~~~~
+                                               FSMC_MEMORY_TYPE_SRAM
+../Core/Src/SSD1289.c:621:28: error: request for member 'FSMC_MemoryDataWidth' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_16b;
+                            ^
+../Core/Src/SSD1289.c:621:52: error: 'FSMC_MemoryDataWidth_16b' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_16b;
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:622:28: error: request for member 'FSMC_BurstAccessMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:622:52: error: 'FSMC_BurstAccessMode_Disable' undeclared (first use in this function); did you mean 'FSMC_DataAddressMux_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                    FSMC_DataAddressMux_Disable
+../Core/Src/SSD1289.c:623:28: error: request for member 'FSMC_WaitSignalPolarity' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+                            ^
+../Core/Src/SSD1289.c:623:55: error: 'FSMC_WaitSignalPolarity_Low' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:624:28: error: request for member 'FSMC_WrapMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WrapMode = FSMC_WrapMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:624:45: error: 'FSMC_WrapMode_Disable' undeclared (first use in this function); did you mean 'FSMC_NAND_ECC_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_WrapMode = FSMC_WrapMode_Disable;
+                                             ^~~~~~~~~~~~~~~~~~~~~
+                                             FSMC_NAND_ECC_Disable
+../Core/Src/SSD1289.c:625:28: error: request for member 'FSMC_WaitSignalActive' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+                            ^
+../Core/Src/SSD1289.c:625:53: error: 'FSMC_WaitSignalActive_BeforeWaitState' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:626:28: error: request for member 'FSMC_WriteOperation' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+                            ^
+../Core/Src/SSD1289.c:626:51: error: 'FSMC_WriteOperation_Enable' undeclared (first use in this function); did you mean 'HAL_SRAM_WriteOperation_Enable'?
+   FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                   HAL_SRAM_WriteOperation_Enable
+../Core/Src/SSD1289.c:627:28: error: request for member 'FSMC_WaitSignal' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+                            ^
+../Core/Src/SSD1289.c:627:47: error: 'FSMC_WaitSignal_Disable' undeclared (first use in this function); did you mean 'FSMC_WrapMode_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+                                               ^~~~~~~~~~~~~~~~~~~~~~~
+                                               FSMC_WrapMode_Disable
+../Core/Src/SSD1289.c:628:28: error: request for member 'FSMC_AsynchronousWait' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_AsynchronousWait = FSMC_AsynchronousWait_Disable;
+                            ^
+../Core/Src/SSD1289.c:628:53: error: 'FSMC_AsynchronousWait_Disable' undeclared (first use in this function); did you mean 'FSMC_WaitSignal_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_AsynchronousWait = FSMC_AsynchronousWait_Disable;
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                     FSMC_WaitSignal_Disable
+../Core/Src/SSD1289.c:629:28: error: request for member 'FSMC_ExtendedMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:629:49: error: 'FSMC_ExtendedMode_Disable' undeclared (first use in this function); did you mean 'FSMC_WrapMode_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+                                                 FSMC_WrapMode_Disable
+../Core/Src/SSD1289.c:630:28: error: request for member 'FSMC_WriteBurst' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Enable;//disable
+                            ^
+../Core/Src/SSD1289.c:630:47: error: 'FSMC_WriteBurst_Enable' undeclared (first use in this function); did you mean 'FSMC_WriteOperation_Enable'?
+   FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Enable;//disable
+                                               ^~~~~~~~~~~~~~~~~~~~~~
+                                               FSMC_WriteOperation_Enable
+../Core/Src/SSD1289.c:631:28: error: request for member 'FSMC_ReadWriteTimingStruct' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_ReadWriteTimingStruct = &FSMC_NORSRAMTimingInitStructure;
+                            ^
+../Core/Src/SSD1289.c:633:3: warning: implicit declaration of function 'FSMC_NORSRAMInit'; did you mean 'FSMC_NORSRAM_Init'? [-Wimplicit-function-declaration]
+   FSMC_NORSRAMInit(&FSMC_NORSRAMInitStructure);
+   ^~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_Init
+../Core/Src/SSD1289.c:634:34: error: request for member 'FSMC_AddressSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressSetupTime = 0;    //0
+                                  ^
+../Core/Src/SSD1289.c:635:34: error: request for member 'FSMC_AddressHoldTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressHoldTime = 0; //0
+                                  ^
+../Core/Src/SSD1289.c:636:34: error: request for member 'FSMC_DataSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataSetupTime = 4; //3
+                                  ^
+../Core/Src/SSD1289.c:637:34: error: request for member 'FSMC_BusTurnAroundDuration' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_BusTurnAroundDuration = 0;
+                                  ^
+../Core/Src/SSD1289.c:638:34: error: request for member 'FSMC_CLKDivision' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_CLKDivision = 1;//1
+                                  ^
+../Core/Src/SSD1289.c:639:34: error: request for member 'FSMC_DataLatency' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataLatency = 0;
+                                  ^
+../Core/Src/SSD1289.c:640:34: error: request for member 'FSMC_AccessMode' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                  ^
+../Core/Src/SSD1289.c:641:28: error: request for member 'FSMC_WriteTimingStruct' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteTimingStruct = &FSMC_NORSRAMTimingInitStructure;
+                            ^
+../Core/Src/SSD1289.c:644:3: warning: implicit declaration of function 'FSMC_NORSRAMCmd'; did you mean 'FSMC_NORSRAM_Init'? [-Wimplicit-function-declaration]
+   FSMC_NORSRAMCmd(FSMC_Bank1_NORSRAM1, ENABLE);
+   ^~~~~~~~~~~~~~~
+   FSMC_NORSRAM_Init
+../Core/Src/SSD1289.c: In function 'LCD_BackLight':
+../Core/Src/SSD1289.c:821:24: error: request for member 'TIM_Period' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Period = TimerPeriod;
+                        ^
+../Core/Src/SSD1289.c:822:22: error: request for member 'TIM_Pulse' in something not a structure or union
+   TIM_OCInitStructure.TIM_Pulse = Channel3Pulse;
+                      ^
+../Core/Src/SSD1289.c:823:3: warning: implicit declaration of function 'TIM_OC3Init'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   TIM_OC3Init(TIM1, &TIM_OCInitStructure);
+   ^~~~~~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c: In function 'TIM_Config':
+../Core/Src/SSD1289.c:829:27: error: 'RCC_AHB1Periph_GPIOA' undeclared (first use in this function); did you mean 'RCC_AHB1ENR_GPIOAEN'?
+   RCC_AHB1PeriphClockCmd( RCC_AHB1Periph_GPIOA  , ENABLE);
+                           ^~~~~~~~~~~~~~~~~~~~
+                           RCC_AHB1ENR_GPIOAEN
+../Core/Src/SSD1289.c:830:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+                     ^
+../Core/Src/SSD1289.c:830:33: error: 'GPIO_Pin_10' undeclared (first use in this function); did you mean 'GPIO_PIN_10'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+                                 ^~~~~~~~~~~
+                                 GPIO_PIN_10
+../Core/Src/SSD1289.c:831:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:831:34: error: 'GPIO_Mode_AF' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                                  ^~~~~~~~~~~~
+                                  GPIO_Pin_10
+../Core/Src/SSD1289.c:832:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:832:35: error: 'GPIO_Speed_100MHz' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                                   ^~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:833:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:833:35: error: 'GPIO_OType_PP' undeclared (first use in this function); did you mean 'GPIO_TypeDef'?
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                                   ^~~~~~~~~~~~~
+                                   GPIO_TypeDef
+../Core/Src/SSD1289.c:834:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+                     ^
+../Core/Src/SSD1289.c:834:34: error: 'GPIO_PuPd_UP' undeclared (first use in this function); did you mean 'GPIO_PULLUP'?
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+                                  ^~~~~~~~~~~~
+                                  GPIO_PULLUP
+../Core/Src/SSD1289.c:836:27: error: 'GPIO_PinSource10' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+   GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_TIM1);
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_Pin_10
+../Core/Src/SSD1289.c:836:45: error: 'GPIO_AF_TIM1' undeclared (first use in this function); did you mean 'GPIO_AF1_TIM1'?
+   GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_TIM1);
+                                             ^~~~~~~~~~~~
+                                             GPIO_AF1_TIM1
+../Core/Src/SSD1289.c:839:3: warning: implicit declaration of function 'RCC_APB2PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1 , ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:839:26: error: 'RCC_APB2Periph_TIM1' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOA'?
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1 , ENABLE);
+                          ^~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1Periph_GPIOA
+../Core/Src/SSD1289.c:840:24: error: request for member 'TIM_Prescaler' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Prescaler = 0;
+                        ^
+../Core/Src/SSD1289.c:841:24: error: request for member 'TIM_CounterMode' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+                        ^
+../Core/Src/SSD1289.c:841:43: error: 'TIM_CounterMode_Up' undeclared (first use in this function)
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+                                           ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:842:24: error: request for member 'TIM_Period' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Period = TimerPeriod;
+                        ^
+../Core/Src/SSD1289.c:843:24: error: request for member 'TIM_ClockDivision' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+                        ^
+../Core/Src/SSD1289.c:844:24: error: request for member 'TIM_RepetitionCounter' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
+                        ^
+../Core/Src/SSD1289.c:845:3: warning: implicit declaration of function 'TIM_TimeBaseInit'; did you mean 'TIM_DMABase_OR2'? [-Wimplicit-function-declaration]
+   TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
+   ^~~~~~~~~~~~~~~~
+   TIM_DMABase_OR2
+../Core/Src/SSD1289.c:846:22: error: request for member 'TIM_OCMode' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
+                      ^
+../Core/Src/SSD1289.c:846:36: error: 'TIM_OCMode_PWM2' undeclared (first use in this function); did you mean 'TIM_CCMR2_OC3M_2'?
+   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
+                                    ^~~~~~~~~~~~~~~
+                                    TIM_CCMR2_OC3M_2
+../Core/Src/SSD1289.c:847:22: error: request for member 'TIM_OutputState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+                      ^
+../Core/Src/SSD1289.c:847:41: error: 'TIM_OutputState_Enable' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+                                         ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:848:22: error: request for member 'TIM_OutputNState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
+                      ^
+../Core/Src/SSD1289.c:848:42: error: 'TIM_OutputNState_Enable' undeclared (first use in this function); did you mean 'TIM_OutputState_Enable'?
+   TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
+                                          ^~~~~~~~~~~~~~~~~~~~~~~
+                                          TIM_OutputState_Enable
+../Core/Src/SSD1289.c:849:22: error: request for member 'TIM_OCPolarity' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+                      ^
+../Core/Src/SSD1289.c:849:40: error: 'TIM_OCPolarity_Low' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+                                        ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:850:22: error: request for member 'TIM_OCNPolarity' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+                      ^
+../Core/Src/SSD1289.c:850:41: error: 'TIM_OCNPolarity_High' undeclared (first use in this function); did you mean 'TIM_OCPolarity_Low'?
+   TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+                                         ^~~~~~~~~~~~~~~~~~~~
+                                         TIM_OCPolarity_Low
+../Core/Src/SSD1289.c:851:22: error: request for member 'TIM_OCIdleState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
+                      ^
+../Core/Src/SSD1289.c:851:41: error: 'TIM_OCIdleState_Set' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
+                                         ^~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:852:22: error: request for member 'TIM_OCNIdleState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCIdleState_Reset;
+                      ^
+../Core/Src/SSD1289.c:852:42: error: 'TIM_OCIdleState_Reset' undeclared (first use in this function); did you mean 'TIM_OCIdleState_Set'?
+   TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCIdleState_Reset;
+                                          ^~~~~~~~~~~~~~~~~~~~~
+                                          TIM_OCIdleState_Set
+../Core/Src/SSD1289.c:853:22: error: request for member 'TIM_Pulse' in something not a structure or union
+   TIM_OCInitStructure.TIM_Pulse = Channel3Pulse;
+                      ^
+../Core/Src/SSD1289.c:855:3: warning: implicit declaration of function 'TIM_Cmd'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   TIM_Cmd(TIM1, ENABLE);
+   ^~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c:856:3: warning: implicit declaration of function 'TIM_CtrlPWMOutputs' [-Wimplicit-function-declaration]
+   TIM_CtrlPWMOutputs(TIM1, ENABLE);
+   ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c: In function 'LCD_WriteBMP':
+../Core/Src/SSD1289.c:887:12: warning: unused variable 'i' [-Wunused-variable]
+   uint16_t i;
+            ^
+make: *** [Core/Src/subdir.mk:44: Core/Src/SSD1289.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+00:35:29 **** Incremental Build of configuration Debug for project PROJEKT ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/SSD1289.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/SSD1289.d" -MT"Core/Src/SSD1289.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/SSD1289.o"
+../Core/Src/SSD1289.c:20:1: error: unknown type name 'TIM_TimeBaseInitTypeDef'; did you mean 'FLASH_EraseInitTypeDef'?
+ TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+ ^~~~~~~~~~~~~~~~~~~~~~~
+ FLASH_EraseInitTypeDef
+../Core/Src/SSD1289.c:21:1: error: unknown type name 'TIM_OCInitTypeDef'; did you mean 'DMA_InitTypeDef'?
+ TIM_OCInitTypeDef  TIM_OCInitStructure;
+ ^~~~~~~~~~~~~~~~~
+ DMA_InitTypeDef
+../Core/Src/SSD1289.c: In function 'LCD_CtrlLinesConfig':
+../Core/Src/SSD1289.c:555:3: warning: implicit declaration of function 'RCC_AHB1PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:555:26: error: 'RCC_AHB1Periph_GPIOD' undeclared (first use in this function); did you mean 'RCC_AHB1ENR_GPIODEN'?
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+                          ^~~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1ENR_GPIODEN
+../Core/Src/SSD1289.c:555:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/SSD1289.c:555:49: error: 'RCC_AHB1Periph_GPIOG' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOD'?
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOG |
+                                                 ^~~~~~~~~~~~~~~~~~~~
+                                                 RCC_AHB1Periph_GPIOD
+../Core/Src/SSD1289.c:556:10: error: 'RCC_AHB1Periph_GPIOE' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOG'?
+          RCC_AHB1Periph_GPIOE | RCC_AHB1Periph_GPIOF,
+          ^~~~~~~~~~~~~~~~~~~~
+          RCC_AHB1Periph_GPIOG
+../Core/Src/SSD1289.c:556:33: error: 'RCC_AHB1Periph_GPIOF' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOE'?
+          RCC_AHB1Periph_GPIOE | RCC_AHB1Periph_GPIOF,
+                                 ^~~~~~~~~~~~~~~~~~~~
+                                 RCC_AHB1Periph_GPIOE
+../Core/Src/SSD1289.c:558:3: warning: implicit declaration of function 'RCC_AHB3PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:558:26: error: 'RCC_AHB3Periph_FSMC' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOF'?
+   RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
+                          ^~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1Periph_GPIOF
+../Core/Src/SSD1289.c:560:3: warning: implicit declaration of function 'GPIO_PinAFConfig'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+   ^~~~~~~~~~~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c:560:27: error: 'GPIO_PinSource0' undeclared (first use in this function); did you mean 'GPIO_PinState'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinState
+../Core/Src/SSD1289.c:560:44: error: 'GPIO_AF_FSMC' undeclared (first use in this function); did you mean 'GPIO_AF12_FSMC'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FSMC);  // D2
+                                            ^~~~~~~~~~~~
+                                            GPIO_AF12_FSMC
+../Core/Src/SSD1289.c:561:27: error: 'GPIO_PinSource1' undeclared (first use in this function); did you mean 'GPIO_PinSource0'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource1, GPIO_AF_FSMC);  // D3
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource0
+../Core/Src/SSD1289.c:562:27: error: 'GPIO_PinSource4' undeclared (first use in this function); did you mean 'GPIO_PinSource1'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource4, GPIO_AF_FSMC);  // NOE -> RD
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource1
+../Core/Src/SSD1289.c:563:27: error: 'GPIO_PinSource5' undeclared (first use in this function); did you mean 'GPIO_PinSource4'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_FSMC);  // NWE -> WR
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource4
+../Core/Src/SSD1289.c:564:27: error: 'GPIO_PinSource7' undeclared (first use in this function); did you mean 'GPIO_PinSource5'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource7, GPIO_AF_FSMC);  // NE1 -> CS
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource5
+../Core/Src/SSD1289.c:565:27: error: 'GPIO_PinSource8' undeclared (first use in this function); did you mean 'GPIO_PinSource7'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource8, GPIO_AF_FSMC);  // D13
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource7
+../Core/Src/SSD1289.c:566:27: error: 'GPIO_PinSource9' undeclared (first use in this function); did you mean 'GPIO_PinSource8'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_FSMC);  // D14
+                           ^~~~~~~~~~~~~~~
+                           GPIO_PinSource8
+../Core/Src/SSD1289.c:567:27: error: 'GPIO_PinSource10' undeclared (first use in this function); did you mean 'GPIO_PinSource1'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource10, GPIO_AF_FSMC);  // D15
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource1
+../Core/Src/SSD1289.c:568:27: error: 'GPIO_PinSource11' undeclared (first use in this function); did you mean 'GPIO_PinSource10'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource11, GPIO_AF_FSMC);  // A16 -> RS
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource10
+../Core/Src/SSD1289.c:569:27: error: 'GPIO_PinSource14' undeclared (first use in this function); did you mean 'GPIO_PinSource11'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource14, GPIO_AF_FSMC);  // D0
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource11
+../Core/Src/SSD1289.c:570:27: error: 'GPIO_PinSource15' undeclared (first use in this function); did you mean 'GPIO_PinSource14'?
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource15, GPIO_AF_FSMC);  // D1
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource14
+../Core/Src/SSD1289.c:577:27: error: 'GPIO_PinSource12' undeclared (first use in this function); did you mean 'GPIO_PinSource15'?
+   GPIO_PinAFConfig(GPIOE, GPIO_PinSource12, GPIO_AF_FSMC);  // D9
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource15
+../Core/Src/SSD1289.c:578:27: error: 'GPIO_PinSource13' undeclared (first use in this function); did you mean 'GPIO_PinSource12'?
+   GPIO_PinAFConfig(GPIOE, GPIO_PinSource13, GPIO_AF_FSMC);  // D10
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_PinSource12
+../Core/Src/SSD1289.c:582:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                     ^
+../Core/Src/SSD1289.c:582:33: error: 'GPIO_Pin_0' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                 ^~~~~~~~~~
+                                 GPIO_PIN_0
+../Core/Src/SSD1289.c:582:46: error: 'GPIO_Pin_1' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                              ^~~~~~~~~~
+                                              GPIO_Pin_0
+../Core/Src/SSD1289.c:582:59: error: 'GPIO_Pin_4' undeclared (first use in this function); did you mean 'GPIO_Pin_1'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                                           ^~~~~~~~~~
+                                                           GPIO_Pin_1
+../Core/Src/SSD1289.c:582:72: error: 'GPIO_Pin_5' undeclared (first use in this function); did you mean 'GPIO_Pin_4'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+                                                                        ^~~~~~~~~~
+                                                                        GPIO_Pin_4
+../Core/Src/SSD1289.c:583:35: error: 'GPIO_Pin_7' undeclared (first use in this function); did you mean 'GPIO_Pin_5'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                   ^~~~~~~~~~
+                                   GPIO_Pin_5
+../Core/Src/SSD1289.c:583:48: error: 'GPIO_Pin_8' undeclared (first use in this function); did you mean 'GPIO_Pin_7'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                ^~~~~~~~~~
+                                                GPIO_Pin_7
+../Core/Src/SSD1289.c:583:61: error: 'GPIO_Pin_9' undeclared (first use in this function); did you mean 'GPIO_Pin_8'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                             ^~~~~~~~~~
+                                                             GPIO_Pin_8
+../Core/Src/SSD1289.c:583:74: error: 'GPIO_Pin_10' undeclared (first use in this function); did you mean 'GPIO_Pin_1'?
+                                   GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                                                                          ^~~~~~~~~~~
+                                                                          GPIO_Pin_1
+../Core/Src/SSD1289.c:584:35: error: 'GPIO_Pin_11' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                   ^~~~~~~~~~~
+                                   GPIO_Pin_10
+../Core/Src/SSD1289.c:584:49: error: 'GPIO_Pin_14' undeclared (first use in this function); did you mean 'GPIO_Pin_11'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                                 ^~~~~~~~~~~
+                                                 GPIO_Pin_11
+../Core/Src/SSD1289.c:584:63: error: 'GPIO_Pin_15' undeclared (first use in this function); did you mean 'GPIO_Pin_14'?
+                                   GPIO_Pin_11 | GPIO_Pin_14 | GPIO_Pin_15;
+                                                               ^~~~~~~~~~~
+                                                               GPIO_Pin_14
+../Core/Src/SSD1289.c:586:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:586:34: error: 'GPIO_Mode_AF' undeclared (first use in this function); did you mean 'GPIO_Pin_15'?
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                                  ^~~~~~~~~~~~
+                                  GPIO_Pin_15
+../Core/Src/SSD1289.c:587:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:587:35: error: 'GPIO_Speed_100MHz' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                                   ^~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:588:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:588:35: error: 'GPIO_OType_PP' undeclared (first use in this function); did you mean 'GPIO_TypeDef'?
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                                   ^~~~~~~~~~~~~
+                                   GPIO_TypeDef
+../Core/Src/SSD1289.c:589:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                     ^
+../Core/Src/SSD1289.c:589:35: error: 'GPIO_PuPd_NOPULL' undeclared (first use in this function); did you mean 'GPIO_NOPULL'?
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                                   ^~~~~~~~~~~~~~~~
+                                   GPIO_NOPULL
+../Core/Src/SSD1289.c:590:3: warning: implicit declaration of function 'GPIO_Init'; did you mean 'LCD_Init'? [-Wimplicit-function-declaration]
+   GPIO_Init(GPIOD, &GPIO_InitStructure);
+   ^~~~~~~~~
+   LCD_Init
+../Core/Src/SSD1289.c:592:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 |
+                     ^
+../Core/Src/SSD1289.c:593:49: error: 'GPIO_Pin_12' undeclared (first use in this function); did you mean 'GPIO_Pin_15'?
+                                   GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 |
+                                                 ^~~~~~~~~~~
+                                                 GPIO_Pin_15
+../Core/Src/SSD1289.c:593:63: error: 'GPIO_Pin_13' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+                                   GPIO_Pin_11 | GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 |
+                                                               ^~~~~~~~~~~
+                                                               GPIO_Pin_12
+../Core/Src/SSD1289.c:596:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:597:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:598:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:599:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                     ^
+../Core/Src/SSD1289.c: In function 'LCD_FSMCConfig':
+../Core/Src/SSD1289.c:608:3: error: unknown type name 'FSMC_NORSRAMInitTypeDef'; did you mean 'FSMC_NORSRAM_InitTypeDef'?
+   FSMC_NORSRAMInitTypeDef  FSMC_NORSRAMInitStructure;
+   ^~~~~~~~~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_InitTypeDef
+../Core/Src/SSD1289.c:609:3: error: unknown type name 'FSMC_NORSRAMTimingInitTypeDef'; did you mean 'FSMC_NORSRAM_TimingTypeDef'?
+   FSMC_NORSRAMTimingInitTypeDef FSMC_NORSRAMTimingInitStructure;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_TimingTypeDef
+../Core/Src/SSD1289.c:610:34: error: request for member 'FSMC_AddressSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressSetupTime = 0;  //0
+                                  ^
+../Core/Src/SSD1289.c:611:34: error: request for member 'FSMC_AddressHoldTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressHoldTime = 0;   //0
+                                  ^
+../Core/Src/SSD1289.c:612:34: error: request for member 'FSMC_DataSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataSetupTime = 2;     //3
+                                  ^
+../Core/Src/SSD1289.c:613:34: error: request for member 'FSMC_BusTurnAroundDuration' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_BusTurnAroundDuration = 0;
+                                  ^
+../Core/Src/SSD1289.c:614:34: error: request for member 'FSMC_CLKDivision' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_CLKDivision = 1;//1
+                                  ^
+../Core/Src/SSD1289.c:615:34: error: request for member 'FSMC_DataLatency' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataLatency = 0;
+                                  ^
+../Core/Src/SSD1289.c:616:34: error: request for member 'FSMC_AccessMode' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                  ^
+../Core/Src/SSD1289.c:616:53: error: 'FSMC_AccessMode_A' undeclared (first use in this function); did you mean 'FSMC_ACCESS_MODE_A'?
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                                     ^~~~~~~~~~~~~~~~~
+                                                     FSMC_ACCESS_MODE_A
+../Core/Src/SSD1289.c:618:28: error: request for member 'FSMC_Bank' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_Bank = FSMC_Bank1_NORSRAM1;
+                            ^
+../Core/Src/SSD1289.c:618:41: error: 'FSMC_Bank1_NORSRAM1' undeclared (first use in this function); did you mean 'FSMC_Bank1_R_BASE'?
+   FSMC_NORSRAMInitStructure.FSMC_Bank = FSMC_Bank1_NORSRAM1;
+                                         ^~~~~~~~~~~~~~~~~~~
+                                         FSMC_Bank1_R_BASE
+../Core/Src/SSD1289.c:619:28: error: request for member 'FSMC_DataAddressMux' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_DataAddressMux = FSMC_DataAddressMux_Disable;
+                            ^
+../Core/Src/SSD1289.c:619:51: error: 'FSMC_DataAddressMux_Disable' undeclared (first use in this function); did you mean 'FSMC_NAND_ECC_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_DataAddressMux = FSMC_DataAddressMux_Disable;
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                   FSMC_NAND_ECC_Disable
+../Core/Src/SSD1289.c:620:28: error: request for member 'FSMC_MemoryType' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_MemoryType = FSMC_MemoryType_SRAM;
+                            ^
+../Core/Src/SSD1289.c:620:47: error: 'FSMC_MemoryType_SRAM' undeclared (first use in this function); did you mean 'FSMC_MEMORY_TYPE_SRAM'?
+   FSMC_NORSRAMInitStructure.FSMC_MemoryType = FSMC_MemoryType_SRAM;
+                                               ^~~~~~~~~~~~~~~~~~~~
+                                               FSMC_MEMORY_TYPE_SRAM
+../Core/Src/SSD1289.c:621:28: error: request for member 'FSMC_MemoryDataWidth' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_16b;
+                            ^
+../Core/Src/SSD1289.c:621:52: error: 'FSMC_MemoryDataWidth_16b' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_16b;
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:622:28: error: request for member 'FSMC_BurstAccessMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:622:52: error: 'FSMC_BurstAccessMode_Disable' undeclared (first use in this function); did you mean 'FSMC_DataAddressMux_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                    FSMC_DataAddressMux_Disable
+../Core/Src/SSD1289.c:623:28: error: request for member 'FSMC_WaitSignalPolarity' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+                            ^
+../Core/Src/SSD1289.c:623:55: error: 'FSMC_WaitSignalPolarity_Low' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:624:28: error: request for member 'FSMC_WrapMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WrapMode = FSMC_WrapMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:624:45: error: 'FSMC_WrapMode_Disable' undeclared (first use in this function); did you mean 'FSMC_NAND_ECC_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_WrapMode = FSMC_WrapMode_Disable;
+                                             ^~~~~~~~~~~~~~~~~~~~~
+                                             FSMC_NAND_ECC_Disable
+../Core/Src/SSD1289.c:625:28: error: request for member 'FSMC_WaitSignalActive' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+                            ^
+../Core/Src/SSD1289.c:625:53: error: 'FSMC_WaitSignalActive_BeforeWaitState' undeclared (first use in this function)
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:626:28: error: request for member 'FSMC_WriteOperation' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+                            ^
+../Core/Src/SSD1289.c:626:51: error: 'FSMC_WriteOperation_Enable' undeclared (first use in this function); did you mean 'HAL_SRAM_WriteOperation_Enable'?
+   FSMC_NORSRAMInitStructure.FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                   HAL_SRAM_WriteOperation_Enable
+../Core/Src/SSD1289.c:627:28: error: request for member 'FSMC_WaitSignal' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+                            ^
+../Core/Src/SSD1289.c:627:47: error: 'FSMC_WaitSignal_Disable' undeclared (first use in this function); did you mean 'FSMC_WrapMode_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_WaitSignal = FSMC_WaitSignal_Disable;
+                                               ^~~~~~~~~~~~~~~~~~~~~~~
+                                               FSMC_WrapMode_Disable
+../Core/Src/SSD1289.c:628:28: error: request for member 'FSMC_AsynchronousWait' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_AsynchronousWait = FSMC_AsynchronousWait_Disable;
+                            ^
+../Core/Src/SSD1289.c:628:53: error: 'FSMC_AsynchronousWait_Disable' undeclared (first use in this function); did you mean 'FSMC_WaitSignal_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_AsynchronousWait = FSMC_AsynchronousWait_Disable;
+                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                     FSMC_WaitSignal_Disable
+../Core/Src/SSD1289.c:629:28: error: request for member 'FSMC_ExtendedMode' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+                            ^
+../Core/Src/SSD1289.c:629:49: error: 'FSMC_ExtendedMode_Disable' undeclared (first use in this function); did you mean 'FSMC_WrapMode_Disable'?
+   FSMC_NORSRAMInitStructure.FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+                                                 FSMC_WrapMode_Disable
+../Core/Src/SSD1289.c:630:28: error: request for member 'FSMC_WriteBurst' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Enable;//disable
+                            ^
+../Core/Src/SSD1289.c:630:47: error: 'FSMC_WriteBurst_Enable' undeclared (first use in this function); did you mean 'FSMC_WriteOperation_Enable'?
+   FSMC_NORSRAMInitStructure.FSMC_WriteBurst = FSMC_WriteBurst_Enable;//disable
+                                               ^~~~~~~~~~~~~~~~~~~~~~
+                                               FSMC_WriteOperation_Enable
+../Core/Src/SSD1289.c:631:28: error: request for member 'FSMC_ReadWriteTimingStruct' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_ReadWriteTimingStruct = &FSMC_NORSRAMTimingInitStructure;
+                            ^
+../Core/Src/SSD1289.c:633:3: warning: implicit declaration of function 'FSMC_NORSRAMInit'; did you mean 'FSMC_NORSRAM_Init'? [-Wimplicit-function-declaration]
+   FSMC_NORSRAMInit(&FSMC_NORSRAMInitStructure);
+   ^~~~~~~~~~~~~~~~
+   FSMC_NORSRAM_Init
+../Core/Src/SSD1289.c:634:34: error: request for member 'FSMC_AddressSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressSetupTime = 0;    //0
+                                  ^
+../Core/Src/SSD1289.c:635:34: error: request for member 'FSMC_AddressHoldTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AddressHoldTime = 0; //0
+                                  ^
+../Core/Src/SSD1289.c:636:34: error: request for member 'FSMC_DataSetupTime' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataSetupTime = 4; //3
+                                  ^
+../Core/Src/SSD1289.c:637:34: error: request for member 'FSMC_BusTurnAroundDuration' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_BusTurnAroundDuration = 0;
+                                  ^
+../Core/Src/SSD1289.c:638:34: error: request for member 'FSMC_CLKDivision' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_CLKDivision = 1;//1
+                                  ^
+../Core/Src/SSD1289.c:639:34: error: request for member 'FSMC_DataLatency' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_DataLatency = 0;
+                                  ^
+../Core/Src/SSD1289.c:640:34: error: request for member 'FSMC_AccessMode' in something not a structure or union
+   FSMC_NORSRAMTimingInitStructure.FSMC_AccessMode = FSMC_AccessMode_A;
+                                  ^
+../Core/Src/SSD1289.c:641:28: error: request for member 'FSMC_WriteTimingStruct' in something not a structure or union
+   FSMC_NORSRAMInitStructure.FSMC_WriteTimingStruct = &FSMC_NORSRAMTimingInitStructure;
+                            ^
+../Core/Src/SSD1289.c:644:3: warning: implicit declaration of function 'FSMC_NORSRAMCmd'; did you mean 'FSMC_NORSRAM_Init'? [-Wimplicit-function-declaration]
+   FSMC_NORSRAMCmd(FSMC_Bank1_NORSRAM1, ENABLE);
+   ^~~~~~~~~~~~~~~
+   FSMC_NORSRAM_Init
+../Core/Src/SSD1289.c: In function 'LCD_BackLight':
+../Core/Src/SSD1289.c:821:24: error: request for member 'TIM_Period' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Period = TimerPeriod;
+                        ^
+../Core/Src/SSD1289.c:822:22: error: request for member 'TIM_Pulse' in something not a structure or union
+   TIM_OCInitStructure.TIM_Pulse = Channel3Pulse;
+                      ^
+../Core/Src/SSD1289.c:823:3: warning: implicit declaration of function 'TIM_OC3Init'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   TIM_OC3Init(TIM1, &TIM_OCInitStructure);
+   ^~~~~~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c: In function 'TIM_Config':
+../Core/Src/SSD1289.c:829:27: error: 'RCC_AHB1Periph_GPIOA' undeclared (first use in this function); did you mean 'RCC_AHB1ENR_GPIOAEN'?
+   RCC_AHB1PeriphClockCmd( RCC_AHB1Periph_GPIOA  , ENABLE);
+                           ^~~~~~~~~~~~~~~~~~~~
+                           RCC_AHB1ENR_GPIOAEN
+../Core/Src/SSD1289.c:830:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Pin'
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+                     ^
+../Core/Src/SSD1289.c:830:33: error: 'GPIO_Pin_10' undeclared (first use in this function); did you mean 'GPIO_PIN_10'?
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+                                 ^~~~~~~~~~~
+                                 GPIO_PIN_10
+../Core/Src/SSD1289.c:831:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Mode'
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+../Core/Src/SSD1289.c:831:34: error: 'GPIO_Mode_AF' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                                  ^~~~~~~~~~~~
+                                  GPIO_Pin_10
+../Core/Src/SSD1289.c:832:22: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_Speed'; did you mean 'Speed'?
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                      ^~~~~~~~~~
+                      Speed
+../Core/Src/SSD1289.c:832:35: error: 'GPIO_Speed_100MHz' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                                   ^~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:833:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_OType'
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+../Core/Src/SSD1289.c:833:35: error: 'GPIO_OType_PP' undeclared (first use in this function); did you mean 'GPIO_TypeDef'?
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                                   ^~~~~~~~~~~~~
+                                   GPIO_TypeDef
+../Core/Src/SSD1289.c:834:21: error: 'GPIO_InitTypeDef {aka struct <anonymous>}' has no member named 'GPIO_PuPd'
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+                     ^
+../Core/Src/SSD1289.c:834:34: error: 'GPIO_PuPd_UP' undeclared (first use in this function); did you mean 'GPIO_PULLUP'?
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP ;
+                                  ^~~~~~~~~~~~
+                                  GPIO_PULLUP
+../Core/Src/SSD1289.c:836:27: error: 'GPIO_PinSource10' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+   GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_TIM1);
+                           ^~~~~~~~~~~~~~~~
+                           GPIO_Pin_10
+../Core/Src/SSD1289.c:836:45: error: 'GPIO_AF_TIM1' undeclared (first use in this function); did you mean 'GPIO_AF1_TIM1'?
+   GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_TIM1);
+                                             ^~~~~~~~~~~~
+                                             GPIO_AF1_TIM1
+../Core/Src/SSD1289.c:839:3: warning: implicit declaration of function 'RCC_APB2PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1 , ENABLE);
+   ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:839:26: error: 'RCC_APB2Periph_TIM1' undeclared (first use in this function); did you mean 'RCC_AHB1Periph_GPIOA'?
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1 , ENABLE);
+                          ^~~~~~~~~~~~~~~~~~~
+                          RCC_AHB1Periph_GPIOA
+../Core/Src/SSD1289.c:840:24: error: request for member 'TIM_Prescaler' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Prescaler = 0;
+                        ^
+../Core/Src/SSD1289.c:841:24: error: request for member 'TIM_CounterMode' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+                        ^
+../Core/Src/SSD1289.c:841:43: error: 'TIM_CounterMode_Up' undeclared (first use in this function)
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+                                           ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:842:24: error: request for member 'TIM_Period' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Period = TimerPeriod;
+                        ^
+../Core/Src/SSD1289.c:843:24: error: request for member 'TIM_ClockDivision' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+                        ^
+../Core/Src/SSD1289.c:844:24: error: request for member 'TIM_RepetitionCounter' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
+                        ^
+../Core/Src/SSD1289.c:845:3: warning: implicit declaration of function 'TIM_TimeBaseInit'; did you mean 'TIM_DMABase_OR2'? [-Wimplicit-function-declaration]
+   TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
+   ^~~~~~~~~~~~~~~~
+   TIM_DMABase_OR2
+../Core/Src/SSD1289.c:846:22: error: request for member 'TIM_OCMode' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
+                      ^
+../Core/Src/SSD1289.c:846:36: error: 'TIM_OCMode_PWM2' undeclared (first use in this function); did you mean 'TIM_CCMR2_OC3M_2'?
+   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
+                                    ^~~~~~~~~~~~~~~
+                                    TIM_CCMR2_OC3M_2
+../Core/Src/SSD1289.c:847:22: error: request for member 'TIM_OutputState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+                      ^
+../Core/Src/SSD1289.c:847:41: error: 'TIM_OutputState_Enable' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+                                         ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:848:22: error: request for member 'TIM_OutputNState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
+                      ^
+../Core/Src/SSD1289.c:848:42: error: 'TIM_OutputNState_Enable' undeclared (first use in this function); did you mean 'TIM_OutputState_Enable'?
+   TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
+                                          ^~~~~~~~~~~~~~~~~~~~~~~
+                                          TIM_OutputState_Enable
+../Core/Src/SSD1289.c:849:22: error: request for member 'TIM_OCPolarity' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+                      ^
+../Core/Src/SSD1289.c:849:40: error: 'TIM_OCPolarity_Low' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+                                        ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:850:22: error: request for member 'TIM_OCNPolarity' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+                      ^
+../Core/Src/SSD1289.c:850:41: error: 'TIM_OCNPolarity_High' undeclared (first use in this function); did you mean 'TIM_OCPolarity_Low'?
+   TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+                                         ^~~~~~~~~~~~~~~~~~~~
+                                         TIM_OCPolarity_Low
+../Core/Src/SSD1289.c:851:22: error: request for member 'TIM_OCIdleState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
+                      ^
+../Core/Src/SSD1289.c:851:41: error: 'TIM_OCIdleState_Set' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
+                                         ^~~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c:852:22: error: request for member 'TIM_OCNIdleState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCIdleState_Reset;
+                      ^
+../Core/Src/SSD1289.c:852:42: error: 'TIM_OCIdleState_Reset' undeclared (first use in this function); did you mean 'TIM_OCIdleState_Set'?
+   TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCIdleState_Reset;
+                                          ^~~~~~~~~~~~~~~~~~~~~
+                                          TIM_OCIdleState_Set
+../Core/Src/SSD1289.c:853:22: error: request for member 'TIM_Pulse' in something not a structure or union
+   TIM_OCInitStructure.TIM_Pulse = Channel3Pulse;
+                      ^
+../Core/Src/SSD1289.c:855:3: warning: implicit declaration of function 'TIM_Cmd'; did you mean 'TIM_Config'? [-Wimplicit-function-declaration]
+   TIM_Cmd(TIM1, ENABLE);
+   ^~~~~~~
+   TIM_Config
+../Core/Src/SSD1289.c:856:3: warning: implicit declaration of function 'TIM_CtrlPWMOutputs' [-Wimplicit-function-declaration]
+   TIM_CtrlPWMOutputs(TIM1, ENABLE);
+   ^~~~~~~~~~~~~~~~~~
+../Core/Src/SSD1289.c: In function 'LCD_WriteBMP':
+../Core/Src/SSD1289.c:887:12: warning: unused variable 'i' [-Wunused-variable]
+   uint16_t i;
+            ^
+make: *** [Core/Src/subdir.mk:44: Core/Src/SSD1289.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
