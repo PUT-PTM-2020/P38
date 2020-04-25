@@ -1,1 +1,7 @@
-AsciiLib.c:428:6:GetASCIICode	16	static
+AsciiLib.c:1247:6:GetASCIICode1	16	static
+AsciiLib.c:1251:6:GetASCIICode2	16	static
+AsciiLib.c:1254:6:GetASCIICode3	16	static
+AsciiLib.c:1257:6:GetASCIICode4	16	static
+AsciiLib.c:1260:6:GetASCIICode5	16	static
+AsciiLib.c:1264:6:getAsciiFromShort	16	static
+AsciiLib.c:1272:6:getDecimalFromShort	24	static

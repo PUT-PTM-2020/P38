@@ -1,0 +1,10 @@
+13:33:37 **** Incremental Build of configuration Debug for project f407vet_app_fsmc ****
+make -j12 all 
+arm-none-eabi-size   f407vet_app_fsmc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9204	     20	   2772	  11996	   2edc	f407vet_app_fsmc.elf
+Finished building: default.size.stdout
+ 
+
+13:33:38 Build Finished. 0 errors, 0 warnings. (took 1s.48ms)
+
