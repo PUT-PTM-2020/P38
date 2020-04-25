@@ -1,8 +1,8 @@
-#include "lis3dsh.h"
+/*#include "lis3dsh.h"
 #include "main.h"
 #include <cmath>
 #include <stdlib.h>
-#include "GLCD.h" 
+#include "GLCD.h"
 #include "AsciiLib.h"
 
 //NOTE
@@ -971,4 +971,4 @@ int main(void)
 	Skier s1;
 	DrawMenu(-1);
 	UseMenu();
-}
+}*/
