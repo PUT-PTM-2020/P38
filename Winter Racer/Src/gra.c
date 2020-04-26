@@ -955,6 +955,7 @@ void SetRock(uint16_t X, uint16_t Y)
 		LCD_SetPoint(X+i, Y+22,0x0000);
 }
 
+//***SetBowman
 void SetBowman(uint16_t X, uint16_t Y)
 {
 	ili9325_WritePixel(X+1, Y+1, 0);
@@ -1539,3 +1540,405 @@ void SetBowman(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+15, Y+30, 0);
 }
 
+//***SetTree
+
+void SetTree(uint16_t X, uint16_t Y)
+{
+	ili9325_WritePixel(X+12, Y+1, 14690);	//ciemny brąz
+	ili9325_WritePixel(X+16, Y+1, 14690);
+	ili9325_WritePixel(X+17, Y+1, 14690);
+
+	ili9325_WritePixel(X+11, Y+2, 14690);
+	ili9325_WritePixel(X+12, Y+2, 14690);
+	ili9325_WritePixel(X+13, Y+2, 14690);
+	ili9325_WritePixel(X+14, Y+2, 14690);
+	ili9325_WritePixel(X+15, Y+2, 14690);
+	ili9325_WritePixel(X+16, Y+2, 14690);
+
+	ili9325_WritePixel(X+12, Y+3, 14690);
+	ili9325_WritePixel(X+13, Y+3, 14690);
+	ili9325_WritePixel(X+14, Y+3, 14690);
+	ili9325_WritePixel(X+15, Y+3, 14690);
+
+	ili9325_WritePixel(X+13, Y+4, 14690);
+	ili9325_WritePixel(X+14, Y+4, 14690);
+	ili9325_WritePixel(X+15, Y+4, 14690);
+
+	ili9325_WritePixel(X+13, Y+5, 14690);
+	ili9325_WritePixel(X+14, Y+5, 14690);
+	ili9325_WritePixel(X+15, Y+5, 27265); //jasny brąz
+
+	ili9325_WritePixel(X+13, Y+6, 14690);
+	ili9325_WritePixel(X+14, Y+6, 27265);
+	ili9325_WritePixel(X+15, Y+6, 27265);
+
+	ili9325_WritePixel(X+13, Y+7, 27265);
+	ili9325_WritePixel(X+14, Y+7, 27265);
+	ili9325_WritePixel(X+15, Y+7, 27265);
+
+	ili9325_WritePixel(X+4, Y+8, 8710);
+	ili9325_WritePixel(X+5, Y+8, 8710);
+	ili9325_WritePixel(X+13, Y+8, 27265);
+	ili9325_WritePixel(X+14, Y+8, 27265);
+	ili9325_WritePixel(X+15, Y+8, 27265);
+	ili9325_WritePixel(X+19, Y+8, 8710);
+
+	ili9325_WritePixel(X+2, Y+9, 8710);
+	ili9325_WritePixel(X+5, Y+9, 8710);
+	ili9325_WritePixel(X+7, Y+9, 8710);
+	ili9325_WritePixel(X+10, Y+9, 8710);
+	ili9325_WritePixel(X+11, Y+9, 8710);
+	ili9325_WritePixel(X+13, Y+9, 8710);
+	ili9325_WritePixel(X+14, Y+9, 36524); //jasny zielony
+	ili9325_WritePixel(X+15, Y+9, 36524);
+	ili9325_WritePixel(X+16, Y+9, 36524);
+	ili9325_WritePixel(X+17, Y+9, 36524);
+	ili9325_WritePixel(X+18, Y+9, 8710);
+	ili9325_WritePixel(X+19, Y+9, 36524);
+	ili9325_WritePixel(X+20, Y+9, 8710);
+	ili9325_WritePixel(X+21, Y+9, 8710);
+	ili9325_WritePixel(X+22, Y+9, 36524);
+	ili9325_WritePixel(X+23, Y+9, 36524);
+	ili9325_WritePixel(X+24, Y+9, 36524);
+
+	ili9325_WritePixel(X+1, Y+10, 8710);
+	ili9325_WritePixel(X+2, Y+10, 8710);
+	ili9325_WritePixel(X+3, Y+10, 8710);
+	ili9325_WritePixel(X+4, Y+10, 8710);
+	ili9325_WritePixel(X+5, Y+10, 8710);
+	ili9325_WritePixel(X+6, Y+10, 8710);
+	ili9325_WritePixel(X+7, Y+10, 8710);
+	ili9325_WritePixel(X+8, Y+10, 8710);
+	ili9325_WritePixel(X+9, Y+10, 8710);
+	ili9325_WritePixel(X+10, Y+10, 8710);
+	ili9325_WritePixel(X+11, Y+10, 8710);
+	ili9325_WritePixel(X+12, Y+10, 8710);
+	ili9325_WritePixel(X+13, Y+10, 8710);
+	ili9325_WritePixel(X+14, Y+10, 36524);
+	ili9325_WritePixel(X+15, Y+10, 36524);
+	ili9325_WritePixel(X+16, Y+10, 8710);
+	ili9325_WritePixel(X+17, Y+10, 8710);
+	ili9325_WritePixel(X+18, Y+10, 8710);
+	ili9325_WritePixel(X+19, Y+10, 8710);
+	ili9325_WritePixel(X+20, Y+10, 36524);
+	ili9325_WritePixel(X+21, Y+10, 36524);
+	ili9325_WritePixel(X+22, Y+10, 36524);
+	ili9325_WritePixel(X+23, Y+10, 36524);
+	ili9325_WritePixel(X+24, Y+10, 36524);
+
+	ili9325_WritePixel(X+3, Y+11, 8710);
+	ili9325_WritePixel(X+4, Y+11, 8710);
+	ili9325_WritePixel(X+5, Y+11, 8710);
+	ili9325_WritePixel(X+6, Y+11, 36524);
+	ili9325_WritePixel(X+7, Y+11, 36524);
+	ili9325_WritePixel(X+8, Y+11, 8710);
+	ili9325_WritePixel(X+9, Y+11, 8710);
+	ili9325_WritePixel(X+10, Y+11, 8710);
+	ili9325_WritePixel(X+11, Y+11, 8710);
+	ili9325_WritePixel(X+12, Y+11, 8710);
+	ili9325_WritePixel(X+13, Y+11, 8710);
+	ili9325_WritePixel(X+14, Y+11, 36524);
+	ili9325_WritePixel(X+15, Y+11, 36524);
+	ili9325_WritePixel(X+16, Y+11, 36524);
+	ili9325_WritePixel(X+17, Y+11, 8710);
+	ili9325_WritePixel(X+18, Y+11, 36524);
+	ili9325_WritePixel(X+19, Y+11, 8710);
+	ili9325_WritePixel(X+20, Y+11, 36524);
+	ili9325_WritePixel(X+21, Y+11, 36524);
+	ili9325_WritePixel(X+22, Y+11, 36524);
+	ili9325_WritePixel(X+23, Y+11, 36524);
+	ili9325_WritePixel(X+24, Y+11, 36524);
+
+	ili9325_WritePixel(X+3, Y+12, 8710);
+	ili9325_WritePixel(X+4, Y+12, 8710);
+	ili9325_WritePixel(X+5, Y+12, 8710);
+	ili9325_WritePixel(X+6, Y+12, 8710);
+	ili9325_WritePixel(X+7, Y+12, 36524);
+	ili9325_WritePixel(X+8, Y+12, 36524);
+	ili9325_WritePixel(X+9, Y+12, 8710);
+	ili9325_WritePixel(X+10, Y+12, 8710);
+	ili9325_WritePixel(X+11, Y+12, 8710);
+	ili9325_WritePixel(X+12, Y+12, 8710);
+	ili9325_WritePixel(X+13, Y+12, 36524);
+	ili9325_WritePixel(X+14, Y+12, 36524);
+	ili9325_WritePixel(X+15, Y+12, 36524);
+	ili9325_WritePixel(X+16, Y+12, 36524);
+	ili9325_WritePixel(X+17, Y+12, 8710);
+	ili9325_WritePixel(X+18, Y+12, 36524);
+	ili9325_WritePixel(X+19, Y+12, 36524);
+	ili9325_WritePixel(X+20, Y+12, 36524);
+	ili9325_WritePixel(X+21, Y+12, 36524);
+	ili9325_WritePixel(X+22, Y+12, 36524);
+	ili9325_WritePixel(X+23, Y+12, 36524);
+	ili9325_WritePixel(X+24, Y+12, 36524);
+
+	ili9325_WritePixel(X+4, Y+13, 36524);
+	ili9325_WritePixel(X+5, Y+13, 36524);
+	ili9325_WritePixel(X+6, Y+13, 36524);
+	ili9325_WritePixel(X+7, Y+13, 8710);
+	ili9325_WritePixel(X+8, Y+13, 8710);
+	ili9325_WritePixel(X+9, Y+13, 8710);
+	ili9325_WritePixel(X+10, Y+13, 36524);
+	ili9325_WritePixel(X+11, Y+13, 36524);
+	ili9325_WritePixel(X+12, Y+13, 8710);
+	ili9325_WritePixel(X+13, Y+13, 8710);
+	ili9325_WritePixel(X+14, Y+13, 8710);
+	ili9325_WritePixel(X+15, Y+13, 8710);
+	ili9325_WritePixel(X+16, Y+13, 8710);
+	ili9325_WritePixel(X+17, Y+13, 36524);
+	ili9325_WritePixel(X+18, Y+13, 8710);
+	ili9325_WritePixel(X+19, Y+13, 36524);
+	ili9325_WritePixel(X+20, Y+13, 36524);
+	ili9325_WritePixel(X+21, Y+13, 36524);
+	ili9325_WritePixel(X+22, Y+13, 36524);
+	ili9325_WritePixel(X+23, Y+13, 36524);
+
+	ili9325_WritePixel(X+4, Y+14, 36524);
+	ili9325_WritePixel(X+5, Y+14, 36524);
+	ili9325_WritePixel(X+6, Y+14, 36524);
+	ili9325_WritePixel(X+7, Y+14, 36524);
+	ili9325_WritePixel(X+8, Y+14, 8710);
+	ili9325_WritePixel(X+9, Y+14, 8710);
+	ili9325_WritePixel(X+10, Y+14, 36524);
+	ili9325_WritePixel(X+11, Y+14, 36524);
+	ili9325_WritePixel(X+12, Y+14, 8710);
+	ili9325_WritePixel(X+13, Y+14, 8710);
+	ili9325_WritePixel(X+14, Y+14, 8710);
+	ili9325_WritePixel(X+15, Y+14, 36524);
+	ili9325_WritePixel(X+16, Y+14, 8710);
+	ili9325_WritePixel(X+17, Y+14, 36524);
+	ili9325_WritePixel(X+18, Y+14, 36524);
+	ili9325_WritePixel(X+19, Y+14, 8710);
+	ili9325_WritePixel(X+20, Y+14, 8710);
+	ili9325_WritePixel(X+21, Y+14, 36524);
+	ili9325_WritePixel(X+22, Y+14, 36524);
+
+	ili9325_WritePixel(X+6, Y+15, 36524);
+	ili9325_WritePixel(X+7, Y+15, 36524);
+	ili9325_WritePixel(X+8, Y+15, 36524);
+	ili9325_WritePixel(X+9, Y+15, 8710);
+	ili9325_WritePixel(X+10, Y+15, 8710);
+	ili9325_WritePixel(X+11, Y+15, 8710);
+	ili9325_WritePixel(X+12, Y+15, 8710);
+	ili9325_WritePixel(X+13, Y+15, 8710);
+	ili9325_WritePixel(X+14, Y+15, 36524);
+	ili9325_WritePixel(X+15, Y+15, 36524);
+	ili9325_WritePixel(X+16, Y+15, 8710);
+	ili9325_WritePixel(X+17, Y+15, 36524);
+	ili9325_WritePixel(X+18, Y+15, 36524);
+	ili9325_WritePixel(X+19, Y+15, 36524);
+	ili9325_WritePixel(X+20, Y+15, 36524);
+	ili9325_WritePixel(X+21, Y+15, 8710);
+	ili9325_WritePixel(X+22, Y+15, 36524);
+
+	ili9325_WritePixel(X+6, Y+16, 36524);
+	ili9325_WritePixel(X+7, Y+16, 8710);
+	ili9325_WritePixel(X+8, Y+16, 8710);
+	ili9325_WritePixel(X+9, Y+16, 8710);
+	ili9325_WritePixel(X+10, Y+16, 8710);
+	ili9325_WritePixel(X+11, Y+16, 8710);
+	ili9325_WritePixel(X+12, Y+16, 8710);
+	ili9325_WritePixel(X+13, Y+16, 36524);
+	ili9325_WritePixel(X+14, Y+16, 36524);
+	ili9325_WritePixel(X+15, Y+16, 36524);
+	ili9325_WritePixel(X+16, Y+16, 36524);
+	ili9325_WritePixel(X+17, Y+16, 36524);
+	ili9325_WritePixel(X+18, Y+16, 8710);
+	ili9325_WritePixel(X+19, Y+16, 36524);
+	ili9325_WritePixel(X+20, Y+16, 36524);
+	ili9325_WritePixel(X+21, Y+16, 8710);
+	ili9325_WritePixel(X+22, Y+16, 36524);
+
+	ili9325_WritePixel(X+6, Y+17, 36524);
+	ili9325_WritePixel(X+7, Y+17, 8710);
+	ili9325_WritePixel(X+8, Y+17, 36524);
+	ili9325_WritePixel(X+9, Y+17, 36524);
+	ili9325_WritePixel(X+10, Y+17, 36524);
+	ili9325_WritePixel(X+11, Y+17, 36524);
+	ili9325_WritePixel(X+12, Y+17, 36524);
+	ili9325_WritePixel(X+13, Y+17, 36524);
+	ili9325_WritePixel(X+14, Y+17, 8710);
+	ili9325_WritePixel(X+15, Y+17, 36524);
+	ili9325_WritePixel(X+16, Y+17, 36524);
+	ili9325_WritePixel(X+17, Y+17, 36524);
+	ili9325_WritePixel(X+18, Y+17, 36524);
+	ili9325_WritePixel(X+19, Y+17, 36524);
+	ili9325_WritePixel(X+20, Y+17, 36524);
+	ili9325_WritePixel(X+21, Y+17, 36524);
+	ili9325_WritePixel(X+22, Y+17, 36524);
+
+	ili9325_WritePixel(X+6, Y+18, 8710);
+	ili9325_WritePixel(X+7, Y+18, 36524);
+	ili9325_WritePixel(X+8, Y+18, 36524);
+	ili9325_WritePixel(X+9, Y+18, 36524);
+	ili9325_WritePixel(X+10, Y+18, 36524);
+	ili9325_WritePixel(X+11, Y+18, 36524);
+	ili9325_WritePixel(X+12, Y+18, 8710);
+	ili9325_WritePixel(X+13, Y+18, 8710);
+	ili9325_WritePixel(X+14, Y+18, 36524);
+	ili9325_WritePixel(X+15, Y+18, 36524);
+	ili9325_WritePixel(X+16, Y+18, 36524);
+	ili9325_WritePixel(X+17, Y+18, 8710);
+	ili9325_WritePixel(X+18, Y+18, 36524);
+	ili9325_WritePixel(X+19, Y+18, 36524);
+	ili9325_WritePixel(X+20, Y+18, 36524);
+	ili9325_WritePixel(X+21, Y+18, 36524);
+
+	ili9325_WritePixel(X+6, Y+19, 8710);
+	ili9325_WritePixel(X+7, Y+19, 8710);
+	ili9325_WritePixel(X+8, Y+19, 8710);
+	ili9325_WritePixel(X+9, Y+19, 8710);
+	ili9325_WritePixel(X+10, Y+19, 8710);
+	ili9325_WritePixel(X+11, Y+19, 8710);
+	ili9325_WritePixel(X+12, Y+19, 8710);
+	ili9325_WritePixel(X+13, Y+19, 36524);
+	ili9325_WritePixel(X+14, Y+19, 36524);
+	ili9325_WritePixel(X+15, Y+19, 8710);
+	ili9325_WritePixel(X+16, Y+19, 8710);
+	ili9325_WritePixel(X+17, Y+19, 36524);
+	ili9325_WritePixel(X+18, Y+19, 36524);
+	ili9325_WritePixel(X+19, Y+19, 36524);
+	ili9325_WritePixel(X+20, Y+19, 36524);
+	ili9325_WritePixel(X+21, Y+19, 36524);
+
+	ili9325_WritePixel(X+7, Y+20, 8710);
+	ili9325_WritePixel(X+8, Y+20, 36524);
+	ili9325_WritePixel(X+9, Y+20, 36524);
+	ili9325_WritePixel(X+10, Y+20, 8710);
+	ili9325_WritePixel(X+11, Y+20, 8710);
+	ili9325_WritePixel(X+12, Y+20, 36524);
+	ili9325_WritePixel(X+13, Y+20, 36524);
+	ili9325_WritePixel(X+14, Y+20, 8710);
+	ili9325_WritePixel(X+15, Y+20, 36524);
+	ili9325_WritePixel(X+16, Y+20, 36524);
+	ili9325_WritePixel(X+17, Y+20, 36524);
+	ili9325_WritePixel(X+18, Y+20, 36524);
+	ili9325_WritePixel(X+19, Y+20, 36524);
+	ili9325_WritePixel(X+20, Y+20, 36524);
+	ili9325_WritePixel(X+21, Y+20, 36524);
+
+	ili9325_WritePixel(X+7, Y+21, 8710);
+	ili9325_WritePixel(X+8, Y+21, 8710);
+	ili9325_WritePixel(X+9, Y+21, 8710);
+	ili9325_WritePixel(X+10, Y+21, 36524);
+	ili9325_WritePixel(X+11, Y+21, 36524);
+	ili9325_WritePixel(X+12, Y+21, 8710);
+	ili9325_WritePixel(X+13, Y+21, 36524);
+	ili9325_WritePixel(X+14, Y+21, 36524);
+	ili9325_WritePixel(X+15, Y+21, 36524);
+	ili9325_WritePixel(X+16, Y+21, 36524);
+	ili9325_WritePixel(X+17, Y+21, 36524);
+	ili9325_WritePixel(X+18, Y+21, 36524);
+	ili9325_WritePixel(X+19, Y+21, 36524);
+	ili9325_WritePixel(X+20, Y+21, 36524);
+
+	ili9325_WritePixel(X+8, Y+22, 8710);
+	ili9325_WritePixel(X+9, Y+22, 36524);
+	ili9325_WritePixel(X+10, Y+22, 36524);
+	ili9325_WritePixel(X+11, Y+22, 36524);
+	ili9325_WritePixel(X+12, Y+22, 36524);
+	ili9325_WritePixel(X+13, Y+22, 36524);
+	ili9325_WritePixel(X+14, Y+22, 8710);
+	ili9325_WritePixel(X+15, Y+22, 36524);
+	ili9325_WritePixel(X+16, Y+22, 36524);
+	ili9325_WritePixel(X+17, Y+22, 36524);
+	ili9325_WritePixel(X+18, Y+22, 36524);
+	ili9325_WritePixel(X+19, Y+22, 36524);
+
+	ili9325_WritePixel(X+8, Y+23, 8710);
+	ili9325_WritePixel(X+9, Y+23, 36524);
+	ili9325_WritePixel(X+10, Y+23, 36524);
+	ili9325_WritePixel(X+11, Y+23, 36524);
+	ili9325_WritePixel(X+12, Y+23, 36524);
+	ili9325_WritePixel(X+13, Y+23, 36524);
+	ili9325_WritePixel(X+14, Y+23, 8710);
+	ili9325_WritePixel(X+15, Y+23, 36524);
+	ili9325_WritePixel(X+16, Y+23, 36524);
+	ili9325_WritePixel(X+17, Y+23, 36524);
+	ili9325_WritePixel(X+18, Y+23, 36524);
+	ili9325_WritePixel(X+19, Y+23, 36524);
+
+	ili9325_WritePixel(X+8, Y+24, 8710);
+	ili9325_WritePixel(X+9, Y+24, 36524);
+	ili9325_WritePixel(X+10, Y+24, 8710);
+	ili9325_WritePixel(X+11, Y+24, 36524);
+	ili9325_WritePixel(X+12, Y+24, 36524);
+	ili9325_WritePixel(X+13, Y+24, 36524);
+	ili9325_WritePixel(X+14, Y+24, 36524);
+	ili9325_WritePixel(X+15, Y+24, 8710);
+	ili9325_WritePixel(X+16, Y+24, 36524);
+	ili9325_WritePixel(X+17, Y+24, 36524);
+	ili9325_WritePixel(X+18, Y+24, 8710);
+	ili9325_WritePixel(X+19, Y+24, 36524);
+
+	ili9325_WritePixel(X+9, Y+25, 8710);
+	ili9325_WritePixel(X+10, Y+25, 36524);
+	ili9325_WritePixel(X+11, Y+25, 8710);
+	ili9325_WritePixel(X+12, Y+25, 8710);
+	ili9325_WritePixel(X+13, Y+25, 36524);
+	ili9325_WritePixel(X+14, Y+25, 36524);
+	ili9325_WritePixel(X+15, Y+25, 8710);
+	ili9325_WritePixel(X+16, Y+25, 36524);
+	ili9325_WritePixel(X+17, Y+25, 36524);
+	ili9325_WritePixel(X+18, Y+25, 36524);
+	ili9325_WritePixel(X+19, Y+25, 36524);
+
+	ili9325_WritePixel(X+9, Y+26, 8710);
+	ili9325_WritePixel(X+10, Y+26, 36524);
+	ili9325_WritePixel(X+11, Y+26, 36524);
+	ili9325_WritePixel(X+12, Y+26, 36524);
+	ili9325_WritePixel(X+13, Y+26, 36524);
+	ili9325_WritePixel(X+14, Y+26, 36524);
+	ili9325_WritePixel(X+15, Y+26, 8710);
+	ili9325_WritePixel(X+16, Y+26, 36524);
+	ili9325_WritePixel(X+17, Y+26, 36524);
+	ili9325_WritePixel(X+18, Y+26, 36524);
+
+	ili9325_WritePixel(X+10, Y+27, 8710);
+	ili9325_WritePixel(X+11, Y+27, 36524);
+	ili9325_WritePixel(X+12, Y+27, 36524);
+	ili9325_WritePixel(X+13, Y+27, 36524);
+	ili9325_WritePixel(X+14, Y+27, 36524);
+	ili9325_WritePixel(X+15, Y+27, 36524);
+	ili9325_WritePixel(X+16, Y+27, 36524);
+	ili9325_WritePixel(X+17, Y+27, 36524);
+	ili9325_WritePixel(X+18, Y+27, 36524);
+
+	ili9325_WritePixel(X+10, Y+28, 36524);
+	ili9325_WritePixel(X+11, Y+28, 36524);
+	ili9325_WritePixel(X+12, Y+28, 36524);
+	ili9325_WritePixel(X+13, Y+28, 36524);
+	ili9325_WritePixel(X+14, Y+28, 36524);
+	ili9325_WritePixel(X+15, Y+28, 8710);
+	ili9325_WritePixel(X+16, Y+28, 8710);
+	ili9325_WritePixel(X+17, Y+28, 36524);
+
+	ili9325_WritePixel(X+11, Y+29, 36524);
+	ili9325_WritePixel(X+12, Y+29, 36524);
+	ili9325_WritePixel(X+13, Y+29, 36524);
+	ili9325_WritePixel(X+14, Y+29, 36524);
+	ili9325_WritePixel(X+15, Y+29, 36524);
+	ili9325_WritePixel(X+16, Y+29, 36524);
+	ili9325_WritePixel(X+17, Y+29, 36524);
+
+	ili9325_WritePixel(X+11, Y+30, 36524);
+	ili9325_WritePixel(X+12, Y+30, 36524);
+	ili9325_WritePixel(X+13, Y+30, 36524);
+	ili9325_WritePixel(X+14, Y+30, 36524);
+	ili9325_WritePixel(X+15, Y+30, 36524);
+	ili9325_WritePixel(X+16, Y+30, 36524);
+
+	ili9325_WritePixel(X+12, Y+31, 8710);
+	ili9325_WritePixel(X+13, Y+31, 36524);
+	ili9325_WritePixel(X+14, Y+31, 36524);
+	ili9325_WritePixel(X+15, Y+31, 36524);
+
+	ili9325_WritePixel(X+12, Y+32, 8710);
+	ili9325_WritePixel(X+13, Y+32, 36524);
+	ili9325_WritePixel(X+14, Y+32, 36524);
+	ili9325_WritePixel(X+15, Y+32, 36524);
+
+	ili9325_WritePixel(X+12, Y+33, 36524);
+	ili9325_WritePixel(X+13, Y+33, 36524);
+	ili9325_WritePixel(X+14, Y+33, 36524);
+}
