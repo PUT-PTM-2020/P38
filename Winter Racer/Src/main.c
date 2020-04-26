@@ -20,6 +20,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "ili9325.h"
+#include "gra.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -66,7 +68,10 @@ static void MX_GPIO_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	ili9325_Init();
+	ili9325_DisplayOn();
+	DrawMenu(-1);
+	UseMenu();
   /* USER CODE END 1 */
   
 

@@ -1,9 +1,10 @@
-/*#include "lis3dsh.h"
 #include "main.h"
-#include <cmath>
+#include <math.h>
 #include <stdlib.h>
-#include "GLCD.h"
-#include "AsciiLib.h"
+#include "gra.h"
+//#include "AsciiLib.h"
+//#include "GLCD.h"
+//#include "lis3dsh.h"
 
 //NOTE
 	//Dodac napisy do DrawMenu, ChangeTarget i ShowRanking
@@ -13,10 +14,10 @@ void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t b
 {
 	for(int i=0; i<border; i++)
 	{
-		LCD_DrawLine(X, Y-i, X+(width-1), Y-i, color);
-		LCD_DrawLine(X+i, Y-border, X+i, Y-height+border+1, color);
-		LCD_DrawLine(X, Y-height+1+i, X+(width-1), Y-height+1+i, color);
-		LCD_DrawLine(X+(width-1)-i, Y-border, X+(width-1)-i, Y-height+border+1, color);
+		//LCD_DrawLine(X, Y-i, X+(width-1), Y-i, color);
+		//LCD_DrawLine(X+i, Y-border, X+i, Y-height+border+1, color);
+		//LCD_DrawLine(X, Y-height+1+i, X+(width-1), Y-height+1+i, color);
+		//LCD_DrawLine(X+(width-1)-i, Y-border, X+(width-1)-i, Y-height+border+1, color);
 	}
 }
 
@@ -24,15 +25,17 @@ void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t b
 
 void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color)
 {
-	uint16_t X=X+border;
-	uint16_t Y=Y-border;
+	X=X+border;
+	Y=Y-border;
 
 	uint16_t Xp=X+(width-1)-border;
 	uint16_t Yp=Y-(height-1)+border;
 
 	for(int i=X; i<=Xp; i++)
 		for(int j=Y; j<=Yp; j++)
-			LCD_SetPoint(i, j,0x0000);
+		{
+			//LCD_SetPoint(i, j,0x0000);
+		}
 }
 
 //***MENU
@@ -41,22 +44,22 @@ void DrawMenu(uint8_t Mode)
 	if(Mode==-1)	//-1 rysuje całe menu
 	{
 		LCD_Clear(1567);
-		GUI_Text(120, 220, uint8_t *str,49149, 1567); //WINTER RACER
+		//GUI_Text(120, 220, uint8_t *str,49149, 1567); //WINTER RACER
 	}
 	if(Mode==-1 || Mode==0)
 	{
 		DrawBox(86,190,150,40,3,65535);	//START
-		GUI_Text(147, 176, uint8_t *str,65535, 1567);
+		//GUI_Text(147, 176, uint8_t *str,65535, 1567);
 	}
 	if(Mode==-1 || Mode==1)
 	{
 		DrawBox(86,140,150,40,3,65535);	//RANKING
-		GUI_Text(147, 126, uint8_t *str,65535, 1567);
+		//GUI_Text(147, 126, uint8_t *str,65535, 1567);
 	}
 	if(Mode==-1 || Mode==2)
 	{
 		DrawBox(86,90,150,40,3,65535);		//WYJŚCIE
-		GUI_Text(147, 76, uint8_t *str,65535, 1567);
+		//GUI_Text(147, 76, uint8_t *str,65535, 1567);
 	}
 }
 
@@ -68,25 +71,27 @@ void ChangeTargetMenu(uint8_t option, uint8_t LastOption)
 	{
 		case 0:
 		DrawBox(86,190,150,40,3,49149);	//START
-		GUI_Text(147, 176, uint8_t *str,49149, 1567);
+		//GUI_Text(147, 176, uint8_t *str,49149, 1567);
 		break;
 		case 1:
 		DrawBox(86,140,150,40,3,65535);	//RANKING
-		GUI_Text(147, 126, uint8_t *str,49149, 1567);
+		//GUI_Text(147, 126, uint8_t *str,49149, 1567);
 		break;
 		case 2:
 		DrawBox(86,90,150,40,3,65535);		//WYJŚCIE
-		GUI_Text(147, 76, uint8_t *str,49149, 1567);
+		//GUI_Text(147, 76, uint8_t *str,49149, 1567);
 		break;
 	}
 }
 
 void StartGame()
 {
+	struct Skier s1;
+
 	while(1)
 	{
 		//sprawdza wychylenie w osi X
-		LIS3DSH_ReadACC(out);
+		//LIS3DSH_ReadACC(out);
 		accX = out[0];
 			
 		speedUpdate(s1.speed);
@@ -100,13 +105,13 @@ void DrawRanking(uint8_t Mode)
 	if(Mode==-1)
 	{
 		LCD_Clear(0x070F);
-		GUI_Text(130, 220, uint8_t *str,49149, 0xFFFF); //RANKING
+		//GUI_Text(130, 220, uint8_t *str,49149, 0xFFFF); //RANKING
 	}
 	if(Mode==-1 || Mode==0)
 	{
 		FillInside(41, 190, 240, 140, 5, 0x05AC);
 		DrawBox(133, 43, 60, 35, 3, 0x0347);
-		GUI_Text(140, 60, uint8_t *str,49149, 0xFFFF); //WSTECZ
+		//GUI_Text(140, 60, uint8_t *str,49149, 0xFFFF); //WSTECZ
 	}
 	if(Mode==-1 || Mode==1)
 	{
@@ -138,23 +143,23 @@ void UseRanking()
 	{
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
 		{
-			Sound();
+			Sound(1);
 			option--;
 			ChangeTargetRanking(option, option+1);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=1)
 		{
-			Sound();
+			Sound(1);
 			option++;
 			ChangeTargetRanking(option, option-1);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
 		{
-			Sound();
+			Sound(1);
 			switch(option)
 			{
 				case 0:
-				DrawMenu();
+				DrawMenu(-1);
 				option=3;
 				break;
 				case 1:
@@ -169,7 +174,21 @@ void UseRanking()
 //***Sound
 void Sound(uint8_t option)
 {
-	
+	switch(option)
+	{
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	case 6:
+		break;
+	}
 }
 
 void UseMenu()
@@ -180,62 +199,35 @@ void UseMenu()
 	{
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
 		{
-			Sound();
+			Sound(1);
 			option--;
 			ChangeTargetMenu(option, option+1);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=2)
 		{
-			Sound();
+			Sound(1);
 			option++;
 			ChangeTargetMenu(option, option-1);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
 		{
-			Sound();
+			Sound(1);
 			switch(option)
 			{
 				case 0:
 				StartGame();
 				break;
 				case 1:
-				DrawRanking();
+				DrawRanking(-1);
 				UseRanking();
 				break;
 				case 2:
-				LCD_Clear(0);
+				//LCD_Clear(0);
 				break;
 			}
 		}
 	}
 }
-
-//***skier
-struct Skier
-{
-	int X;	
-	int Y;	//pozycja startowa
-	int speed;
-	int *skierHitbox_X = createHitbox_X(skierX, 10);
-	int *skierHitbox_Y = createHitbox_Y(skierY, 10);
-}
-
-//***object
-struct Object	//np. przeszkody
-{
-	int staticX;	
-	int staticY;
-	int *hitbox_X = createHitbox_X(staticX, 10);
-	int *hitbox_Y = createHitbox_Y(staticY, 10);
-}
-
-//***map
-struct Map
-{
-	
-}
-
-Map A,B,C,D,E;	//pięć przygotowanych map
 
 //***hitbox
 int *createHitbox_Y(int Y, int r)
@@ -321,10 +313,14 @@ int *createHitbox_X(int X, int r)
 }
 
 //***collision
-bool collision(X1, Y1, X2, Y2)
+_Bool collision(int *X1, int *Y1, int *X2, int *Y2)
 {
-	if(sizeof(X2) / sizeof(int)>sizeof(X1) / sizeof(int)) size_t n = sizeof(X2) / sizeof(int);
-	else n = sizeof(X1) / sizeof(int);
+	size_t n = 0;
+
+	if(sizeof(*X2) / sizeof(int)>sizeof(*X1) / sizeof(int))
+		n = sizeof(*X2) / sizeof(int);
+	else
+		n = sizeof(*X1) / sizeof(int);
 	
 	for(int i=0; i<n; i++)
 		if(X1[i]==X2[i] && Y1[i]==Y2[i]) return 1;
@@ -346,42 +342,39 @@ void drawSkier(int position, int X, int Y)
 	}
 }
 
-//***positionUpdate
-float accX, out[4];	//accX wychylenie <-1000;1000>
-
-void positionUpdate(float accX, float speed, int& X, int& Y)
+void positionUpdate(float accX, float speed, int *X, int *Y)
 {
-	Y += speed;
+	*Y += speed;
 
 	if(accX < 0.5)
 	{
-		for(int i=0; i<round(abs(accX))/100); i++)
+		for(int i=0; i<(round(abs(accX))/100); i++)
 		{
-			drawSkier(1, X, Y);	//rysuje narciarza, 1 - pozycja narciarza skręcającego w lewo
-			X += accX/100;
+			drawSkier(1, *X, *Y);	//rysuje narciarza, 1 - pozycja narciarza skręcającego w lewo
+			*X += accX/100;
 		}
 	}
 	else if(accX > 0.5)
 	{
-		for(int i=0; i<round(accX)/100); i++)
+		for(int i=0; i<(round(accX)/100); i++)
 		{
-			drawSkier(2, X, Y);	//rysuje narciarza, 2 - pozycja narciarza skręcającego w prawo
-			X += accX/100;
+			drawSkier(2, *X, *Y);	//rysuje narciarza, 2 - pozycja narciarza skręcającego w prawo
+			*X += accX/100;
 		}
 	}
-	else drawSkier(3, X, Y);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
+	else drawSkier(3, *X, *Y);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
 }
 
 //***speedUpdate
-void speedUpdate(float& speed)
+void speedUpdate(float *speed)
 {
 	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1))
 	{
-		speed+=
+		//speed+=
 	}
 	else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2))
 	{
-		speed-=
+		//speed-=
 	}
 }
 
@@ -961,14 +954,3 @@ void SetRock(uint16_t X, uint16_t Y)
 	for(int i=12; i<=15; i++)
 		LCD_SetPoint(X+i, Y+22,0x0000);
 }
-
-int main(void) 
-{
-	HAL_Init();
-	SystemClock_Config();
-	LCD_Initialization();
-	
-	Skier s1;
-	DrawMenu(-1);
-	UseMenu();
-}*/

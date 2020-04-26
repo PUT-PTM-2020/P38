@@ -1,0 +1,16 @@
+ili9325.c:121:6:ili9325_Init	8	static
+ili9325.c:214:6:ili9325_DisplayOn	8	static
+ili9325.c:239:6:ili9325_DisplayOff	8	static
+ili9325.c:258:10:ili9325_GetLcdPixelWidth	4	static
+ili9325.c:268:10:ili9325_GetLcdPixelHeight	4	static
+ili9325.c:278:10:ili9325_ReadID	8	static
+ili9325.c:290:6:ili9325_SetCursor	16	static
+ili9325.c:303:6:ili9325_WritePixel	16	static
+ili9325.c:320:10:ili9325_ReadPixel	16	static
+ili9325.c:341:6:ili9325_WriteReg	16	static
+ili9325.c:354:10:ili9325_ReadReg	16	static
+ili9325.c:371:6:ili9325_SetDisplayWindow	24	static
+ili9325.c:392:6:ili9325_DrawHLine	32	static
+ili9325.c:417:6:ili9325_DrawVLine	32	static
+ili9325.c:451:6:ili9325_DrawBitmap	24	static
+ili9325.c:495:6:ili9325_DrawRGBImage	32	static
