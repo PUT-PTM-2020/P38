@@ -21,6 +21,8 @@ void SetRock(uint16_t X, uint16_t Y);
 void SetBowman(uint16_t X, uint16_t Y);
 void SetTree(uint16_t X, uint16_t Y);
 void SetSkierFront(uint16_t X, uint16_t Y);
+void SetSkierLeft(uint16_t X, uint16_t Y);
+void SetSkierRight(uint16_t X, uint16_t Y);
 void drawSkier(int position, int X, int Y);
 void DrawRanking(uint8_t Mode);
 void DrawMenu(uint8_t Mode);
