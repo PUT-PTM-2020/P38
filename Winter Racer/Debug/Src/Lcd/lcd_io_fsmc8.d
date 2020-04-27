@@ -1,4 +1,4 @@
-Src/gra.o: ../Src/gra.c ../Inc/gra.h ../Inc/main.h \
+Src/Lcd/lcd_io_fsmc8.o: ../Src/Lcd/lcd_io_fsmc8.c ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -24,11 +24,8 @@ Src/gra.o: ../Src/gra.c ../Inc/gra.h ../Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h ../Inc/gra.h \
- ../Inc/lis3dsh.h ../Inc/ff.h ../Inc/ffconf.h ../Inc/../Src/Lcd/ili9325.h \
- ../Inc/../Src/Lcd/lcd.h
-
-../Inc/gra.h:
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h ../Src/Lcd/lcd.h \
+ ../Src/Lcd/lcd_io_fsmc8.h
 
 ../Inc/main.h:
 
@@ -84,14 +81,6 @@ Src/gra.o: ../Src/gra.c ../Inc/gra.h ../Inc/main.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
 
-../Inc/gra.h:
+../Src/Lcd/lcd.h:
 
-../Inc/lis3dsh.h:
-
-../Inc/ff.h:
-
-../Inc/ffconf.h:
-
-../Inc/../Src/Lcd/ili9325.h:
-
-../Inc/../Src/Lcd/lcd.h:
+../Src/Lcd/lcd_io_fsmc8.h:

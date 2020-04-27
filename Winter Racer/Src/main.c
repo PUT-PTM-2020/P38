@@ -60,7 +60,6 @@ static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_SPI3_Init(void);
 /* USER CODE BEGIN PFP */
-
 void WriteToRanking(char* ranking)
 {
 	fresult = f_mount(&FatFs, "", 0);
@@ -69,7 +68,6 @@ void WriteToRanking(char* ranking)
 	fresult = f_write(&file, buffer, len, &bytes_written);
 	fresult = f_close (&file);
 }
-
 void ReadFromRanking(char* ranking)
 {
 	fresult = f_mount(&FatFs, "", 0);
@@ -127,6 +125,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
