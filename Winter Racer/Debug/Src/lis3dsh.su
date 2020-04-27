@@ -1,0 +1,13 @@
+lis3dsh.c:126:6:LIS3DSH_Init	24	static
+lis3dsh.c:175:6:LIS3DSH_DataReadyInterruptConfig	24	static
+lis3dsh.c:195:6:LIS3DSH_LowpowerCmd	16	static
+lis3dsh.c:227:6:LIS3DSH_DataRateCmd	24	static
+lis3dsh.c:253:6:LIS3DSH_FullScaleCmd	24	static
+lis3dsh.c:275:6:LIS3DSH_Write	16	static
+lis3dsh.c:309:6:LIS3DSH_Read	16	static
+lis3dsh.c:344:6:LIS3DSH_ReadACC	40	static
+lis3dsh.c:428:16:LIS3DSH_SendByte	16	static
+lis3dsh.c:460:10:LIS3DSH_TIMEOUT_UserCallback	4	static
+lis3dsh.c:527:6:SPI_SendData	16	static
+lis3dsh.c:538:9:SPI_ReceiveData	16	static
+lis3dsh.c:545:6:LISInit	8	static

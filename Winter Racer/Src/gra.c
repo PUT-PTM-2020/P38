@@ -1,10 +1,6 @@
-#include "main.h"
-#include <math.h>
-#include <stdlib.h>
 #include "gra.h"
 //#include "AsciiLib.h"
 //#include "GLCD.h"
-//#include "lis3dsh.h"
 
 //NOTE
 	//Dodac napisy do DrawMenu, ChangeTarget i ShowRanking
@@ -91,7 +87,7 @@ void StartGame()
 	while(1)
 	{
 		//sprawdza wychylenie w osi X
-		//LIS3DSH_ReadACC(out);
+		LIS3DSH_ReadACC(out);
 		accX = out[0];
 			
 		speedUpdate(s1.speed);
@@ -177,16 +173,25 @@ void Sound(uint8_t option)
 	switch(option)
 	{
 	case 1:
+		//Dzwiek wyboru opcji w menu
 		break;
 	case 2:
+		//Dzwiek przelaczenia opcji w menu
 		break;
 	case 3:
+		//Fanfary zwyciestwa
 		break;
 	case 4:
+		//Smutne trabki przegranej
 		break;
 	case 5:
+		//Zderzenie z przeszkoda
 		break;
 	case 6:
+		//Muzyczka w tle
+		break;
+	case 7:
+		//Dźwięk nart
 		break;
 	}
 }
@@ -199,13 +204,13 @@ void UseMenu()
 	{
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
 		{
-			Sound(1);
+			Sound(2);
 			option--;
 			ChangeTargetMenu(option, option+1);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=2)
 		{
-			Sound(1);
+			Sound(2);
 			option++;
 			ChangeTargetMenu(option, option-1);
 		}
@@ -215,14 +220,14 @@ void UseMenu()
 			switch(option)
 			{
 				case 0:
-				StartGame();
+					StartGame();
 				break;
 				case 1:
-				DrawRanking(-1);
-				UseRanking();
+					DrawRanking(-1);
+					UseRanking();
 				break;
 				case 2:
-				//LCD_Clear(0);
+					//ili9325_DisplayOff();
 				break;
 			}
 		}
@@ -366,7 +371,7 @@ void positionUpdate(float accX, float speed, int *X, int *Y)
 }
 
 //***speedUpdate
-void speedUpdate(float *speed)
+void speedUpdate(int *speed)
 {
 	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1))
 	{
