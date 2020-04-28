@@ -7,7 +7,6 @@
 #include "gra.h"
 #include "lis3dsh.h"
 #include "ff.h"
-#include "../Src/Lcd/ili9325.h"
 
 #define FA_READ 0x01
 #define FA_WRITE 0x02

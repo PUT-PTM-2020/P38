@@ -351,7 +351,7 @@ void positionUpdate(float accX, float speed, int *X, int *Y)
 {
 	*Y += speed;
 
-	if(accX < 0.5)
+	if(accX < -2)
 	{
 		for(int i=0; i<(round(abs(accX))/100); i++)
 		{
@@ -359,7 +359,7 @@ void positionUpdate(float accX, float speed, int *X, int *Y)
 			*X += accX/100;
 		}
 	}
-	else if(accX > 0.5)
+	else if(accX > 2)
 	{
 		for(int i=0; i<(round(accX)/100); i++)
 		{

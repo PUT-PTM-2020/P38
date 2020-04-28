@@ -2691,7 +2691,6 @@ Discarded input sections
  .group         0x0000000000000000        0xc Src/gra.o
  .group         0x0000000000000000        0xc Src/gra.o
  .group         0x0000000000000000        0xc Src/gra.o
- .group         0x0000000000000000        0xc Src/gra.o
  .text          0x0000000000000000        0x0 Src/gra.o
  .data          0x0000000000000000        0x0 Src/gra.o
  .bss           0x0000000000000000        0x0 Src/gra.o
@@ -2705,14 +2704,14 @@ Discarded input sections
                 0x0000000000000000     0x106a Src/gra.o
  .text.SetRock  0x0000000000000000     0x15ea Src/gra.o
  .text.SetBowman
-                0x0000000000000000     0x2da6 Src/gra.o
- .text.SetTree  0x0000000000000000     0x1f76 Src/gra.o
+                0x0000000000000000     0x2838 Src/gra.o
+ .text.SetTree  0x0000000000000000     0x1c48 Src/gra.o
  .text.SetSkierFront
-                0x0000000000000000     0x3022 Src/gra.o
+                0x0000000000000000     0x2b4a Src/gra.o
  .text.SetSkierLeft
-                0x0000000000000000     0x2396 Src/gra.o
+                0x0000000000000000     0x2004 Src/gra.o
  .text.SetSkierRight
-                0x0000000000000000     0x2396 Src/gra.o
+                0x0000000000000000     0x1fce Src/gra.o
  .debug_macro   0x0000000000000000      0xa5a Src/gra.o
  .debug_macro   0x0000000000000000      0x184 Src/gra.o
  .debug_macro   0x0000000000000000       0x32 Src/gra.o
@@ -2752,7 +2751,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x12d Src/gra.o
  .debug_macro   0x0000000000000000       0xf8 Src/gra.o
  .debug_macro   0x0000000000000000       0xf5 Src/gra.o
- .debug_macro   0x0000000000000000       0x16 Src/gra.o
+ .debug_macro   0x0000000000000000       0x40 Src/gra.o
  .group         0x0000000000000000        0xc Src/lis3dsh.o
  .group         0x0000000000000000        0xc Src/lis3dsh.o
  .group         0x0000000000000000        0xc Src/lis3dsh.o
@@ -4357,7 +4356,7 @@ LOAD c:/mydownloads/stm32cubeide_1.0.2/stm32cubeide/plugins/com.st.stm32cube.ide
                 0x00000000000009e7       0x22 c:/mydownloads/stm32cubeide_1.0.2/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 OUTPUT(PROJEKT.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0xb986
+.debug_info     0x0000000000000000     0xb80c
  .debug_info    0x0000000000000000      0x945 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_info    0x0000000000000945      0xe28 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
  .debug_info    0x000000000000176d      0x7b5 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
@@ -4366,17 +4365,17 @@ OUTPUT(PROJEKT.elf elf32-littlearm)
  .debug_info    0x0000000000003e60      0x779 Src/Lcd/ili9325.o
  .debug_info    0x00000000000045d9      0x90f Src/Lcd/lcd_io_gpio8.o
  .debug_info    0x0000000000004ee8      0xb9a Src/diskio.o
- .debug_info    0x0000000000005a82     0x18f8 Src/gra.o
- .debug_info    0x000000000000737a      0xcfb Src/lis3dsh.o
- .debug_info    0x0000000000008075      0xfcb Src/main.o
- .debug_info    0x0000000000009040      0x9e6 Src/stm32f4xx_hal_msp.o
- .debug_info    0x0000000000009a26      0x211 Src/stm32f4xx_it.o
- .debug_info    0x0000000000009c37      0xebd Src/syscalls.o
- .debug_info    0x000000000000aaf4      0x91c Src/sysmem.o
- .debug_info    0x000000000000b410      0x554 Src/system_stm32f4xx.o
- .debug_info    0x000000000000b964       0x22 Startup/startup_stm32f407vgtx.o
+ .debug_info    0x0000000000005a82     0x177e Src/gra.o
+ .debug_info    0x0000000000007200      0xcfb Src/lis3dsh.o
+ .debug_info    0x0000000000007efb      0xfcb Src/main.o
+ .debug_info    0x0000000000008ec6      0x9e6 Src/stm32f4xx_hal_msp.o
+ .debug_info    0x00000000000098ac      0x211 Src/stm32f4xx_it.o
+ .debug_info    0x0000000000009abd      0xebd Src/syscalls.o
+ .debug_info    0x000000000000a97a      0x91c Src/sysmem.o
+ .debug_info    0x000000000000b296      0x554 Src/system_stm32f4xx.o
+ .debug_info    0x000000000000b7ea       0x22 Startup/startup_stm32f407vgtx.o
 
-.debug_abbrev   0x0000000000000000     0x2122
+.debug_abbrev   0x0000000000000000     0x2119
  .debug_abbrev  0x0000000000000000      0x1c7 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_abbrev  0x00000000000001c7      0x2fa Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
  .debug_abbrev  0x00000000000004c1      0x1c9 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
@@ -4385,15 +4384,15 @@ OUTPUT(PROJEKT.elf elf32-littlearm)
  .debug_abbrev  0x0000000000000b0f      0x1bc Src/Lcd/ili9325.o
  .debug_abbrev  0x0000000000000ccb      0x188 Src/Lcd/lcd_io_gpio8.o
  .debug_abbrev  0x0000000000000e53      0x295 Src/diskio.o
- .debug_abbrev  0x00000000000010e8      0x395 Src/gra.o
- .debug_abbrev  0x000000000000147d      0x27e Src/lis3dsh.o
- .debug_abbrev  0x00000000000016fb      0x27c Src/main.o
- .debug_abbrev  0x0000000000001977      0x18c Src/stm32f4xx_hal_msp.o
- .debug_abbrev  0x0000000000001b03       0xc6 Src/stm32f4xx_it.o
- .debug_abbrev  0x0000000000001bc9      0x261 Src/syscalls.o
- .debug_abbrev  0x0000000000001e2a      0x1bb Src/sysmem.o
- .debug_abbrev  0x0000000000001fe5      0x12b Src/system_stm32f4xx.o
- .debug_abbrev  0x0000000000002110       0x12 Startup/startup_stm32f407vgtx.o
+ .debug_abbrev  0x00000000000010e8      0x38c Src/gra.o
+ .debug_abbrev  0x0000000000001474      0x27e Src/lis3dsh.o
+ .debug_abbrev  0x00000000000016f2      0x27c Src/main.o
+ .debug_abbrev  0x000000000000196e      0x18c Src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x0000000000001afa       0xc6 Src/stm32f4xx_it.o
+ .debug_abbrev  0x0000000000001bc0      0x261 Src/syscalls.o
+ .debug_abbrev  0x0000000000001e21      0x1bb Src/sysmem.o
+ .debug_abbrev  0x0000000000001fdc      0x12b Src/system_stm32f4xx.o
+ .debug_abbrev  0x0000000000002107       0x12 Startup/startup_stm32f407vgtx.o
 
 .debug_aranges  0x0000000000000000      0xa10
  .debug_aranges
@@ -4450,7 +4449,7 @@ OUTPUT(PROJEKT.elf elf32-littlearm)
  .debug_ranges  0x00000000000008d0       0x18 Src/system_stm32f4xx.o
  .debug_ranges  0x00000000000008e8       0x20 Startup/startup_stm32f407vgtx.o
 
-.debug_macro    0x0000000000000000    0x22c34
+.debug_macro    0x0000000000000000    0x2293d
  .debug_macro   0x0000000000000000      0x21a Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_macro   0x000000000000021a      0xa5a Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_macro   0x0000000000000c74      0x184 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
@@ -4502,65 +4501,64 @@ OUTPUT(PROJEKT.elf elf32-littlearm)
  .debug_macro   0x000000000001f258       0xf8 Src/diskio.o
  .debug_macro   0x000000000001f350       0xf5 Src/diskio.o
  .debug_macro   0x000000000001f445       0xc4 Src/diskio.o
- .debug_macro   0x000000000001f509      0x2e2 Src/gra.o
- .debug_macro   0x000000000001f7eb       0x46 Src/gra.o
- .debug_macro   0x000000000001f831       0x18 Src/gra.o
- .debug_macro   0x000000000001f849       0x3c Src/gra.o
- .debug_macro   0x000000000001f885       0x34 Src/gra.o
- .debug_macro   0x000000000001f8b9       0x52 Src/gra.o
- .debug_macro   0x000000000001f90b       0x1f Src/gra.o
- .debug_macro   0x000000000001f92a       0x43 Src/gra.o
- .debug_macro   0x000000000001f96d       0x20 Src/gra.o
- .debug_macro   0x000000000001f98d      0x1a3 Src/gra.o
- .debug_macro   0x000000000001fb30      0x32a Src/gra.o
- .debug_macro   0x000000000001fe5a      0x1e1 Src/gra.o
- .debug_macro   0x000000000002003b       0x16 Src/gra.o
- .debug_macro   0x0000000000020051       0x35 Src/gra.o
- .debug_macro   0x0000000000020086       0x16 Src/gra.o
- .debug_macro   0x000000000002009c       0x29 Src/gra.o
- .debug_macro   0x00000000000200c5      0x55f Src/gra.o
- .debug_macro   0x0000000000020624      0x2e8 Src/gra.o
- .debug_macro   0x000000000002090c       0x2e Src/gra.o
- .debug_macro   0x000000000002093a      0x1e1 Src/lis3dsh.o
- .debug_macro   0x0000000000020b1b      0x559 Src/lis3dsh.o
- .debug_macro   0x0000000000021074      0x1dc Src/main.o
- .debug_macro   0x0000000000021250      0x1c4 Src/stm32f4xx_hal_msp.o
- .debug_macro   0x0000000000021414      0x1ef Src/stm32f4xx_it.o
- .debug_macro   0x0000000000021603      0x243 Src/syscalls.o
- .debug_macro   0x0000000000021846       0x40 Src/syscalls.o
- .debug_macro   0x0000000000021886       0x94 Src/syscalls.o
- .debug_macro   0x000000000002191a       0x57 Src/syscalls.o
- .debug_macro   0x0000000000021971      0x330 Src/syscalls.o
- .debug_macro   0x0000000000021ca1       0x10 Src/syscalls.o
- .debug_macro   0x0000000000021cb1       0x10 Src/syscalls.o
- .debug_macro   0x0000000000021cc1       0x10 Src/syscalls.o
- .debug_macro   0x0000000000021cd1       0x10 Src/syscalls.o
- .debug_macro   0x0000000000021ce1       0x1c Src/syscalls.o
- .debug_macro   0x0000000000021cfd       0x52 Src/syscalls.o
- .debug_macro   0x0000000000021d4f       0x40 Src/syscalls.o
- .debug_macro   0x0000000000021d8f       0x10 Src/syscalls.o
- .debug_macro   0x0000000000021d9f       0x40 Src/syscalls.o
- .debug_macro   0x0000000000021ddf       0xd7 Src/syscalls.o
- .debug_macro   0x0000000000021eb6       0x1c Src/syscalls.o
- .debug_macro   0x0000000000021ed2       0x3d Src/syscalls.o
- .debug_macro   0x0000000000021f0f       0x35 Src/syscalls.o
- .debug_macro   0x0000000000021f44      0x122 Src/syscalls.o
- .debug_macro   0x0000000000022066       0x10 Src/syscalls.o
- .debug_macro   0x0000000000022076      0x241 Src/syscalls.o
- .debug_macro   0x00000000000222b7       0x1c Src/syscalls.o
- .debug_macro   0x00000000000222d3       0x10 Src/syscalls.o
- .debug_macro   0x00000000000222e3       0x10 Src/syscalls.o
- .debug_macro   0x00000000000222f3       0x16 Src/syscalls.o
- .debug_macro   0x0000000000022309      0x145 Src/syscalls.o
- .debug_macro   0x000000000002244e      0x189 Src/syscalls.o
- .debug_macro   0x00000000000225d7       0x16 Src/syscalls.o
- .debug_macro   0x00000000000225ed       0x88 Src/syscalls.o
- .debug_macro   0x0000000000022675      0x1ae Src/sysmem.o
- .debug_macro   0x0000000000022823      0x23b Src/sysmem.o
- .debug_macro   0x0000000000022a5e       0x16 Src/sysmem.o
- .debug_macro   0x0000000000022a74      0x1c0 Src/system_stm32f4xx.o
+ .debug_macro   0x000000000001f509      0x2d3 Src/gra.o
+ .debug_macro   0x000000000001f7dc       0x46 Src/gra.o
+ .debug_macro   0x000000000001f822       0x18 Src/gra.o
+ .debug_macro   0x000000000001f83a       0x3c Src/gra.o
+ .debug_macro   0x000000000001f876       0x34 Src/gra.o
+ .debug_macro   0x000000000001f8aa       0x52 Src/gra.o
+ .debug_macro   0x000000000001f8fc       0x1f Src/gra.o
+ .debug_macro   0x000000000001f91b       0x43 Src/gra.o
+ .debug_macro   0x000000000001f95e       0x20 Src/gra.o
+ .debug_macro   0x000000000001f97e      0x1a3 Src/gra.o
+ .debug_macro   0x000000000001fb21      0x32a Src/gra.o
+ .debug_macro   0x000000000001fe4b      0x1e1 Src/gra.o
+ .debug_macro   0x000000000002002c       0x16 Src/gra.o
+ .debug_macro   0x0000000000020042       0x35 Src/gra.o
+ .debug_macro   0x0000000000020077       0x16 Src/gra.o
+ .debug_macro   0x000000000002008d       0x29 Src/gra.o
+ .debug_macro   0x00000000000200b6      0x55f Src/gra.o
+ .debug_macro   0x0000000000020615       0x2e Src/gra.o
+ .debug_macro   0x0000000000020643      0x1e1 Src/lis3dsh.o
+ .debug_macro   0x0000000000020824      0x559 Src/lis3dsh.o
+ .debug_macro   0x0000000000020d7d      0x1dc Src/main.o
+ .debug_macro   0x0000000000020f59      0x1c4 Src/stm32f4xx_hal_msp.o
+ .debug_macro   0x000000000002111d      0x1ef Src/stm32f4xx_it.o
+ .debug_macro   0x000000000002130c      0x243 Src/syscalls.o
+ .debug_macro   0x000000000002154f       0x40 Src/syscalls.o
+ .debug_macro   0x000000000002158f       0x94 Src/syscalls.o
+ .debug_macro   0x0000000000021623       0x57 Src/syscalls.o
+ .debug_macro   0x000000000002167a      0x330 Src/syscalls.o
+ .debug_macro   0x00000000000219aa       0x10 Src/syscalls.o
+ .debug_macro   0x00000000000219ba       0x10 Src/syscalls.o
+ .debug_macro   0x00000000000219ca       0x10 Src/syscalls.o
+ .debug_macro   0x00000000000219da       0x10 Src/syscalls.o
+ .debug_macro   0x00000000000219ea       0x1c Src/syscalls.o
+ .debug_macro   0x0000000000021a06       0x52 Src/syscalls.o
+ .debug_macro   0x0000000000021a58       0x40 Src/syscalls.o
+ .debug_macro   0x0000000000021a98       0x10 Src/syscalls.o
+ .debug_macro   0x0000000000021aa8       0x40 Src/syscalls.o
+ .debug_macro   0x0000000000021ae8       0xd7 Src/syscalls.o
+ .debug_macro   0x0000000000021bbf       0x1c Src/syscalls.o
+ .debug_macro   0x0000000000021bdb       0x3d Src/syscalls.o
+ .debug_macro   0x0000000000021c18       0x35 Src/syscalls.o
+ .debug_macro   0x0000000000021c4d      0x122 Src/syscalls.o
+ .debug_macro   0x0000000000021d6f       0x10 Src/syscalls.o
+ .debug_macro   0x0000000000021d7f      0x241 Src/syscalls.o
+ .debug_macro   0x0000000000021fc0       0x1c Src/syscalls.o
+ .debug_macro   0x0000000000021fdc       0x10 Src/syscalls.o
+ .debug_macro   0x0000000000021fec       0x10 Src/syscalls.o
+ .debug_macro   0x0000000000021ffc       0x16 Src/syscalls.o
+ .debug_macro   0x0000000000022012      0x145 Src/syscalls.o
+ .debug_macro   0x0000000000022157      0x189 Src/syscalls.o
+ .debug_macro   0x00000000000222e0       0x16 Src/syscalls.o
+ .debug_macro   0x00000000000222f6       0x88 Src/syscalls.o
+ .debug_macro   0x000000000002237e      0x1ae Src/sysmem.o
+ .debug_macro   0x000000000002252c      0x23b Src/sysmem.o
+ .debug_macro   0x0000000000022767       0x16 Src/sysmem.o
+ .debug_macro   0x000000000002277d      0x1c0 Src/system_stm32f4xx.o
 
-.debug_line     0x0000000000000000     0x9c1a
+.debug_line     0x0000000000000000     0x9c11
  .debug_line    0x0000000000000000      0x8b3 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
  .debug_line    0x00000000000008b3      0x9d7 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
  .debug_line    0x000000000000128a      0x892 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
@@ -4569,17 +4567,17 @@ OUTPUT(PROJEKT.elf elf32-littlearm)
  .debug_line    0x000000000000348d      0x85b Src/Lcd/ili9325.o
  .debug_line    0x0000000000003ce8      0x905 Src/Lcd/lcd_io_gpio8.o
  .debug_line    0x00000000000045ed      0xa01 Src/diskio.o
- .debug_line    0x0000000000004fee     0x1979 Src/gra.o
- .debug_line    0x0000000000006967      0x898 Src/lis3dsh.o
- .debug_line    0x00000000000071ff      0x78a Src/main.o
- .debug_line    0x0000000000007989      0x6ee Src/stm32f4xx_hal_msp.o
- .debug_line    0x0000000000008077      0x76e Src/stm32f4xx_it.o
- .debug_line    0x00000000000087e5      0x76a Src/syscalls.o
- .debug_line    0x0000000000008f4f      0x586 Src/sysmem.o
- .debug_line    0x00000000000094d5      0x6c4 Src/system_stm32f4xx.o
- .debug_line    0x0000000000009b99       0x81 Startup/startup_stm32f407vgtx.o
+ .debug_line    0x0000000000004fee     0x1970 Src/gra.o
+ .debug_line    0x000000000000695e      0x898 Src/lis3dsh.o
+ .debug_line    0x00000000000071f6      0x78a Src/main.o
+ .debug_line    0x0000000000007980      0x6ee Src/stm32f4xx_hal_msp.o
+ .debug_line    0x000000000000806e      0x76e Src/stm32f4xx_it.o
+ .debug_line    0x00000000000087dc      0x76a Src/syscalls.o
+ .debug_line    0x0000000000008f46      0x586 Src/sysmem.o
+ .debug_line    0x00000000000094cc      0x6c4 Src/system_stm32f4xx.o
+ .debug_line    0x0000000000009b90       0x81 Startup/startup_stm32f407vgtx.o
 
-.debug_str      0x0000000000000000    0xc7709
+.debug_str      0x0000000000000000    0xc6fb4
  .debug_str     0x0000000000000000    0xbb8f7 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
                                       0xbbc99 (size before relaxing)
  .debug_str     0x00000000000bb8f7      0x3ed Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
@@ -4596,23 +4594,23 @@ OUTPUT(PROJEKT.elf elf32-littlearm)
                                       0xbc2e7 (size before relaxing)
  .debug_str     0x00000000000bea6c      0x9a9 Src/diskio.o
                                       0xbbe13 (size before relaxing)
- .debug_str     0x00000000000bf415     0x58f7 Src/gra.o
-                                      0xc106c (size before relaxing)
- .debug_str     0x00000000000c4d0c      0x322 Src/lis3dsh.o
+ .debug_str     0x00000000000bf415     0x51a2 Src/gra.o
+                                      0xc09f3 (size before relaxing)
+ .debug_str     0x00000000000c45b7      0x322 Src/lis3dsh.o
                                       0xbd14e (size before relaxing)
- .debug_str     0x00000000000c502e      0x28a Src/main.o
+ .debug_str     0x00000000000c48d9      0x28a Src/main.o
                                       0xbbf2f (size before relaxing)
- .debug_str     0x00000000000c52b8       0x1b Src/stm32f4xx_hal_msp.o
+ .debug_str     0x00000000000c4b63       0x1b Src/stm32f4xx_hal_msp.o
                                       0xbb60b (size before relaxing)
- .debug_str     0x00000000000c52d3       0xb8 Src/stm32f4xx_it.o
+ .debug_str     0x00000000000c4b7e       0xb8 Src/stm32f4xx_it.o
                                       0xbb7c7 (size before relaxing)
- .debug_str     0x00000000000c538b     0x22c2 Src/syscalls.o
+ .debug_str     0x00000000000c4c36     0x22c2 Src/syscalls.o
                                        0x888e (size before relaxing)
- .debug_str     0x00000000000c764d       0x31 Src/sysmem.o
+ .debug_str     0x00000000000c6ef8       0x31 Src/sysmem.o
                                        0x7ae7 (size before relaxing)
- .debug_str     0x00000000000c767e       0x5a Src/system_stm32f4xx.o
+ .debug_str     0x00000000000c6f29       0x5a Src/system_stm32f4xx.o
                                       0xbb1c7 (size before relaxing)
- .debug_str     0x00000000000c76d8       0x31 Startup/startup_stm32f407vgtx.o
+ .debug_str     0x00000000000c6f83       0x31 Startup/startup_stm32f407vgtx.o
                                          0x69 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b

@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00020074  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000b986  00000000  00000000  000200a4  2**0
+ 12 .debug_info   0000b80c  00000000  00000000  000200a4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00002122  00000000  00000000  0002ba2a  2**0
+ 13 .debug_abbrev 00002119  00000000  00000000  0002b8b0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000a10  00000000  00000000  0002db50  2**3
+ 14 .debug_aranges 00000a10  00000000  00000000  0002d9d0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000908  00000000  00000000  0002e560  2**3
+ 15 .debug_ranges 00000908  00000000  00000000  0002e3e0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00022c34  00000000  00000000  0002ee68  2**0
+ 16 .debug_macro  0002293d  00000000  00000000  0002ece8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00009c1a  00000000  00000000  00051a9c  2**0
+ 17 .debug_line   00009c11  00000000  00000000  00051625  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000c7709  00000000  00000000  0005b6b6  2**0
+ 18 .debug_str    000c6fb4  00000000  00000000  0005b236  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00122dbf  2**0
+ 19 .comment      0000007b  00000000  00000000  001221ea  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002f04  00000000  00000000  00122e3c  2**2
+ 20 .debug_frame  00002f04  00000000  00000000  00122268  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -5978,9 +5978,9 @@ void positionUpdate(float accX, float speed, int *X, int *Y)
  8002c0e:	683b      	ldr	r3, [r7, #0]
  8002c10:	601a      	str	r2, [r3, #0]
 
-	if(accX < 0.5)
+	if(accX < -2)
  8002c12:	edd7 7a03 	vldr	s15, [r7, #12]
- 8002c16:	eeb6 7a00 	vmov.f32	s14, #96	; 0x3f000000  0.5
+ 8002c16:	eeb8 7a00 	vmov.f32	s14, #128	; 0xc0000000 -2.0
  8002c1a:	eef4 7ac7 	vcmpe.f32	s15, s14
  8002c1e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
  8002c22:	d541      	bpl.n	8002ca8 <positionUpdate+0xc8>
@@ -6045,9 +6045,9 @@ void positionUpdate(float accX, float speed, int *X, int *Y)
 	else drawSkier(3, *X, *Y);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
 }
  8002ca6:	e051      	b.n	8002d4c <positionUpdate+0x16c>
-	else if(accX > 0.5)
+	else if(accX > 2)
  8002ca8:	edd7 7a03 	vldr	s15, [r7, #12]
- 8002cac:	eeb6 7a00 	vmov.f32	s14, #96	; 0x3f000000  0.5
+ 8002cac:	eeb0 7a00 	vmov.f32	s14, #0	; 0x40000000  2.0
  8002cb0:	eef4 7ac7 	vcmpe.f32	s15, s14
  8002cb4:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
  8002cb8:	dd40      	ble.n	8002d3c <positionUpdate+0x15c>
