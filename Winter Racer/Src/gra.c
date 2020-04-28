@@ -339,17 +339,20 @@ void drawSkier(int position, int X, int Y)
 	switch(position)
 	{
 		case 1:
+			SetSkierFront(X,Y);
 		break;
 		case 2:
+			SetSkierLeft(X,Y);
 		break;
 		case 3:
+			SetSkierRight(X,Y);
 		break;
 	}
 }
 
 void positionUpdate(float accX, float speed, int *X, int *Y)
 {
-	*Y += speed;
+	//*Y += speed;
 
 	if(accX < -2)
 	{
@@ -368,18 +371,19 @@ void positionUpdate(float accX, float speed, int *X, int *Y)
 		}
 	}
 	else drawSkier(3, *X, *Y);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
+	HAL_Delay(speed);
 }
 
 //***speedUpdate
 void speedUpdate(int *speed)
 {
-	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1))
+	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && speed<500)
 	{
-		//speed+=
+		speed+=1;
 	}
-	else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2))
+	else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && speed>100)
 	{
-		//speed-=
+		speed-=1;
 	}
 }
 

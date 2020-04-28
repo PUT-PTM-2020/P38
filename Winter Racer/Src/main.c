@@ -46,7 +46,7 @@ SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi3;
 
 /* USER CODE BEGIN PV */
-char buffer[256];
+char buffer[256];	//***tu można zmniejszyć
 static FATFS FatFs;
 FRESULT fresult;
 FIL file;
