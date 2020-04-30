@@ -5,8 +5,8 @@ Winter Race to gra zręcznościowe, w której sterujemy narciarzem. Jego zdaniem
 unikając przy tym różnych przeszkód, takich jak drzewa, kamienie, bałwany oraz łucznicy. Na końcu trasy znajduje się 
 księżniczka porwana przez smoka, a gracz musi ją uratować.
 
-### WYKORZYSTYWANE MODUŁY
-* Wyświetlacz TFT LCD 3,2"
+### MODUŁY
+* Wyświetlacz TFT LCD 3,2" HY32D ILI9325
 * Płytka uruchomieniowa STM32F407G-DISC1
 * Płytka Waveshare 8 Push Buttons
 * Moduł czytnika microSD z kartą pamięci 4 GB SDHC
@@ -47,14 +47,21 @@ księżniczka porwana przez smoka, a gracz musi ją uratować.
 * void UseRanking() - odpowiada za sterowanie wyborem opcji na planszy RANKING
 * void SetSnowman(uint16_t X, uint16_t Y) - rysuje bałwana
 * void SetRock(uint16_t X, uint16_t Y) - rysuje skałę
+* int *createHitbox_Y(int Y, int r) - tworzy hitbox obiektu
+* void positionUpdate(float accX, float speed, int& X, int& Y) - aktualizuje położenie narciarza
+* void drawSkier(int position) - dobiera i rysuje odpowiednią pozycję narciarza, w zależności od wychylenia akcelerometru
+* void speedUpdate(float& speed) - aktualizuje prędkość przemieszczania się narciarza
+* _Bool collision(X1, Y1, X2, Y2) - sprawdza, czy nastąpiła kolizja między obiektami
 
-
-### BIBLIOTEKI
+### GŁÓWNE BIBLIOTEKI
 * ili9325.h
 * bmp.h 
 * lcd_io_gpio8.h 
 * stm32_adafruit_lcd.h
 * lcd.h
 * fonts.h
-
+* ff.h
+* lis3dsh.h
+* math.h
+* stdlib.h
 
