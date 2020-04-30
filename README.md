@@ -29,3 +29,32 @@ księżniczka porwana przez smoka, a gracz musi ją uratować.
 * Podłączenie czytnika kart SD
 * Funkcja wczytująca oraz zapisująca ranking na karcie SD
 * Szkielet funkcji efektów dźwiękowych
+
+### FUNKCJE
+* void SetBowman(uint16_t X, uint16_t Y) - rysuje łucznika
+* void SetTree(uint16_t X, uint16_t Y) - rysuje drzewo
+* void SetSkierFront(uint16_t X, uint16_t Y) - rysuje narciarza jadącego na wprost
+* void SetSkierLeft(uint16_t X, uint16_t Y) - rysuje narciarza skręcającego w lewo
+* void SetSkierRight(uint16_t X, uint16_t Y) - rysuje narciarza skręcającego w prawo
+* void WriteToRanking(char* ranking) - zapisuje ranking
+* void ReadFromRanking(char* ranking) - wczytuje ranking
+* void Sound(uint8_t option) - wywołuje odpowiedni dźwięk w zależności od eventu
+* void DrawMenu(uint8_t Mode) - rysuje planszę MENU
+* void ChangeTargetMenu(uint8_t option, uint8_t LastOption) - podświetla opcję w MENU, którą wybraliśmy
+* void UseMenu() - odpowiada za sterowanie wyborem opcji w MENU
+* void DrawRanking(uint8_t Mode) - rysuje planszę RANKING
+* void ChangeTargetRanking(uint8_t option, uint8_t LastOption) - podświetla opcję na planszy RANKING, którą wybraliśmy
+* void UseRanking() - odpowiada za sterowanie wyborem opcji na planszy RANKING
+* void SetSnowman(uint16_t X, uint16_t Y) - rysuje bałwana
+* void SetRock(uint16_t X, uint16_t Y) - rysuje skałę
+
+
+### BIBLIOTEKI
+* ili9325.h
+* bmp.h 
+* lcd_io_gpio8.h 
+* stm32_adafruit_lcd.h
+* lcd.h
+* fonts.h
+
+
