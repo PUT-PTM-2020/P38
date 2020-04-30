@@ -36,8 +36,8 @@ księżniczka porwana przez smoka, a gracz musi ją uratować.
 * **void SetSkierFront(uint16_t X, uint16_t Y)** - rysuje narciarza jadącego na wprost
 * **void SetSkierLeft(uint16_t X, uint16_t Y)** - rysuje narciarza skręcającego w lewo
 * **void SetSkierRight(uint16_t X, uint16_t Y)** - rysuje narciarza skręcającego w prawo
-* **void WriteToRanking(char* ranking)** - zapisuje ranking
-* **void ReadFromRanking(char* ranking)** - wczytuje ranking
+* __void WriteToRanking(char* ranking)__ - zapisuje ranking
+* __void ReadFromRanking(char* ranking)__ - wczytuje ranking
 * **void Sound(uint8_t option)** - wywołuje odpowiedni dźwięk w zależności od eventu
 * **void DrawMenu(uint8_t Mode)** - rysuje planszę MENU
 * **void ChangeTargetMenu(uint8_t option, uint8_t LastOption)** - podświetla opcję w MENU, którą wybraliśmy
@@ -47,7 +47,7 @@ księżniczka porwana przez smoka, a gracz musi ją uratować.
 * **void UseRanking()** - odpowiada za sterowanie wyborem opcji na planszy RANKING
 * **void SetSnowman(uint16_t X, uint16_t Y)** - rysuje bałwana
 * **void SetRock(uint16_t X, uint16_t Y)** - rysuje skałę
-* **int *createHitbox_Y(int Y, int r)** - tworzy hitbox obiektu
+* __int *createHitbox_Y(int Y, int r)__ - tworzy hitbox obiektu
 * **void positionUpdate(float accX, float speed, int& X, int& Y)** - aktualizuje położenie narciarza
 * **void drawSkier(int position)** - dobiera i rysuje odpowiednią pozycję narciarza, w zależności od wychylenia akcelerometru
 * **void speedUpdate(float& speed)** - aktualizuje prędkość przemieszczania się narciarza
