@@ -1,6 +1,7 @@
 # WINTER RACER
 MAKSIM BRZEZINSKI & MIŁOSZ ORLIŃSKI
 
+### OPIS
 Winter Race to gra zręcznościowe, w której sterujemy narciarzem. Jego zdaniem jest jak najszybsze przebycie całej trasy, 
 unikając przy tym różnych przeszkód, takich jak drzewa, kamienie, bałwany oraz łucznicy. Na końcu trasy znajduje się 
 księżniczka porwana przez smoka, a gracz musi ją uratować.
