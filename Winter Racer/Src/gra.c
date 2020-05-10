@@ -1,6 +1,4 @@
 #include "gra.h"
-//#include "AsciiLib.h"
-//#include "GLCD.h"
 
 //NOTE
 	//Dodac napisy do DrawMenu, ChangeTarget i ShowRanking
@@ -30,7 +28,7 @@ void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_
 	for(int i=X; i<=Xp; i++)
 		for(int j=Y; j<=Yp; j++)
 		{
-			//LCD_SetPoint(i, j,0x0000);
+			//ili9325_WritePixel(i, j,0);
 		}
 }
 
@@ -80,34 +78,19 @@ void ChangeTargetMenu(uint8_t option, uint8_t LastOption)
 	}
 }
 
-void StartGame()
-{
-	struct Skier s1;
-
-	while(1)
-	{
-		//sprawdza wychylenie w osi X
-		LIS3DSH_ReadACC(out);
-		accX = out[0];
-			
-		speedUpdate(s1.speed);
-		positionUpdate(accX, s1.speed, s1.X, s1.Y);
-	}
-}
-
 //***RANKING
 void DrawRanking(uint8_t Mode)
 {
 	if(Mode==-1)
 	{
 		LCD_Clear(0x070F);
-		//GUI_Text(130, 220, uint8_t *str,49149, 0xFFFF); //RANKING
+		//GUI_Text(130, 220, uint8_t *str,49149, 65535); //RANKING
 	}
 	if(Mode==-1 || Mode==0)
 	{
 		FillInside(41, 190, 240, 140, 5, 0x05AC);
 		DrawBox(133, 43, 60, 35, 3, 0x0347);
-		//GUI_Text(140, 60, uint8_t *str,49149, 0xFFFF); //WSTECZ
+		//GUI_Text(140, 60, uint8_t *str,49149, 65535); //WSTECZ
 	}
 	if(Mode==-1 || Mode==1)
 	{
@@ -193,44 +176,6 @@ void Sound(uint8_t option)
 	case 7:
 		//Dźwięk nart
 		break;
-	}
-}
-
-void UseMenu()
-{
-	int option=0;
-	
-	while(1)
-	{
-		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
-		{
-			Sound(2);
-			option--;
-			ChangeTargetMenu(option, option+1);
-		}
-		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=2)
-		{
-			Sound(2);
-			option++;
-			ChangeTargetMenu(option, option-1);
-		}
-		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
-		{
-			Sound(1);
-			switch(option)
-			{
-				case 0:
-					StartGame();
-				break;
-				case 1:
-					DrawRanking(-1);
-					UseRanking();
-				break;
-				case 2:
-					//ili9325_DisplayOff();
-				break;
-			}
-		}
 	}
 }
 
@@ -333,23 +278,6 @@ _Bool collision(int *X1, int *Y1, int *X2, int *Y2)
 	return 0;
 }
 
-//***drawSkier
-void drawSkier(int position, int X, int Y)
-{
-	switch(position)
-	{
-		case 1:
-			SetSkierFront(X,Y);
-		break;
-		case 2:
-			SetSkierLeft(X,Y);
-		break;
-		case 3:
-			SetSkierRight(X,Y);
-		break;
-	}
-}
-
 void positionUpdate(float accX, float speed, int *X, int *Y)
 {
 	//*Y += speed;
@@ -358,7 +286,7 @@ void positionUpdate(float accX, float speed, int *X, int *Y)
 	{
 		for(int i=0; i<(round(abs(accX))/100); i++)
 		{
-			drawSkier(1, *X, *Y);	//rysuje narciarza, 1 - pozycja narciarza skręcającego w lewo
+			DrawSkier(1, *X, *Y);	//rysuje narciarza, 1 - pozycja narciarza skręcającego w lewo
 			*X += accX/100;
 		}
 	}
@@ -366,11 +294,11 @@ void positionUpdate(float accX, float speed, int *X, int *Y)
 	{
 		for(int i=0; i<(round(accX)/100); i++)
 		{
-			drawSkier(2, *X, *Y);	//rysuje narciarza, 2 - pozycja narciarza skręcającego w prawo
+			DrawSkier(2, *X, *Y);	//rysuje narciarza, 2 - pozycja narciarza skręcającego w prawo
 			*X += accX/100;
 		}
 	}
-	else drawSkier(3, *X, *Y);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
+	else DrawSkier(3, *X, *Y);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
 	HAL_Delay(speed);
 }
 
@@ -391,577 +319,577 @@ void speedUpdate(int *speed)
 void SetSnowman(uint16_t X, uint16_t Y)
 {
 	for(int i=13; i<=18; i++)
-		LCD_SetPoint(X+i, Y,0x0000);
+		ili9325_WritePixel(X+i, Y,0);
 
-	LCD_SetPoint(X+11, Y+1,0x0000);
-	LCD_SetPoint(X+12, Y+1,0x0000);
+	ili9325_WritePixel(X+11, Y+1,0);
+	ili9325_WritePixel(X+12, Y+1,0);
 	for(int i=13; i<=18; i++)
-		LCD_SetPoint(X+i, Y+1,0xFFFF);
-	LCD_SetPoint(X+19, Y+1,0x0000);
-	LCD_SetPoint(X+20, Y+1,0x0000);
+		ili9325_WritePixel(X+i, Y+1,65535);
+	ili9325_WritePixel(X+19, Y+1,0);
+	ili9325_WritePixel(X+20, Y+1,0);
 
-	LCD_SetPoint(X+10, Y+2,0x0000);
+	ili9325_WritePixel(X+10, Y+2,0);
 	for(int i=11; i<=20; i++)
-		LCD_SetPoint(X+i, Y+2,0xFFFF);
-	LCD_SetPoint(X+21, Y+2,0x0000);
+		ili9325_WritePixel(X+i, Y+2,65535);
+	ili9325_WritePixel(X+21, Y+2,0);
 	
-	LCD_SetPoint(X+9, Y+3,0x0000);
+	ili9325_WritePixel(X+9, Y+3,0);
 	for(int i=10; i<=14; i++)
-		LCD_SetPoint(X+i, Y+3,0xFFFF);
-	LCD_SetPoint(X+15, Y+3,0x0000);
-	LCD_SetPoint(X+16, Y+3,0x0000);
+		ili9325_WritePixel(X+i, Y+3,65535);
+	ili9325_WritePixel(X+15, Y+3,0);
+	ili9325_WritePixel(X+16, Y+3,0);
 	for(int i=17; i<=21; i++)
-		LCD_SetPoint(X+i, Y+3,0xFFFF);
-	LCD_SetPoint(X+22, Y+3,0x0000);
+		ili9325_WritePixel(X+i, Y+3,65535);
+	ili9325_WritePixel(X+22, Y+3,0);
 
-	LCD_SetPoint(X+9, Y+4,0x0000);
+	ili9325_WritePixel(X+9, Y+4,0);
 	for(int i=10; i<=14; i++)
-		LCD_SetPoint(X+i, Y+4,0xFFFF);
-	LCD_SetPoint(X+15, Y+4,0x0000);
-	LCD_SetPoint(X+16, Y+4,0x0000);
+		ili9325_WritePixel(X+i, Y+4,65535);
+	ili9325_WritePixel(X+15, Y+4,0);
+	ili9325_WritePixel(X+16, Y+4,0);
 	for(int i=17; i<=21; i++)
-		LCD_SetPoint(X+i, Y+4,0xFFFF);
-	LCD_SetPoint(X+22, Y+4,0x0000);
+		ili9325_WritePixel(X+i, Y+4,65535);
+	ili9325_WritePixel(X+22, Y+4,0);
 
-	LCD_SetPoint(X+9, Y+5,0x0000);
+	ili9325_WritePixel(X+9, Y+5,0);
 	for(int i=10; i<=21; i++)
-		LCD_SetPoint(X+i, Y+5,0xFFFF);
-	LCD_SetPoint(X+22, Y+5,0x0000);
+		ili9325_WritePixel(X+i, Y+5,65535);
+	ili9325_WritePixel(X+22, Y+5,0);
 
-	LCD_SetPoint(X+3, Y+6,0xF945);
-	LCD_SetPoint(X+4, Y+6,0xF945);
-	LCD_SetPoint(X+9, Y+6,0xFFFF);
+	ili9325_WritePixel(X+3, Y+6,0xF945);
+	ili9325_WritePixel(X+4, Y+6,0xF945);
+	ili9325_WritePixel(X+9, Y+6,65535);
 	for(int i=10; i<=14; i++)
-		LCD_SetPoint(X+i, Y+6,0xFFFF);
-	LCD_SetPoint(X+15, Y+6,0xFFFF);
-	LCD_SetPoint(X+16, Y+6,0xFFFF);
+		ili9325_WritePixel(X+i, Y+6,65535);
+	ili9325_WritePixel(X+15, Y+6,65535);
+	ili9325_WritePixel(X+16, Y+6,65535);
 	for(int i=17; i<=21; i++)
-		LCD_SetPoint(X+i, Y+6,0xFFFF);
-	LCD_SetPoint(X+22, Y+6,0xFFFF);
+		ili9325_WritePixel(X+i, Y+6,65535);
+	ili9325_WritePixel(X+22, Y+6,65535);
 
-	LCD_SetPoint(X+3, Y+7,0xF945);
-	LCD_SetPoint(X+4, Y+7,0xF945);
-	LCD_SetPoint(X+9, Y+7,0xFFFF);
+	ili9325_WritePixel(X+3, Y+7,0xF945);
+	ili9325_WritePixel(X+4, Y+7,0xF945);
+	ili9325_WritePixel(X+9, Y+7,65535);
 	for(int i=10; i<=14; i++)
-		LCD_SetPoint(X+i, Y+7,0xFFFF);
-	LCD_SetPoint(X+15, Y+7,0xFFFF);
-	LCD_SetPoint(X+16, Y+7,0xFFFF);
+		ili9325_WritePixel(X+i, Y+7,65535);
+	ili9325_WritePixel(X+15, Y+7,65535);
+	ili9325_WritePixel(X+16, Y+7,65535);
 	for(int i=17; i<=21; i++)
-		LCD_SetPoint(X+i, Y+7,0xFFFF);
-	LCD_SetPoint(X+22, Y+7,0xFFFF);
+		ili9325_WritePixel(X+i, Y+7,65535);
+	ili9325_WritePixel(X+22, Y+7,65535);
 
-	LCD_SetPoint(X+3, Y+8,0xF945);
-	LCD_SetPoint(X+4, Y+8,0xF945);
-	LCD_SetPoint(X+6, Y+8,0x71A3);
-	LCD_SetPoint(X+7, Y+8,0x71A3);
-	LCD_SetPoint(X+8, Y+8,0x71A3);
-	LCD_SetPoint(X+9, Y+8,0x0000);
+	ili9325_WritePixel(X+3, Y+8,0xF945);
+	ili9325_WritePixel(X+4, Y+8,0xF945);
+	ili9325_WritePixel(X+6, Y+8,0x71A3);
+	ili9325_WritePixel(X+7, Y+8,0x71A3);
+	ili9325_WritePixel(X+8, Y+8,0x71A3);
+	ili9325_WritePixel(X+9, Y+8,0);
 	for(int i=10; i<=21; i++)
-		LCD_SetPoint(X+i, Y+8,0xFFFF);
-	LCD_SetPoint(X+22, Y+8,0x0000);
-	LCD_SetPoint(X+23, Y+8,0x71A3);
-	LCD_SetPoint(X+24, Y+8,0x71A3);
+		ili9325_WritePixel(X+i, Y+8,65535);
+	ili9325_WritePixel(X+22, Y+8,0);
+	ili9325_WritePixel(X+23, Y+8,0x71A3);
+	ili9325_WritePixel(X+24, Y+8,0x71A3);
 	
-	LCD_SetPoint(X+3, Y+9,0xF945);
-	LCD_SetPoint(X+4, Y+9,0xF945);
-	LCD_SetPoint(X+5, Y+9,0x71A3);
-	LCD_SetPoint(X+6, Y+9,0x71A3);
-	LCD_SetPoint(X+7, Y+9,0x71A3);
-	LCD_SetPoint(X+8, Y+9,0x71A3);
-	LCD_SetPoint(X+9, Y+9,0x0000);
+	ili9325_WritePixel(X+3, Y+9,0xF945);
+	ili9325_WritePixel(X+4, Y+9,0xF945);
+	ili9325_WritePixel(X+5, Y+9,0x71A3);
+	ili9325_WritePixel(X+6, Y+9,0x71A3);
+	ili9325_WritePixel(X+7, Y+9,0x71A3);
+	ili9325_WritePixel(X+8, Y+9,0x71A3);
+	ili9325_WritePixel(X+9, Y+9,0);
 	for(int i=10; i<=14; i++)
-		LCD_SetPoint(X+i, Y+9,0xFFFF);
-	LCD_SetPoint(X+15, Y+9,0x0000);
-	LCD_SetPoint(X+16, Y+9,0x0000);
+		ili9325_WritePixel(X+i, Y+9,65535);
+	ili9325_WritePixel(X+15, Y+9,0);
+	ili9325_WritePixel(X+16, Y+9,0);
 	for(int i=17; i<=21; i++)
-		LCD_SetPoint(X+i, Y+9,0xFFFF);
-	LCD_SetPoint(X+22, Y+9,0x0000);
-	LCD_SetPoint(X+23, Y+9,0xF945);
-	LCD_SetPoint(X+24, Y+9,0xF945);
-	LCD_SetPoint(X+25, Y+9,0x71A3);
+		ili9325_WritePixel(X+i, Y+9,65535);
+	ili9325_WritePixel(X+22, Y+9,0);
+	ili9325_WritePixel(X+23, Y+9,0xF945);
+	ili9325_WritePixel(X+24, Y+9,0xF945);
+	ili9325_WritePixel(X+25, Y+9,0x71A3);
 
-	LCD_SetPoint(X+3, Y+10,0xF945);
-	LCD_SetPoint(X+4, Y+10,0xF945);
-	LCD_SetPoint(X+5, Y+10,0x71A3);
-	LCD_SetPoint(X+9, Y+10,0x0000);
+	ili9325_WritePixel(X+3, Y+10,0xF945);
+	ili9325_WritePixel(X+4, Y+10,0xF945);
+	ili9325_WritePixel(X+5, Y+10,0x71A3);
+	ili9325_WritePixel(X+9, Y+10,0);
 	for(int i=10; i<=14; i++)
-		LCD_SetPoint(X+i, Y+10,0xFFFF);
-	LCD_SetPoint(X+15, Y+10,0x0000);
-	LCD_SetPoint(X+16, Y+10,0x0000);
+		ili9325_WritePixel(X+i, Y+10,65535);
+	ili9325_WritePixel(X+15, Y+10,0);
+	ili9325_WritePixel(X+16, Y+10,0);
 	for(int i=17; i<=21; i++)
-		LCD_SetPoint(X+i, Y+10,0xFFFF);
-	LCD_SetPoint(X+22, Y+10,0x0000);
-	LCD_SetPoint(X+23, Y+10,0xF945);
-	LCD_SetPoint(X+24, Y+10,0xF945);
-	LCD_SetPoint(X+25, Y+10,0x71A3);
-	LCD_SetPoint(X+26, Y+10,0x71A3);
+		ili9325_WritePixel(X+i, Y+10,65535);
+	ili9325_WritePixel(X+22, Y+10,0);
+	ili9325_WritePixel(X+23, Y+10,0xF945);
+	ili9325_WritePixel(X+24, Y+10,0xF945);
+	ili9325_WritePixel(X+25, Y+10,0x71A3);
+	ili9325_WritePixel(X+26, Y+10,0x71A3);
 
-	LCD_SetPoint(X+2, Y+11,0x71A3);
-	LCD_SetPoint(X+3, Y+11,0xF945);
-	LCD_SetPoint(X+4, Y+11,0xF945);
-	LCD_SetPoint(X+10, Y+10,0x0000);
+	ili9325_WritePixel(X+2, Y+11,0x71A3);
+	ili9325_WritePixel(X+3, Y+11,0xF945);
+	ili9325_WritePixel(X+4, Y+11,0xF945);
+	ili9325_WritePixel(X+10, Y+10,0);
 	for(int i=11; i<=21; i++)
-		LCD_SetPoint(X+i, Y+10,0xFFFF);
-	LCD_SetPoint(X+22, Y+11,0xF945);
-	LCD_SetPoint(X+23, Y+11,0xF945);
-	LCD_SetPoint(X+24, Y+11,0xF945);
-	LCD_SetPoint(X+25, Y+11,0x71A3);
-	LCD_SetPoint(X+26, Y+11,0x71A3);
-	LCD_SetPoint(X+27, Y+11,0x71A3);
+		ili9325_WritePixel(X+i, Y+10,65535);
+	ili9325_WritePixel(X+22, Y+11,0xF945);
+	ili9325_WritePixel(X+23, Y+11,0xF945);
+	ili9325_WritePixel(X+24, Y+11,0xF945);
+	ili9325_WritePixel(X+25, Y+11,0x71A3);
+	ili9325_WritePixel(X+26, Y+11,0x71A3);
+	ili9325_WritePixel(X+27, Y+11,0x71A3);
 
-	LCD_SetPoint(X+3, Y+12,0xF945);
-	LCD_SetPoint(X+4, Y+12,0xF945);
-	LCD_SetPoint(X+11, Y+12,0x0000);
+	ili9325_WritePixel(X+3, Y+12,0xF945);
+	ili9325_WritePixel(X+4, Y+12,0xF945);
+	ili9325_WritePixel(X+11, Y+12,0);
 	for(int i=12; i<=20; i++)
-		LCD_SetPoint(X+i, Y+10,0xFFFF);
-	LCD_SetPoint(X+21, Y+12,0xF945);
-	LCD_SetPoint(X+22, Y+12,0xF945);
-	LCD_SetPoint(X+23, Y+12,0xF945);
-	LCD_SetPoint(X+27, Y+12,0x71A3);
+		ili9325_WritePixel(X+i, Y+10,65535);
+	ili9325_WritePixel(X+21, Y+12,0xF945);
+	ili9325_WritePixel(X+22, Y+12,0xF945);
+	ili9325_WritePixel(X+23, Y+12,0xF945);
+	ili9325_WritePixel(X+27, Y+12,0x71A3);
 
-	LCD_SetPoint(X+3, Y+13,0xF945);
-	LCD_SetPoint(X+4, Y+13,0xF945);
+	ili9325_WritePixel(X+3, Y+13,0xF945);
+	ili9325_WritePixel(X+4, Y+13,0xF945);
 	for(int i=11; i<=22; i++)
-		LCD_SetPoint(X+i, Y+13,0xF945);
+		ili9325_WritePixel(X+i, Y+13,0xF945);
 
-	LCD_SetPoint(X+3, Y+14,0xF945);
-	LCD_SetPoint(X+4, Y+14,0xF945);
+	ili9325_WritePixel(X+3, Y+14,0xF945);
+	ili9325_WritePixel(X+4, Y+14,0xF945);
 	for(int i=11; i<=21; i++)
-		LCD_SetPoint(X+i, Y+13,0xF945);
+		ili9325_WritePixel(X+i, Y+13,0xF945);
 
-	LCD_SetPoint(X+3, Y+15,0xF945);
-	LCD_SetPoint(X+4, Y+15,0xF945);
-	LCD_SetPoint(X+11, Y+15,0x0000);
+	ili9325_WritePixel(X+3, Y+15,0xF945);
+	ili9325_WritePixel(X+4, Y+15,0xF945);
+	ili9325_WritePixel(X+11, Y+15,0);
 	for(int i=12; i<=19; i++)
-		LCD_SetPoint(X+i, Y+15,0xFFFF);
-	LCD_SetPoint(X+20, Y+15,0x0000);
+		ili9325_WritePixel(X+i, Y+15,65535);
+	ili9325_WritePixel(X+20, Y+15,0);
 
-	LCD_SetPoint(X+3, Y+16,0xF945);
-	LCD_SetPoint(X+4, Y+16,0xF945);
-	LCD_SetPoint(X+11, Y+16,0x0000);
-	LCD_SetPoint(X+12, Y+16,0xFFFF);
-	LCD_SetPoint(X+13, Y+16,0xFFFF);
-	LCD_SetPoint(X+14, Y+16,0xFFFF);
-	LCD_SetPoint(X+15, Y+16,0x0000);
-	LCD_SetPoint(X+16, Y+16,0x0000);
-	LCD_SetPoint(X+17, Y+16,0xFFFF);
-	LCD_SetPoint(X+18, Y+16,0xFFFF);
-	LCD_SetPoint(X+19, Y+16,0xFFFF);
-	LCD_SetPoint(X+20, Y+16,0x0000);
+	ili9325_WritePixel(X+3, Y+16,0xF945);
+	ili9325_WritePixel(X+4, Y+16,0xF945);
+	ili9325_WritePixel(X+11, Y+16,0);
+	ili9325_WritePixel(X+12, Y+16,65535);
+	ili9325_WritePixel(X+13, Y+16,65535);
+	ili9325_WritePixel(X+14, Y+16,65535);
+	ili9325_WritePixel(X+15, Y+16,0);
+	ili9325_WritePixel(X+16, Y+16,0);
+	ili9325_WritePixel(X+17, Y+16,65535);
+	ili9325_WritePixel(X+18, Y+16,65535);
+	ili9325_WritePixel(X+19, Y+16,65535);
+	ili9325_WritePixel(X+20, Y+16,0);
 
-	LCD_SetPoint(X+1, Y+17,0xF945);
-	LCD_SetPoint(X+2, Y+17,0xF945);
-	LCD_SetPoint(X+3, Y+17,0xF945);
-	LCD_SetPoint(X+4, Y+17,0xF945);
-	LCD_SetPoint(X+10, Y+17,0x0000);
-	LCD_SetPoint(X+11, Y+17,0xFFFF);
-	LCD_SetPoint(X+12, Y+17,0xFFFF);
-	LCD_SetPoint(X+13, Y+17,0xFFFF);
-	LCD_SetPoint(X+14, Y+17,0x0000);
-	LCD_SetPoint(X+15, Y+17,0xFFFF);
-	LCD_SetPoint(X+16, Y+17,0xFFFF);
-	LCD_SetPoint(X+17, Y+17,0x0000);
-	LCD_SetPoint(X+18, Y+17,0xFFFF);
-	LCD_SetPoint(X+19, Y+17,0xFFFF);
-	LCD_SetPoint(X+20, Y+17,0xFFFF);
-	LCD_SetPoint(X+21, Y+17,0x0000);
+	ili9325_WritePixel(X+1, Y+17,0xF945);
+	ili9325_WritePixel(X+2, Y+17,0xF945);
+	ili9325_WritePixel(X+3, Y+17,0xF945);
+	ili9325_WritePixel(X+4, Y+17,0xF945);
+	ili9325_WritePixel(X+10, Y+17,0);
+	ili9325_WritePixel(X+11, Y+17,65535);
+	ili9325_WritePixel(X+12, Y+17,65535);
+	ili9325_WritePixel(X+13, Y+17,65535);
+	ili9325_WritePixel(X+14, Y+17,0);
+	ili9325_WritePixel(X+15, Y+17,65535);
+	ili9325_WritePixel(X+16, Y+17,65535);
+	ili9325_WritePixel(X+17, Y+17,0);
+	ili9325_WritePixel(X+18, Y+17,65535);
+	ili9325_WritePixel(X+19, Y+17,65535);
+	ili9325_WritePixel(X+20, Y+17,65535);
+	ili9325_WritePixel(X+21, Y+17,0);
 
-	LCD_SetPoint(X+2, Y+18,0xF945);
-	LCD_SetPoint(X+3, Y+18,0xF945);
-	LCD_SetPoint(X+10, Y+18,0x0000);
-	LCD_SetPoint(X+11, Y+18,0xFFFF);
-	LCD_SetPoint(X+12, Y+18,0xFFFF);
-	LCD_SetPoint(X+13, Y+18,0xFCA0);
-	LCD_SetPoint(X+14, Y+18,0xFCA0);
-	LCD_SetPoint(X+15, Y+18,0xFCA0);
+	ili9325_WritePixel(X+2, Y+18,0xF945);
+	ili9325_WritePixel(X+3, Y+18,0xF945);
+	ili9325_WritePixel(X+10, Y+18,0);
+	ili9325_WritePixel(X+11, Y+18,65535);
+	ili9325_WritePixel(X+12, Y+18,65535);
+	ili9325_WritePixel(X+13, Y+18,0xFCA0);
+	ili9325_WritePixel(X+14, Y+18,0xFCA0);
+	ili9325_WritePixel(X+15, Y+18,0xFCA0);
 	for(int i=16; i<=20; i++)
-		LCD_SetPoint(X+i, Y+18,0xFFFF);
-	LCD_SetPoint(X+21, Y+18,0x0000);
+		ili9325_WritePixel(X+i, Y+18,65535);
+	ili9325_WritePixel(X+21, Y+18,0);
 
-	LCD_SetPoint(X+10, Y+19,0x0000);
-	LCD_SetPoint(X+11, Y+19,0xFFFF);
-	LCD_SetPoint(X+12, Y+19,0xFFFF);
-	LCD_SetPoint(X+13, Y+19,0xFFFF);
-	LCD_SetPoint(X+14, Y+19,0xFFFF);
-	LCD_SetPoint(X+15, Y+19,0xFCA0);
+	ili9325_WritePixel(X+10, Y+19,0);
+	ili9325_WritePixel(X+11, Y+19,65535);
+	ili9325_WritePixel(X+12, Y+19,65535);
+	ili9325_WritePixel(X+13, Y+19,65535);
+	ili9325_WritePixel(X+14, Y+19,65535);
+	ili9325_WritePixel(X+15, Y+19,0xFCA0);
 	for(int i=16; i<=20; i++)
-		LCD_SetPoint(X+i, Y+19,0xFFFF);
-	LCD_SetPoint(X+21, Y+19,0x0000);
+		ili9325_WritePixel(X+i, Y+19,65535);
+	ili9325_WritePixel(X+21, Y+19,0);
 
-	LCD_SetPoint(X+10, Y+20,0x0000);
-	LCD_SetPoint(X+11, Y+20,0xFFFF);
-	LCD_SetPoint(X+12, Y+20,0xFFFF);
-	LCD_SetPoint(X+13, Y+20,0x0000);
-	LCD_SetPoint(X+14, Y+20,0x0000);
-	LCD_SetPoint(X+15, Y+20,0xFFFF);
-	LCD_SetPoint(X+16, Y+20,0xFFFF);
-	LCD_SetPoint(X+17, Y+20,0x0000);
-	LCD_SetPoint(X+18, Y+20,0x0000);
-	LCD_SetPoint(X+19, Y+20,0xFFFF);
-	LCD_SetPoint(X+20, Y+20,0xFFFF);
-	LCD_SetPoint(X+21, Y+20,0x0000);
+	ili9325_WritePixel(X+10, Y+20,0);
+	ili9325_WritePixel(X+11, Y+20,65535);
+	ili9325_WritePixel(X+12, Y+20,65535);
+	ili9325_WritePixel(X+13, Y+20,0);
+	ili9325_WritePixel(X+14, Y+20,0);
+	ili9325_WritePixel(X+15, Y+20,65535);
+	ili9325_WritePixel(X+16, Y+20,65535);
+	ili9325_WritePixel(X+17, Y+20,0);
+	ili9325_WritePixel(X+18, Y+20,0);
+	ili9325_WritePixel(X+19, Y+20,65535);
+	ili9325_WritePixel(X+20, Y+20,65535);
+	ili9325_WritePixel(X+21, Y+20,0);
 
-	LCD_SetPoint(X+11, Y+21,0x0000);
-	LCD_SetPoint(X+12, Y+21,0xFFFF);
-	LCD_SetPoint(X+13, Y+21,0xFFFF);
-	LCD_SetPoint(X+14, Y+21,0x0000);
-	LCD_SetPoint(X+15, Y+21,0xFFFF);
-	LCD_SetPoint(X+16, Y+21,0xFFFF);
-	LCD_SetPoint(X+17, Y+21,0x0000);
-	LCD_SetPoint(X+18, Y+21,0xFFFF);
-	LCD_SetPoint(X+19, Y+21,0xFFFF);
-	LCD_SetPoint(X+20, Y+21,0x0000);
+	ili9325_WritePixel(X+11, Y+21,0);
+	ili9325_WritePixel(X+12, Y+21,65535);
+	ili9325_WritePixel(X+13, Y+21,65535);
+	ili9325_WritePixel(X+14, Y+21,0);
+	ili9325_WritePixel(X+15, Y+21,65535);
+	ili9325_WritePixel(X+16, Y+21,65535);
+	ili9325_WritePixel(X+17, Y+21,0);
+	ili9325_WritePixel(X+18, Y+21,65535);
+	ili9325_WritePixel(X+19, Y+21,65535);
+	ili9325_WritePixel(X+20, Y+21,0);
 
-	LCD_SetPoint(X+11, Y+22,0x0000);
+	ili9325_WritePixel(X+11, Y+22,0);
 	for(int i=12; i<=19; i++)
-		LCD_SetPoint(X+i, Y+22,0xFFFF);
-	LCD_SetPoint(X+20, Y+22,0x0000);
+		ili9325_WritePixel(X+i, Y+22,65535);
+	ili9325_WritePixel(X+20, Y+22,0);
 
-	LCD_SetPoint(X+12, Y+23,0x0000);
-	LCD_SetPoint(X+13, Y+23,0x0000);
+	ili9325_WritePixel(X+12, Y+23,0);
+	ili9325_WritePixel(X+13, Y+23,0);
 	for(int i=14; i<=17; i++)
-		LCD_SetPoint(X+i, Y+23,0xFFFF);
-	LCD_SetPoint(X+18, Y+23,0x0000);
-	LCD_SetPoint(X+19, Y+23,0x0000);
+		ili9325_WritePixel(X+i, Y+23,65535);
+	ili9325_WritePixel(X+18, Y+23,0);
+	ili9325_WritePixel(X+19, Y+23,0);
 
-	LCD_SetPoint(X+10, Y+24,0x0000);
-	LCD_SetPoint(X+11, Y+24,0x0000);
+	ili9325_WritePixel(X+10, Y+24,0);
+	ili9325_WritePixel(X+11, Y+24,0);
 	for(int i=12; i<=19; i++)
-		LCD_SetPoint(X+i, Y+24,0xF945);
-	LCD_SetPoint(X+20, Y+24,0x0000);
-	LCD_SetPoint(X+21, Y+24,0x0000);
-
-	for(int i=12; i<=19; i++)
-		LCD_SetPoint(X+i, Y+25,0xF945);
+		ili9325_WritePixel(X+i, Y+24,0xF945);
+	ili9325_WritePixel(X+20, Y+24,0);
+	ili9325_WritePixel(X+21, Y+24,0);
 
 	for(int i=12; i<=19; i++)
-		LCD_SetPoint(X+i, Y+26,0x0000);
+		ili9325_WritePixel(X+i, Y+25,0xF945);
+
+	for(int i=12; i<=19; i++)
+		ili9325_WritePixel(X+i, Y+26,0);
 
 		for(int i=12; i<=19; i++)
-		LCD_SetPoint(X+i, Y+27,0x0000);
+		ili9325_WritePixel(X+i, Y+27,0);
 }
 
 //***SetRock
 void SetRock(uint16_t X, uint16_t Y)
 {
 	for(int i=7; i<=19; i++)
-		LCD_SetPoint(X+i, Y,0x0000);
+		ili9325_WritePixel(X+i, Y,0);
 
-	LCD_SetPoint(X+6, Y+1,0x0000);
-	LCD_SetPoint(X+7, Y+1,0xA4B2);
-	LCD_SetPoint(X+8, Y+1,0xA4B2);
-	LCD_SetPoint(X+9, Y+1,0xA4B2);
-	LCD_SetPoint(X+10, Y+1,0xD618);
-	LCD_SetPoint(X+11, Y+1,0xD618);
-	LCD_SetPoint(X+12, Y+1,0xD618);
-	LCD_SetPoint(X+13, Y+1,0xD618);
-	LCD_SetPoint(X+14, Y+1,0xD618);
-	LCD_SetPoint(X+15, Y+1,0xD618);
-	LCD_SetPoint(X+16, Y+1,0x4A08);
-	LCD_SetPoint(X+17, Y+1,0x4A08);
-	LCD_SetPoint(X+18, Y+1,0x4A08);
-	LCD_SetPoint(X+19, Y+1,0x4A08);
-	LCD_SetPoint(X+20, Y+1,0x0000);
-	LCD_SetPoint(X+21, Y+1,0x0000);
+	ili9325_WritePixel(X+6, Y+1,0);
+	ili9325_WritePixel(X+7, Y+1,0xA4B2);
+	ili9325_WritePixel(X+8, Y+1,0xA4B2);
+	ili9325_WritePixel(X+9, Y+1,0xA4B2);
+	ili9325_WritePixel(X+10, Y+1,0xD618);
+	ili9325_WritePixel(X+11, Y+1,0xD618);
+	ili9325_WritePixel(X+12, Y+1,0xD618);
+	ili9325_WritePixel(X+13, Y+1,0xD618);
+	ili9325_WritePixel(X+14, Y+1,0xD618);
+	ili9325_WritePixel(X+15, Y+1,0xD618);
+	ili9325_WritePixel(X+16, Y+1,0x4A08);
+	ili9325_WritePixel(X+17, Y+1,0x4A08);
+	ili9325_WritePixel(X+18, Y+1,0x4A08);
+	ili9325_WritePixel(X+19, Y+1,0x4A08);
+	ili9325_WritePixel(X+20, Y+1,0);
+	ili9325_WritePixel(X+21, Y+1,0);
 
-	LCD_SetPoint(X+2, Y+2,0x0000);
-	LCD_SetPoint(X+3, Y+2,0x0000);
-	LCD_SetPoint(X+4, Y+2,0x0000);
-	LCD_SetPoint(X+5, Y+2,0x0000);
-	LCD_SetPoint(X+6, Y+2,0x4A08);
-	LCD_SetPoint(X+7, Y+2,0xA4B2);
-	LCD_SetPoint(X+8, Y+2,0xD618);
-	LCD_SetPoint(X+9, Y+2,0xD618);
-	LCD_SetPoint(X+10, Y+2,0xD618);
-	LCD_SetPoint(X+11, Y+2,0xA4B2);
-	LCD_SetPoint(X+12, Y+2,0xA4B2);
-	LCD_SetPoint(X+13, Y+2,0xD618);
-	LCD_SetPoint(X+14, Y+2,0xD618);
-	LCD_SetPoint(X+15, Y+2,0xD618);
-	LCD_SetPoint(X+16, Y+2,0xD618);
-	LCD_SetPoint(X+17, Y+2,0x4A08);
-	LCD_SetPoint(X+18, Y+2,0x4A08);
-	LCD_SetPoint(X+19, Y+2,0x4A08);
-	LCD_SetPoint(X+20, Y+2,0x4A08);
-	LCD_SetPoint(X+21, Y+2,0x4A08);
-	LCD_SetPoint(X+22, Y+2,0x0000);
+	ili9325_WritePixel(X+2, Y+2,0);
+	ili9325_WritePixel(X+3, Y+2,0);
+	ili9325_WritePixel(X+4, Y+2,0);
+	ili9325_WritePixel(X+5, Y+2,0);
+	ili9325_WritePixel(X+6, Y+2,0x4A08);
+	ili9325_WritePixel(X+7, Y+2,0xA4B2);
+	ili9325_WritePixel(X+8, Y+2,0xD618);
+	ili9325_WritePixel(X+9, Y+2,0xD618);
+	ili9325_WritePixel(X+10, Y+2,0xD618);
+	ili9325_WritePixel(X+11, Y+2,0xA4B2);
+	ili9325_WritePixel(X+12, Y+2,0xA4B2);
+	ili9325_WritePixel(X+13, Y+2,0xD618);
+	ili9325_WritePixel(X+14, Y+2,0xD618);
+	ili9325_WritePixel(X+15, Y+2,0xD618);
+	ili9325_WritePixel(X+16, Y+2,0xD618);
+	ili9325_WritePixel(X+17, Y+2,0x4A08);
+	ili9325_WritePixel(X+18, Y+2,0x4A08);
+	ili9325_WritePixel(X+19, Y+2,0x4A08);
+	ili9325_WritePixel(X+20, Y+2,0x4A08);
+	ili9325_WritePixel(X+21, Y+2,0x4A08);
+	ili9325_WritePixel(X+22, Y+2,0);
 
-	LCD_SetPoint(X+1, Y+3,0x0000);
-	LCD_SetPoint(X+2, Y+3,0x4A08);
-	LCD_SetPoint(X+3, Y+3,0x4A08);
-	LCD_SetPoint(X+4, Y+3,0x4A08);
-	LCD_SetPoint(X+5, Y+3,0xD618);
-	LCD_SetPoint(X+6, Y+3,0x4A08);
-	LCD_SetPoint(X+7, Y+3,0xD618);
-	LCD_SetPoint(X+8, Y+3,0xD618);
-	LCD_SetPoint(X+9, Y+3,0xA4B2);
-	LCD_SetPoint(X+10, Y+3,0xA4B2);
-	LCD_SetPoint(X+11, Y+3,0xD618);
-	LCD_SetPoint(X+12, Y+3,0xA4B2);
-	LCD_SetPoint(X+13, Y+3,0xA4B2);
-	LCD_SetPoint(X+14, Y+3,0xA4B2);
-	LCD_SetPoint(X+15, Y+3,0xA4B2);
-	LCD_SetPoint(X+16, Y+3,0xA4B2);
-	LCD_SetPoint(X+17, Y+3,0xA4B2);
-	LCD_SetPoint(X+18, Y+3,0xD618);
-	LCD_SetPoint(X+19, Y+3,0xD618);
-	LCD_SetPoint(X+20, Y+3,0x4A08);
-	LCD_SetPoint(X+21, Y+3,0x4A08);
-	LCD_SetPoint(X+22, Y+3,0x4A08);
-	LCD_SetPoint(X+23, Y+3,0x0000);
+	ili9325_WritePixel(X+1, Y+3,0);
+	ili9325_WritePixel(X+2, Y+3,0x4A08);
+	ili9325_WritePixel(X+3, Y+3,0x4A08);
+	ili9325_WritePixel(X+4, Y+3,0x4A08);
+	ili9325_WritePixel(X+5, Y+3,0xD618);
+	ili9325_WritePixel(X+6, Y+3,0x4A08);
+	ili9325_WritePixel(X+7, Y+3,0xD618);
+	ili9325_WritePixel(X+8, Y+3,0xD618);
+	ili9325_WritePixel(X+9, Y+3,0xA4B2);
+	ili9325_WritePixel(X+10, Y+3,0xA4B2);
+	ili9325_WritePixel(X+11, Y+3,0xD618);
+	ili9325_WritePixel(X+12, Y+3,0xA4B2);
+	ili9325_WritePixel(X+13, Y+3,0xA4B2);
+	ili9325_WritePixel(X+14, Y+3,0xA4B2);
+	ili9325_WritePixel(X+15, Y+3,0xA4B2);
+	ili9325_WritePixel(X+16, Y+3,0xA4B2);
+	ili9325_WritePixel(X+17, Y+3,0xA4B2);
+	ili9325_WritePixel(X+18, Y+3,0xD618);
+	ili9325_WritePixel(X+19, Y+3,0xD618);
+	ili9325_WritePixel(X+20, Y+3,0x4A08);
+	ili9325_WritePixel(X+21, Y+3,0x4A08);
+	ili9325_WritePixel(X+22, Y+3,0x4A08);
+	ili9325_WritePixel(X+23, Y+3,0);
 
-	LCD_SetPoint(X+1, Y+4,0x0000);
-	LCD_SetPoint(X+2, Y+4,0x4A08);
-	LCD_SetPoint(X+3, Y+4,0x4A08);
-	LCD_SetPoint(X+4, Y+4,0xD618);
-	LCD_SetPoint(X+5, Y+4,0xD618);
-	LCD_SetPoint(X+6, Y+4,0x4A08);
+	ili9325_WritePixel(X+1, Y+4,0);
+	ili9325_WritePixel(X+2, Y+4,0x4A08);
+	ili9325_WritePixel(X+3, Y+4,0x4A08);
+	ili9325_WritePixel(X+4, Y+4,0xD618);
+	ili9325_WritePixel(X+5, Y+4,0xD618);
+	ili9325_WritePixel(X+6, Y+4,0x4A08);
 	for(int i=7; i<=21; i++)
-		LCD_SetPoint(X+i, Y+4,0xD618);
-	LCD_SetPoint(X+22, Y+4,0x4A08);
-	LCD_SetPoint(X+23, Y+4,0x4A08);
-	LCD_SetPoint(X+24, Y+4,0x0000);
+		ili9325_WritePixel(X+i, Y+4,0xD618);
+	ili9325_WritePixel(X+22, Y+4,0x4A08);
+	ili9325_WritePixel(X+23, Y+4,0x4A08);
+	ili9325_WritePixel(X+24, Y+4,0);
 
-	LCD_SetPoint(X+1, Y+5,0x0000);
-	LCD_SetPoint(X+2, Y+5,0x4A08);
-	LCD_SetPoint(X+3, Y+5,0xD618);
-	LCD_SetPoint(X+4, Y+5,0xD618);
-	LCD_SetPoint(X+5, Y+5,0x4A08);
-	LCD_SetPoint(X+6, Y+5,0x4A08);
-	LCD_SetPoint(X+7, Y+5,0xA4B2);
+	ili9325_WritePixel(X+1, Y+5,0);
+	ili9325_WritePixel(X+2, Y+5,0x4A08);
+	ili9325_WritePixel(X+3, Y+5,0xD618);
+	ili9325_WritePixel(X+4, Y+5,0xD618);
+	ili9325_WritePixel(X+5, Y+5,0x4A08);
+	ili9325_WritePixel(X+6, Y+5,0x4A08);
+	ili9325_WritePixel(X+7, Y+5,0xA4B2);
 	for(int i=8; i<=21; i++)
-		LCD_SetPoint(X+i, Y+5,0xD618);
-	LCD_SetPoint(X+9, Y+5,0x4A08);
-	LCD_SetPoint(X+10, Y+5,0x4A08);
-	LCD_SetPoint(X+11, Y+5,0x0000);
+		ili9325_WritePixel(X+i, Y+5,0xD618);
+	ili9325_WritePixel(X+9, Y+5,0x4A08);
+	ili9325_WritePixel(X+10, Y+5,0x4A08);
+	ili9325_WritePixel(X+11, Y+5,0);
 
-	LCD_SetPoint(X+1, Y+6,0x0000);
-	LCD_SetPoint(X+2, Y+6,0xD618);
-	LCD_SetPoint(X+3, Y+6,0xD618);
-	LCD_SetPoint(X+4, Y+6,0xD618);
-	LCD_SetPoint(X+5, Y+6,0xD618);
-	LCD_SetPoint(X+6, Y+6,0x4A08);
-	LCD_SetPoint(X+7, Y+6,0xA4B2);
-	LCD_SetPoint(X+8, Y+6,0xA4B2);
-	LCD_SetPoint(X+9, Y+6,0xA4B2);
-	LCD_SetPoint(X+10, Y+6,0xA4B2);
+	ili9325_WritePixel(X+1, Y+6,0);
+	ili9325_WritePixel(X+2, Y+6,0xD618);
+	ili9325_WritePixel(X+3, Y+6,0xD618);
+	ili9325_WritePixel(X+4, Y+6,0xD618);
+	ili9325_WritePixel(X+5, Y+6,0xD618);
+	ili9325_WritePixel(X+6, Y+6,0x4A08);
+	ili9325_WritePixel(X+7, Y+6,0xA4B2);
+	ili9325_WritePixel(X+8, Y+6,0xA4B2);
+	ili9325_WritePixel(X+9, Y+6,0xA4B2);
+	ili9325_WritePixel(X+10, Y+6,0xA4B2);
 	for(int i=11; i<=21; i++)
-		LCD_SetPoint(X+i, Y+6,0xD618);
-	LCD_SetPoint(X+22, Y+6,0xA4B2);
-	LCD_SetPoint(X+23, Y+6,0x0000);
+		ili9325_WritePixel(X+i, Y+6,0xD618);
+	ili9325_WritePixel(X+22, Y+6,0xA4B2);
+	ili9325_WritePixel(X+23, Y+6,0);
 
-	LCD_SetPoint(X+1, Y+7,0x0000);
-	LCD_SetPoint(X+2, Y+7,0xD618);
-	LCD_SetPoint(X+3, Y+7,0xD618);
-	LCD_SetPoint(X+4, Y+7,0xD618);
-	LCD_SetPoint(X+5, Y+7,0xD618);
-	LCD_SetPoint(X+6, Y+7,0x4A08);
-	LCD_SetPoint(X+7, Y+7,0xA4B2);
-	LCD_SetPoint(X+8, Y+7,0xD618);
-	LCD_SetPoint(X+9, Y+7,0xD618);
-	LCD_SetPoint(X+10, Y+7,0xD618);
-	LCD_SetPoint(X+11, Y+7,0xA4B2);
-	LCD_SetPoint(X+12, Y+7,0xA4B2);
-	LCD_SetPoint(X+13, Y+7,0xA4B2);
-	LCD_SetPoint(X+14, Y+7,0xA4B2);
+	ili9325_WritePixel(X+1, Y+7,0);
+	ili9325_WritePixel(X+2, Y+7,0xD618);
+	ili9325_WritePixel(X+3, Y+7,0xD618);
+	ili9325_WritePixel(X+4, Y+7,0xD618);
+	ili9325_WritePixel(X+5, Y+7,0xD618);
+	ili9325_WritePixel(X+6, Y+7,0x4A08);
+	ili9325_WritePixel(X+7, Y+7,0xA4B2);
+	ili9325_WritePixel(X+8, Y+7,0xD618);
+	ili9325_WritePixel(X+9, Y+7,0xD618);
+	ili9325_WritePixel(X+10, Y+7,0xD618);
+	ili9325_WritePixel(X+11, Y+7,0xA4B2);
+	ili9325_WritePixel(X+12, Y+7,0xA4B2);
+	ili9325_WritePixel(X+13, Y+7,0xA4B2);
+	ili9325_WritePixel(X+14, Y+7,0xA4B2);
 	for(int i=15; i<=21; i++)
-		LCD_SetPoint(X+i, Y+7,0xD618);
-	LCD_SetPoint(X+22, Y+7,0xA4B2);
-	LCD_SetPoint(X+23, Y+7,0x0000);
+		ili9325_WritePixel(X+i, Y+7,0xD618);
+	ili9325_WritePixel(X+22, Y+7,0xA4B2);
+	ili9325_WritePixel(X+23, Y+7,0);
 
-	LCD_SetPoint(X+1, Y+8,0x0000);
-	LCD_SetPoint(X+2, Y+8,0xA4B2);
-	LCD_SetPoint(X+3, Y+8,0xD618);
-	LCD_SetPoint(X+4, Y+8,0xD618);
-	LCD_SetPoint(X+5, Y+8,0xD618);
-	LCD_SetPoint(X+6, Y+8,0xD618);
-	LCD_SetPoint(X+7, Y+8,0x4A08);
+	ili9325_WritePixel(X+1, Y+8,0);
+	ili9325_WritePixel(X+2, Y+8,0xA4B2);
+	ili9325_WritePixel(X+3, Y+8,0xD618);
+	ili9325_WritePixel(X+4, Y+8,0xD618);
+	ili9325_WritePixel(X+5, Y+8,0xD618);
+	ili9325_WritePixel(X+6, Y+8,0xD618);
+	ili9325_WritePixel(X+7, Y+8,0x4A08);
 	for(int i=8; i<=14; i++)
-		LCD_SetPoint(X+i, Y+8,0xD618);
-	LCD_SetPoint(X+15, Y+8,0xA4B2);
+		ili9325_WritePixel(X+i, Y+8,0xD618);
+	ili9325_WritePixel(X+15, Y+8,0xA4B2);
 	for(int i=16; i<=21; i++)
-		LCD_SetPoint(X+i, Y+8,0xD618);
-	LCD_SetPoint(X+22, Y+8,0xA4B2);
-	LCD_SetPoint(X+23, Y+8,0x0000);
+		ili9325_WritePixel(X+i, Y+8,0xD618);
+	ili9325_WritePixel(X+22, Y+8,0xA4B2);
+	ili9325_WritePixel(X+23, Y+8,0);
 
-	LCD_SetPoint(X+2, Y+9,0x0000);
-	LCD_SetPoint(X+3, Y+9,0xA4B2);
-	LCD_SetPoint(X+4, Y+9,0xD618);
-	LCD_SetPoint(X+5, Y+9,0xD618);
-	LCD_SetPoint(X+6, Y+9,0xD618);
-	LCD_SetPoint(X+7, Y+9,0x4A08);
-	LCD_SetPoint(X+8, Y+9,0xA4B2);
+	ili9325_WritePixel(X+2, Y+9,0);
+	ili9325_WritePixel(X+3, Y+9,0xA4B2);
+	ili9325_WritePixel(X+4, Y+9,0xD618);
+	ili9325_WritePixel(X+5, Y+9,0xD618);
+	ili9325_WritePixel(X+6, Y+9,0xD618);
+	ili9325_WritePixel(X+7, Y+9,0x4A08);
+	ili9325_WritePixel(X+8, Y+9,0xA4B2);
 	for(int i=9; i<=14; i++)
-		LCD_SetPoint(X+i, Y+9,0xD618);
-	LCD_SetPoint(X+15, Y+9,0xA4B2);
-	LCD_SetPoint(X+16, Y+9,0xD618);
-	LCD_SetPoint(X+17, Y+9,0xD618);
-	LCD_SetPoint(X+18, Y+9,0xD618);
-	LCD_SetPoint(X+19, Y+9,0x4A08);
-	LCD_SetPoint(X+20, Y+9,0xA4B2);
-	LCD_SetPoint(X+21, Y+9,0xD618);
-	LCD_SetPoint(X+22, Y+9,0x0000);
+		ili9325_WritePixel(X+i, Y+9,0xD618);
+	ili9325_WritePixel(X+15, Y+9,0xA4B2);
+	ili9325_WritePixel(X+16, Y+9,0xD618);
+	ili9325_WritePixel(X+17, Y+9,0xD618);
+	ili9325_WritePixel(X+18, Y+9,0xD618);
+	ili9325_WritePixel(X+19, Y+9,0x4A08);
+	ili9325_WritePixel(X+20, Y+9,0xA4B2);
+	ili9325_WritePixel(X+21, Y+9,0xD618);
+	ili9325_WritePixel(X+22, Y+9,0);
 
-	LCD_SetPoint(X+2, Y+10,0x0000);
-	LCD_SetPoint(X+3, Y+10,0xA4B2);
-	LCD_SetPoint(X+4, Y+10,0xD618);
-	LCD_SetPoint(X+5, Y+10,0xD618);
-	LCD_SetPoint(X+6, Y+10,0xD618);
-	LCD_SetPoint(X+7, Y+10,0x4A08);
+	ili9325_WritePixel(X+2, Y+10,0);
+	ili9325_WritePixel(X+3, Y+10,0xA4B2);
+	ili9325_WritePixel(X+4, Y+10,0xD618);
+	ili9325_WritePixel(X+5, Y+10,0xD618);
+	ili9325_WritePixel(X+6, Y+10,0xD618);
+	ili9325_WritePixel(X+7, Y+10,0x4A08);
 	for(int i=8; i<=12; i++)
-		LCD_SetPoint(X+i, Y+10,0xA4B2);
-	LCD_SetPoint(X+13, Y+10,0xD618);
-	LCD_SetPoint(X+14, Y+10,0xD618);
-	LCD_SetPoint(X+15, Y+10,0xA4B2);
-	LCD_SetPoint(X+16, Y+10,0xD618);
-	LCD_SetPoint(X+17, Y+10,0xD618);
-	LCD_SetPoint(X+18, Y+10,0xD618);
-	LCD_SetPoint(X+19, Y+10,0xD618);
-	LCD_SetPoint(X+20, Y+10,0xA4B2);
-	LCD_SetPoint(X+21, Y+10,0x4A08);
-	LCD_SetPoint(X+22, Y+10,0x0000);
+		ili9325_WritePixel(X+i, Y+10,0xA4B2);
+	ili9325_WritePixel(X+13, Y+10,0xD618);
+	ili9325_WritePixel(X+14, Y+10,0xD618);
+	ili9325_WritePixel(X+15, Y+10,0xA4B2);
+	ili9325_WritePixel(X+16, Y+10,0xD618);
+	ili9325_WritePixel(X+17, Y+10,0xD618);
+	ili9325_WritePixel(X+18, Y+10,0xD618);
+	ili9325_WritePixel(X+19, Y+10,0xD618);
+	ili9325_WritePixel(X+20, Y+10,0xA4B2);
+	ili9325_WritePixel(X+21, Y+10,0x4A08);
+	ili9325_WritePixel(X+22, Y+10,0);
 
-	LCD_SetPoint(X+2, Y+11,0x0000);
-	LCD_SetPoint(X+3, Y+11,0x4A08);
-	LCD_SetPoint(X+4, Y+11,0xD618);
-	LCD_SetPoint(X+5, Y+11,0xD618);
-	LCD_SetPoint(X+6, Y+11,0xD618);
-	LCD_SetPoint(X+7, Y+11,0x4A08);
-	LCD_SetPoint(X+8, Y+11,0xA4B2);
-	LCD_SetPoint(X+9, Y+11,0xD618);
-	LCD_SetPoint(X+10, Y+11,0xD618);
-	LCD_SetPoint(X+11, Y+11,0xA4B2);
+	ili9325_WritePixel(X+2, Y+11,0);
+	ili9325_WritePixel(X+3, Y+11,0x4A08);
+	ili9325_WritePixel(X+4, Y+11,0xD618);
+	ili9325_WritePixel(X+5, Y+11,0xD618);
+	ili9325_WritePixel(X+6, Y+11,0xD618);
+	ili9325_WritePixel(X+7, Y+11,0x4A08);
+	ili9325_WritePixel(X+8, Y+11,0xA4B2);
+	ili9325_WritePixel(X+9, Y+11,0xD618);
+	ili9325_WritePixel(X+10, Y+11,0xD618);
+	ili9325_WritePixel(X+11, Y+11,0xA4B2);
 	for(int i=12; i<=20; i++)
-		LCD_SetPoint(X+i, Y+11,0xD618);
-	LCD_SetPoint(X+21, Y+11,0x4A08);
-	LCD_SetPoint(X+22, Y+11,0x0000);
+		ili9325_WritePixel(X+i, Y+11,0xD618);
+	ili9325_WritePixel(X+21, Y+11,0x4A08);
+	ili9325_WritePixel(X+22, Y+11,0);
 
-	LCD_SetPoint(X+3, Y+12,0x0000);
-	LCD_SetPoint(X+4, Y+12,0xD618);
-	LCD_SetPoint(X+5, Y+12,0xD618);
-	LCD_SetPoint(X+6, Y+12,0xA4B2);
-	LCD_SetPoint(X+7, Y+12,0x4A08);
-	LCD_SetPoint(X+8, Y+12,0xA4B2);
-	LCD_SetPoint(X+9, Y+12,0xD618);
-	LCD_SetPoint(X+10, Y+12,0xD618);
-	LCD_SetPoint(X+11, Y+12,0xD618);
-	LCD_SetPoint(X+12, Y+12,0xA4B2);
-	LCD_SetPoint(X+13, Y+12,0xA4B2);
+	ili9325_WritePixel(X+3, Y+12,0);
+	ili9325_WritePixel(X+4, Y+12,0xD618);
+	ili9325_WritePixel(X+5, Y+12,0xD618);
+	ili9325_WritePixel(X+6, Y+12,0xA4B2);
+	ili9325_WritePixel(X+7, Y+12,0x4A08);
+	ili9325_WritePixel(X+8, Y+12,0xA4B2);
+	ili9325_WritePixel(X+9, Y+12,0xD618);
+	ili9325_WritePixel(X+10, Y+12,0xD618);
+	ili9325_WritePixel(X+11, Y+12,0xD618);
+	ili9325_WritePixel(X+12, Y+12,0xA4B2);
+	ili9325_WritePixel(X+13, Y+12,0xA4B2);
 	for(int i=14; i<=20; i++)
-		LCD_SetPoint(X+i, Y+12,0xD618);
-	LCD_SetPoint(X+21, Y+12,0x4A08);
-	LCD_SetPoint(X+22, Y+12,0x0000);
+		ili9325_WritePixel(X+i, Y+12,0xD618);
+	ili9325_WritePixel(X+21, Y+12,0x4A08);
+	ili9325_WritePixel(X+22, Y+12,0);
 
-	LCD_SetPoint(X+3, Y+13,0x0000);
-	LCD_SetPoint(X+4, Y+13,0xD618);
-	LCD_SetPoint(X+5, Y+13,0xD618);
-	LCD_SetPoint(X+6, Y+13,0xA4B2);
-	LCD_SetPoint(X+7, Y+13,0x4A08);
+	ili9325_WritePixel(X+3, Y+13,0);
+	ili9325_WritePixel(X+4, Y+13,0xD618);
+	ili9325_WritePixel(X+5, Y+13,0xD618);
+	ili9325_WritePixel(X+6, Y+13,0xA4B2);
+	ili9325_WritePixel(X+7, Y+13,0x4A08);
 	for(int i=8; i<=14; i++)
-		LCD_SetPoint(X+i, Y+13,0xD618);
-	LCD_SetPoint(X+15, Y+13,0xA4B2);
+		ili9325_WritePixel(X+i, Y+13,0xD618);
+	ili9325_WritePixel(X+15, Y+13,0xA4B2);
 	for(int i=16; i<=20; i++)
-		LCD_SetPoint(X+i, Y+13,0xD618);
-	LCD_SetPoint(X+21, Y+13,0x0000);
+		ili9325_WritePixel(X+i, Y+13,0xD618);
+	ili9325_WritePixel(X+21, Y+13,0);
 
-	LCD_SetPoint(X+3, Y+14,0x0000);
-	LCD_SetPoint(X+4, Y+14,0xD618);
-	LCD_SetPoint(X+5, Y+14,0xD618);
-	LCD_SetPoint(X+6, Y+14,0xA4B2);
-	LCD_SetPoint(X+7, Y+14,0xA4B2);
+	ili9325_WritePixel(X+3, Y+14,0);
+	ili9325_WritePixel(X+4, Y+14,0xD618);
+	ili9325_WritePixel(X+5, Y+14,0xD618);
+	ili9325_WritePixel(X+6, Y+14,0xA4B2);
+	ili9325_WritePixel(X+7, Y+14,0xA4B2);
 	for(int i=8; i<=14; i++)
-		LCD_SetPoint(X+i, Y+14,0xD618);
-	LCD_SetPoint(X+15, Y+14,0xA4B2);
+		ili9325_WritePixel(X+i, Y+14,0xD618);
+	ili9325_WritePixel(X+15, Y+14,0xA4B2);
 	for(int i=16; i<=19; i++)
-		LCD_SetPoint(X+i, Y+14,0xD618);
-	LCD_SetPoint(X+20, Y+14,0x4A08);
-	LCD_SetPoint(X+21, Y+14,0x0000);
+		ili9325_WritePixel(X+i, Y+14,0xD618);
+	ili9325_WritePixel(X+20, Y+14,0x4A08);
+	ili9325_WritePixel(X+21, Y+14,0);
 
-	LCD_SetPoint(X+4, Y+15,0x0000);
-	LCD_SetPoint(X+5, Y+15,0xD618);
-	LCD_SetPoint(X+6, Y+15,0xD618);
-	LCD_SetPoint(X+7, Y+15,0xA4B2);
-	LCD_SetPoint(X+8, Y+15,0xA4B2);
+	ili9325_WritePixel(X+4, Y+15,0);
+	ili9325_WritePixel(X+5, Y+15,0xD618);
+	ili9325_WritePixel(X+6, Y+15,0xD618);
+	ili9325_WritePixel(X+7, Y+15,0xA4B2);
+	ili9325_WritePixel(X+8, Y+15,0xA4B2);
 	for(int i=9; i<=14; i++)
-		LCD_SetPoint(X+i, Y+15,0xD618);
-	LCD_SetPoint(X+15, Y+15,0xA4B2);
-	LCD_SetPoint(X+16, Y+15,0xD618);
-	LCD_SetPoint(X+17, Y+15,0xD618);
-	LCD_SetPoint(X+18, Y+15,0xD618);
-	LCD_SetPoint(X+19, Y+15,0xD618);
-	LCD_SetPoint(X+20, Y+15,0xA4B2);
-	LCD_SetPoint(X+21, Y+15,0x0000);
+		ili9325_WritePixel(X+i, Y+15,0xD618);
+	ili9325_WritePixel(X+15, Y+15,0xA4B2);
+	ili9325_WritePixel(X+16, Y+15,0xD618);
+	ili9325_WritePixel(X+17, Y+15,0xD618);
+	ili9325_WritePixel(X+18, Y+15,0xD618);
+	ili9325_WritePixel(X+19, Y+15,0xD618);
+	ili9325_WritePixel(X+20, Y+15,0xA4B2);
+	ili9325_WritePixel(X+21, Y+15,0);
 
-	LCD_SetPoint(X+4, Y+16,0x0000);
-	LCD_SetPoint(X+5, Y+16,0x4A08);
-	LCD_SetPoint(X+6, Y+16,0xD618);
-	LCD_SetPoint(X+7, Y+16,0xD618);
-	LCD_SetPoint(X+8, Y+16,0xA4B2);
+	ili9325_WritePixel(X+4, Y+16,0);
+	ili9325_WritePixel(X+5, Y+16,0x4A08);
+	ili9325_WritePixel(X+6, Y+16,0xD618);
+	ili9325_WritePixel(X+7, Y+16,0xD618);
+	ili9325_WritePixel(X+8, Y+16,0xA4B2);
 	for(int i=9; i<=14; i++)
-		LCD_SetPoint(X+i, Y+16,0xD618);
-	LCD_SetPoint(X+15, Y+16,0xA4B2);
-	LCD_SetPoint(X+16, Y+16,0xA4B2);
-	LCD_SetPoint(X+17, Y+16,0xD618);
-	LCD_SetPoint(X+18, Y+16,0xD618);
-	LCD_SetPoint(X+19, Y+16,0x4A08);
-	LCD_SetPoint(X+20, Y+16,0x4A08);
-	LCD_SetPoint(X+21, Y+16,0x0000);
+		ili9325_WritePixel(X+i, Y+16,0xD618);
+	ili9325_WritePixel(X+15, Y+16,0xA4B2);
+	ili9325_WritePixel(X+16, Y+16,0xA4B2);
+	ili9325_WritePixel(X+17, Y+16,0xD618);
+	ili9325_WritePixel(X+18, Y+16,0xD618);
+	ili9325_WritePixel(X+19, Y+16,0x4A08);
+	ili9325_WritePixel(X+20, Y+16,0x4A08);
+	ili9325_WritePixel(X+21, Y+16,0);
 
-	LCD_SetPoint(X+5, Y+17,0x0000);
-	LCD_SetPoint(X+6, Y+17,0x4A08);
+	ili9325_WritePixel(X+5, Y+17,0);
+	ili9325_WritePixel(X+6, Y+17,0x4A08);
 	for(int i=7; i<=11; i++)
-		LCD_SetPoint(X+i, Y+17,0xD618);
-	LCD_SetPoint(X+12, Y+17,0xA4B2);
-	LCD_SetPoint(X+13, Y+17,0xD618);
-	LCD_SetPoint(X+14, Y+17,0xD618);
-	LCD_SetPoint(X+15, Y+17,0x4A08);
-	LCD_SetPoint(X+16, Y+17,0xA4B2);
-	LCD_SetPoint(X+17, Y+17,0xD618);
-	LCD_SetPoint(X+18, Y+17,0x4A08);
-	LCD_SetPoint(X+19, Y+17,0x4A08);
-	LCD_SetPoint(X+20, Y+17,0x0000);
+		ili9325_WritePixel(X+i, Y+17,0xD618);
+	ili9325_WritePixel(X+12, Y+17,0xA4B2);
+	ili9325_WritePixel(X+13, Y+17,0xD618);
+	ili9325_WritePixel(X+14, Y+17,0xD618);
+	ili9325_WritePixel(X+15, Y+17,0x4A08);
+	ili9325_WritePixel(X+16, Y+17,0xA4B2);
+	ili9325_WritePixel(X+17, Y+17,0xD618);
+	ili9325_WritePixel(X+18, Y+17,0x4A08);
+	ili9325_WritePixel(X+19, Y+17,0x4A08);
+	ili9325_WritePixel(X+20, Y+17,0);
 
-	LCD_SetPoint(X+6, Y+18,0x0000);
-	LCD_SetPoint(X+7, Y+18,0x0000);
-	LCD_SetPoint(X+8, Y+18,0x0000);
-	LCD_SetPoint(X+9, Y+18,0x4A08);
+	ili9325_WritePixel(X+6, Y+18,0);
+	ili9325_WritePixel(X+7, Y+18,0);
+	ili9325_WritePixel(X+8, Y+18,0);
+	ili9325_WritePixel(X+9, Y+18,0x4A08);
 	for(int i=10; i<=14; i++)
-		LCD_SetPoint(X+i, Y+18,0xD618);
-	LCD_SetPoint(X+15, Y+18,0xA4B2);
-	LCD_SetPoint(X+16, Y+18,0xD618);
-	LCD_SetPoint(X+17, Y+18,0xD618);
-	LCD_SetPoint(X+18, Y+18,0xD618);
-	LCD_SetPoint(X+19, Y+18,0x4A08);
-	LCD_SetPoint(X+20, Y+18,0x0000);
+		ili9325_WritePixel(X+i, Y+18,0xD618);
+	ili9325_WritePixel(X+15, Y+18,0xA4B2);
+	ili9325_WritePixel(X+16, Y+18,0xD618);
+	ili9325_WritePixel(X+17, Y+18,0xD618);
+	ili9325_WritePixel(X+18, Y+18,0xD618);
+	ili9325_WritePixel(X+19, Y+18,0x4A08);
+	ili9325_WritePixel(X+20, Y+18,0);
 
-	LCD_SetPoint(X+9, Y+19,0x0000);
-	LCD_SetPoint(X+10, Y+19,0x4A08);
-	LCD_SetPoint(X+11, Y+19,0xD618);
-	LCD_SetPoint(X+12, Y+19,0xD618);
-	LCD_SetPoint(X+13, Y+19,0xD618);
-	LCD_SetPoint(X+14, Y+19,0xA4B2);
-	LCD_SetPoint(X+15, Y+19,0xA4B2);
-	LCD_SetPoint(X+16, Y+19,0xD618);
-	LCD_SetPoint(X+17, Y+19,0xD618);
-	LCD_SetPoint(X+18, Y+19,0xD618);
-	LCD_SetPoint(X+19, Y+19,0x0000);
+	ili9325_WritePixel(X+9, Y+19,0);
+	ili9325_WritePixel(X+10, Y+19,0x4A08);
+	ili9325_WritePixel(X+11, Y+19,0xD618);
+	ili9325_WritePixel(X+12, Y+19,0xD618);
+	ili9325_WritePixel(X+13, Y+19,0xD618);
+	ili9325_WritePixel(X+14, Y+19,0xA4B2);
+	ili9325_WritePixel(X+15, Y+19,0xA4B2);
+	ili9325_WritePixel(X+16, Y+19,0xD618);
+	ili9325_WritePixel(X+17, Y+19,0xD618);
+	ili9325_WritePixel(X+18, Y+19,0xD618);
+	ili9325_WritePixel(X+19, Y+19,0);
 
-	LCD_SetPoint(X+10, Y+20,0x0000);
+	ili9325_WritePixel(X+10, Y+20,0);
 	for(int i=11; i<=15; i++)
-		LCD_SetPoint(X+i, Y+20,0xD618);
-	LCD_SetPoint(X+16, Y+20,0x4A08);
-	LCD_SetPoint(X+17, Y+20,0x0000);
-	LCD_SetPoint(X+18, Y+20,0x0000);
+		ili9325_WritePixel(X+i, Y+20,0xD618);
+	ili9325_WritePixel(X+16, Y+20,0x4A08);
+	ili9325_WritePixel(X+17, Y+20,0);
+	ili9325_WritePixel(X+18, Y+20,0);
 
-	LCD_SetPoint(X+11, Y+21,0x0000);
-	LCD_SetPoint(X+12, Y+21,0xD618);
-	LCD_SetPoint(X+13, Y+21,0xD618);
-	LCD_SetPoint(X+14, Y+21,0xD618);
-	LCD_SetPoint(X+15, Y+21,0x4A08);
-	LCD_SetPoint(X+16, Y+21,0x0000);
+	ili9325_WritePixel(X+11, Y+21,0);
+	ili9325_WritePixel(X+12, Y+21,0xD618);
+	ili9325_WritePixel(X+13, Y+21,0xD618);
+	ili9325_WritePixel(X+14, Y+21,0xD618);
+	ili9325_WritePixel(X+15, Y+21,0x4A08);
+	ili9325_WritePixel(X+16, Y+21,0);
 
 	for(int i=12; i<=15; i++)
-		LCD_SetPoint(X+i, Y+22,0x0000);
+		ili9325_WritePixel(X+i, Y+22,0);
 }
 
 //***SetBowman
@@ -3480,3 +3408,873 @@ void SetSkierRight(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+6, Y+44, 50712);
 }
 
+//***SetHeartRed
+void SetHeartRed(uint16_t X, uint16_t Y)
+{
+	ili9325_WritePixel(X+10, Y+1, 0);
+	ili9325_WritePixel(X+11, Y+1, 0);
+
+	ili9325_WritePixel(X+9, Y+2, 0);
+	ili9325_WritePixel(X+10, Y+2, 55556);
+	ili9325_WritePixel(X+11, Y+2, 55556);
+	ili9325_WritePixel(X+12, Y+2, 0);
+
+	ili9325_WritePixel(X+8, Y+3, 0);
+	ili9325_WritePixel(X+9, Y+3, 55556);
+	ili9325_WritePixel(X+10, Y+3, 55556);
+	ili9325_WritePixel(X+11, Y+3, 55556);
+	ili9325_WritePixel(X+12, Y+3, 55556);
+	ili9325_WritePixel(X+13, Y+3, 0);
+
+	ili9325_WritePixel(X+7, Y+4, 0);
+	ili9325_WritePixel(X+8, Y+4, 55556);
+	ili9325_WritePixel(X+9, Y+4, 55556);
+	ili9325_WritePixel(X+10, Y+4, 55556);
+	ili9325_WritePixel(X+11, Y+4, 55556);
+	ili9325_WritePixel(X+12, Y+4, 55556);
+	ili9325_WritePixel(X+13, Y+4, 55556);
+	ili9325_WritePixel(X+14, Y+4, 0);
+
+	ili9325_WritePixel(X+6, Y+5, 0);
+	ili9325_WritePixel(X+7, Y+5, 55556);
+	ili9325_WritePixel(X+8, Y+5, 55556);
+	ili9325_WritePixel(X+9, Y+5, 55556);
+	ili9325_WritePixel(X+10, Y+5, 55556);
+	ili9325_WritePixel(X+11, Y+5, 55556);
+	ili9325_WritePixel(X+12, Y+5, 55556);
+	ili9325_WritePixel(X+13, Y+5, 55556);
+	ili9325_WritePixel(X+14, Y+5, 55556);
+	ili9325_WritePixel(X+15, Y+5, 0);
+
+	ili9325_WritePixel(X+5, Y+6, 0);
+	ili9325_WritePixel(X+6, Y+6, 55556);
+	ili9325_WritePixel(X+7, Y+6, 55556);
+	ili9325_WritePixel(X+8, Y+6, 55556);
+	ili9325_WritePixel(X+9, Y+6, 55556);
+	ili9325_WritePixel(X+10, Y+6, 55556);
+	ili9325_WritePixel(X+11, Y+6, 55556);
+	ili9325_WritePixel(X+12, Y+6, 55556);
+	ili9325_WritePixel(X+13, Y+6, 55556);
+	ili9325_WritePixel(X+14, Y+6, 55556);
+	ili9325_WritePixel(X+15, Y+6, 55556);
+	ili9325_WritePixel(X+16, Y+6, 0);
+
+	ili9325_WritePixel(X+4, Y+7, 0);
+	ili9325_WritePixel(X+5, Y+7, 55556);
+	ili9325_WritePixel(X+6, Y+7, 55556);
+	ili9325_WritePixel(X+7, Y+7, 55556);
+	ili9325_WritePixel(X+8, Y+7, 55556);
+	ili9325_WritePixel(X+9, Y+7, 55556);
+	ili9325_WritePixel(X+10, Y+7, 55556);
+	ili9325_WritePixel(X+11, Y+7, 55556);
+	ili9325_WritePixel(X+12, Y+7, 55556);
+	ili9325_WritePixel(X+13, Y+7, 55556);
+	ili9325_WritePixel(X+14, Y+7, 55556);
+	ili9325_WritePixel(X+15, Y+7, 55556);
+	ili9325_WritePixel(X+16, Y+7, 55556);
+	ili9325_WritePixel(X+17, Y+7, 0);
+
+	ili9325_WritePixel(X+3, Y+8, 0);
+	ili9325_WritePixel(X+4, Y+8, 55556);
+	ili9325_WritePixel(X+5, Y+8, 55556);
+	ili9325_WritePixel(X+6, Y+8, 55556);
+	ili9325_WritePixel(X+7, Y+8, 55556);
+	ili9325_WritePixel(X+8, Y+8, 55556);
+	ili9325_WritePixel(X+9, Y+8, 55556);
+	ili9325_WritePixel(X+10, Y+8, 55556);
+	ili9325_WritePixel(X+11, Y+8, 55556);
+	ili9325_WritePixel(X+12, Y+8, 55556);
+	ili9325_WritePixel(X+13, Y+8, 55556);
+	ili9325_WritePixel(X+14, Y+8, 55556);
+	ili9325_WritePixel(X+15, Y+8, 55556);
+	ili9325_WritePixel(X+16, Y+8, 55556);
+	ili9325_WritePixel(X+17, Y+8, 55556);
+	ili9325_WritePixel(X+18, Y+8, 0);
+
+	ili9325_WritePixel(X+2, Y+9, 0);
+	ili9325_WritePixel(X+3, Y+9, 55556);
+	ili9325_WritePixel(X+4, Y+9, 55556);
+	ili9325_WritePixel(X+5, Y+9, 55556);
+	ili9325_WritePixel(X+6, Y+9, 55556);
+	ili9325_WritePixel(X+7, Y+9, 55556);
+	ili9325_WritePixel(X+8, Y+9, 55556);
+	ili9325_WritePixel(X+9, Y+9, 55556);
+	ili9325_WritePixel(X+10, Y+9, 55556);
+	ili9325_WritePixel(X+11, Y+9, 55556);
+	ili9325_WritePixel(X+12, Y+9, 55556);
+	ili9325_WritePixel(X+13, Y+9, 55556);
+	ili9325_WritePixel(X+14, Y+9, 55556);
+	ili9325_WritePixel(X+15, Y+9, 55556);
+	ili9325_WritePixel(X+16, Y+9, 55556);
+	ili9325_WritePixel(X+17, Y+9, 55556);
+	ili9325_WritePixel(X+18, Y+9, 55556);
+	ili9325_WritePixel(X+19, Y+9, 0);
+
+	ili9325_WritePixel(X+2, Y+10, 0);
+	ili9325_WritePixel(X+3, Y+10, 55556);
+	ili9325_WritePixel(X+4, Y+10, 55556);
+	ili9325_WritePixel(X+5, Y+10, 55556);
+	ili9325_WritePixel(X+6, Y+10, 55556);
+	ili9325_WritePixel(X+7, Y+10, 55556);
+	ili9325_WritePixel(X+8, Y+10, 55556);
+	ili9325_WritePixel(X+9, Y+10, 55556);
+	ili9325_WritePixel(X+10, Y+10, 55556);
+	ili9325_WritePixel(X+11, Y+10, 55556);
+	ili9325_WritePixel(X+12, Y+10, 55556);
+	ili9325_WritePixel(X+13, Y+10, 55556);
+	ili9325_WritePixel(X+14, Y+10, 55556);
+	ili9325_WritePixel(X+15, Y+10, 55556);
+	ili9325_WritePixel(X+16, Y+10, 55556);
+	ili9325_WritePixel(X+17, Y+10, 55556);
+	ili9325_WritePixel(X+18, Y+10, 55556);
+	ili9325_WritePixel(X+19, Y+10, 0);
+
+	ili9325_WritePixel(X+2, Y+11, 0);
+	ili9325_WritePixel(X+3, Y+11, 55556);
+	ili9325_WritePixel(X+4, Y+11, 55556);
+	ili9325_WritePixel(X+5, Y+11, 55556);
+	ili9325_WritePixel(X+6, Y+11, 55556);
+	ili9325_WritePixel(X+7, Y+11, 55556);
+	ili9325_WritePixel(X+8, Y+11, 55556);
+	ili9325_WritePixel(X+9, Y+11, 55556);
+	ili9325_WritePixel(X+10, Y+11, 55556);
+	ili9325_WritePixel(X+11, Y+11, 55556);
+	ili9325_WritePixel(X+12, Y+11, 55556);
+	ili9325_WritePixel(X+13, Y+11, 55556);
+	ili9325_WritePixel(X+14, Y+11, 55556);
+	ili9325_WritePixel(X+15, Y+11, 55556);
+	ili9325_WritePixel(X+16, Y+11, 55556);
+	ili9325_WritePixel(X+17, Y+11, 55556);
+	ili9325_WritePixel(X+18, Y+11, 55556);
+	ili9325_WritePixel(X+19, Y+11, 0);
+
+	ili9325_WritePixel(X+1, Y+12, 0);
+	ili9325_WritePixel(X+2, Y+12, 55556);
+	ili9325_WritePixel(X+3, Y+12, 55556);
+	ili9325_WritePixel(X+4, Y+12, 55556);
+	ili9325_WritePixel(X+5, Y+12, 55556);
+	ili9325_WritePixel(X+6, Y+12, 55556);
+	ili9325_WritePixel(X+7, Y+12, 55556);
+	ili9325_WritePixel(X+8, Y+12, 55556);
+	ili9325_WritePixel(X+9, Y+12, 55556);
+	ili9325_WritePixel(X+10, Y+12, 55556);
+	ili9325_WritePixel(X+11, Y+12, 55556);
+	ili9325_WritePixel(X+12, Y+12, 55556);
+	ili9325_WritePixel(X+13, Y+12, 55556);
+	ili9325_WritePixel(X+14, Y+12, 55556);
+	ili9325_WritePixel(X+15, Y+12, 55556);
+	ili9325_WritePixel(X+16, Y+12, 55556);
+	ili9325_WritePixel(X+17, Y+12, 55556);
+	ili9325_WritePixel(X+18, Y+12, 55556);
+	ili9325_WritePixel(X+19, Y+12, 55556);
+	ili9325_WritePixel(X+20, Y+12, 0);
+
+	ili9325_WritePixel(X+1, Y+13, 0);
+	ili9325_WritePixel(X+2, Y+13, 55556);
+	ili9325_WritePixel(X+3, Y+13, 55556);
+	ili9325_WritePixel(X+4, Y+13, 55556);
+	ili9325_WritePixel(X+5, Y+13, 55556);
+	ili9325_WritePixel(X+6, Y+13, 55556);
+	ili9325_WritePixel(X+7, Y+13, 55556);
+	ili9325_WritePixel(X+8, Y+13, 55556);
+	ili9325_WritePixel(X+9, Y+13, 55556);
+	ili9325_WritePixel(X+10, Y+13, 55556);
+	ili9325_WritePixel(X+11, Y+13, 55556);
+	ili9325_WritePixel(X+12, Y+13, 55556);
+	ili9325_WritePixel(X+13, Y+13, 55556);
+	ili9325_WritePixel(X+14, Y+13, 55556);
+	ili9325_WritePixel(X+15, Y+13, 55556);
+	ili9325_WritePixel(X+16, Y+13, 55556);
+	ili9325_WritePixel(X+17, Y+13, 55556);
+	ili9325_WritePixel(X+18, Y+13, 55556);
+	ili9325_WritePixel(X+19, Y+13, 55556);
+	ili9325_WritePixel(X+20, Y+13, 0);
+
+	ili9325_WritePixel(X+1, Y+14, 0);
+	ili9325_WritePixel(X+2, Y+14, 55556);
+	ili9325_WritePixel(X+3, Y+14, 65535);
+	ili9325_WritePixel(X+4, Y+14, 65535);
+	ili9325_WritePixel(X+5, Y+14, 55556);
+	ili9325_WritePixel(X+6, Y+14, 55556);
+	ili9325_WritePixel(X+7, Y+14, 55556);
+	ili9325_WritePixel(X+8, Y+14, 55556);
+	ili9325_WritePixel(X+9, Y+14, 55556);
+	ili9325_WritePixel(X+10, Y+14, 55556);
+	ili9325_WritePixel(X+11, Y+14, 55556);
+	ili9325_WritePixel(X+12, Y+14, 55556);
+	ili9325_WritePixel(X+13, Y+14, 55556);
+	ili9325_WritePixel(X+14, Y+14, 55556);
+	ili9325_WritePixel(X+15, Y+14, 55556);
+	ili9325_WritePixel(X+16, Y+14, 55556);
+	ili9325_WritePixel(X+17, Y+14, 55556);
+	ili9325_WritePixel(X+18, Y+14, 55556);
+	ili9325_WritePixel(X+19, Y+14, 55556);
+	ili9325_WritePixel(X+20, Y+14, 0);
+
+	ili9325_WritePixel(X+1, Y+15, 0);
+	ili9325_WritePixel(X+2, Y+15, 55556);
+	ili9325_WritePixel(X+3, Y+15, 65535);
+	ili9325_WritePixel(X+4, Y+15, 65535);
+	ili9325_WritePixel(X+5, Y+15, 65535);
+	ili9325_WritePixel(X+6, Y+15, 55556);
+	ili9325_WritePixel(X+7, Y+15, 55556);
+	ili9325_WritePixel(X+8, Y+15, 55556);
+	ili9325_WritePixel(X+9, Y+15, 55556);
+	ili9325_WritePixel(X+10, Y+15, 55556);
+	ili9325_WritePixel(X+11, Y+15, 55556);
+	ili9325_WritePixel(X+12, Y+15, 55556);
+	ili9325_WritePixel(X+13, Y+15, 55556);
+	ili9325_WritePixel(X+14, Y+15, 55556);
+	ili9325_WritePixel(X+15, Y+15, 55556);
+	ili9325_WritePixel(X+16, Y+15, 55556);
+	ili9325_WritePixel(X+17, Y+15, 55556);
+	ili9325_WritePixel(X+18, Y+15, 55556);
+	ili9325_WritePixel(X+19, Y+15, 55556);
+	ili9325_WritePixel(X+20, Y+15, 0);
+
+	ili9325_WritePixel(X+1, Y+16, 0);
+	ili9325_WritePixel(X+2, Y+16, 55556);
+	ili9325_WritePixel(X+3, Y+16, 55556);
+	ili9325_WritePixel(X+4, Y+16, 65535);
+	ili9325_WritePixel(X+5, Y+16, 65535);
+	ili9325_WritePixel(X+6, Y+16, 55556);
+	ili9325_WritePixel(X+7, Y+16, 55556);
+	ili9325_WritePixel(X+8, Y+16, 55556);
+	ili9325_WritePixel(X+9, Y+16, 55556);
+	ili9325_WritePixel(X+10, Y+16, 55556);
+	ili9325_WritePixel(X+11, Y+16, 55556);
+	ili9325_WritePixel(X+12, Y+16, 55556);
+	ili9325_WritePixel(X+13, Y+16, 55556);
+	ili9325_WritePixel(X+14, Y+16, 55556);
+	ili9325_WritePixel(X+15, Y+16, 55556);
+	ili9325_WritePixel(X+16, Y+16, 55556);
+	ili9325_WritePixel(X+17, Y+16, 55556);
+	ili9325_WritePixel(X+18, Y+16, 55556);
+	ili9325_WritePixel(X+19, Y+16, 55556);
+	ili9325_WritePixel(X+20, Y+16, 0);
+
+	ili9325_WritePixel(X+2, Y+17, 0);
+	ili9325_WritePixel(X+3, Y+17, 55556);
+	ili9325_WritePixel(X+4, Y+17, 55556);
+	ili9325_WritePixel(X+5, Y+17, 65535);
+	ili9325_WritePixel(X+6, Y+17, 65535);
+	ili9325_WritePixel(X+7, Y+17, 65535);
+	ili9325_WritePixel(X+8, Y+17, 55556);
+	ili9325_WritePixel(X+9, Y+17, 55556);
+	ili9325_WritePixel(X+10, Y+17, 0);
+	ili9325_WritePixel(X+11, Y+17, 0);
+	ili9325_WritePixel(X+12, Y+17, 55556);
+	ili9325_WritePixel(X+13, Y+17, 55556);
+	ili9325_WritePixel(X+14, Y+17, 55556);
+	ili9325_WritePixel(X+15, Y+17, 55556);
+	ili9325_WritePixel(X+16, Y+17, 55556);
+	ili9325_WritePixel(X+17, Y+17, 55556);
+	ili9325_WritePixel(X+18, Y+17, 55556);
+	ili9325_WritePixel(X+19, Y+17, 0);
+
+	ili9325_WritePixel(X+3, Y+18, 0);
+	ili9325_WritePixel(X+4, Y+18, 55556);
+	ili9325_WritePixel(X+5, Y+18, 55556);
+	ili9325_WritePixel(X+6, Y+18, 55556);
+	ili9325_WritePixel(X+7, Y+18, 55556);
+	ili9325_WritePixel(X+8, Y+18, 55556);
+	ili9325_WritePixel(X+9, Y+18, 0);
+	ili9325_WritePixel(X+12, Y+18, 0);
+	ili9325_WritePixel(X+13, Y+18, 55556);
+	ili9325_WritePixel(X+14, Y+18, 55556);
+	ili9325_WritePixel(X+15, Y+18, 55556);
+	ili9325_WritePixel(X+16, Y+18, 55556);
+	ili9325_WritePixel(X+17, Y+18, 55556);
+	ili9325_WritePixel(X+18, Y+18, 0);
+
+	ili9325_WritePixel(X+4, Y+19, 0);
+	ili9325_WritePixel(X+5, Y+19, 55556);
+	ili9325_WritePixel(X+6, Y+19, 55556);
+	ili9325_WritePixel(X+7, Y+19, 55556);
+	ili9325_WritePixel(X+8, Y+19, 0);
+	ili9325_WritePixel(X+13, Y+19, 0);
+	ili9325_WritePixel(X+14, Y+19, 55556);
+	ili9325_WritePixel(X+15, Y+19, 55556);
+	ili9325_WritePixel(X+16, Y+19, 55556);
+	ili9325_WritePixel(X+17, Y+19, 0);
+
+	ili9325_WritePixel(X+5, Y+20, 0);
+	ili9325_WritePixel(X+6, Y+20, 0);
+	ili9325_WritePixel(X+7, Y+20, 0);
+	ili9325_WritePixel(X+14, Y+20, 0);
+	ili9325_WritePixel(X+15, Y+20, 0);
+	ili9325_WritePixel(X+16, Y+20, 0);
+}
+
+//***SetHeartGray
+void SetHeartGray(uint16_t X, uint16_t Y)
+{
+	ili9325_WritePixel(X+10, Y+1, 0);
+	ili9325_WritePixel(X+11, Y+1, 0);
+
+	ili9325_WritePixel(X+9, Y+2, 0);
+	ili9325_WritePixel(X+10, Y+2, 33840);
+	ili9325_WritePixel(X+11, Y+2, 33840);
+	ili9325_WritePixel(X+12, Y+2, 0);
+
+	ili9325_WritePixel(X+8, Y+3, 0);
+	ili9325_WritePixel(X+9, Y+3, 33840);
+	ili9325_WritePixel(X+10, Y+3, 33840);
+	ili9325_WritePixel(X+11, Y+3, 33840);
+	ili9325_WritePixel(X+12, Y+3, 33840);
+	ili9325_WritePixel(X+13, Y+3, 0);
+
+	ili9325_WritePixel(X+7, Y+4, 0);
+	ili9325_WritePixel(X+8, Y+4, 33840);
+	ili9325_WritePixel(X+9, Y+4, 33840);
+	ili9325_WritePixel(X+10, Y+4, 33840);
+	ili9325_WritePixel(X+11, Y+4, 33840);
+	ili9325_WritePixel(X+12, Y+4, 33840);
+	ili9325_WritePixel(X+13, Y+4, 33840);
+	ili9325_WritePixel(X+14, Y+4, 0);
+
+	ili9325_WritePixel(X+6, Y+5, 0);
+	ili9325_WritePixel(X+7, Y+5, 33840);
+	ili9325_WritePixel(X+8, Y+5, 33840);
+	ili9325_WritePixel(X+9, Y+5, 33840);
+	ili9325_WritePixel(X+10, Y+5, 33840);
+	ili9325_WritePixel(X+11, Y+5, 33840);
+	ili9325_WritePixel(X+12, Y+5, 33840);
+	ili9325_WritePixel(X+13, Y+5, 33840);
+	ili9325_WritePixel(X+14, Y+5, 33840);
+	ili9325_WritePixel(X+15, Y+5, 0);
+
+	ili9325_WritePixel(X+5, Y+6, 0);
+	ili9325_WritePixel(X+6, Y+6, 33840);
+	ili9325_WritePixel(X+7, Y+6, 33840);
+	ili9325_WritePixel(X+8, Y+6, 33840);
+	ili9325_WritePixel(X+9, Y+6, 33840);
+	ili9325_WritePixel(X+10, Y+6, 33840);
+	ili9325_WritePixel(X+11, Y+6, 33840);
+	ili9325_WritePixel(X+12, Y+6, 33840);
+	ili9325_WritePixel(X+13, Y+6, 33840);
+	ili9325_WritePixel(X+14, Y+6, 33840);
+	ili9325_WritePixel(X+15, Y+6, 33840);
+	ili9325_WritePixel(X+16, Y+6, 0);
+
+	ili9325_WritePixel(X+4, Y+7, 0);
+	ili9325_WritePixel(X+5, Y+7, 33840);
+	ili9325_WritePixel(X+6, Y+7, 33840);
+	ili9325_WritePixel(X+7, Y+7, 33840);
+	ili9325_WritePixel(X+8, Y+7, 33840);
+	ili9325_WritePixel(X+9, Y+7, 33840);
+	ili9325_WritePixel(X+10, Y+7, 33840);
+	ili9325_WritePixel(X+11, Y+7, 33840);
+	ili9325_WritePixel(X+12, Y+7, 33840);
+	ili9325_WritePixel(X+13, Y+7, 33840);
+	ili9325_WritePixel(X+14, Y+7, 33840);
+	ili9325_WritePixel(X+15, Y+7, 33840);
+	ili9325_WritePixel(X+16, Y+7, 33840);
+	ili9325_WritePixel(X+17, Y+7, 0);
+
+	ili9325_WritePixel(X+3, Y+8, 0);
+	ili9325_WritePixel(X+4, Y+8, 33840);
+	ili9325_WritePixel(X+5, Y+8, 33840);
+	ili9325_WritePixel(X+6, Y+8, 33840);
+	ili9325_WritePixel(X+7, Y+8, 33840);
+	ili9325_WritePixel(X+8, Y+8, 33840);
+	ili9325_WritePixel(X+9, Y+8, 33840);
+	ili9325_WritePixel(X+10, Y+8, 33840);
+	ili9325_WritePixel(X+11, Y+8, 33840);
+	ili9325_WritePixel(X+12, Y+8, 33840);
+	ili9325_WritePixel(X+13, Y+8, 33840);
+	ili9325_WritePixel(X+14, Y+8, 33840);
+	ili9325_WritePixel(X+15, Y+8, 33840);
+	ili9325_WritePixel(X+16, Y+8, 33840);
+	ili9325_WritePixel(X+17, Y+8, 33840);
+	ili9325_WritePixel(X+18, Y+8, 0);
+
+	ili9325_WritePixel(X+2, Y+9, 0);
+	ili9325_WritePixel(X+3, Y+9, 33840);
+	ili9325_WritePixel(X+4, Y+9, 33840);
+	ili9325_WritePixel(X+5, Y+9, 33840);
+	ili9325_WritePixel(X+6, Y+9, 33840);
+	ili9325_WritePixel(X+7, Y+9, 33840);
+	ili9325_WritePixel(X+8, Y+9, 33840);
+	ili9325_WritePixel(X+9, Y+9, 33840);
+	ili9325_WritePixel(X+10, Y+9, 33840);
+	ili9325_WritePixel(X+11, Y+9, 33840);
+	ili9325_WritePixel(X+12, Y+9, 33840);
+	ili9325_WritePixel(X+13, Y+9, 33840);
+	ili9325_WritePixel(X+14, Y+9, 33840);
+	ili9325_WritePixel(X+15, Y+9, 33840);
+	ili9325_WritePixel(X+16, Y+9, 33840);
+	ili9325_WritePixel(X+17, Y+9, 33840);
+	ili9325_WritePixel(X+18, Y+9, 33840);
+	ili9325_WritePixel(X+19, Y+9, 0);
+
+	ili9325_WritePixel(X+2, Y+10, 0);
+	ili9325_WritePixel(X+3, Y+10, 33840);
+	ili9325_WritePixel(X+4, Y+10, 33840);
+	ili9325_WritePixel(X+5, Y+10, 33840);
+	ili9325_WritePixel(X+6, Y+10, 33840);
+	ili9325_WritePixel(X+7, Y+10, 33840);
+	ili9325_WritePixel(X+8, Y+10, 33840);
+	ili9325_WritePixel(X+9, Y+10, 33840);
+	ili9325_WritePixel(X+10, Y+10, 33840);
+	ili9325_WritePixel(X+11, Y+10, 33840);
+	ili9325_WritePixel(X+12, Y+10, 33840);
+	ili9325_WritePixel(X+13, Y+10, 33840);
+	ili9325_WritePixel(X+14, Y+10, 33840);
+	ili9325_WritePixel(X+15, Y+10, 33840);
+	ili9325_WritePixel(X+16, Y+10, 33840);
+	ili9325_WritePixel(X+17, Y+10, 33840);
+	ili9325_WritePixel(X+18, Y+10, 33840);
+	ili9325_WritePixel(X+19, Y+10, 0);
+
+	ili9325_WritePixel(X+2, Y+11, 0);
+	ili9325_WritePixel(X+3, Y+11, 33840);
+	ili9325_WritePixel(X+4, Y+11, 33840);
+	ili9325_WritePixel(X+5, Y+11, 33840);
+	ili9325_WritePixel(X+6, Y+11, 33840);
+	ili9325_WritePixel(X+7, Y+11, 33840);
+	ili9325_WritePixel(X+8, Y+11, 33840);
+	ili9325_WritePixel(X+9, Y+11, 33840);
+	ili9325_WritePixel(X+10, Y+11, 33840);
+	ili9325_WritePixel(X+11, Y+11, 33840);
+	ili9325_WritePixel(X+12, Y+11, 33840);
+	ili9325_WritePixel(X+13, Y+11, 33840);
+	ili9325_WritePixel(X+14, Y+11, 33840);
+	ili9325_WritePixel(X+15, Y+11, 33840);
+	ili9325_WritePixel(X+16, Y+11, 33840);
+	ili9325_WritePixel(X+17, Y+11, 33840);
+	ili9325_WritePixel(X+18, Y+11, 33840);
+	ili9325_WritePixel(X+19, Y+11, 0);
+
+	ili9325_WritePixel(X+1, Y+12, 0);
+	ili9325_WritePixel(X+2, Y+12, 33840);
+	ili9325_WritePixel(X+3, Y+12, 33840);
+	ili9325_WritePixel(X+4, Y+12, 33840);
+	ili9325_WritePixel(X+5, Y+12, 33840);
+	ili9325_WritePixel(X+6, Y+12, 33840);
+	ili9325_WritePixel(X+7, Y+12, 33840);
+	ili9325_WritePixel(X+8, Y+12, 33840);
+	ili9325_WritePixel(X+9, Y+12, 33840);
+	ili9325_WritePixel(X+10, Y+12, 33840);
+	ili9325_WritePixel(X+11, Y+12, 33840);
+	ili9325_WritePixel(X+12, Y+12, 33840);
+	ili9325_WritePixel(X+13, Y+12, 33840);
+	ili9325_WritePixel(X+14, Y+12, 33840);
+	ili9325_WritePixel(X+15, Y+12, 33840);
+	ili9325_WritePixel(X+16, Y+12, 33840);
+	ili9325_WritePixel(X+17, Y+12, 33840);
+	ili9325_WritePixel(X+18, Y+12, 33840);
+	ili9325_WritePixel(X+19, Y+12, 33840);
+	ili9325_WritePixel(X+20, Y+12, 0);
+
+	ili9325_WritePixel(X+1, Y+13, 0);
+	ili9325_WritePixel(X+2, Y+13, 33840);
+	ili9325_WritePixel(X+3, Y+13, 33840);
+	ili9325_WritePixel(X+4, Y+13, 33840);
+	ili9325_WritePixel(X+5, Y+13, 33840);
+	ili9325_WritePixel(X+6, Y+13, 33840);
+	ili9325_WritePixel(X+7, Y+13, 33840);
+	ili9325_WritePixel(X+8, Y+13, 33840);
+	ili9325_WritePixel(X+9, Y+13, 33840);
+	ili9325_WritePixel(X+10, Y+13, 33840);
+	ili9325_WritePixel(X+11, Y+13, 33840);
+	ili9325_WritePixel(X+12, Y+13, 33840);
+	ili9325_WritePixel(X+13, Y+13, 33840);
+	ili9325_WritePixel(X+14, Y+13, 33840);
+	ili9325_WritePixel(X+15, Y+13, 33840);
+	ili9325_WritePixel(X+16, Y+13, 33840);
+	ili9325_WritePixel(X+17, Y+13, 33840);
+	ili9325_WritePixel(X+18, Y+13, 33840);
+	ili9325_WritePixel(X+19, Y+13, 33840);
+	ili9325_WritePixel(X+20, Y+13, 0);
+
+	ili9325_WritePixel(X+1, Y+14, 0);
+	ili9325_WritePixel(X+2, Y+14, 33840);
+	ili9325_WritePixel(X+3, Y+14, 54938);
+	ili9325_WritePixel(X+4, Y+14, 54938);
+	ili9325_WritePixel(X+5, Y+14, 33840);
+	ili9325_WritePixel(X+6, Y+14, 33840);
+	ili9325_WritePixel(X+7, Y+14, 33840);
+	ili9325_WritePixel(X+8, Y+14, 33840);
+	ili9325_WritePixel(X+9, Y+14, 33840);
+	ili9325_WritePixel(X+10, Y+14, 33840);
+	ili9325_WritePixel(X+11, Y+14, 33840);
+	ili9325_WritePixel(X+12, Y+14, 33840);
+	ili9325_WritePixel(X+13, Y+14, 33840);
+	ili9325_WritePixel(X+14, Y+14, 33840);
+	ili9325_WritePixel(X+15, Y+14, 33840);
+	ili9325_WritePixel(X+16, Y+14, 33840);
+	ili9325_WritePixel(X+17, Y+14, 33840);
+	ili9325_WritePixel(X+18, Y+14, 33840);
+	ili9325_WritePixel(X+19, Y+14, 33840);
+	ili9325_WritePixel(X+20, Y+14, 0);
+
+	ili9325_WritePixel(X+1, Y+15, 0);
+	ili9325_WritePixel(X+2, Y+15, 33840);
+	ili9325_WritePixel(X+3, Y+15, 54938);
+	ili9325_WritePixel(X+4, Y+15, 54938);
+	ili9325_WritePixel(X+5, Y+15, 54938);
+	ili9325_WritePixel(X+6, Y+15, 33840);
+	ili9325_WritePixel(X+7, Y+15, 33840);
+	ili9325_WritePixel(X+8, Y+15, 33840);
+	ili9325_WritePixel(X+9, Y+15, 33840);
+	ili9325_WritePixel(X+10, Y+15, 33840);
+	ili9325_WritePixel(X+11, Y+15, 33840);
+	ili9325_WritePixel(X+12, Y+15, 33840);
+	ili9325_WritePixel(X+13, Y+15, 33840);
+	ili9325_WritePixel(X+14, Y+15, 33840);
+	ili9325_WritePixel(X+15, Y+15, 33840);
+	ili9325_WritePixel(X+16, Y+15, 33840);
+	ili9325_WritePixel(X+17, Y+15, 33840);
+	ili9325_WritePixel(X+18, Y+15, 33840);
+	ili9325_WritePixel(X+19, Y+15, 33840);
+	ili9325_WritePixel(X+20, Y+15, 0);
+
+	ili9325_WritePixel(X+1, Y+16, 0);
+	ili9325_WritePixel(X+2, Y+16, 33840);
+	ili9325_WritePixel(X+3, Y+16, 33840);
+	ili9325_WritePixel(X+4, Y+16, 54938);
+	ili9325_WritePixel(X+5, Y+16, 54938);
+	ili9325_WritePixel(X+6, Y+16, 33840);
+	ili9325_WritePixel(X+7, Y+16, 33840);
+	ili9325_WritePixel(X+8, Y+16, 33840);
+	ili9325_WritePixel(X+9, Y+16, 33840);
+	ili9325_WritePixel(X+10, Y+16, 33840);
+	ili9325_WritePixel(X+11, Y+16, 33840);
+	ili9325_WritePixel(X+12, Y+16, 33840);
+	ili9325_WritePixel(X+13, Y+16, 33840);
+	ili9325_WritePixel(X+14, Y+16, 33840);
+	ili9325_WritePixel(X+15, Y+16, 33840);
+	ili9325_WritePixel(X+16, Y+16, 33840);
+	ili9325_WritePixel(X+17, Y+16, 33840);
+	ili9325_WritePixel(X+18, Y+16, 33840);
+	ili9325_WritePixel(X+19, Y+16, 33840);
+	ili9325_WritePixel(X+20, Y+16, 0);
+
+	ili9325_WritePixel(X+2, Y+17, 0);
+	ili9325_WritePixel(X+3, Y+17, 33840);
+	ili9325_WritePixel(X+4, Y+17, 33840);
+	ili9325_WritePixel(X+5, Y+17, 54938);
+	ili9325_WritePixel(X+6, Y+17, 54938);
+	ili9325_WritePixel(X+7, Y+17, 54938);
+	ili9325_WritePixel(X+8, Y+17, 33840);
+	ili9325_WritePixel(X+9, Y+17, 33840);
+	ili9325_WritePixel(X+10, Y+17, 0);
+	ili9325_WritePixel(X+11, Y+17, 0);
+	ili9325_WritePixel(X+12, Y+17, 33840);
+	ili9325_WritePixel(X+13, Y+17, 33840);
+	ili9325_WritePixel(X+14, Y+17, 33840);
+	ili9325_WritePixel(X+15, Y+17, 33840);
+	ili9325_WritePixel(X+16, Y+17, 33840);
+	ili9325_WritePixel(X+17, Y+17, 33840);
+	ili9325_WritePixel(X+18, Y+17, 33840);
+	ili9325_WritePixel(X+19, Y+17, 0);
+
+	ili9325_WritePixel(X+3, Y+18, 0);
+	ili9325_WritePixel(X+4, Y+18, 33840);
+	ili9325_WritePixel(X+5, Y+18, 33840);
+	ili9325_WritePixel(X+6, Y+18, 33840);
+	ili9325_WritePixel(X+7, Y+18, 33840);
+	ili9325_WritePixel(X+8, Y+18, 33840);
+	ili9325_WritePixel(X+9, Y+18, 0);
+	ili9325_WritePixel(X+12, Y+18, 0);
+	ili9325_WritePixel(X+13, Y+18, 33840);
+	ili9325_WritePixel(X+14, Y+18, 33840);
+	ili9325_WritePixel(X+15, Y+18, 33840);
+	ili9325_WritePixel(X+16, Y+18, 33840);
+	ili9325_WritePixel(X+17, Y+18, 33840);
+	ili9325_WritePixel(X+18, Y+18, 0);
+
+	ili9325_WritePixel(X+4, Y+19, 0);
+	ili9325_WritePixel(X+5, Y+19, 33840);
+	ili9325_WritePixel(X+6, Y+19, 33840);
+	ili9325_WritePixel(X+7, Y+19, 33840);
+	ili9325_WritePixel(X+8, Y+19, 0);
+	ili9325_WritePixel(X+13, Y+19, 0);
+	ili9325_WritePixel(X+14, Y+19, 33840);
+	ili9325_WritePixel(X+15, Y+19, 33840);
+	ili9325_WritePixel(X+16, Y+19, 33840);
+	ili9325_WritePixel(X+17, Y+19, 0);
+
+	ili9325_WritePixel(X+5, Y+20, 0);
+	ili9325_WritePixel(X+6, Y+20, 0);
+	ili9325_WritePixel(X+7, Y+20, 0);
+	ili9325_WritePixel(X+14, Y+20, 0);
+	ili9325_WritePixel(X+15, Y+20, 0);
+	ili9325_WritePixel(X+16, Y+20, 0);
+}
+
+//***UpdateHP
+void UpdateHP(int HP)
+{
+	switch(HP)
+	{
+	case 0:
+		SetHeartGray(5,216);
+		SetHeartGray(29,216);
+		SetHeartGray(53,216);
+		break;
+	case 1:
+		SetHeartRed(5,216);
+		SetHeartGray(29,216);
+		SetHeartGray(53,216);
+		break;
+	case 2:
+		SetHeartRed(5,216);
+		SetHeartRed(29,216);
+		SetHeartGray(53,216);
+		break;
+	case 3:
+		SetHeartRed(5,216);
+		SetHeartRed(29,216);
+		SetHeartRed(53,216);
+		break;
+	}
+}
+
+//***SetUI
+void SetUI()
+{
+	ili9325_FillRect(0, 0, 320, 240, 65535);
+	for(int i=0; i<78; i++)
+			for(int j=0; j<30; j++)
+				ili9325_WritePixel(1+i,240-j,64203);
+	UpdateHP(3);
+	UpdateSpeedValue(0);
+	UpdateMiniMap(0);
+	PrintInfo();
+}
+void UpdateSpeedValue(int speed)
+{
+	int SpeedInKm = round(7500/speed);
+	for(int i=78; i<156; i++)
+		for(int j=0; j<30; j++)
+			ili9325_WritePixel(1+i,240-j,29614);
+}
+void PrintInfo(int option)
+{
+	for(int i=0; i<320; i++)
+		for(int j=0; j<18; j++)
+			ili9325_WritePixel(1+i,1+j,29614);
+	switch(option)
+	{
+	case 1:	//Press k3 to Start
+		break;
+	case 2:	//Press k3 to Pause
+		break;
+	}
+}
+void PressStartButton()
+{
+	while(1)
+	{
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+		break;
+	}
+	PrintInfo(2);
+}
+void PressPauseButton()
+{
+	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+	{
+		PrintInfo(1);
+		PressStartButton();
+	}
+}
+void UpdateArrow(int distance)
+{
+	ili9325_WritePixel(distance+175, 231, 65535);
+	ili9325_WritePixel(distance+176, 231, 65535);
+	ili9325_WritePixel(distance+177, 231, 65535);
+
+	ili9325_WritePixel(distance+175, 230, 65535);
+	ili9325_WritePixel(distance+176, 230, 65535);
+	ili9325_WritePixel(distance+177, 230, 65535);
+	ili9325_WritePixel(distance+178, 230, 65535);
+	ili9325_WritePixel(distance+179, 230, 65535);
+
+	ili9325_WritePixel(distance+177, 229, 65535);
+	ili9325_WritePixel(distance+178, 229, 65535);
+	ili9325_WritePixel(distance+179, 229, 65535);
+	ili9325_WritePixel(distance+180, 229, 65535);
+	ili9325_WritePixel(distance+181, 229, 65535);
+
+	ili9325_WritePixel(distance+179, 228, 65535);
+	ili9325_WritePixel(distance+180, 228, 65535);
+	ili9325_WritePixel(distance+181, 228, 65535);
+	ili9325_WritePixel(distance+182, 228, 65535);
+	ili9325_WritePixel(distance+183, 228, 65535);
+
+	ili9325_WritePixel(distance+181, 227, 65535);
+	ili9325_WritePixel(distance+182, 227, 65535);
+	ili9325_WritePixel(distance+183, 227, 65535);
+	ili9325_WritePixel(distance+184, 227, 65535);
+
+	ili9325_WritePixel(distance+183, 226, 65535);
+	ili9325_WritePixel(distance+184, 226, 65535);
+	ili9325_WritePixel(distance+185, 226, 65535);
+
+	ili9325_WritePixel(distance+183, 225, 65535);
+	ili9325_WritePixel(distance+184, 225, 65535);
+	ili9325_WritePixel(distance+185, 225, 65535);
+
+	ili9325_WritePixel(distance+181, 224, 65535);
+	ili9325_WritePixel(distance+182, 224, 65535);
+	ili9325_WritePixel(distance+183, 224, 65535);
+	ili9325_WritePixel(distance+184, 224, 65535);
+
+	ili9325_WritePixel(distance+179, 223, 65535);
+	ili9325_WritePixel(distance+180, 223, 65535);
+	ili9325_WritePixel(distance+181, 223, 65535);
+	ili9325_WritePixel(distance+182, 223, 65535);
+	ili9325_WritePixel(distance+183, 223, 65535);
+
+	ili9325_WritePixel(distance+177, 222, 65535);
+	ili9325_WritePixel(distance+178, 222, 65535);
+	ili9325_WritePixel(distance+179, 222, 65535);
+	ili9325_WritePixel(distance+180, 222, 65535);
+	ili9325_WritePixel(distance+181, 222, 65535);
+
+	ili9325_WritePixel(distance+175, 221, 65535);
+	ili9325_WritePixel(distance+176, 221, 65535);
+	ili9325_WritePixel(distance+177, 221, 65535);
+	ili9325_WritePixel(distance+178, 221, 65535);
+	ili9325_WritePixel(distance+179, 221, 65535);
+
+	ili9325_WritePixel(distance+175, 220, 65535);
+	ili9325_WritePixel(distance+176, 220, 65535);
+	ili9325_WritePixel(distance+177, 220, 65535);
+}
+void UpdateMiniMap(int distance)
+{
+	for(int i=156; i<320; i++)
+		for(int j=0; j<30; j++)
+			ili9325_WritePixel(1+i,240-j,1567);
+	ili9325_WritePixel(173, 231, 2021);
+	ili9325_WritePixel(174, 231, 2021);
+	ili9325_WritePixel(173, 230, 2021);
+	ili9325_WritePixel(174, 230, 2021);
+	ili9325_WritePixel(173, 229, 2021);
+	ili9325_WritePixel(174, 229, 2021);
+	ili9325_WritePixel(173, 228, 2021);
+	ili9325_WritePixel(174, 228, 2021);
+	ili9325_WritePixel(173, 227, 2021);
+	ili9325_WritePixel(174, 227, 2021);
+	ili9325_WritePixel(173, 226, 2021);
+	ili9325_WritePixel(174, 226, 2021);
+	ili9325_WritePixel(173, 225, 2021);
+	ili9325_WritePixel(174, 225, 2021);
+	ili9325_WritePixel(173, 224, 2021);
+	ili9325_WritePixel(174, 224, 2021);
+	ili9325_WritePixel(173, 223, 2021);
+	ili9325_WritePixel(174, 223, 2021);
+	ili9325_WritePixel(173, 222, 2021);
+	ili9325_WritePixel(174, 222, 2021);
+	ili9325_WritePixel(173, 221, 2021);
+	ili9325_WritePixel(174, 221, 2021);
+	ili9325_WritePixel(173, 220, 2021);
+	ili9325_WritePixel(174, 220, 2021);
+	for(int i=0; i<128; i++)
+	{
+		ili9325_WritePixel(i+175, 227, 1012);
+		ili9325_WritePixel(i+175, 226, 1012);
+		ili9325_WritePixel(i+175, 225, 1012);
+		ili9325_WritePixel(i+175, 224, 1012);
+	}
+	ili9325_WritePixel(303, 231, 2021);
+	ili9325_WritePixel(304, 231, 2021);
+	ili9325_WritePixel(303, 230, 2021);
+	ili9325_WritePixel(304, 230, 2021);
+	ili9325_WritePixel(303, 229, 2021);
+	ili9325_WritePixel(304, 229, 2021);
+	ili9325_WritePixel(303, 228, 2021);
+	ili9325_WritePixel(304, 228, 2021);
+	ili9325_WritePixel(303, 227, 2021);
+	ili9325_WritePixel(304, 227, 2021);
+	ili9325_WritePixel(303, 226, 2021);
+	ili9325_WritePixel(304, 226, 2021);
+	ili9325_WritePixel(303, 225, 2021);
+	ili9325_WritePixel(304, 225, 2021);
+	ili9325_WritePixel(303, 224, 2021);
+	ili9325_WritePixel(304, 224, 2021);
+	ili9325_WritePixel(303, 223, 2021);
+	ili9325_WritePixel(304, 223, 2021);
+	ili9325_WritePixel(303, 222, 2021);
+	ili9325_WritePixel(304, 222, 2021);
+	ili9325_WritePixel(303, 221, 2021);
+	ili9325_WritePixel(304, 221, 2021);
+	ili9325_WritePixel(303, 220, 2021);
+	ili9325_WritePixel(304, 220, 2021);
+	UpdateArrow(distance);
+}
+void StartGame()
+{
+	SetUI();
+	struct Skier s1;
+
+	while(1)
+	{
+		//sprawdza wychylenie w osi X
+		LIS3DSH_ReadACC(out);
+		accX = out[0];
+
+		speedUpdate(s1.speed);
+		positionUpdate(accX, s1.speed, s1.X, s1.Y);
+	}
+}
+
+
+//--- UseMenu --- DONE
+void UseMenu()
+{
+	int option=0;
+
+	while(1)
+	{
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
+		{
+			Sound(2);
+			option--;
+			ChangeTargetMenu(option, option+1);
+		}
+		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=2)
+		{
+			Sound(2);
+			option++;
+			ChangeTargetMenu(option, option-1);
+		}
+		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+		{
+			Sound(1);
+			switch(option)
+			{
+				case 0:
+					StartGame();
+				break;
+				case 1:
+					DrawRanking(-1);
+					UseRanking();
+				break;
+				case 2:
+					ili9325_DisplayOff();
+				break;
+			}
+		}
+	}
+}
+//--- DrawSkier --- DONE
+void DrawSkier(int position, int X, int Y)
+{
+	switch(position)
+	{
+		case 1:
+			SetSkierFront(X,Y);
+		break;
+		case 2:
+			SetSkierLeft(X,Y);
+		break;
+		case 3:
+			SetSkierRight(X,Y);
+		break;
+	}
+}

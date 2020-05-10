@@ -41,10 +41,14 @@ void SetSkierRight(uint16_t X, uint16_t Y);
 void drawSkier(int position, int X, int Y);
 void DrawRanking(uint8_t Mode);
 void DrawMenu(uint8_t Mode);
+void SetHeartRed(uint16_t X, uint16_t Y);
+void SetHeartGray(uint16_t X, uint16_t Y);
+void UpdateHP(int HP);
 
 //***skier
 struct Skier
 {
+	int HP;
 	int X;
 	int Y;	//pozycja startowa
 	int speed;

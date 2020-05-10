@@ -90,10 +90,7 @@ void ReadFromRanking(char* ranking)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	ili9325_Init();
-	ili9325_DisplayOn();
-	DrawMenu(-1);
-	UseMenu();
+
   /* USER CODE END 1 */
   
 
@@ -103,7 +100,8 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  ili9325_Init();
+  LISInit();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -118,7 +116,9 @@ int main(void)
   MX_SPI1_Init();
   MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
-  LISInit();
+  ili9325_DisplayOn();
+  DrawMenu(-1);
+  UseMenu();
   /* USER CODE END 2 */
 
   /* Infinite loop */
