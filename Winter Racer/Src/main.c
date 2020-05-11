@@ -102,6 +102,7 @@ int main(void)
   MX_SPI1_Init();
   MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
+  SetRanking();
   ili9325_DisplayOn();
   DrawMenu(-1);
   UseMenu();

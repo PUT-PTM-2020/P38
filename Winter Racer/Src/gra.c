@@ -279,44 +279,473 @@ _Bool collision(int *X1, int *Y1, int *X2, int *Y2)
 	return 0;
 }
 
-void positionUpdate(float accX, float speed, int *X, int *Y)
+//--- PositionUpdata ---
+void PositionUpdate(float accX, float speed, int *X, int *Y)
 {
-	//*Y += speed;
+	accX = accX/100;
 
 	if(accX < -2)
 	{
-		for(int i=0; i<(round(abs(accX))/100); i++)
-		{
-			DrawSkier(1, *X, *Y);	//rysuje narciarza, 1 - pozycja narciarza skręcającego w lewo
-			*X += accX/100;
-		}
+		*X += accX;
+		DrawSkier(1, *X, *Y);
 	}
 	else if(accX > 2)
 	{
-		for(int i=0; i<(round(accX)/100); i++)
-		{
-			DrawSkier(2, *X, *Y);	//rysuje narciarza, 2 - pozycja narciarza skręcającego w prawo
-			*X += accX/100;
-		}
+		*X += accX/100;
+		DrawSkier(2, *X, *Y);
 	}
-	else DrawSkier(3, *X, *Y);	//rysuje narciarza, , 3 - pozycja narciarza jadącego prosto
+	else DrawSkier(3, *X, *Y);
 	HAL_Delay(speed);
 }
 
-//***speedUpdate
-void speedUpdate(int *speed)
+//***SetUI
+void SetUI()
 {
-	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && speed<500)
+	ili9325_FillRect(0, 0, 320, 240, 65535);
+	for(int i=0; i<78; i++)
+			for(int j=0; j<30; j++)
+				ili9325_WritePixel(1+i,240-j,64203);
+	UpdateHP(3);
+	UpdateSpeedValue(0);
+	UpdateMiniMap(0);
+	PrintInfo();
+}
+void UpdateSpeedValue(int speed)
+{
+	int SpeedInKm = round(7500/speed);
+	for(int i=78; i<156; i++)
+		for(int j=0; j<30; j++)
+			ili9325_WritePixel(1+i,240-j,29614);
+}
+void PrintInfo(int option)
+{
+	for(int i=0; i<320; i++)
+		for(int j=0; j<18; j++)
+			ili9325_WritePixel(1+i,1+j,29614);
+	switch(option)
 	{
-		speed+=1;
-	}
-	else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && speed>100)
-	{
-		speed-=1;
+	case 1:	//Press k3 to Start
+		break;
+	case 2:	//Press k3 to Pause
+		break;
 	}
 }
+void StartGame()
+{
+	SetUI();
+	struct Skier s1;
 
-//***SetSnowman
+	PressStartButton();
+
+	while(1)
+	{
+		PressPauseButton();
+
+		LIS3DSH_ReadACC(out); //sprawdza wychylenie w osi X
+		accX = out[0];
+
+		s1.speed = SpeedUpdate(s1.speed);
+		PositionUpdate(accX, s1.speed, s1.X, s1.Y);
+	}
+}
+//--- DrawSkier ---
+void DrawSkier(int position, int X, int Y)
+{
+	switch(position)
+	{
+		case 1:
+			SetSkierFront(X,Y);
+		break;
+		case 2:
+			SetSkierLeft(X,Y);
+		break;
+		case 3:
+			SetSkierRight(X,Y);
+		break;
+	}
+}
+//--- ReadFromRanking ---
+void ReadFromRanking(char* ranking)
+{
+	fresult = f_mount(&FatFs, "", 0);
+	fresult = f_open(&file, "Ranking.txt", FA_READ);
+	fresult = f_read(&file, buffer, 16, &bytes_read);
+	sprintf(ranking, buffer);
+	fresult = f_close(&file);
+}
+
+
+
+
+
+
+
+
+
+//--- UseMenu --- DONE
+void UseMenu()
+{
+	int option=0;
+
+	while(1)
+	{
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
+		{
+			Sound(2);
+			option--;
+			ChangeTargetMenu(option, option+1);
+		}
+		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=2)
+		{
+			Sound(2);
+			option++;
+			ChangeTargetMenu(option, option-1);
+		}
+		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+		{
+			Sound(1);
+			switch(option)
+			{
+				case 0:
+					StartGame();
+				break;
+				case 1:
+					DrawRanking(-1);
+					UseRanking();
+				break;
+				case 2:
+					ili9325_DisplayOff();
+				break;
+			}
+		}
+	}
+}
+//--- WriteToRanking --- DONE
+void WriteToRanking(char* ranking)
+{
+	fresult = f_mount(&FatFs, "", 0);
+	fresult = f_open(&file, "Ranking.txt", FA_OPEN_ALWAYS | FA_WRITE);
+	int len = sprintf(buffer, ranking);
+	fresult = f_write(&file, buffer, len, &bytes_written);
+	fresult = f_close (&file);
+}
+//--- NewRecordInRanking --- DONE
+void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
+{
+    int FirstFreePosition = 0;
+    for(int i=0; i<=162; i+=18)
+    {
+        if((ranking[i]=='0')&&(ranking[i+1]=='0'))
+        {
+            FirstFreePosition = i;
+            break;
+        }
+        else if((i==162) && (ranking[i]!='0'))
+        {
+            return;
+        }
+    }
+    int elo = FirstFreePosition;
+    char x[1];
+    sprintf(x, "%d", (elo/18));
+    ranking[FirstFreePosition] = x[0];
+    for(int i=1; i<=10; i++)
+    {
+        if(nick[i-1]!=NULL)
+        {
+            ranking[FirstFreePosition+i] = nick[i-1];
+        }
+        else
+        {
+            ranking[FirstFreePosition+i] = '0';
+        }
+    }
+    char t1[1];
+    char t2[2];
+    char t3[3];
+    if(mytime < 10)
+    {
+        sprintf(t1, "%d", mytime);
+        ranking[FirstFreePosition+11] = '0';
+        ranking[FirstFreePosition+12] = '0';
+        ranking[FirstFreePosition+13] = t1[0];
+    }
+    else if((mytime >= 10) && (mytime < 100))
+    {
+        sprintf(t2, "%d", mytime);
+        ranking[FirstFreePosition+11] = '0';
+        ranking[FirstFreePosition+12] = t2[0];
+        ranking[FirstFreePosition+13] = t2[1];
+    }
+    else
+    {
+        sprintf(t3, "%d", mytime);
+        ranking[FirstFreePosition+11] = t3[0];
+        ranking[FirstFreePosition+12] = t3[1];
+        ranking[FirstFreePosition+13] = t3[2];
+    }
+    char hp1[1];
+    sprintf(hp1, "%d", hp);
+    ranking[FirstFreePosition+14] = hp1[0];
+    char points3[3];
+    int pointsForTime = 500-(2*mytime);
+    int pointsForHP = hp*100;
+    int points = 150 + pointsForTime + pointsForHP;
+    sprintf(points3, "%d", points);
+    ranking[FirstFreePosition+15] = points3[0];
+    ranking[FirstFreePosition+16] = points3[1];
+    ranking[FirstFreePosition+17] = points3[2];
+    sprintf(ranking, "%s", SortRanking(ranking));
+
+    WriteToRanking(ranking);
+}
+//--- SortRanking --- DONE
+char* SortRanking(char ranking[180])
+{
+    char position[10][18];
+    int points[10];
+    int bpoints[10];
+
+    for(int i=0, k=0; i<=162; i+=18, k++)
+    {
+      char chpoints[3];
+        for(int j=0; j<18; j++)
+        {
+          position[k][j] = ranking[i+j];
+        }
+        chpoints[0]=position[k][15];
+        chpoints[1]=position[k][16];
+        chpoints[2]=position[k][17];
+        sscanf(chpoints, "%d", &points[k]);
+    }
+
+    for(int i=0; i<10; i++)
+      bpoints[i] = points[i];
+
+    int i, i_max, max, j;
+    int N = 10;
+    for (j = N-1; j > 0; j--)
+    {
+      max = points[0];
+      i_max = 0;
+      for ( i = 1; i <= j; i++ )
+        if ( points[i] < max )
+        {
+          max = points[i];
+          i_max = i;
+        }
+      points[i_max] = points[j];
+      points[j] = max;
+    }
+
+    int temp[10]={12,12,12,12,12,12,12,12,12,12};
+    int info = 0;
+
+    for(int i=0, k=0; i<10; k+=18, i++)
+    {
+      for(int j=0; j<10; j++)
+      {
+        if(points[i]==bpoints[j])
+        {
+          info = 0;
+          for(int o=0; o<10; o++)
+          {
+            if(temp[o]==j)
+            {
+              info = 1;
+            }
+          }
+          if(info==0)
+          {
+            temp[i]=j;
+            for(int q=0; q<18; q++)
+            {
+              ranking[k+q]=position[j][q];
+            }
+            break;
+          }
+        }
+      }
+    }
+
+    char x[1];
+    for(int i=0, k=0; i<=162; i+=18, k++)
+    {
+      if((ranking[i]=='0')&&(ranking[i+1]=='0'))
+      {
+        break;
+      }
+      else
+      {
+        sprintf(x, "%d", k);
+        ranking[i] = x[0];
+      }
+    }
+
+    return ranking;
+}
+//--- SetRanking --- DONE
+void SetRanking()
+{
+	fresult = f_mount(&FatFs, "", 0);
+	fresult = f_open(&file, "Ranking.txt", FA_READ);
+	if(f==NULL)
+	{
+		char ranking[180];
+		for(int i=0; i<180; i++)
+			ranking[i]='0';
+		WriteToRanking(ranking);
+	}
+	else fresult = f_close(&file);
+}
+//--- UpdateArrow --- DONE
+void UpdateArrow(int distance)
+{
+	ili9325_WritePixel(distance+175, 231, 65535);
+	ili9325_WritePixel(distance+176, 231, 65535);
+	ili9325_WritePixel(distance+177, 231, 65535);
+
+	ili9325_WritePixel(distance+175, 230, 65535);
+	ili9325_WritePixel(distance+176, 230, 65535);
+	ili9325_WritePixel(distance+177, 230, 65535);
+	ili9325_WritePixel(distance+178, 230, 65535);
+	ili9325_WritePixel(distance+179, 230, 65535);
+
+	ili9325_WritePixel(distance+177, 229, 65535);
+	ili9325_WritePixel(distance+178, 229, 65535);
+	ili9325_WritePixel(distance+179, 229, 65535);
+	ili9325_WritePixel(distance+180, 229, 65535);
+	ili9325_WritePixel(distance+181, 229, 65535);
+
+	ili9325_WritePixel(distance+179, 228, 65535);
+	ili9325_WritePixel(distance+180, 228, 65535);
+	ili9325_WritePixel(distance+181, 228, 65535);
+	ili9325_WritePixel(distance+182, 228, 65535);
+	ili9325_WritePixel(distance+183, 228, 65535);
+
+	ili9325_WritePixel(distance+181, 227, 65535);
+	ili9325_WritePixel(distance+182, 227, 65535);
+	ili9325_WritePixel(distance+183, 227, 65535);
+	ili9325_WritePixel(distance+184, 227, 65535);
+
+	ili9325_WritePixel(distance+183, 226, 65535);
+	ili9325_WritePixel(distance+184, 226, 65535);
+	ili9325_WritePixel(distance+185, 226, 65535);
+
+	ili9325_WritePixel(distance+183, 225, 65535);
+	ili9325_WritePixel(distance+184, 225, 65535);
+	ili9325_WritePixel(distance+185, 225, 65535);
+
+	ili9325_WritePixel(distance+181, 224, 65535);
+	ili9325_WritePixel(distance+182, 224, 65535);
+	ili9325_WritePixel(distance+183, 224, 65535);
+	ili9325_WritePixel(distance+184, 224, 65535);
+
+	ili9325_WritePixel(distance+179, 223, 65535);
+	ili9325_WritePixel(distance+180, 223, 65535);
+	ili9325_WritePixel(distance+181, 223, 65535);
+	ili9325_WritePixel(distance+182, 223, 65535);
+	ili9325_WritePixel(distance+183, 223, 65535);
+
+	ili9325_WritePixel(distance+177, 222, 65535);
+	ili9325_WritePixel(distance+178, 222, 65535);
+	ili9325_WritePixel(distance+179, 222, 65535);
+	ili9325_WritePixel(distance+180, 222, 65535);
+	ili9325_WritePixel(distance+181, 222, 65535);
+
+	ili9325_WritePixel(distance+175, 221, 65535);
+	ili9325_WritePixel(distance+176, 221, 65535);
+	ili9325_WritePixel(distance+177, 221, 65535);
+	ili9325_WritePixel(distance+178, 221, 65535);
+	ili9325_WritePixel(distance+179, 221, 65535);
+
+	ili9325_WritePixel(distance+175, 220, 65535);
+	ili9325_WritePixel(distance+176, 220, 65535);
+	ili9325_WritePixel(distance+177, 220, 65535);
+}
+//--- UpdateMiniMap --- DONE
+void UpdateMiniMap(int distance)
+{
+	for(int i=156; i<320; i++)
+		for(int j=0; j<30; j++)
+			ili9325_WritePixel(1+i,240-j,1567);
+	ili9325_WritePixel(173, 231, 2021);
+	ili9325_WritePixel(174, 231, 2021);
+	ili9325_WritePixel(173, 230, 2021);
+	ili9325_WritePixel(174, 230, 2021);
+	ili9325_WritePixel(173, 229, 2021);
+	ili9325_WritePixel(174, 229, 2021);
+	ili9325_WritePixel(173, 228, 2021);
+	ili9325_WritePixel(174, 228, 2021);
+	ili9325_WritePixel(173, 227, 2021);
+	ili9325_WritePixel(174, 227, 2021);
+	ili9325_WritePixel(173, 226, 2021);
+	ili9325_WritePixel(174, 226, 2021);
+	ili9325_WritePixel(173, 225, 2021);
+	ili9325_WritePixel(174, 225, 2021);
+	ili9325_WritePixel(173, 224, 2021);
+	ili9325_WritePixel(174, 224, 2021);
+	ili9325_WritePixel(173, 223, 2021);
+	ili9325_WritePixel(174, 223, 2021);
+	ili9325_WritePixel(173, 222, 2021);
+	ili9325_WritePixel(174, 222, 2021);
+	ili9325_WritePixel(173, 221, 2021);
+	ili9325_WritePixel(174, 221, 2021);
+	ili9325_WritePixel(173, 220, 2021);
+	ili9325_WritePixel(174, 220, 2021);
+	for(int i=0; i<128; i++)
+	{
+		ili9325_WritePixel(i+175, 227, 1012);
+		ili9325_WritePixel(i+175, 226, 1012);
+		ili9325_WritePixel(i+175, 225, 1012);
+		ili9325_WritePixel(i+175, 224, 1012);
+	}
+	ili9325_WritePixel(303, 231, 2021);
+	ili9325_WritePixel(304, 231, 2021);
+	ili9325_WritePixel(303, 230, 2021);
+	ili9325_WritePixel(304, 230, 2021);
+	ili9325_WritePixel(303, 229, 2021);
+	ili9325_WritePixel(304, 229, 2021);
+	ili9325_WritePixel(303, 228, 2021);
+	ili9325_WritePixel(304, 228, 2021);
+	ili9325_WritePixel(303, 227, 2021);
+	ili9325_WritePixel(304, 227, 2021);
+	ili9325_WritePixel(303, 226, 2021);
+	ili9325_WritePixel(304, 226, 2021);
+	ili9325_WritePixel(303, 225, 2021);
+	ili9325_WritePixel(304, 225, 2021);
+	ili9325_WritePixel(303, 224, 2021);
+	ili9325_WritePixel(304, 224, 2021);
+	ili9325_WritePixel(303, 223, 2021);
+	ili9325_WritePixel(304, 223, 2021);
+	ili9325_WritePixel(303, 222, 2021);
+	ili9325_WritePixel(304, 222, 2021);
+	ili9325_WritePixel(303, 221, 2021);
+	ili9325_WritePixel(304, 221, 2021);
+	ili9325_WritePixel(303, 220, 2021);
+	ili9325_WritePixel(304, 220, 2021);
+	UpdateArrow(distance);
+}
+//--- PressStartButton --- DONE
+void PressStartButton()
+{
+	while(1)
+	{
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+			break;
+	}
+	PrintInfo(2);
+}
+//--- PressPauseButton --- DONE
+void PressPauseButton()
+{
+	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+	{
+		PrintInfo(1);
+		PressStartButton();
+	}
+}
+//--- SetSnowman --- DONE
 void SetSnowman(uint16_t X, uint16_t Y)
 {
 	for(int i=13; i<=18; i++)
@@ -569,8 +998,7 @@ void SetSnowman(uint16_t X, uint16_t Y)
 		for(int i=12; i<=19; i++)
 		ili9325_WritePixel(X+i, Y+27,0);
 }
-
-//***SetRock
+//--- SetRock --- DONE
 void SetRock(uint16_t X, uint16_t Y)
 {
 	for(int i=7; i<=19; i++)
@@ -892,8 +1320,7 @@ void SetRock(uint16_t X, uint16_t Y)
 	for(int i=12; i<=15; i++)
 		ili9325_WritePixel(X+i, Y+22,0);
 }
-
-//***SetBowman
+//--- SetBowman --- DONE
 void SetBowman(uint16_t X, uint16_t Y)
 {
 	ili9325_WritePixel(X+1, Y+1, 0);
@@ -1477,8 +1904,7 @@ void SetBowman(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+14, Y+30, 0);
 	ili9325_WritePixel(X+15, Y+30, 0);
 }
-
-//***SetTree
+//--- SetTree --- DONE
 void SetTree(uint16_t X, uint16_t Y)
 {
 	ili9325_WritePixel(X+12, Y+1, 14690);	//ciemny brąz
@@ -1879,8 +2305,7 @@ void SetTree(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+13, Y+33, 36524);
 	ili9325_WritePixel(X+14, Y+33, 36524);
 }
-
-//***SetSkierFront
+//--- SetSkierFront --- DONE
 void SetSkierFront(uint16_t X, uint16_t Y)
 {
 	ili9325_WritePixel(X+8, Y+1, 19343);
@@ -2486,8 +2911,7 @@ void SetSkierFront(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+18, Y+44, 57021);
 	ili9325_WritePixel(X+19, Y+44, 57021);
 }
-
-//***SetSkierLeft
+//--- SetSkierLeft --- DONE
 void SetSkierLeft(uint16_t X, uint16_t Y)
 {
 	ili9325_WritePixel(X+7, Y+1, 19343);
@@ -2947,8 +3371,7 @@ void SetSkierLeft(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+17, Y+44, 50712);
 	ili9325_WritePixel(X+18, Y+44, 50712);
 }
-
-//***SetSkierLeft
+//--- SetSkierLeft --- DONE
 void SetSkierRight(uint16_t X, uint16_t Y)
 {
 	ili9325_WritePixel(X+17, Y+1, 19343);
@@ -3408,8 +3831,7 @@ void SetSkierRight(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+7, Y+44, 50712);
 	ili9325_WritePixel(X+6, Y+44, 50712);
 }
-
-//***SetHeartRed
+//--- SetHeartRed --- DONE
 void SetHeartRed(uint16_t X, uint16_t Y)
 {
 	ili9325_WritePixel(X+10, Y+1, 0);
@@ -3706,8 +4128,7 @@ void SetHeartRed(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+15, Y+20, 0);
 	ili9325_WritePixel(X+16, Y+20, 0);
 }
-
-//***SetHeartGray
+//--- SetHeartGray --- DONE
 void SetHeartGray(uint16_t X, uint16_t Y)
 {
 	ili9325_WritePixel(X+10, Y+1, 0);
@@ -4004,8 +4425,7 @@ void SetHeartGray(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+15, Y+20, 0);
 	ili9325_WritePixel(X+16, Y+20, 0);
 }
-
-//***UpdateHP
+//--- UpdateHP --- DONE
 void UpdateHP(int HP)
 {
 	switch(HP)
@@ -4032,446 +4452,16 @@ void UpdateHP(int HP)
 		break;
 	}
 }
-
-//***SetUI
-void SetUI()
+//--- SpeedUpdate --- DONE
+int SpeedUpdate(int speed)
 {
-	ili9325_FillRect(0, 0, 320, 240, 65535);
-	for(int i=0; i<78; i++)
-			for(int j=0; j<30; j++)
-				ili9325_WritePixel(1+i,240-j,64203);
-	UpdateHP(3);
-	UpdateSpeedValue(0);
-	UpdateMiniMap(0);
-	PrintInfo();
-}
-void UpdateSpeedValue(int speed)
-{
-	int SpeedInKm = round(7500/speed);
-	for(int i=78; i<156; i++)
-		for(int j=0; j<30; j++)
-			ili9325_WritePixel(1+i,240-j,29614);
-}
-void PrintInfo(int option)
-{
-	for(int i=0; i<320; i++)
-		for(int j=0; j<18; j++)
-			ili9325_WritePixel(1+i,1+j,29614);
-	switch(option)
+	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && speed<500)
 	{
-	case 1:	//Press k3 to Start
-		break;
-	case 2:	//Press k3 to Pause
-		break;
+		speed+=10;
 	}
-}
-void PressStartButton()
-{
-	while(1)
+	else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && speed>100)
 	{
-		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
-		break;
+		speed-=10;
 	}
-	PrintInfo(2);
-}
-void PressPauseButton()
-{
-	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
-	{
-		PrintInfo(1);
-		PressStartButton();
-	}
-}
-void UpdateArrow(int distance)
-{
-	ili9325_WritePixel(distance+175, 231, 65535);
-	ili9325_WritePixel(distance+176, 231, 65535);
-	ili9325_WritePixel(distance+177, 231, 65535);
-
-	ili9325_WritePixel(distance+175, 230, 65535);
-	ili9325_WritePixel(distance+176, 230, 65535);
-	ili9325_WritePixel(distance+177, 230, 65535);
-	ili9325_WritePixel(distance+178, 230, 65535);
-	ili9325_WritePixel(distance+179, 230, 65535);
-
-	ili9325_WritePixel(distance+177, 229, 65535);
-	ili9325_WritePixel(distance+178, 229, 65535);
-	ili9325_WritePixel(distance+179, 229, 65535);
-	ili9325_WritePixel(distance+180, 229, 65535);
-	ili9325_WritePixel(distance+181, 229, 65535);
-
-	ili9325_WritePixel(distance+179, 228, 65535);
-	ili9325_WritePixel(distance+180, 228, 65535);
-	ili9325_WritePixel(distance+181, 228, 65535);
-	ili9325_WritePixel(distance+182, 228, 65535);
-	ili9325_WritePixel(distance+183, 228, 65535);
-
-	ili9325_WritePixel(distance+181, 227, 65535);
-	ili9325_WritePixel(distance+182, 227, 65535);
-	ili9325_WritePixel(distance+183, 227, 65535);
-	ili9325_WritePixel(distance+184, 227, 65535);
-
-	ili9325_WritePixel(distance+183, 226, 65535);
-	ili9325_WritePixel(distance+184, 226, 65535);
-	ili9325_WritePixel(distance+185, 226, 65535);
-
-	ili9325_WritePixel(distance+183, 225, 65535);
-	ili9325_WritePixel(distance+184, 225, 65535);
-	ili9325_WritePixel(distance+185, 225, 65535);
-
-	ili9325_WritePixel(distance+181, 224, 65535);
-	ili9325_WritePixel(distance+182, 224, 65535);
-	ili9325_WritePixel(distance+183, 224, 65535);
-	ili9325_WritePixel(distance+184, 224, 65535);
-
-	ili9325_WritePixel(distance+179, 223, 65535);
-	ili9325_WritePixel(distance+180, 223, 65535);
-	ili9325_WritePixel(distance+181, 223, 65535);
-	ili9325_WritePixel(distance+182, 223, 65535);
-	ili9325_WritePixel(distance+183, 223, 65535);
-
-	ili9325_WritePixel(distance+177, 222, 65535);
-	ili9325_WritePixel(distance+178, 222, 65535);
-	ili9325_WritePixel(distance+179, 222, 65535);
-	ili9325_WritePixel(distance+180, 222, 65535);
-	ili9325_WritePixel(distance+181, 222, 65535);
-
-	ili9325_WritePixel(distance+175, 221, 65535);
-	ili9325_WritePixel(distance+176, 221, 65535);
-	ili9325_WritePixel(distance+177, 221, 65535);
-	ili9325_WritePixel(distance+178, 221, 65535);
-	ili9325_WritePixel(distance+179, 221, 65535);
-
-	ili9325_WritePixel(distance+175, 220, 65535);
-	ili9325_WritePixel(distance+176, 220, 65535);
-	ili9325_WritePixel(distance+177, 220, 65535);
-}
-void UpdateMiniMap(int distance)
-{
-	for(int i=156; i<320; i++)
-		for(int j=0; j<30; j++)
-			ili9325_WritePixel(1+i,240-j,1567);
-	ili9325_WritePixel(173, 231, 2021);
-	ili9325_WritePixel(174, 231, 2021);
-	ili9325_WritePixel(173, 230, 2021);
-	ili9325_WritePixel(174, 230, 2021);
-	ili9325_WritePixel(173, 229, 2021);
-	ili9325_WritePixel(174, 229, 2021);
-	ili9325_WritePixel(173, 228, 2021);
-	ili9325_WritePixel(174, 228, 2021);
-	ili9325_WritePixel(173, 227, 2021);
-	ili9325_WritePixel(174, 227, 2021);
-	ili9325_WritePixel(173, 226, 2021);
-	ili9325_WritePixel(174, 226, 2021);
-	ili9325_WritePixel(173, 225, 2021);
-	ili9325_WritePixel(174, 225, 2021);
-	ili9325_WritePixel(173, 224, 2021);
-	ili9325_WritePixel(174, 224, 2021);
-	ili9325_WritePixel(173, 223, 2021);
-	ili9325_WritePixel(174, 223, 2021);
-	ili9325_WritePixel(173, 222, 2021);
-	ili9325_WritePixel(174, 222, 2021);
-	ili9325_WritePixel(173, 221, 2021);
-	ili9325_WritePixel(174, 221, 2021);
-	ili9325_WritePixel(173, 220, 2021);
-	ili9325_WritePixel(174, 220, 2021);
-	for(int i=0; i<128; i++)
-	{
-		ili9325_WritePixel(i+175, 227, 1012);
-		ili9325_WritePixel(i+175, 226, 1012);
-		ili9325_WritePixel(i+175, 225, 1012);
-		ili9325_WritePixel(i+175, 224, 1012);
-	}
-	ili9325_WritePixel(303, 231, 2021);
-	ili9325_WritePixel(304, 231, 2021);
-	ili9325_WritePixel(303, 230, 2021);
-	ili9325_WritePixel(304, 230, 2021);
-	ili9325_WritePixel(303, 229, 2021);
-	ili9325_WritePixel(304, 229, 2021);
-	ili9325_WritePixel(303, 228, 2021);
-	ili9325_WritePixel(304, 228, 2021);
-	ili9325_WritePixel(303, 227, 2021);
-	ili9325_WritePixel(304, 227, 2021);
-	ili9325_WritePixel(303, 226, 2021);
-	ili9325_WritePixel(304, 226, 2021);
-	ili9325_WritePixel(303, 225, 2021);
-	ili9325_WritePixel(304, 225, 2021);
-	ili9325_WritePixel(303, 224, 2021);
-	ili9325_WritePixel(304, 224, 2021);
-	ili9325_WritePixel(303, 223, 2021);
-	ili9325_WritePixel(304, 223, 2021);
-	ili9325_WritePixel(303, 222, 2021);
-	ili9325_WritePixel(304, 222, 2021);
-	ili9325_WritePixel(303, 221, 2021);
-	ili9325_WritePixel(304, 221, 2021);
-	ili9325_WritePixel(303, 220, 2021);
-	ili9325_WritePixel(304, 220, 2021);
-	UpdateArrow(distance);
-}
-void StartGame()
-{
-	SetUI();
-	struct Skier s1;
-
-	while(1)
-	{
-		//sprawdza wychylenie w osi X
-		LIS3DSH_ReadACC(out);
-		accX = out[0];
-
-		speedUpdate(s1.speed);
-		positionUpdate(accX, s1.speed, s1.X, s1.Y);
-	}
-}
-
-
-//--- UseMenu --- DONE
-void UseMenu()
-{
-	int option=0;
-
-	while(1)
-	{
-		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) && option!=0)
-		{
-			Sound(2);
-			option--;
-			ChangeTargetMenu(option, option+1);
-		}
-		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && option!=2)
-		{
-			Sound(2);
-			option++;
-			ChangeTargetMenu(option, option-1);
-		}
-		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
-		{
-			Sound(1);
-			switch(option)
-			{
-				case 0:
-					StartGame();
-				break;
-				case 1:
-					DrawRanking(-1);
-					UseRanking();
-				break;
-				case 2:
-					ili9325_DisplayOff();
-				break;
-			}
-		}
-	}
-}
-//--- DrawSkier --- DONE
-void DrawSkier(int position, int X, int Y)
-{
-	switch(position)
-	{
-		case 1:
-			SetSkierFront(X,Y);
-		break;
-		case 2:
-			SetSkierLeft(X,Y);
-		break;
-		case 3:
-			SetSkierRight(X,Y);
-		break;
-	}
-}
-//--- WriteToRanking --- DONE
-void WriteToRanking(char* ranking)
-{
-	fresult = f_mount(&FatFs, "", 0);
-	fresult = f_open(&file, "Ranking.txt", FA_OPEN_ALWAYS | FA_WRITE);
-	int len = sprintf(buffer, ranking);
-	fresult = f_write(&file, buffer, len, &bytes_written);
-	fresult = f_close (&file);
-}
-//--- ReadFromRanking --- DONE
-void ReadFromRanking(char* ranking)
-{
-	fresult = f_mount(&FatFs, "", 0);
-	fresult = f_open(&file, "Ranking.txt", FA_READ);
-	fresult = f_read(&file, buffer, 16, &bytes_read);
-	sprintf(ranking, buffer);
-	fresult = f_close(&file);
-}
-//--- NewRecordInRanking --- DONE
-void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
-{
-    int FirstFreePosition = 0;
-    for(int i=0; i<=162; i+=18)
-    {
-        if(i==0)
-        {
-            if((ranking[i]=='0')&&(ranking[i+1]=='0'))
-            {
-                FirstFreePosition = i;
-                break;
-            }
-        }
-        else if(ranking[i]=='0')
-        {
-            FirstFreePosition = i;
-            break;
-        }
-        else if((i==162) && (ranking[i]!='0'))
-        {
-            return ranking;
-        }
-    }
-    int bugFix = FirstFreePosition;
-    char x[1];
-    sprintf(x, "%d", (bugFix/18));
-    ranking[FirstFreePosition] = x[0];
-    for(int i=1; i<=10; i++)
-    {
-        if(nick[i-1]!=NULL)
-        {
-            ranking[FirstFreePosition+i] = nick[i-1];
-        }
-        else
-        {
-            ranking[FirstFreePosition+i] = '0';
-        }
-    }
-    char t1[1];
-    char t2[2];
-    char t3[3];
-    if(mytime < 10)
-    {
-        sprintf(t1, "%d", mytime);
-        ranking[FirstFreePosition+11] = '0';
-        ranking[FirstFreePosition+12] = '0';
-        ranking[FirstFreePosition+13] = t1[0];
-    }
-    else if((mytime >= 10) && (mytime < 100))
-    {
-        sprintf(t2, "%d", mytime);
-        ranking[FirstFreePosition+11] = '0';
-        ranking[FirstFreePosition+12] = t2[0];
-        ranking[FirstFreePosition+13] = t2[1];
-    }
-    else
-    {
-        sprintf(t3, "%d", mytime);
-        ranking[FirstFreePosition+11] = t3[0];
-        ranking[FirstFreePosition+12] = t3[1];
-        ranking[FirstFreePosition+13] = t3[2];
-    }
-    char hp1[1];
-    sprintf(hp1, "%d", hp);
-    ranking[FirstFreePosition+14] = hp1[0];
-    char points3[3];
-    int pointsForTime = MAP_DISTANCE-(2*mytime);
-    int pointsForHP = hp*100;
-    int points = 150 + pointsForTime + pointsForHP;
-    sprintf(points3, "%d", points);
-    ranking[FirstFreePosition+15] = points3[0];
-    ranking[FirstFreePosition+16] = points3[1];
-    ranking[FirstFreePosition+17] = points3[2];
-
-    sprintf(ranking, "%s", SortRanking(ranking));
-
-    WriteToRanking(ranking);
-}
-//--- SortRanking --- DONE
-char* SortRanking(char ranking[180])
-{
-    char position[10][18];
-    int points[10];
-    int bpoints[10];
-
-    for(int i=0, k=0; i<=162; i+=18, k++)
-    {
-      char chpoints[3];
-        for(int j=0; j<18; j++)
-        {
-          position[k][j] = ranking[i+j];
-        }
-        chpoints[0]=position[k][15];
-        chpoints[1]=position[k][16];
-        chpoints[2]=position[k][17];
-        sscanf(chpoints, "%d", &points[k]);
-    }
-
-    for(int i=0; i<10; i++)
-      bpoints[i] = points[i];
-
-    int i, i_max, max, j;
-    int N = 10;
-    for (j = N-1; j > 0; j--)
-    {
-      max = points[0];
-      i_max = 0;
-      for ( i = 1; i <= j; i++ )
-        if ( points[i] < max )
-        {
-          max = points[i];
-          i_max = i;
-        }
-      points[i_max] = points[j];
-      points[j] = max;
-    }
-
-    int temp[10]={12,12,12,12,12,12,12,12,12,12};
-    int info = 0;
-
-    for(int i=0, k=0; i<10; k+=18, i++)
-    {
-      for(int j=0; j<10; j++)
-      {
-        if(points[i]==bpoints[j])
-        {
-          info = 0;
-          for(int o=0; o<10; o++)
-          {
-            if(temp[o]==j)
-            {
-              info = 1;
-            }
-          }
-          if(info==0)
-          {
-            temp[i]=j;
-            for(int q=0; q<18; q++)
-            {
-              ranking[k+q]=position[j][q];
-            }
-            break;
-          }
-        }
-      }
-    }
-
-    char x[1];
-    for(int i=0, k=0; i<=162; i+=18, k++)
-    {
-      if((ranking[i]=='0')&&(ranking[i+1]=='0'))
-      {
-        break;
-      }
-      else
-      {
-        sprintf(x, "%d", k);
-        ranking[i] = x[0];
-      }
-    }
-
-    return ranking;
-}
-//--- SetRanking ---
-void SetRanking()
-{
-	fresult = f_mount(&FatFs, "", 0);
-	fresult = f_open(&file, "Ranking.txt", FA_READ);
-	if(f==NULL)
-	{
-		char ranking[180];
-		for(int i=0; i<180; i++)
-			ranking[i]='0';
-		WriteToRanking(ranking);
-	}
-	else fresult = f_close(&file);
+	return speed;
 }
