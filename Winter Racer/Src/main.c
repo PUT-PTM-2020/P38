@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ff.h"
+//#include "ff.h"
+#include "gra.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,22 +61,7 @@ static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_SPI3_Init(void);
 /* USER CODE BEGIN PFP */
-void WriteToRanking(char* ranking)
-{
-	fresult = f_mount(&FatFs, "", 0);
-	fresult = f_open(&file, "Ranking.txt", FA_OPEN_ALWAYS | FA_WRITE);
-	int len = sprintf(buffer, ranking);
-	fresult = f_write(&file, buffer, len, &bytes_written);
-	fresult = f_close (&file);
-}
-void ReadFromRanking(char* ranking)
-{
-	fresult = f_mount(&FatFs, "", 0);
-	fresult = f_open(&file, "Ranking.txt", FA_READ);
-	fresult = f_read(&file, buffer, 16, &bytes_read);
-	sprintf(ranking, buffer);
-	fresult = f_close(&file);
-}
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/

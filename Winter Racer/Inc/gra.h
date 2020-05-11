@@ -44,6 +44,9 @@ void DrawMenu(uint8_t Mode);
 void SetHeartRed(uint16_t X, uint16_t Y);
 void SetHeartGray(uint16_t X, uint16_t Y);
 void UpdateHP(int HP);
+//***SD
+void WriteToRanking(char* ranking);
+void ReadFromRanking(char* ranking);
 
 //***skier
 struct Skier

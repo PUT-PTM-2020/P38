@@ -1,4 +1,5 @@
 #include "gra.h"
+#define MAP_DISTANCE 500
 
 //NOTE
 	//Dodac napisy do DrawMenu, ChangeTarget i ShowRanking
@@ -4277,4 +4278,111 @@ void DrawSkier(int position, int X, int Y)
 			SetSkierRight(X,Y);
 		break;
 	}
+}
+//--- WriteToRanking --- DONE
+void WriteToRanking(char* ranking)
+{
+	fresult = f_mount(&FatFs, "", 0);
+	fresult = f_open(&file, "Ranking.txt", FA_OPEN_ALWAYS | FA_WRITE);
+	int len = sprintf(buffer, ranking);
+	fresult = f_write(&file, buffer, len, &bytes_written);
+	fresult = f_close (&file);
+}
+//--- ReadFromRanking --- DONE
+void ReadFromRanking(char* ranking)
+{
+	fresult = f_mount(&FatFs, "", 0);
+	fresult = f_open(&file, "Ranking.txt", FA_READ);
+	fresult = f_read(&file, buffer, 16, &bytes_read);
+	sprintf(ranking, buffer);
+	fresult = f_close(&file);
+}
+//--- NewRecordInRanking --- DONE
+void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
+{
+    int FirstFreePosition = 0;
+    for(int i=0; i<=162; i+=18)
+    {
+        if(i==0)
+        {
+            if((ranking[i]=='0')&&(ranking[i+1]=='0'))
+            {
+                FirstFreePosition = i;
+                break;
+            }
+        }
+        else if(ranking[i]=='0')
+        {
+            FirstFreePosition = i;
+            break;
+        }
+        else if((i==162) && (ranking[i]!='0'))
+        {
+            return ranking;
+        }
+    }
+    char x[1];
+    sprintf(x, "%d", (FirstFreePosition/18));
+    ranking[FirstFreePosition] = x[0];
+    for(int i=1; i<=10; i++)
+    {
+        if(nick[i-1]!=NULL)
+        {
+            ranking[FirstFreePosition+i] = nick[i-1];
+        }
+        else
+        {
+            ranking[FirstFreePosition+i] = '0';
+        }
+    }
+    char t1[1];
+    char t2[2];
+    char t3[3];
+    if(mytime < 10)
+    {
+        sprintf(t1, "%d", mytime);
+        ranking[FirstFreePosition+11] = '0';
+        ranking[FirstFreePosition+12] = '0';
+        ranking[FirstFreePosition+13] = t1[0];
+    }
+    else if((mytime >= 10) && (mytime < 100))
+    {
+        sprintf(t2, "%d", mytime);
+        ranking[FirstFreePosition+11] = '0';
+        ranking[FirstFreePosition+12] = t2[0];
+        ranking[FirstFreePosition+13] = t2[1];
+    }
+    else
+    {
+        sprintf(t3, "%d", mytime);
+        ranking[FirstFreePosition+11] = t3[0];
+        ranking[FirstFreePosition+12] = t3[1];
+        ranking[FirstFreePosition+13] = t3[2];
+    }
+    char hp1[1];
+    sprintf(hp1, "%d", hp);
+    ranking[FirstFreePosition+14] = hp1[0];
+    char points3[3];
+    int pointsForTime = MAP_DISTANCE-(2*mytime);
+    int pointsForHP = hp*100;
+    int points = 150 + pointsForTime + pointsForHP;
+    sprintf(points3, "%d", points);
+    ranking[FirstFreePosition+15] = points3[0];
+    ranking[FirstFreePosition+16] = points3[1];
+    ranking[FirstFreePosition+17] = points3[2];
+    WriteToRanking(ranking);
+}
+//--- SetRanking ---
+void SetRanking()
+{
+	fresult = f_mount(&FatFs, "", 0);
+	fresult = f_open(&file, "Ranking.txt", FA_READ);
+	if(f==NULL)
+	{
+		char ranking[180];
+		for(int i=0; i<180; i++)
+			ranking[i]='0';
+		WriteToRanking(ranking);
+	}
+	else fresult = f_close(&file);
 }
