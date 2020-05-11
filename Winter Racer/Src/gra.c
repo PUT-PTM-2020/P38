@@ -4376,12 +4376,91 @@ void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
 
     WriteToRanking(ranking);
 }
-//--- SortRanking ---
+//--- SortRanking --- DONE
 char* SortRanking(char ranking[180])
 {
+    char position[10][18];
+    int points[10];
+    int bpoints[10];
 
+    for(int i=0, k=0; i<=162; i+=18, k++)
+    {
+      char chpoints[3];
+        for(int j=0; j<18; j++)
+        {
+          position[k][j] = ranking[i+j];
+        }
+        chpoints[0]=position[k][15];
+        chpoints[1]=position[k][16];
+        chpoints[2]=position[k][17];
+        sscanf(chpoints, "%d", &points[k]);
+    }
+
+    for(int i=0; i<10; i++)
+      bpoints[i] = points[i];
+
+    int i, i_max, max, j;
+    int N = 10;
+    for (j = N-1; j > 0; j--)
+    {
+      max = points[0];
+      i_max = 0;
+      for ( i = 1; i <= j; i++ )
+        if ( points[i] < max )
+        {
+          max = points[i];
+          i_max = i;
+        }
+      points[i_max] = points[j];
+      points[j] = max;
+    }
+
+    int temp[10]={12,12,12,12,12,12,12,12,12,12};
+    int info = 0;
+
+    for(int i=0, k=0; i<10; k+=18, i++)
+    {
+      for(int j=0; j<10; j++)
+      {
+        if(points[i]==bpoints[j])
+        {
+          info = 0;
+          for(int o=0; o<10; o++)
+          {
+            if(temp[o]==j)
+            {
+              info = 1;
+            }
+          }
+          if(info==0)
+          {
+            temp[i]=j;
+            for(int q=0; q<18; q++)
+            {
+              ranking[k+q]=position[j][q];
+            }
+            break;
+          }
+        }
+      }
+    }
+
+    char x[1];
+    for(int i=0, k=0; i<=162; i+=18, k++)
+    {
+      if((ranking[i]=='0')&&(ranking[i+1]=='0'))
+      {
+        break;
+      }
+      else
+      {
+        sprintf(x, "%d", k);
+        ranking[i] = x[0];
+      }
+    }
+
+    return ranking;
 }
-
 //--- SetRanking ---
 void SetRanking()
 {
