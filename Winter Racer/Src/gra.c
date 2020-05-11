@@ -4321,8 +4321,9 @@ void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
             return ranking;
         }
     }
+    int bugFix = FirstFreePosition;
     char x[1];
-    sprintf(x, "%d", (FirstFreePosition/18));
+    sprintf(x, "%d", (bugFix/18));
     ranking[FirstFreePosition] = x[0];
     for(int i=1; i<=10; i++)
     {
@@ -4370,8 +4371,17 @@ void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
     ranking[FirstFreePosition+15] = points3[0];
     ranking[FirstFreePosition+16] = points3[1];
     ranking[FirstFreePosition+17] = points3[2];
+
+    sprintf(ranking, "%s", SortRanking(ranking));
+
     WriteToRanking(ranking);
 }
+//--- SortRanking ---
+char* SortRanking(char ranking[180])
+{
+
+}
+
 //--- SetRanking ---
 void SetRanking()
 {
