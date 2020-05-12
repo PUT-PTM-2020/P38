@@ -185,21 +185,6 @@ void Sound(uint8_t option)
 		break;
 	}
 }
-//--- Collision --- TODO
-_Bool Collision(int *X1, int *Y1, int *X2, int *Y2)
-{
-	size_t n = 0;
-
-	if(sizeof(*X2) / sizeof(int)>sizeof(*X1) / sizeof(int))
-		n = sizeof(*X2) / sizeof(int);
-	else
-		n = sizeof(*X1) / sizeof(int);
-	
-	for(int i=0; i<n; i++)
-		if(X1[i]==X2[i] && Y1[i]==Y2[i]) return 1;
-
-	return 0;
-}
 //--- UpdateSpeedValue --- TODO
 void UpdateSpeedValue(int speed)
 {
@@ -4538,4 +4523,18 @@ int *CreateHitboxX(int X, int r)
 		tab[i]=X-r;
 
   return tab;
+}
+//--- Collision --- DONE
+int Collision(int *X1, int *Y1, int r1, int *X2, int *Y2, int r2)
+{
+  r1 = 8*r1;
+  r2 = 8*r2;
+	for(int i=0; i<r1; i++)
+  {
+    for(int j=0; j<r2; j++)
+    {
+      if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
+    }
+  }
+	return 0;
 }
