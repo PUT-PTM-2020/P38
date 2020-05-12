@@ -15,9 +15,7 @@ void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t b
 		//LCD_DrawLine(X+(width-1)-i, Y-border, X+(width-1)-i, Y-height+border+1, color);
 	}
 }
-
 //***FillInside
-
 void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color)
 {
 	X=X+border;
@@ -32,7 +30,6 @@ void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_
 			//ili9325_WritePixel(i, j,0);
 		}
 }
-
 //***MENU
 void DrawMenu(uint8_t Mode)
 {
@@ -57,7 +54,6 @@ void DrawMenu(uint8_t Mode)
 		//GUI_Text(147, 76, uint8_t *str,65535, 1567);
 	}
 }
-
 void ChangeTargetMenu(uint8_t option, uint8_t LastOption)
 {	
 	DrawMenu(LastOption);
@@ -78,7 +74,6 @@ void ChangeTargetMenu(uint8_t option, uint8_t LastOption)
 		break;
 	}
 }
-
 //***RANKING
 void DrawRanking(uint8_t Mode)
 {
@@ -99,7 +94,6 @@ void DrawRanking(uint8_t Mode)
 		DrawBox(41, 190, 240, 140, 5, 0x05AC);
 	}
 }
-
 void ChangeTargetRanking(uint8_t option, uint8_t LastOption)
 {
 	DrawRanking(LastOption);
@@ -114,7 +108,7 @@ void ChangeTargetRanking(uint8_t option, uint8_t LastOption)
 		break;
 	}
 }
-
+//--- UseRanking ---
 void UseRanking()
 {
 	int option=0;
@@ -150,7 +144,6 @@ void UseRanking()
 		if(option==3) break;
 	}
 }
-
 //***Sound
 void Sound(uint8_t option)
 {
@@ -179,7 +172,6 @@ void Sound(uint8_t option)
 		break;
 	}
 }
-
 //***hitbox
 int *createHitbox_Y(int Y, int r)
 {
@@ -220,7 +212,6 @@ int *createHitbox_Y(int Y, int r)
 	}
 	return *tab;
 }
-
 int *createHitbox_X(int X, int r)
 {
 	int size = r*8;
@@ -262,7 +253,6 @@ int *createHitbox_X(int X, int r)
 		tab[i]=X+r;
 	return *tab;
 }
-
 //***collision
 _Bool collision(int *X1, int *Y1, int *X2, int *Y2)
 {
@@ -279,37 +269,6 @@ _Bool collision(int *X1, int *Y1, int *X2, int *Y2)
 	return 0;
 }
 
-//--- PositionUpdata ---
-void PositionUpdate(float accX, float speed, int *X, int *Y)
-{
-	accX = accX/100;
-
-	if(accX < -2)
-	{
-		*X += accX;
-		DrawSkier(1, *X, *Y);
-	}
-	else if(accX > 2)
-	{
-		*X += accX/100;
-		DrawSkier(2, *X, *Y);
-	}
-	else DrawSkier(3, *X, *Y);
-	HAL_Delay(speed);
-}
-
-//***SetUI
-void SetUI()
-{
-	ili9325_FillRect(0, 0, 320, 240, 65535);
-	for(int i=0; i<78; i++)
-			for(int j=0; j<30; j++)
-				ili9325_WritePixel(1+i,240-j,64203);
-	UpdateHP(3);
-	UpdateSpeedValue(0);
-	UpdateMiniMap(0);
-	PrintInfo();
-}
 void UpdateSpeedValue(int speed)
 {
 	int SpeedInKm = round(7500/speed);
@@ -330,9 +289,9 @@ void PrintInfo(int option)
 		break;
 	}
 }
-void StartGame()
+void RunGame()
 {
-	SetUI();
+	SetUI(3,0,0,1);
 	struct Skier s1;
 
 	PressStartButton();
@@ -348,32 +307,16 @@ void StartGame()
 		PositionUpdate(accX, s1.speed, s1.X, s1.Y);
 	}
 }
-//--- DrawSkier ---
-void DrawSkier(int position, int X, int Y)
-{
-	switch(position)
-	{
-		case 1:
-			SetSkierFront(X,Y);
-		break;
-		case 2:
-			SetSkierLeft(X,Y);
-		break;
-		case 3:
-			SetSkierRight(X,Y);
-		break;
-	}
-}
 //--- ReadFromRanking ---
-void ReadFromRanking(char* ranking)
+char* ReadFromRanking()
 {
 	fresult = f_mount(&FatFs, "", 0);
 	fresult = f_open(&file, "Ranking.txt", FA_READ);
 	fresult = f_read(&file, buffer, 16, &bytes_read);
 	sprintf(ranking, buffer);
 	fresult = f_close(&file);
+	return ranking;
 }
-
 
 
 
@@ -407,7 +350,7 @@ void UseMenu()
 			switch(option)
 			{
 				case 0:
-					StartGame();
+					RunGame();
 				break;
 				case 1:
 					DrawRanking(-1);
@@ -420,85 +363,8 @@ void UseMenu()
 		}
 	}
 }
-//--- WriteToRanking --- DONE
-void WriteToRanking(char* ranking)
-{
-	fresult = f_mount(&FatFs, "", 0);
-	fresult = f_open(&file, "Ranking.txt", FA_OPEN_ALWAYS | FA_WRITE);
-	int len = sprintf(buffer, ranking);
-	fresult = f_write(&file, buffer, len, &bytes_written);
-	fresult = f_close (&file);
-}
-//--- NewRecordInRanking --- DONE
-void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
-{
-    int FirstFreePosition = 0;
-    for(int i=0; i<=162; i+=18)
-    {
-        if((ranking[i]=='0')&&(ranking[i+1]=='0'))
-        {
-            FirstFreePosition = i;
-            break;
-        }
-        else if((i==162) && (ranking[i]!='0'))
-        {
-            return;
-        }
-    }
-    int elo = FirstFreePosition;
-    char x[1];
-    sprintf(x, "%d", (elo/18));
-    ranking[FirstFreePosition] = x[0];
-    for(int i=1; i<=10; i++)
-    {
-        if(nick[i-1]!=NULL)
-        {
-            ranking[FirstFreePosition+i] = nick[i-1];
-        }
-        else
-        {
-            ranking[FirstFreePosition+i] = '0';
-        }
-    }
-    char t1[1];
-    char t2[2];
-    char t3[3];
-    if(mytime < 10)
-    {
-        sprintf(t1, "%d", mytime);
-        ranking[FirstFreePosition+11] = '0';
-        ranking[FirstFreePosition+12] = '0';
-        ranking[FirstFreePosition+13] = t1[0];
-    }
-    else if((mytime >= 10) && (mytime < 100))
-    {
-        sprintf(t2, "%d", mytime);
-        ranking[FirstFreePosition+11] = '0';
-        ranking[FirstFreePosition+12] = t2[0];
-        ranking[FirstFreePosition+13] = t2[1];
-    }
-    else
-    {
-        sprintf(t3, "%d", mytime);
-        ranking[FirstFreePosition+11] = t3[0];
-        ranking[FirstFreePosition+12] = t3[1];
-        ranking[FirstFreePosition+13] = t3[2];
-    }
-    char hp1[1];
-    sprintf(hp1, "%d", hp);
-    ranking[FirstFreePosition+14] = hp1[0];
-    char points3[3];
-    int pointsForTime = 500-(2*mytime);
-    int pointsForHP = hp*100;
-    int points = 150 + pointsForTime + pointsForHP;
-    sprintf(points3, "%d", points);
-    ranking[FirstFreePosition+15] = points3[0];
-    ranking[FirstFreePosition+16] = points3[1];
-    ranking[FirstFreePosition+17] = points3[2];
-    sprintf(ranking, "%s", SortRanking(ranking));
 
-    WriteToRanking(ranking);
-}
+
 //--- SortRanking --- DONE
 char* SortRanking(char ranking[180])
 {
@@ -597,6 +463,116 @@ void SetRanking()
 		WriteToRanking(ranking);
 	}
 	else fresult = f_close(&file);
+}
+//--- WriteToRanking --- DONE
+void WriteToRanking(char* ranking)
+{
+	fresult = f_mount(&FatFs, "", 0);
+	fresult = f_open(&file, "Ranking.txt", FA_OPEN_ALWAYS | FA_WRITE);
+	int len = sprintf(buffer, ranking);
+	fresult = f_write(&file, buffer, len, &bytes_written);
+	fresult = f_close (&file);
+}
+//--- NewRecordInRanking --- DONE
+void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
+{
+    int FirstFreePosition = 0;
+    for(int i=0; i<=162; i+=18)
+    {
+        if((ranking[i]=='0')&&(ranking[i+1]=='0'))
+        {
+            FirstFreePosition = i;
+            break;
+        }
+        else if((i==162) && (ranking[i]!='0'))
+        {
+            return;
+        }
+    }
+    int elo = FirstFreePosition;
+    char x[1];
+    sprintf(x, "%d", (elo/18));
+    ranking[FirstFreePosition] = x[0];
+    for(int i=1; i<=10; i++)
+    {
+        if(nick[i-1]!=NULL)
+        {
+            ranking[FirstFreePosition+i] = nick[i-1];
+        }
+        else
+        {
+            ranking[FirstFreePosition+i] = '0';
+        }
+    }
+    char t1[1];
+    char t2[2];
+    char t3[3];
+    if(mytime < 10)
+    {
+        sprintf(t1, "%d", mytime);
+        ranking[FirstFreePosition+11] = '0';
+        ranking[FirstFreePosition+12] = '0';
+        ranking[FirstFreePosition+13] = t1[0];
+    }
+    else if((mytime >= 10) && (mytime < 100))
+    {
+        sprintf(t2, "%d", mytime);
+        ranking[FirstFreePosition+11] = '0';
+        ranking[FirstFreePosition+12] = t2[0];
+        ranking[FirstFreePosition+13] = t2[1];
+    }
+    else
+    {
+        sprintf(t3, "%d", mytime);
+        ranking[FirstFreePosition+11] = t3[0];
+        ranking[FirstFreePosition+12] = t3[1];
+        ranking[FirstFreePosition+13] = t3[2];
+    }
+    char hp1[1];
+    sprintf(hp1, "%d", hp);
+    ranking[FirstFreePosition+14] = hp1[0];
+    char points3[3];
+    int pointsForTime = 500-(2*mytime);
+    int pointsForHP = hp*100;
+    int points = 150 + pointsForTime + pointsForHP;
+    sprintf(points3, "%d", points);
+    ranking[FirstFreePosition+15] = points3[0];
+    ranking[FirstFreePosition+16] = points3[1];
+    ranking[FirstFreePosition+17] = points3[2];
+    sprintf(ranking, "%s", SortRanking(ranking));
+
+    WriteToRanking(ranking);
+}
+
+
+//***SetUI
+void SetUI(int HP, int speedValue, int miniMap, int info)
+{
+	ili9325_FillRect(0, 0, 320, 240, 65535);
+	for(int i=0; i<78; i++)
+			for(int j=0; j<30; j++)
+				ili9325_WritePixel(1+i,240-j,64203);
+	UpdateHP(HP);
+	UpdateSpeedValue(speedValue);
+	UpdateMiniMap(miniMap);
+	PrintInfo(info);
+}
+//--- PositionUpdata --- DONE
+void PositionUpdate(float accX, int speed, int *X, int *Y)
+{
+	accX = accX/100;
+	if(accX < -2)
+	{
+		*X += accX;
+		DrawSkier(1, *X, *Y);
+	}
+	else if(accX > 2)
+	{
+		*X += accX/100;
+		DrawSkier(2, *X, *Y);
+	}
+	else DrawSkier(3, *X, *Y);
+	HAL_Delay(speed);
 }
 //--- UpdateArrow --- DONE
 void UpdateArrow(int distance)
@@ -2304,6 +2280,22 @@ void SetTree(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+12, Y+33, 36524);
 	ili9325_WritePixel(X+13, Y+33, 36524);
 	ili9325_WritePixel(X+14, Y+33, 36524);
+}
+//--- DrawSkier --- DONE
+void DrawSkier(int position, int X, int Y)
+{
+	switch(position)
+	{
+		case 1:
+			SetSkierFront(X,Y);
+		break;
+		case 2:
+			SetSkierLeft(X,Y);
+		break;
+		case 3:
+			SetSkierRight(X,Y);
+		break;
+	}
 }
 //--- SetSkierFront --- DONE
 void SetSkierFront(uint16_t X, uint16_t Y)
