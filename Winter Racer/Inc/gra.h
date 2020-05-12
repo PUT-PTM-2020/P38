@@ -55,8 +55,10 @@ struct Skier
 	int X;
 	int Y;	//pozycja startowa
 	int speed;
-	int *skierHitbox_X; //= createHitbox_X(skierX, 10);
-	int *skierHitbox_Y; //= createHitbox_Y(skierY, 10);
+	int centerWidth = 13;
+	int centerHeight = 23;
+	int *Hitbox_X;
+	int *Hitbox_Y;
 };
 //***object
 struct Object	//np. przeszkody

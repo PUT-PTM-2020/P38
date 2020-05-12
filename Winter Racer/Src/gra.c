@@ -219,6 +219,8 @@ void RunGame()
 
 	while(1)
 	{
+		s1.Hitbox_Y = CreateRectangleHitboxY(s1.Y+s1.centerHeight,s1.centerWidth,s1.centerHeight);
+		s1.Hitbox_X = CreateRectangleHitboxX(s1.X+s1.centerWidth,s1.centerWidth,s1.centerHeight);
 		SetUI(3,s1.speed,0,2);
 		PressPauseButton();
 
@@ -4443,7 +4445,7 @@ int SpeedUpdate(int speed)
 	return speed;
 }
 //--- CreateHitboxY --- DONE
-int *CreateHitboxY(int Y, int r)
+int *CreateSquareHitboxY(int Y, int r)
 {
 	int size = r*8;
 	int *tab = (int*)malloc(size*sizeof(int));
@@ -4482,7 +4484,7 @@ int *CreateHitboxY(int Y, int r)
 	return tab;
 }
 //--- CreateHitboxX --- DONE
-int *CreateHitboxX(int X, int r)
+int *CreateSquareHitboxX(int X, int r)
 {
 	int size = r*8;
 	int *tab = (int*)malloc(size*sizeof(int));
@@ -4524,14 +4526,98 @@ int *CreateHitboxX(int X, int r)
 
   return tab;
 }
-//--- Collision --- DONE
-int Collision(int *X1, int *Y1, int r1, int *X2, int *Y2, int r2)
+//--- CreateRectangleHitboxY --- DONE
+int *CreateRectangleHitboxY(int Y, int r1, int r2)
 {
-  r1 = 8*r1;
-  r2 = 8*r2;
-	for(int i=0; i<r1; i++)
+	int size = (r1*4+2)+(r2*4+2)-4;
+	int *tab = (int*)malloc(size*sizeof(int));
+
+	int i=0;
+	int j1=r1;
+	int j2=r2;
+
+	for(; i<r1*2+1; i++)
+		tab[i]=Y+r2;
+	while(j2!=0)
+	{
+    j2--;
+    tab[i]=Y+j2;
+		i++;
+	}
+	while(j2!=r2)
+	{
+		j2++;
+    tab[i]=Y-j2;
+		i++;
+	}
+	for(; i<r1*2+1+r2*2+r1*2; i++)
+		tab[i]=Y-r2;
+	while(j2!=0)
+	{
+    j2--;
+    tab[i]=Y-j2;
+    i++;
+	}
+	while(j2!=r2)
+	{
+		j2++;
+    tab[i]=Y+j2;
+		i++;
+	}
+	return tab;
+}
+//--- CreateRectangleHitboxX --- DONE
+int *CreateRectangleHitboxX(int X, int r1, int r2)
+{
+	int size = (r1*4+2)+(r2*4+2)-4;
+	int *tab = (int*)malloc(size*sizeof(int));
+
+	int i=0;
+	int j1=r1;
+  int j2=r2;
+
+	tab[i]=X-j1;
+
+	while(j1!=0)
+	{
+		i++;
+		j1--;
+		tab[i]=X-j1;
+	}
+	while(j1!=r1)
+	{
+		i++;
+		j1++;
+		tab[i]=X+j1;
+	}
+	i++;
+	for(; i<r1*2+r2*2+1; i++)
+		tab[i]=X+r1;
+  while(j1!=0)
+	{
+		j1--;
+    tab[i]=X+j1;
+    i++;
+	}
+	while(j1!=r1)
+	{
+		j1++;
+    tab[i]=X-j1;
+		i++;
+	}
+  for(; i<r1*4+r2*4; i++)
+		tab[i]=X-r1;
+
+  return tab;
+}
+//--- Collision --- DONE
+int Collision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2, int r2a, int r2b)
+{
+  int h1 = r1a*4+r1b*4;
+  int h2 = r2a*4+r2b*4;
+	for(int i=0; i<h1; i++)
   {
-    for(int j=0; j<r2; j++)
+    for(int j=0; j<h2; j++)
     {
       if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
     }
