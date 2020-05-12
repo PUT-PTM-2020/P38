@@ -185,88 +185,6 @@ void Sound(uint8_t option)
 		break;
 	}
 }
-//--- CreateHitboxY --- TODO
-int *CreateHitboxY(int Y, int r)
-{
-	int size = r*8;
-	int *tab = (int*)malloc(size*sizeof(int));
-	
-	int i=0;
-	int j=r;
-	
-	for(; i<r*2+1; i++)
-		tab[i]=Y+r;
-	while(j!=0)
-	{
-		i++;
-		j--;
-		tab[i]=Y+j;
-	}
-	while(j!=r)
-	{
-		i++;
-		j++;
-		tab[i]=Y-j;
-	}
-	i++;
-	for(; i<r*6+1; i++)
-		tab[i]=Y-r;
-	while(j!=0)
-	{
-		i++;
-		j--;
-		tab[i]=Y-j;
-	}
-	while(j!=r)
-	{
-		j++;
-		i++;
-		tab[i]=Y+j;
-	}
-	return *tab;
-}
-//--- CreateHitboxX --- TODO
-int *CreateHitboxX(int X, int r)
-{
-	int size = r*8;
-	int *tab = (int*)malloc(size*sizeof(int));
-	
-	int i=0;
-	int j=r;
-	
-	tab[i]=X-j;
-	
-	while(j!=0)
-	{
-		i++;
-		j--;
-		tab[i]=X-j;
-	}
-	while(j!=r)
-	{
-		i++;
-		j++;
-		tab[i]=X+j;
-	}
-	i++;
-	for(; i<r*4+1; i++)
-		tab[i]=X+r;
-	while(j!=0)
-	{
-		i++;
-		j--;
-		tab[i]=X+j;
-	}
-	while(j!=r)
-	{
-		j++;
-		i++;
-		tab[i]=X-j;
-	}
-	for(; i<r*8; i++)
-		tab[i]=X+r;
-	return *tab;
-}
 //--- Collision --- TODO
 _Bool Collision(int *X1, int *Y1, int *X2, int *Y2)
 {
@@ -4538,4 +4456,86 @@ int SpeedUpdate(int speed)
 		speed-=10;
 	}
 	return speed;
+}
+//--- CreateHitboxY --- DONE
+int *CreateHitboxY(int Y, int r)
+{
+	int size = r*8;
+	int *tab = (int*)malloc(size*sizeof(int));
+
+	int i=0;
+	int j=r;
+
+	for(; i<r*2+1; i++)
+		tab[i]=Y+r;
+	while(j!=0)
+	{
+    j--;
+    tab[i]=Y+j;
+		i++;
+	}
+	while(j!=r)
+	{
+		j++;
+    tab[i]=Y-j;
+		i++;
+	}
+	for(; i<r*6+1; i++)
+		tab[i]=Y-r;
+	while(j!=0)
+	{
+    j--;
+    tab[i]=Y-j;
+    i++;
+	}
+	while(j!=r)
+	{
+		j++;
+    tab[i]=Y+j;
+		i++;
+	}
+	return tab;
+}
+//--- CreateHitboxX --- DONE
+int *CreateHitboxX(int X, int r)
+{
+	int size = r*8;
+	int *tab = (int*)malloc(size*sizeof(int));
+
+	int i=0;
+	int j=r;
+
+	tab[i]=X-j;
+
+	while(j!=0)
+	{
+		i++;
+		j--;
+		tab[i]=X-j;
+	}
+	while(j!=r)
+	{
+		i++;
+		j++;
+		tab[i]=X+j;
+	}
+	i++;
+	for(; i<r*4+1; i++)
+		tab[i]=X+r;
+	while(j!=0)
+	{
+		j--;
+    tab[i]=X+j;
+    i++;
+	}
+	while(j!=r)
+	{
+		j++;
+    tab[i]=X-j;
+		i++;
+	}
+	for(; i<r*8; i++)
+		tab[i]=X-r;
+
+  return tab;
 }
