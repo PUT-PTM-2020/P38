@@ -438,6 +438,7 @@ void SetRanking()
 		for(int i=0; i<180; i++)
 			ranking[i]='0';
 		WriteToRanking(ranking);
+		fresult = f_close(&file);
 	}
 	else fresult = f_close(&file);
 }

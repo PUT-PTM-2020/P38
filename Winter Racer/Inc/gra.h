@@ -71,7 +71,7 @@ struct Object	//np. przeszkody
 //***map
 struct Map
 {
-
+	int
 }A,B,C,D,E; //pięć przygotowanych map
 
 //***positionUpdate
