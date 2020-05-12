@@ -4,7 +4,17 @@
 //NOTE
 	//Dodac napisy do DrawMenu, ChangeTarget i ShowRanking
 
-//***DrawBox
+//--- StartScreen --- TODO
+void StartScreen()
+{
+
+}
+//--- ExitScreen --- TODO
+void ExitScreen()
+{
+
+}
+//--- DrawBox --- TODO
 void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color)
 {
 	for(int i=0; i<border; i++)
@@ -15,7 +25,7 @@ void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t b
 		//LCD_DrawLine(X+(width-1)-i, Y-border, X+(width-1)-i, Y-height+border+1, color);
 	}
 }
-//***FillInside
+//--- FillInside --- TODO
 void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color)
 {
 	X=X+border;
@@ -30,7 +40,7 @@ void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_
 			//ili9325_WritePixel(i, j,0);
 		}
 }
-//***MENU
+//--- DrawMenu --- TODO
 void DrawMenu(uint8_t Mode)
 {
 	if(Mode==-1)	//-1 rysuje całe menu
@@ -54,6 +64,7 @@ void DrawMenu(uint8_t Mode)
 		//GUI_Text(147, 76, uint8_t *str,65535, 1567);
 	}
 }
+//--- ChangeTargetMenu --- TODO
 void ChangeTargetMenu(uint8_t option, uint8_t LastOption)
 {	
 	DrawMenu(LastOption);
@@ -74,7 +85,7 @@ void ChangeTargetMenu(uint8_t option, uint8_t LastOption)
 		break;
 	}
 }
-//***RANKING
+//--- DrawRanking --- TODO
 void DrawRanking(uint8_t Mode)
 {
 	if(Mode==-1)
@@ -92,8 +103,10 @@ void DrawRanking(uint8_t Mode)
 	{
 		FillInside(41, 190, 240, 140, 5, 0xC638);
 		DrawBox(41, 190, 240, 140, 5, 0x05AC);
+		ShowRankingOnBoard();
 	}
 }
+//--- ChangeTargetRanking --- TODO
 void ChangeTargetRanking(uint8_t option, uint8_t LastOption)
 {
 	DrawRanking(LastOption);
@@ -108,7 +121,7 @@ void ChangeTargetRanking(uint8_t option, uint8_t LastOption)
 		break;
 	}
 }
-//--- UseRanking ---
+//--- UseRanking --- TODO
 void UseRanking()
 {
 	int option=0;
@@ -144,7 +157,7 @@ void UseRanking()
 		if(option==3) break;
 	}
 }
-//***Sound
+//--- Sound --- TODO
 void Sound(uint8_t option)
 {
 	switch(option)
@@ -172,8 +185,8 @@ void Sound(uint8_t option)
 		break;
 	}
 }
-//***hitbox
-int *createHitbox_Y(int Y, int r)
+//--- CreateHitboxY --- TODO
+int *CreateHitboxY(int Y, int r)
 {
 	int size = r*8;
 	int *tab = (int*)malloc(size*sizeof(int));
@@ -212,7 +225,8 @@ int *createHitbox_Y(int Y, int r)
 	}
 	return *tab;
 }
-int *createHitbox_X(int X, int r)
+//--- CreateHitboxX --- TODO
+int *CreateHitboxX(int X, int r)
 {
 	int size = r*8;
 	int *tab = (int*)malloc(size*sizeof(int));
@@ -253,8 +267,8 @@ int *createHitbox_X(int X, int r)
 		tab[i]=X+r;
 	return *tab;
 }
-//***collision
-_Bool collision(int *X1, int *Y1, int *X2, int *Y2)
+//--- Collision --- TODO
+_Bool Collision(int *X1, int *Y1, int *X2, int *Y2)
 {
 	size_t n = 0;
 
@@ -268,7 +282,7 @@ _Bool collision(int *X1, int *Y1, int *X2, int *Y2)
 
 	return 0;
 }
-
+//--- UpdateSpeedValue --- TODO
 void UpdateSpeedValue(int speed)
 {
 	int SpeedInKm = round(7500/speed);
@@ -276,6 +290,7 @@ void UpdateSpeedValue(int speed)
 		for(int j=0; j<30; j++)
 			ili9325_WritePixel(1+i,240-j,29614);
 }
+//--- PrintInfo --- TODO
 void PrintInfo(int option)
 {
 	for(int i=0; i<320; i++)
@@ -289,15 +304,19 @@ void PrintInfo(int option)
 		break;
 	}
 }
+//--- RunGame --- TODO
 void RunGame()
 {
 	SetUI(3,0,0,1);
 	struct Skier s1;
+	s1.Y = 155;
+	s1.X = 145;
 
 	PressStartButton();
 
 	while(1)
 	{
+		SetUI(3,s1.speed,0,2);
 		PressPauseButton();
 
 		LIS3DSH_ReadACC(out); //sprawdza wychylenie w osi X
@@ -307,18 +326,71 @@ void RunGame()
 		PositionUpdate(accX, s1.speed, s1.X, s1.Y);
 	}
 }
-//--- ReadFromRanking ---
-char* ReadFromRanking()
+//--- ShowRankingOnBoard --- TODO
+void ShowRankingOnBoard()
 {
-	fresult = f_mount(&FatFs, "", 0);
-	fresult = f_open(&file, "Ranking.txt", FA_READ);
-	fresult = f_read(&file, buffer, 16, &bytes_read);
-	sprintf(ranking, buffer);
-	fresult = f_close(&file);
-	return ranking;
+	char ranking[180] = ReadFromRanking();
+	int FirstFreePosition = 0;
+	for(int i=0; i<=162; i+=18)
+	{
+		if((ranking[i]=='0')&&(ranking[i+1]=='0'))
+	    {
+			FirstFreePosition = i;
+			break;
+	    }
+	    else if((i==162) && (ranking[i]!='0'))
+	    {
+	    	FirstFreePosition = i;
+	    }
+	}
+	char records[10][18];
+	for (int i=0; i<10; i++)
+	{
+		for(int j=0; j<18; j++)
+		{
+			records[i][j] = ranking[i*18+j];
+		}
+	}
+	char points[10][3];
+	char times[10][3];
+	char nicks[10][10];
+	for (int i=0; i<10; i++)
+	{
+		for(int j=0; j<3; j++)
+		{
+			points[i][j] = ranking[i*18+j+15];
+		}
+	}
+	for (int i=0; i<10; i++)
+	{
+		for(int j=0; j<3; j++)
+		{
+			times[i][j] = ranking[i*18+j+11];
+		}
+	}
+	for (int i=0; i<10; i++)
+	{
+		for(int j=0; j<10; j++)
+		{
+			nicks[i][j] = ranking[i*18+j+1];
+		}
+	}
+
+	if(FirstFreePosition==0)
+	{
+		//Brak wyników w rankingu
+	}
+	else
+	{
+		for(int i=0; i<10; i++)
+		{
+			//Pokaż wyniki na tablicy
+			//nicks[i][j]
+			//points[i][j]
+			//times[i][j]
+		}
+	}
 }
-
-
 
 
 
@@ -543,15 +615,22 @@ void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp)
 
     WriteToRanking(ranking);
 }
+//--- ReadFromRanking --- DONE
+char* ReadFromRanking()
+{
+	fresult = f_mount(&FatFs, "", 0);
+	fresult = f_open(&file, "Ranking.txt", FA_READ);
+	fresult = f_read(&file, buffer, 16, &bytes_read);
+	sprintf(ranking, buffer);
+	fresult = f_close(&file);
+	return ranking;
+}
 
 
-//***SetUI
+//--- SetUI --- DONE
 void SetUI(int HP, int speedValue, int miniMap, int info)
 {
 	ili9325_FillRect(0, 0, 320, 240, 65535);
-	for(int i=0; i<78; i++)
-			for(int j=0; j<30; j++)
-				ili9325_WritePixel(1+i,240-j,64203);
 	UpdateHP(HP);
 	UpdateSpeedValue(speedValue);
 	UpdateMiniMap(miniMap);
@@ -4420,6 +4499,9 @@ void SetHeartGray(uint16_t X, uint16_t Y)
 //--- UpdateHP --- DONE
 void UpdateHP(int HP)
 {
+	for(int i=0; i<78; i++)
+		for(int j=0; j<30; j++)
+			ili9325_WritePixel(1+i,240-j,64203);
 	switch(HP)
 	{
 	case 0:
