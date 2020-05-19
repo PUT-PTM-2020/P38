@@ -228,16 +228,17 @@ void RunGame()
 	int objectR1 = 0;
 	int objectR2 = 0;
 
-	int position=0;
+	int position = 0;
+	int arrow = 0;
 
 	PressStartButton();
 
 	while(1)
 	{
-		//dodać czyszczenie ekranu
-		s1.Hitbox_Y = CreateRectangleHitboxY(s1.Y+s1.centerHeight,s1.centerWidth,s1.centerHeight);	//mod per position
+		ili9325_FillRect(0,19,320,192,65535); //czyszczenie ekranu
+		s1.Hitbox_Y = CreateRectangleHitboxY(s1.position+5+s1.centerHeight,s1.centerWidth,s1.centerHeight);
 		s1.Hitbox_X = CreateRectangleHitboxX(s1.X+s1.centerWidth,s1.centerWidth,s1.centerHeight);
-		SetUI(s1.HP,s1.speed,0,2);	//optymalizacja
+		UpdateSpeedValue(s1.speed);
 		PressPauseButton();
 
 		LIS3DSH_ReadACC(out);
@@ -321,11 +322,18 @@ void RunGame()
 							s1.HP -= DMG.treeDMG;
 							break;
 						}
-						if(s1.hp<0) GameOver();
-						UpdateHP(s1.HP);
-						s1.X = 145;
-						s1.Y = 155;
-						s1.speed = 500;
+						if(s1.hp<0)
+						{
+							GameOver();
+							return;
+						}
+						else
+						{
+							UpdateHP(s1.HP);
+							s1.X = 145;
+							s1.Y = 155;
+							s1.speed = 500;
+						}
 					}
 				}
 			}
@@ -334,16 +342,37 @@ void RunGame()
 		if(BorderCollision(s1.Hitbox_X, s1.Hitbox_Y, s1.centerHeight, s1.centerWidth, leftBorderHitboxX, leftBorderHitboxY))
 		{
 			s1.HP -= DMG.borderDMG;
-			if(s1.HP<0) GameOver();
+			if(s1.HP<0)
+			{
+				GameOver();
+				return;
+			}
 		}
 		else if(BorderCollision(s1.Hitbox_X, s1.Hitbox_Y, s1.centerHeight, s1.centerWidth, rightBorderHitboxX, rightBorderHitboxY))
 		{
 			s1.HP -= DMG.borderDMG;
-			if(s1.HP<0) GameOver();
+			if(s1.HP<0)
+			{
+				GameOver();
+				return;
+			}
+			else
+			{
+				UpdateHP(s1.HP);
+				s1.X = 145;
+				s1.Y = 155;
+				s1.speed = 500;
+			}
 		}
 
 		s1.speed = SpeedUpdate(s1.speed);
 		PositionUpdate(accX, s1.speed, s1.X, s1.Y);
+
+		if(position%42==0)
+		{
+			arrow++;
+			UpdateMiniMap(arrow);
+		}
 
 		position++;
 	}
@@ -413,53 +442,12 @@ void ShowRankingOnBoard()
 		}
 	}
 }
-//--- SetObstacle ---
-void SetObstacle(int obs, int X, int Y)
-{
-	switch(obs)
-	{
-	case 1:
-		SetSnowman(X, Y);
-		break;
-	case 2:
-		SetRock(X, Y);
-		break;
-	case 3:
-		SetBowman(X, Y);
-		break;
-	case 4:
-		SetTree(X, Y);
-		break;
-	}
-}
-//--- BorderCollision ---
-int BorderCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2)
-{
-  int h1 = r1a*4+r1b*4;
-
-  for(int i=0; i<h1; i++)
-  {
-	  for(int j=0; j<60; j++)
-	  {
-		  if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
-	  }
-  }
-  return 0;
-}
-//--- GameOver ---
+//--- GameOver --- TODO
 void GameOver()
 {
 	PressContinueButton();
 }
-//--- PressContinueButton() ---
-void PressContinueButton()
-{
-	while(1)
-	{
-		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
-			break;
-	}
-}
+
 
 
 //--- UseMenu --- DONE
@@ -4784,4 +4772,46 @@ int Collision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2, int r2a, int
 	  }
   }
   return 0;
+}
+//--- PressContinueButton() --- DONE
+void PressContinueButton()
+{
+	while(1)
+	{
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+			break;
+	}
+}
+//--- BorderCollision --- DONE
+int BorderCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2)
+{
+  int h1 = r1a*4+r1b*4;
+
+  for(int i=0; i<h1; i++)
+  {
+	  for(int j=0; j<60; j++)
+	  {
+		  if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
+	  }
+  }
+  return 0;
+}
+//--- SetObstacle --- DONE
+void SetObstacle(int obs, int X, int Y)
+{
+	switch(obs)
+	{
+	case 1:
+		SetSnowman(X, Y);
+		break;
+	case 2:
+		SetRock(X, Y);
+		break;
+	case 3:
+		SetBowman(X, Y);
+		break;
+	case 4:
+		SetTree(X, Y);
+		break;
+	}
 }
