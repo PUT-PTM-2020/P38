@@ -214,21 +214,138 @@ void RunGame()
 	struct Skier s1;
 	s1.Y = 155;
 	s1.X = 145;
+	DrawSkier(1, s1.X, s1.Y);
+
+	int leftBorderHitboxX[192];
+	int leftBorderHitboxY[192];
+	int rightBorderHitboxX[192];
+	int rightBorderHitboxY[192];
+	int leftBorderFlag = 0;
+	int rightBorderFlag = 0;
+
+	int* objectBorderHitboxX;
+	int* objectBorderHitboxY;
+	int objectR1 = 0;
+	int objectR2 = 0;
+
+	int position=0;
 
 	PressStartButton();
 
 	while(1)
 	{
-		s1.Hitbox_Y = CreateRectangleHitboxY(s1.Y+s1.centerHeight,s1.centerWidth,s1.centerHeight);
+		//dodać czyszczenie ekranu
+		s1.Hitbox_Y = CreateRectangleHitboxY(s1.Y+s1.centerHeight,s1.centerWidth,s1.centerHeight);	//mod per position
 		s1.Hitbox_X = CreateRectangleHitboxX(s1.X+s1.centerWidth,s1.centerWidth,s1.centerHeight);
-		SetUI(3,s1.speed,0,2);
+		SetUI(s1.HP,s1.speed,0,2);	//optymalizacja
 		PressPauseButton();
 
-		LIS3DSH_ReadACC(out); //sprawdza wychylenie w osi X
+		LIS3DSH_ReadACC(out);
 		accX = out[0];
+
+		for(int i=position, k=0; i<192+position; i++, k++)
+		{
+			leftBorderFlag = 0;
+			rightBorderFlag = 0;
+			for(int j=0; j<77; j++)
+			{
+				if(A.leftBorder[i][j]==1)
+				{
+					ili9325_WritePixel(29+j, 210-i, 51071);
+					ili9325_WritePixel(30+j, 210-i, 51071);
+					leftBorderHitboxX[k] = 30+j;
+					leftBorderHitboxY[k] = 210-i;
+					leftBorderFlag = 1;
+				}
+				if(A.rightBorder[i][j]==1)
+				{
+					ili9325_WritePixel(212+j, 210-i, 51071);
+					ili9325_WritePixel(213+j, 210-i, 51071);
+					rightBorderHitboxX[k] = 30+j;
+					rightBorderHitboxY[k] = 210-i;
+					rightBorderFlag = 1;
+				}
+				if((rightBorderFlag==1) && (leftBorderFlag==1))
+					break;
+			}
+		}
+		for(int i=position; i<192+position; i++)
+		{
+			for(int j=0; j<11; j++)
+			{
+				if(A.obstacles[i][j]!=0)
+				{
+					SetObstacle(A.obstacles[i][j], 30+26*j, i);	//dodać ograniczenie obszaru rysowania
+					switch(A.obstacles[i][j])
+					{
+					case 1:
+						objectR1 = 13;
+						objectR2 = 14;
+						objectBorderHitboxX = CreateRectangleHitboxX(14, objectR1, objectR2);
+						objectBorderHitboxY = CreateRectangleHitboxY(15, objectR1, objectR2);
+						break;
+					case 2:
+						objectR1 = 11;
+						objectR2 = 11;
+						objectBorderHitboxX = CreateRectangleHitboxX(12, objectR1, objectR2);
+						objectBorderHitboxY = CreateRectangleHitboxY(12, objectR1, objectR2);
+						break;
+					case 3:
+						objectR1 = 11;
+						objectR2 = 16;
+						objectBorderHitboxX = CreateRectangleHitboxX(12, objectR1, objectR2);
+						objectBorderHitboxY = CreateRectangleHitboxY(17, objectR1, objectR2);
+						break;
+					case 4:
+						objectR1 = 15;
+						objectR2 = 14;
+						objectBorderHitboxX = CreateRectangleHitboxX(16, objectR1, objectR2);
+						objectBorderHitboxY = CreateRectangleHitboxY(15, objectR1, objectR2);
+						break;
+					}
+					if(Collision(s1.Hitbox_X, s1.Hitbox_Y, s1.centerWidth, s1.centerHeight, objectBorderHitboxX,
+							objectBorderHitboxY, objectR1, objectR2))
+					{
+						switch(A.obstacles[i][j])
+						{
+						case 1:
+							s1.HP -= DMG.snowmanDMG;
+							break;
+						case 2:
+							s1.HP -= DMG.rockDMG;
+							break;
+						case 3:
+							s1.HP -= DMG.bowmanDMG;
+							break;
+						case 4:
+							s1.HP -= DMG.treeDMG;
+							break;
+						}
+						if(s1.hp<0) GameOver();
+						UpdateHP(s1.HP);
+						s1.X = 145;
+						s1.Y = 155;
+						s1.speed = 500;
+					}
+				}
+			}
+		}
+
+		if(BorderCollision(s1.Hitbox_X, s1.Hitbox_Y, s1.centerHeight, s1.centerWidth, leftBorderHitboxX, leftBorderHitboxY))
+		{
+			s1.HP -= DMG.borderDMG;
+			if(s1.HP<0) GameOver();
+		}
+		else if(BorderCollision(s1.Hitbox_X, s1.Hitbox_Y, s1.centerHeight, s1.centerWidth, rightBorderHitboxX, rightBorderHitboxY))
+		{
+			s1.HP -= DMG.borderDMG;
+			if(s1.HP<0) GameOver();
+		}
 
 		s1.speed = SpeedUpdate(s1.speed);
 		PositionUpdate(accX, s1.speed, s1.X, s1.Y);
+
+		position++;
 	}
 }
 //--- ShowRankingOnBoard --- TODO
@@ -296,10 +413,53 @@ void ShowRankingOnBoard()
 		}
 	}
 }
+//--- SetObstacle ---
+void SetObstacle(int obs, int X, int Y)
+{
+	switch(obs)
+	{
+	case 1:
+		SetSnowman(X, Y);
+		break;
+	case 2:
+		SetRock(X, Y);
+		break;
+	case 3:
+		SetBowman(X, Y);
+		break;
+	case 4:
+		SetTree(X, Y);
+		break;
+	}
+}
+//--- BorderCollision ---
+int BorderCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2)
+{
+  int h1 = r1a*4+r1b*4;
 
-
-
-
+  for(int i=0; i<h1; i++)
+  {
+	  for(int j=0; j<60; j++)
+	  {
+		  if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
+	  }
+  }
+  return 0;
+}
+//--- GameOver ---
+void GameOver()
+{
+	PressContinueButton();
+}
+//--- PressContinueButton() ---
+void PressContinueButton()
+{
+	while(1)
+	{
+		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
+			break;
+	}
+}
 
 
 //--- UseMenu --- DONE
@@ -4575,7 +4735,7 @@ int *CreateRectangleHitboxX(int X, int r1, int r2)
 
 	int i=0;
 	int j1=r1;
-  int j2=r2;
+	int j2=r2;
 
 	tab[i]=X-j1;
 
@@ -4616,12 +4776,12 @@ int Collision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2, int r2a, int
 {
   int h1 = r1a*4+r1b*4;
   int h2 = r2a*4+r2b*4;
-	for(int i=0; i<h1; i++)
+  for(int i=0; i<h1; i++)
   {
-    for(int j=0; j<h2; j++)
-    {
-      if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
-    }
+	  for(int j=0; j<h2; j++)
+	  {
+		  if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
+	  }
   }
-	return 0;
+  return 0;
 }

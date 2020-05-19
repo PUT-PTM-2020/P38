@@ -51,7 +51,7 @@ void ReadFromRanking(char* ranking);
 //***skier
 struct Skier
 {
-	int HP;
+	int HP = 3;
 	int X;
 	int Y;	//pozycja startowa
 	int speed;
@@ -60,6 +60,15 @@ struct Skier
 	int *Hitbox_X;
 	int *Hitbox_Y;
 };
+//--- Difficulty_Level ---
+struct Difficulty_Level
+{
+	int borderDMG = 3;
+	int snowmanDMG = 1;
+	int bowmanDMG = 2;
+	int rockDMG = 3;
+	int treeDMG = 2;
+} DMG;
 //***object
 struct Object	//np. przeszkody
 {
@@ -71,7 +80,9 @@ struct Object	//np. przeszkody
 //***map
 struct Map
 {
-	int
+	int obstacles[5000][11];
+	int leftBorder[5000][77];
+	int rightBorder[5000][77];
 }A,B,C,D,E; //pięć przygotowanych map
 
 //***positionUpdate
