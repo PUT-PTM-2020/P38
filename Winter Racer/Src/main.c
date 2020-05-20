@@ -104,7 +104,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   SetRanking();
   ili9325_DisplayOn();
-  SetRanking();
+  StartExitScreen();
   DrawMenu(-1);
   UseMenu();
   /* USER CODE END 2 */
