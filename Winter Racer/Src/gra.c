@@ -12,6 +12,19 @@ void StartExitScreen()
 	DrawWinterRacerLogo(0,0);
 	HAL_Delay(5000);
 }
+//--- GameOver --- TODO
+void GameOver()
+{
+	//LCD_Clear(294);	//ciemny niebieski, funkcja do zmiany
+	DrawGameOver(0,0);
+	SetHeartGray(126, 61);
+	SetHeartGray(151, 61);
+	SetHeartGray(176, 61);
+	Sound(4);
+	HAL_Delay(2000);
+	DrawTextPressToContinue(82,23);
+	PressContinueButton();
+}
 //--- DrawBox --- TODO
 void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color)
 {
@@ -447,19 +460,6 @@ void ShowRankingOnBoard()
 			//times[i][j]
 		}
 	}
-}
-//--- GameOver --- TODO
-void GameOver()
-{
-	//LCD_Clear(294);	//ciemny niebieski, funkcja do zmiany
-	DrawGameOver(0,0);
-	SetHeartGray(126, 61);
-	SetHeartGray(151, 61);
-	SetHeartGray(176, 61);
-	Sound(4);
-	HAL_Delay(2000);
-	DrawTextPressToContinue(82,23);
-	PressContinueButton();
 }
 //--- Animation --- TODO
 void Animation()
@@ -4813,7 +4813,7 @@ void PressContinueButton()
 	{
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
 		{
-			Sound(2);
+			Sound(1);
 			break;
 		}
 	}
@@ -21108,43 +21108,6 @@ void DrawWinterRacerLogo(int X, int Y)
 	ili9325_WritePixel(X + 232, Y + 37, 65535);
 
 }
-
-
-
-
-//--- BorderCollision --- DONE
-int BorderCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2)
-{
-  int h1 = r1a*4+r1b*4;
-
-  for(int i=0; i<h1; i++)
-  {
-	  for(int j=0; j<60; j++)
-	  {
-		  if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
-	  }
-  }
-  return 0;
-}
-//--- SetObstacle --- DONE
-void SetObstacle(int obs, int X, int Y)
-{
-	switch(obs)
-	{
-	case 1:
-		SetSnowman(X, Y);
-		break;
-	case 2:
-		SetRock(X, Y);
-		break;
-	case 3:
-		SetBowman(X, Y);
-		break;
-	case 4:
-		SetTree(X, Y);
-		break;
-	}
-}
 //--- DrawGameOver --- DONE
 void DrawGameOver(int X, int Y)
 {
@@ -26550,11 +26513,19 @@ void DrawTextPressToContinue(int X, int Y)
 	ili9325_WritePixel(X + 158, Y + 1, 1567);
 
 }
-//--- DrawMeta --- DONE
-void DrawMeta(int Y)
+//--- BorderCollision --- DONE
+int BorderCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2)
 {
-	for(int i=0; i<320; i++)
-		ili9325_WritePixel(i, Y+1, 45056);
+  int h1 = r1a*4+r1b*4;
+
+  for(int i=0; i<h1; i++)
+  {
+	  for(int j=0; j<60; j++)
+	  {
+		  if(X1[i]==X2[j] && Y1[i]==Y2[j]) return 1;
+	  }
+  }
+  return 0;
 }
 //--- MetaCollision --- DONE
 void MetaCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2)
@@ -26570,3 +26541,36 @@ void MetaCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2)
 	}
 	return 0;
 }
+
+
+
+
+
+
+
+//--- SetObstacle --- DONE
+void SetObstacle(int obs, int X, int Y)
+{
+	switch(obs)
+	{
+	case 1:
+		SetSnowman(X, Y);
+		break;
+	case 2:
+		SetRock(X, Y);
+		break;
+	case 3:
+		SetBowman(X, Y);
+		break;
+	case 4:
+		SetTree(X, Y);
+		break;
+	}
+}
+//--- DrawMeta --- DONE
+void DrawMeta(int Y)
+{
+	for(int i=0; i<320; i++)
+		ili9325_WritePixel(i, Y+1, 45056);
+}
+
