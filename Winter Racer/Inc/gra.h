@@ -89,4 +89,6 @@ struct Map
 //***positionUpdate
 float accX, out[4];	//accX wychylenie <-1000;1000>
 
+char ranking[180];
+
 #endif
