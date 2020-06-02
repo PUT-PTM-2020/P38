@@ -12,6 +12,7 @@
 //NOTE
 	//Dźwięki
 	//Wypisywanie i scrollowanie tabeli wyników
+	//LCD_Clear(65535) zamienić
 
 //--- StartScreen --- TODO
 void StartExitScreen()
@@ -505,30 +506,237 @@ void ShowRankingOnBoard()
 //--- Animation --- TODO
 void Animation()
 {
+	LCD_Clear(65535);
 	Frame1();
-	HAL_Delay(200);
+	HAL_Delay(600);
+
+	LCD_Clear(65535);
 	Frame2();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame3();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame4();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame5();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame6();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame7();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame8();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame9();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame10();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame11();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
 	Frame12();
-	HAL_Delay(200);
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame13();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame14();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame15();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame16();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame17();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame18();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame19();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame20();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame21();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame22();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame23();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame24();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame25();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame26();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame27();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame28();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame29();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame30();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame31();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame32();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame33();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame34();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame35();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame36();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame37();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame38();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame39();
+	HAL_Delay(600);
+
+	LCD_Clear(65535);
+	Frame40();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame41();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame42();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame43();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame44();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame45();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame46();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame47();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame48();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame49();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame50();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame51();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame52();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame53();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame54();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame55();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame56();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame57();
+	HAL_Delay(150);
+
+	LCD_Clear(65535);
+	Frame58();
+	HAL_Delay(2000);
 }
 //--- AddRecord --- TODO
 void AddRecord(int mytime, int hp)
