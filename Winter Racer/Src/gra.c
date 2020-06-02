@@ -36,6 +36,40 @@ void GameOver()
 //--- RunGame --- TODO
 void RunGame()
 {
+	srand(time(NULL));
+	int map = rand()%5;
+
+	if(map==0)
+	{
+		A.obstacles = A_Obstacles;
+		A.leftBorder = A_LeftBorder;
+		A.rightBorder = A_RightBorder;
+	}
+	else if(map==1)
+	{
+		A.obstacles = B_Obstacles;
+		A.leftBorder = B_LeftBorder;
+		A.rightBorder = B_RightBorder;
+	}
+	else if(map==2)
+	{
+		A.obstacles = C_Obstacles;
+		A.leftBorder = C_LeftBorder;
+		A.rightBorder = C_RightBorder;
+	}
+	else if(map==3)
+	{
+		A.obstacles = D_Obstacles;
+		A.leftBorder = D_LeftBorder;
+		A.rightBorder = D_RightBorder;
+	}
+	else if(map==4)
+	{
+		A.obstacles = E_Obstacles;
+		A.leftBorder = E_LeftBorder;
+		A.rightBorder = E_RightBorder;
+	}
+
 	int time = 0; //tu bedzie zapisywany czas
 	SetUI(3,0,0,1);
 	struct Skier s1;
@@ -552,11 +586,13 @@ void AddRecord(int mytime, int hp)
 		{
 			DrawLeftArrow(139,39,45056);
 			position--;
+			HAL_Delay(200);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && position<37)
 		{
 			DrawRightArrow(173,39,45056);
 			position++;
+			HAL_Delay(200);
 		}
 		else if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3))
 		{
@@ -567,6 +603,7 @@ void AddRecord(int mytime, int hp)
 					setPosition--;
 					DrawCharSquare(46+setPosition*23,71,65535);
 					nick[setPosition] = '<';
+					HAL_Delay(200);
 				}
 				else
 				{
@@ -591,6 +628,7 @@ void AddRecord(int mytime, int hp)
 					SetChar20(ch[position], setPosition, 46, 71);
 					nick[setPosition] = ch[position];
 					setPosition++;
+					HAL_Delay(200);
 				}
 				else
 				{
@@ -600,7 +638,6 @@ void AddRecord(int mytime, int hp)
 				}
 			}
 		}
-		HAL_Delay(200);
 
 		if(position == 0)
 		{
@@ -36578,9 +36615,12 @@ void UpdateSpeedValue(int speed)
 	}
 	DrawKmph(105,216);
 }
-
-
-
+//--- DrawMeta --- DONE
+void DrawMeta(int Y)
+{
+	for(int i=0; i<320; i++)
+		ili9325_WritePixel(i, Y+1, 45056);
+}
 //--- SetObstacle --- DONE
 void SetObstacle(int obs, int X, int Y)
 {
@@ -36599,12 +36639,6 @@ void SetObstacle(int obs, int X, int Y)
 		SetTree(X, Y);
 		break;
 	}
-}
-//--- DrawMeta --- DONE
-void DrawMeta(int Y)
-{
-	for(int i=0; i<320; i++)
-		ili9325_WritePixel(i, Y+1, 45056);
 }
 //--- SavedInfo --- DONE
 void SavedInfo(int X, int Y, int color)

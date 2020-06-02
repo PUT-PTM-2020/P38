@@ -1,12 +1,16 @@
 #ifndef gra.h
 #define gra.h
 
-#include "main.h"
-#include <math.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include "main.h"
 #include "gra.h"
 #include "lis3dsh.h"
 #include "ff.h"
+#include "maps.h"
+
 
 #define FA_READ 0x01
 #define FA_WRITE 0x02
@@ -78,13 +82,13 @@ struct Object	//np. przeszkody
 	int *hitbox_X; //= createHitbox_X(staticX, 10);
 	int *hitbox_Y; //= createHitbox_Y(staticY, 10);
 };
-//***map
+//--- Maps ---
 struct Map
 {
 	int obstacles[5000][11];
 	int leftBorder[5000][77];
 	int rightBorder[5000][77];
-}A,B,C,D,E; //pięć przygotowanych map
+}A;
 
 //***positionUpdate
 float accX, out[4];	//accX wychylenie <-1000;1000>
