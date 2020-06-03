@@ -8,23 +8,20 @@
 #define MAP_STEPS (5000/POSITION_UPDATE)
 #define EQUAL (MAP_STEPS/(MIN_SPEED*5))
 
-
-//NOTE
-	//Dźwięki
-	//Wypisywanie i scrollowanie tabeli wyników
-	//LCD_Clear(65535) zamienić
+//#MIŁOSZ Dźwięki
+//#MIŁOSZ LCD_Clear(65535) zamienić wszędzie tą funkcję na jakąś z lib ili9325. W nawiasach jest kolor.
 
 //--- StartScreen --- TODO
 void StartExitScreen()
 {
-	LCD_Clear(294);	//ciemny niebieski, funkcja do zmiany
+	LCD_Clear(294);
 	DrawWinterRacerLogo(0,0);
 	HAL_Delay(5000);
 }
 //--- GameOver --- TODO
 void GameOver()
 {
-	//LCD_Clear(294);	//ciemny niebieski, funkcja do zmiany
+	LCD_Clear(294);
 	DrawGameOver(0,0);
 	SetHeartGray(126, 61);
 	SetHeartGray(151, 61);
@@ -71,7 +68,7 @@ void RunGame()
 		A.rightBorder = E_RightBorder;
 	}
 
-	int time = 0; //tu bedzie zapisywany czas
+	int time = 0; //#MIŁOSZ Zrób mierzenie czasu od początku while do GameOver()
 	SetUI(3,0,0,1);
 	struct Skier s1;
 	s1.Y = 155;
@@ -99,7 +96,7 @@ void RunGame()
 
 	while(1)
 	{
-		ili9325_FillRect(0,19,320,192,65535); //czyszczenie ekranu
+		ili9325_FillRect(0,19,320,192,65535);
 		s1.Hitbox_Y = CreateRectangleHitboxY(position+5+s1.centerHeight,s1.centerWidth,s1.centerHeight);
 		s1.Hitbox_X = CreateRectangleHitboxX(s1.X+s1.centerWidth,s1.centerWidth,s1.centerHeight);
 		UpdateSpeedValue(s1.speed);
@@ -161,7 +158,7 @@ void RunGame()
 				}
 				else if(A.obstacles[i][j]!=0)
 				{
-					SetObstacle(A.obstacles[i][j], 30+26*j, 210-k);	//dodać ograniczenie obszaru rysowania
+					SetObstacle(A.obstacles[i][j], 30+26*j, 210-k);
 					switch(A.obstacles[i][j])
 					{
 					case 1:
@@ -507,7 +504,7 @@ void Animation()
 //--- AddRecord --- TODO
 void AddRecord(int mytime, int hp)
 {
-	LCD_Clear(926);	//poprawić funkcje, kolor niebieski
+	LCD_Clear(926);
 
 	DrawAddingPage(0,0);
 
@@ -698,7 +695,7 @@ void DrawMenu(uint8_t Mode)
 {
 	if(Mode==-1)
 	{
-		LCD_Clear(1567);	//tło jasnoniebieskie
+		LCD_Clear(1567);
 		DrawWinterRacerText(63,204);
 	}
 	if(Mode==-1 || Mode==0)
@@ -755,27 +752,25 @@ void Sound(uint8_t option)
 	switch(option)
 	{
 	case 1:
-		//Dzwiek wyboru opcji w menu
+		//#MIŁOSZ Dzwiek wyboru opcji w menu
 		break;
 	case 2:
-		//Dzwiek przelaczenia opcji w menu
+		//#MIŁOSZ Dzwiek przelaczenia opcji w menu
 		break;
 	case 3:
-		//Fanfary zwyciestwa
+		//#MIŁOSZ Fanfary zwyciestwa
 		break;
 	case 4:
-		//Smutne trabki przegranej
+		//#MIŁOSZ Smutne trabki przegranej
 		break;
 	case 5:
-		//Zderzenie z przeszkoda
+		//#MIŁOSZ Zderzenie z przeszkoda
 		break;
 	case 6:
-		//Muzyczka w tle
+		//#MIŁOSZ Muzyczka w tle
 		break;
 	}
 }
-
-
 
 
 
@@ -834,15 +829,15 @@ void ChangeTargetMenu(uint8_t option, uint8_t LastOption)
 	switch(option)
 	{
 		case 0:
-		DrawBox(86,190,150,40,49149);	//START
+		DrawBox(86,190,150,40,49149);
 		DrawStartText(124, 161);
 		break;
 		case 1:
-		DrawBox(86,140,150,40,65535);	//RANKING
+		DrawBox(86,140,150,40,65535);
 		DrawRankingText(102, 111);
 		break;
 		case 2:
-		DrawBox(86,90,150,40,65535);		//WYJŚCIE
+		DrawBox(86,90,150,40,65535);
 		DrawExitText(102, 111);
 		break;
 	}
@@ -1896,7 +1891,7 @@ void SetBowman(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+3, Y+1, 17639);
 	ili9325_WritePixel(X+4, Y+1, 17639);
 	ili9325_WritePixel(X+5, Y+1, 17639);
-	ili9325_WritePixel(X+6, Y+1, 17639);	//3008 ciemny zielony
+	ili9325_WritePixel(X+6, Y+1, 17639);
 	ili9325_WritePixel(X+7, Y+1, 0);
 	ili9325_WritePixel(X+15, Y+1, 0);
 	ili9325_WritePixel(X+16, Y+1, 17639);
@@ -2111,7 +2106,7 @@ void SetBowman(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+23, Y+12, 65077);
 	ili9325_WritePixel(X+24, Y+12, 0);
 	ili9325_WritePixel(X+28, Y+12, 0);
-	ili9325_WritePixel(X+29, Y+12, 0);//50712 szary //27144 brazowy //65077 kolor skóry
+	ili9325_WritePixel(X+29, Y+12, 0);
 
 	ili9325_WritePixel(X+1, Y+13, 0);
 	ili9325_WritePixel(X+2, Y+13, 3008);
@@ -2156,7 +2151,7 @@ void SetBowman(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+10, Y+14, 50712);
 	ili9325_WritePixel(X+11, Y+14, 50712);
 	ili9325_WritePixel(X+12, Y+14, 50712);
-	ili9325_WritePixel(X+13, Y+14, 44040);	//jasny brązowy
+	ili9325_WritePixel(X+13, Y+14, 44040);
 	ili9325_WritePixel(X+14, Y+14, 44040);
 	ili9325_WritePixel(X+15, Y+14, 44040);
 	ili9325_WritePixel(X+16, Y+14, 44040);
@@ -2246,7 +2241,7 @@ void SetBowman(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+6, Y+18, 65077);
 	ili9325_WritePixel(X+7, Y+18, 65077);
 	ili9325_WritePixel(X+8, Y+18, 65077);
-	ili9325_WritePixel(X+9, Y+18, 60591); //usta
+	ili9325_WritePixel(X+9, Y+18, 60591);
 	ili9325_WritePixel(X+10, Y+18, 60591);
 	ili9325_WritePixel(X+11, Y+18, 0);
 	ili9325_WritePixel(X+12, Y+18, 50712);
@@ -2336,7 +2331,7 @@ void SetBowman(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+23, Y+22, 0);
 
 	ili9325_WritePixel(X+1, Y+23, 0);
-	ili9325_WritePixel(X+2, Y+23, 57638);	//czerwone
+	ili9325_WritePixel(X+2, Y+23, 57638);
 	ili9325_WritePixel(X+3, Y+23, 57638);
 	ili9325_WritePixel(X+4, Y+23, 0);
 	ili9325_WritePixel(X+5, Y+23, 65077);
@@ -2421,9 +2416,9 @@ void SetBowman(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+2, Y+27, 57638);
 	ili9325_WritePixel(X+3, Y+27, 57638);
 	ili9325_WritePixel(X+4, Y+27, 0);
-	ili9325_WritePixel(X+5, Y+27, 65320); //żółty
 	ili9325_WritePixel(X+5, Y+27, 65320);
-	ili9325_WritePixel(X+6, Y+27, 65061); //ciemny żółty
+	ili9325_WritePixel(X+5, Y+27, 65320);
+	ili9325_WritePixel(X+6, Y+27, 65061);
 	ili9325_WritePixel(X+7, Y+27, 65061);
 	ili9325_WritePixel(X+8, Y+27, 65061);
 	ili9325_WritePixel(X+9, Y+27, 65061);
@@ -2475,7 +2470,7 @@ void SetBowman(uint16_t X, uint16_t Y)
 //--- SetTree --- DONE
 void SetTree(uint16_t X, uint16_t Y)
 {
-	ili9325_WritePixel(X+12, Y+1, 14690);	//ciemny brąz
+	ili9325_WritePixel(X+12, Y+1, 14690);
 	ili9325_WritePixel(X+16, Y+1, 14690);
 	ili9325_WritePixel(X+17, Y+1, 14690);
 
@@ -2497,7 +2492,7 @@ void SetTree(uint16_t X, uint16_t Y)
 
 	ili9325_WritePixel(X+13, Y+5, 14690);
 	ili9325_WritePixel(X+14, Y+5, 14690);
-	ili9325_WritePixel(X+15, Y+5, 27265); //jasny brąz
+	ili9325_WritePixel(X+15, Y+5, 27265);
 
 	ili9325_WritePixel(X+13, Y+6, 14690);
 	ili9325_WritePixel(X+14, Y+6, 27265);
@@ -2520,7 +2515,7 @@ void SetTree(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+10, Y+9, 8710);
 	ili9325_WritePixel(X+11, Y+9, 8710);
 	ili9325_WritePixel(X+13, Y+9, 8710);
-	ili9325_WritePixel(X+14, Y+9, 36524); //jasny zielony
+	ili9325_WritePixel(X+14, Y+9, 36524);
 	ili9325_WritePixel(X+15, Y+9, 36524);
 	ili9325_WritePixel(X+16, Y+9, 36524);
 	ili9325_WritePixel(X+17, Y+9, 36524);
@@ -2961,7 +2956,7 @@ void SetSkierFront(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+16, Y+7, 19343);
 	ili9325_WritePixel(X+17, Y+7, 19343);
 	ili9325_WritePixel(X+18, Y+7, 19343);
-	ili9325_WritePixel(X+19, Y+7, 19343);	//jaśniejszy niebieskie
+	ili9325_WritePixel(X+19, Y+7, 19343);
 
 	ili9325_WritePixel(X+7, Y+8, 19343);
 	ili9325_WritePixel(X+8, Y+8, 57021);
@@ -2972,7 +2967,7 @@ void SetSkierFront(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+14, Y+8, 19343);
 	ili9325_WritePixel(X+15, Y+8, 57021);
 	ili9325_WritePixel(X+16, Y+8, 57021);
-	ili9325_WritePixel(X+17, Y+8, 57021);	//szary
+	ili9325_WritePixel(X+17, Y+8, 57021);
 	ili9325_WritePixel(X+18, Y+8, 57021);
 	ili9325_WritePixel(X+19, Y+8, 19343);
 
@@ -2990,7 +2985,7 @@ void SetSkierFront(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+19, Y+9, 19343);
 
 	ili9325_WritePixel(X+7, Y+10, 19343);
-	ili9325_WritePixel(X+8, Y+10, 45056); //czerwony
+	ili9325_WritePixel(X+8, Y+10, 45056);
 	ili9325_WritePixel(X+9, Y+10, 45056);
 	ili9325_WritePixel(X+10, Y+10, 45056);
 	ili9325_WritePixel(X+11, Y+10, 45056);
@@ -3080,7 +3075,7 @@ void SetSkierFront(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+15, Y+16, 45056);
 	ili9325_WritePixel(X+16, Y+16, 45056);
 	ili9325_WritePixel(X+17, Y+16, 5186);
-	ili9325_WritePixel(X+18, Y+16, 5186); //zielony
+	ili9325_WritePixel(X+18, Y+16, 5186);
 	ili9325_WritePixel(X+19, Y+16, 19343);
 
 	ili9325_WritePixel(X+6, Y+17, 57021);
@@ -3302,7 +3297,7 @@ void SetSkierFront(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+8, Y+29, 4930);
 	ili9325_WritePixel(X+9, Y+29, 5186);
 	ili9325_WritePixel(X+10, Y+29, 5186);
-	ili9325_WritePixel(X+11, Y+29, 45056);	//czerwony
+	ili9325_WritePixel(X+11, Y+29, 45056);
 	ili9325_WritePixel(X+12, Y+29, 45056);
 	ili9325_WritePixel(X+13, Y+29, 45056);
 	ili9325_WritePixel(X+14, Y+29, 57021);
@@ -3320,7 +3315,7 @@ void SetSkierFront(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+10, Y+30, 45056);
 	ili9325_WritePixel(X+11, Y+30, 45056);
 	ili9325_WritePixel(X+12, Y+30, 45056);
-	ili9325_WritePixel(X+13, Y+30, 57021);	//szary
+	ili9325_WritePixel(X+13, Y+30, 57021);
 	ili9325_WritePixel(X+14, Y+30, 45056);
 	ili9325_WritePixel(X+15, Y+30, 45056);
 	ili9325_WritePixel(X+16, Y+30, 57021);
@@ -3573,9 +3568,9 @@ void SetSkierLeft(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+7, Y+11, 50712);
 	ili9325_WritePixel(X+8, Y+11, 50712);
 	ili9325_WritePixel(X+9, Y+11, 50712);
-	ili9325_WritePixel(X+10, Y+11, 50712);	//szary
-	ili9325_WritePixel(X+11, Y+11, 19343);	//niebieski
-	ili9325_WritePixel(X+14, Y+11, 45056);	//czerwony
+	ili9325_WritePixel(X+10, Y+11, 50712);
+	ili9325_WritePixel(X+11, Y+11, 19343);
+	ili9325_WritePixel(X+14, Y+11, 45056);
 	ili9325_WritePixel(X+15, Y+11, 45056);
 	ili9325_WritePixel(X+16, Y+11, 45056);
 	ili9325_WritePixel(X+17, Y+11, 45056);
@@ -3663,7 +3658,7 @@ void SetSkierLeft(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+14, Y+18, 5186);
 	ili9325_WritePixel(X+15, Y+18, 5186);
 	ili9325_WritePixel(X+16, Y+18, 5186);
-	ili9325_WritePixel(X+17, Y+18, 5186); //zielony
+	ili9325_WritePixel(X+17, Y+18, 5186);
 
 	ili9325_WritePixel(X+7, Y+19, 45056);
 	ili9325_WritePixel(X+8, Y+19, 45056);
@@ -4033,9 +4028,9 @@ void SetSkierRight(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+17, Y+11, 50712);
 	ili9325_WritePixel(X+16, Y+11, 50712);
 	ili9325_WritePixel(X+15, Y+11, 50712);
-	ili9325_WritePixel(X+14, Y+11, 50712);	//szary
-	ili9325_WritePixel(X+13, Y+11, 19343);	//niebieski
-	ili9325_WritePixel(X+10, Y+11, 45056);	//czerwony
+	ili9325_WritePixel(X+14, Y+11, 50712);
+	ili9325_WritePixel(X+13, Y+11, 19343);
+	ili9325_WritePixel(X+10, Y+11, 45056);
 	ili9325_WritePixel(X+9, Y+11, 45056);
 	ili9325_WritePixel(X+8, Y+11, 45056);
 	ili9325_WritePixel(X+7, Y+11, 45056);
@@ -4123,7 +4118,7 @@ void SetSkierRight(uint16_t X, uint16_t Y)
 	ili9325_WritePixel(X+10, Y+18, 5186);
 	ili9325_WritePixel(X+9, Y+18, 5186);
 	ili9325_WritePixel(X+8, Y+18, 5186);
-	ili9325_WritePixel(X+7, Y+18, 5186); //zielony
+	ili9325_WritePixel(X+7, Y+18, 5186);
 
 	ili9325_WritePixel(X+17, Y+19, 45056);
 	ili9325_WritePixel(X+16, Y+19, 45056);
@@ -39182,6 +39177,7 @@ void RankingFailInfo(int X, int Y)
 	ili9325_WritePixel(X + 89, Y + 1, 0);
 	ili9325_WritePixel(X + 90, Y + 1, 0);
 }
+
 
 
 //--- ch20xA --- DONE
