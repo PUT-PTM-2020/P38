@@ -20,45 +20,12 @@
 #define FA_OPEN_ALWAYS 0x10
 #define FA_OPEN_APPEND 0x30
 
-void DrawBox(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color);
-void FillInside(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t border, uint16_t color);
-void ChangeTargetMenu(uint8_t option, uint8_t LastOption);
-void StartGame();
-void ChangeTargetRanking(uint8_t option, uint8_t LastOption);
-void UseRanking();
-void Sound(uint8_t option);
-void UseMenu();
-int *createHitbox_Y(int Y, int r);
-int *createHitbox_X(int X, int r);
-_Bool collision(int *X1, int *Y1, int *X2, int *Y2);
-//***STEROWANIE
-void positionUpdate(float accX, float speed, int *X, int *Y);
-void speedUpdate(int *speed);
-//GRAFIKA
-void SetSnowman(uint16_t X, uint16_t Y);
-void SetRock(uint16_t X, uint16_t Y);
-void SetBowman(uint16_t X, uint16_t Y);
-void SetTree(uint16_t X, uint16_t Y);
-void SetSkierFront(uint16_t X, uint16_t Y);
-void SetSkierLeft(uint16_t X, uint16_t Y);
-void SetSkierRight(uint16_t X, uint16_t Y);
-void drawSkier(int position, int X, int Y);
-void DrawRanking(uint8_t Mode);
-void DrawMenu(uint8_t Mode);
-void SetHeartRed(uint16_t X, uint16_t Y);
-void SetHeartGray(uint16_t X, uint16_t Y);
-void UpdateHP(int HP);
-void StartExitScreen();
-//***SD
-void WriteToRanking(char* ranking);
-void ReadFromRanking(char* ranking);
-
-//***skier
+//--- SKIER ---
 struct Skier
 {
 	int HP = 3;
 	int X;
-	int Y;	//pozycja startowa
+	int Y;
 	int speed;
 	int centerWidth = 13;
 	int centerHeight = 23;
@@ -74,25 +41,92 @@ struct Difficulty_Level
 	int rockDMG = 3;
 	int treeDMG = 2;
 } DMG;
-//***object
-struct Object	//np. przeszkody
+//--- OBJECT ---
+struct Object
 {
 	int staticX;
 	int staticY;
-	int *hitbox_X; //= createHitbox_X(staticX, 10);
-	int *hitbox_Y; //= createHitbox_Y(staticY, 10);
+	int *hitbox_X;
+	int *hitbox_Y;
 };
-//--- Maps ---
+//--- MAP ---
 struct Map
 {
 	int obstacles[5000][11];
 	int leftBorder[5000][77];
 	int rightBorder[5000][77];
 }A;
+//--- PositionUpdate ---
+float accX, out[4];	// <-1000;1000>
 
-//***positionUpdate
-float accX, out[4];	//accX wychylenie <-1000;1000>
-
+//--- RANKING ---
 char ranking[180];
+
+void DrawRankingText2(int X, int Y);
+void DrawBack(int X, int Y);
+void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp);
+void ReadFromRanking(char* ranking);
+void RankingFailInfo(int X, int Y);
+char* SortRanking(char ranking[180]);
+void SetRanking();
+void ShowRankingOnBoard();
+void SetChar10(char ch, int type, int X, int Y);
+void UseRanking();
+void WriteToRanking(char* ranking);
+
+//--- MENU ---
+void DrawStartText(int X, int Y);
+void DrawRankingText(int X, int Y);
+void DrawExitText(int X, int Y);
+void DrawWinterRacerText(int X, int Y);
+void DrawWinterRacerLogo(int X, int Y);
+void ChangeTargetMenu(uint8_t option, uint8_t LastOption);
+void UseMenu();
+
+//--- GAME ---
+int BorderCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2);
+int *CreateSquareHitboxY(int Y, int r);
+int *CreateSquareHitboxX(int X, int r);
+int *CreateRectangleHitboxY(int Y, int r1, int r2);
+int *CreateRectangleHitboxX(int X, int r1, int r2);
+int Collision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2, int r2a, int r2b);
+void DrawSkier(int position, int X, int Y);
+void PrintInfo(int option);
+void DrawTextPressToStart(int X, int Y);
+void DrawTextPressToPause(int X, int Y);
+void DrawGameOver(int X, int Y);
+void DrawTextPressToContinue(int X, int Y);
+void DrawAddingPage(int X, int Y);
+void DrawCharSquare(int X, int Y, int color);
+void DrawCurrentCharSquare(int X, int Y);
+void DrawLeftArrow(int X, int Y, int color);
+void DrawRightArrow(int X, int Y);
+void DrawKmph(int X, int Y);
+void DrawMeta(int Y);
+void FailInfo(int X, int Y, int color);
+void MetaCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2);
+void PressStartButton();
+void PressPauseButton();
+void PositionUpdate(float accX, int speed, int *X, int *Y);
+void PressContinueButton();
+void SetUI(int HP, int speedValue, int miniMap, int info);
+void SetSnowman(uint16_t X, uint16_t Y);
+void SetRock(uint16_t X, uint16_t Y);
+void SetBowman(uint16_t X, uint16_t Y);
+void SetTree(uint16_t X, uint16_t Y);
+void SetSkierFront(uint16_t X, uint16_t Y);
+void SetSkierLeft(uint16_t X, uint16_t Y);
+void SetSkierRight(uint16_t X, uint16_t Y);
+void SetHeartRed(uint16_t X, uint16_t Y);
+void SetHeartGray(uint16_t X, uint16_t Y);
+void SetChar20(char ch, int position, int X, int Y);
+void SetChar12(char ch, int X, int Y);
+int SpeedUpdate(int speed);
+void SetObstacle(int obs, int X, int Y);
+void SavedInfo(int X, int Y, int color);
+void UpdateArrow(int distance);
+void UpdateMiniMap(int distance);
+void UpdateHP(int HP);
+void UpdateSpeedValue(int speed);
 
 #endif

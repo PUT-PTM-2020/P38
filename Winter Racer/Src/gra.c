@@ -8,7 +8,7 @@
 #define MAP_STEPS (5000/POSITION_UPDATE)
 #define EQUAL (MAP_STEPS/(MIN_SPEED*5))
 
-//#MIŁOSZ Dźwięki
+//#MIŁOSZ Dźwięki - Sound()
 //#MIŁOSZ LCD_Clear(65535) zamienić wszędzie tą funkcję na jakąś z lib ili9325. W nawiasach jest kolor.
 
 //--- StartScreen --- TODO
@@ -1098,7 +1098,7 @@ void ShowRankingOnBoard()
 		}
 	}
 
-	ch10xhash(61,170);
+	ch10xN(61,170);
 	ch10xN(76,170);
 	ch10xA(87,170);
 	ch10xZ(98,170);
@@ -1119,7 +1119,9 @@ void ShowRankingOnBoard()
 	{
 		for(int i=0; i<FirstFreePosition; i++)
 		{
-			SetChar10(nicks[i][j], 0, i, i);
+			char N[1];
+			sprintf(N, "%d", i);
+			SetChar10(N[0], 0, i, i);
 			for(int j=0; j<10; j++)
 				SetChar10(nicks[i][j], 1, j, i);
 			for(int j=0; j<3; j++)
