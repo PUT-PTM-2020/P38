@@ -34,6 +34,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 PROJEKT.list \
 
+OBJCOPY_BIN += \
+PROJEKT.bin \
+
 
 # All Target
 all: PROJEKT.elf secondary-outputs
@@ -54,12 +57,17 @@ PROJEKT.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+PROJEKT.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "PROJEKT.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

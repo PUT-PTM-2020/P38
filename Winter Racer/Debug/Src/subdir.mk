@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/animation.c \
 ../Src/diskio.c \
 ../Src/ff.c \
 ../Src/ffsystem.c \
@@ -18,6 +19,7 @@ C_SRCS += \
 ../Src/system_stm32f4xx.c 
 
 OBJS += \
+./Src/animation.o \
 ./Src/diskio.o \
 ./Src/ff.o \
 ./Src/ffsystem.o \
@@ -32,6 +34,7 @@ OBJS += \
 ./Src/system_stm32f4xx.o 
 
 C_DEPS += \
+./Src/animation.d \
 ./Src/diskio.d \
 ./Src/ff.d \
 ./Src/ffsystem.d \
@@ -47,6 +50,8 @@ C_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
+Src/animation.o: ../Src/animation.c
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/animation.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Src/diskio.o: ../Src/diskio.c
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F407xx -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/diskio.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Src/ff.o: ../Src/ff.c

@@ -1,6 +1,7 @@
 #ifndef gra.h
 #define gra.h
 
+#include "maps.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -9,7 +10,7 @@
 #include "gra.h"
 #include "lis3dsh.h"
 #include "ff.h"
-#include "maps.h"
+
 
 
 #define FA_READ 0x01
@@ -20,26 +21,35 @@
 #define FA_OPEN_ALWAYS 0x10
 #define FA_OPEN_APPEND 0x30
 
+
+
+char buffer[256];	//***tu można zmniejszyć
+static FATFS FatFs;
+FRESULT fresult;
+FIL file;
+WORD bytes_written;
+WORD bytes_read;
+
 //--- SKIER ---
 struct Skier
 {
-	int HP = 3;
 	int X;
 	int Y;
+	int HP;	//3
 	int speed;
-	int centerWidth = 13;
-	int centerHeight = 23;
+	int centerWidth; //13
+	int centerHeight; //23
 	int *Hitbox_X;
 	int *Hitbox_Y;
 };
 //--- Difficulty_Level ---
 struct Difficulty_Level
 {
-	int borderDMG = 3;
-	int snowmanDMG = 1;
-	int bowmanDMG = 2;
-	int rockDMG = 3;
-	int treeDMG = 2;
+	int borderDMG; //3
+	int snowmanDMG; //1
+	int bowmanDMG; //2
+	int rockDMG; //3
+	int treeDMG; //2
 } DMG;
 //--- OBJECT ---
 struct Object
@@ -65,7 +75,7 @@ char ranking[180];
 void DrawRankingText2(int X, int Y);
 void DrawBack(int X, int Y);
 void NewRecordInRanking(char nick[10], char ranking[180], int mytime, int hp);
-void ReadFromRanking(char* ranking);
+char* ReadFromRanking();
 void RankingFailInfo(int X, int Y);
 char* SortRanking(char ranking[180]);
 void SetRanking();
@@ -100,11 +110,11 @@ void DrawAddingPage(int X, int Y);
 void DrawCharSquare(int X, int Y, int color);
 void DrawCurrentCharSquare(int X, int Y);
 void DrawLeftArrow(int X, int Y, int color);
-void DrawRightArrow(int X, int Y);
+void DrawRightArrow(int X, int Y, int color);
 void DrawKmph(int X, int Y);
 void DrawMeta(int Y);
 void FailInfo(int X, int Y, int color);
-void MetaCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2);
+int MetaCollision(int *X1, int *Y1, int r1a, int r1b, int *X2, int *Y2);
 void PressStartButton();
 void PressPauseButton();
 void PositionUpdate(float accX, int speed, int *X, int *Y);
